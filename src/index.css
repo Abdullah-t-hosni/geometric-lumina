@@ -1,96 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700,800,900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Geometric Brand Colors (HSL) */
+    --background: 210 43% 3%;
+    --foreground: 45 33% 93%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 210 35% 6%;
+    --card-foreground: 45 33% 93%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 210 35% 6%;
+    --popover-foreground: 45 33% 93%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Deep Teal #0B4956 */
+    --primary: 192 79% 19%;
+    --primary-foreground: 45 33% 93%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Neon Yellow #E7F523 */
+    --accent: 65 91% 55%;
+    --accent-foreground: 210 43% 5%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --secondary: 210 8% 35%;
+    --secondary-foreground: 45 33% 93%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 20% 10%;
+    --muted-foreground: 210 8% 55%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 5 100% 69%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 210 20% 14%;
+    --input: 210 20% 12%;
+    --ring: 65 91% 55%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
+    /* Brand tokens */
+    --neon-yellow: 65 91% 55%;
+    --deep-teal: 192 79% 19%;
+    --creamy-white: 45 33% 93%;
+    --slate-gray: 210 8% 35%;
+    --sky-blue: 207 100% 50%;
+    --coral-red: 5 100% 69%;
+    --sea-green: 160 40% 47%;
+    --dark-bg: 210 43% 3%;
+    
+    /* Sidebar */
+    --sidebar-background: 210 43% 3%;
+    --sidebar-foreground: 45 33% 93%;
+    --sidebar-primary: 192 79% 19%;
     --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 210 20% 10%;
+    --sidebar-accent-foreground: 45 33% 93%;
+    --sidebar-border: 210 20% 14%;
+    --sidebar-ring: 65 91% 55%;
   }
 }
 
@@ -99,7 +67,142 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  html {
+    @apply scroll-smooth;
+  }
+
   body {
     @apply bg-background text-foreground;
+    font-family: 'IBM Plex Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 700;
+  }
+}
+
+@layer utilities {
+  .font-satoshi {
+    font-family: 'Satoshi', sans-serif;
+  }
+
+  .font-ibm {
+    font-family: 'IBM Plex Sans', sans-serif;
+  }
+
+  .text-neon-yellow {
+    color: hsl(var(--neon-yellow));
+  }
+
+  .text-deep-teal {
+    color: hsl(var(--deep-teal));
+  }
+
+  .text-creamy-white {
+    color: hsl(var(--creamy-white));
+  }
+
+  .text-sky-blue {
+    color: hsl(var(--sky-blue));
+  }
+
+  .text-coral-red {
+    color: hsl(var(--coral-red));
+  }
+
+  .bg-neon-yellow {
+    background-color: hsl(var(--neon-yellow));
+  }
+
+  .bg-deep-teal {
+    background-color: hsl(var(--deep-teal));
+  }
+
+  .bg-dark {
+    background-color: hsl(var(--dark-bg));
+  }
+
+  .border-neon-yellow {
+    border-color: hsl(var(--neon-yellow));
+  }
+
+  .border-deep-teal {
+    border-color: hsl(var(--deep-teal));
+  }
+
+  /* Glow effects */
+  .glow-teal {
+    box-shadow: 0 0 20px hsl(var(--deep-teal) / 0.5), 0 0 60px hsl(var(--deep-teal) / 0.2);
+  }
+
+  .glow-yellow {
+    box-shadow: 0 0 20px hsl(var(--neon-yellow) / 0.5), 0 0 60px hsl(var(--neon-yellow) / 0.2);
+  }
+
+  .glow-text-yellow {
+    text-shadow: 0 0 20px hsl(var(--neon-yellow) / 0.8);
+  }
+
+  /* Gradient backgrounds */
+  .bg-gradient-teal {
+    background: linear-gradient(135deg, hsl(var(--deep-teal)), hsl(var(--dark-bg)));
+  }
+
+  .bg-gradient-hero {
+    background: radial-gradient(ellipse at center, hsl(var(--deep-teal) / 0.15) 0%, hsl(var(--dark-bg)) 70%);
+  }
+
+  /* Noise texture overlay */
+  .noise-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    pointer-events: none;
+  }
+
+  /* Line clamp */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--dark-bg));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--deep-teal));
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--neon-yellow));
+}
+
+/* Selection */
+::selection {
+  background: hsl(var(--neon-yellow) / 0.3);
+  color: hsl(var(--creamy-white));
 }
