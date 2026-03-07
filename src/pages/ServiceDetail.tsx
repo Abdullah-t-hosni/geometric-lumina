@@ -19,7 +19,7 @@ export default function ServiceDetail() {
   }
 
   return (
-    <div className="bg-background min-h-screen pb-12 overflow-hidden">
+    <div className="bg-background min-h-screen pt-24 pb-12 overflow-hidden">
       {/* Premium Ambient Glows */}
       <div className="fixed top-0 left-0 w-[800px] h-[800px] bg-deep-teal/20 rounded-full blur-[150px] mix-blend-screen pointer-events-none z-0" />
       <div className="fixed bottom-0 right-0 w-[600px] h-[600px] bg-neon-yellow/5 rounded-full blur-[120px] mix-blend-screen pointer-events-none z-0" />
