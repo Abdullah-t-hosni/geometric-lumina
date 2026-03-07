@@ -5,6 +5,7 @@ import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { services } from '@/data/services';
 import { Logo } from '@/components/Logo';
 import logo5 from '@/assets/images/Logo-5.png';
+import ourCore from '@/assets/images/our core.jpg';
 import heroVideo from '@/assets/video/Geometric-video.mp4';
 
 const processSteps = [
@@ -302,7 +303,7 @@ export default function Index() {
                    <div className="relative aspect-[3/4] overflow-hidden rounded-2xl glass-panel p-2 shadow-2xl">
                       <div className="absolute inset-0 bg-neon-yellow/10 mix-blend-overlay z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                       <img 
-                        src={services[2].image} 
+                        src={ourCore} 
                         alt="Geometric Excellence" 
                         className="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-100 group-hover:scale-105 transition-all duration-1000 ease-out"
                       />

@@ -21,79 +21,73 @@ const pageLinks = [
 
 export default function Footer() {
   return (
-    <footer className="relative bg-background overflow-hidden pt-40 pb-16 z-10 border-t border-white/5">
-      {/* Technical Background Elements */}
-      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-      <div className="absolute top-0 left-1/4 w-[1px] h-full bg-white/[0.02] pointer-events-none" />
-      <div className="absolute top-0 right-1/4 w-[1px] h-full bg-white/[0.02] pointer-events-none" />
+    <footer className="relative bg-background overflow-hidden pt-20 pb-12 z-10 border-t border-white/5">
+      {/* Background Ambience */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-neon-yellow/[0.03] blur-[100px] rounded-full pointer-events-none" />
       
       <div className="max-w-[1400px] mx-auto px-6 relative z-10">
-        {/* Massive Background Logo */}
-        <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-full text-center pointer-events-none select-none opacity-[0.02]">
-          <h2 className="font-satoshi text-[22vw] font-black tracking-tighter uppercase leading-none text-white">
-            Geometric
-          </h2>
+        {/* Cinematic CTA / Brand Message */}
+        <div className="py-24 border-b border-white/5 flex flex-col items-center text-center">
+           <motion.div 
+             initial={{ opacity: 0, y: 20 }}
+             whileInView={{ opacity: 1, y: 0 }}
+             transition={{ duration: 0.8 }}
+             className="space-y-6"
+           >
+              <h2 className="font-satoshi text-5xl md:text-8xl font-light text-white tracking-tighter uppercase leading-none">
+                Let's <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-white/40 glow-text-yellow px-4">Transform</span> Your Vision.
+              </h2>
+              <p className="font-ibm text-sm text-white/30 uppercase tracking-[0.4em] font-light">
+                Engineering Cinematic Realities // Globally Managed
+              </p>
+              <div className="pt-8">
+                 <Link to="/contact" className="inline-flex items-center gap-4 text-[11px] font-ibm tracking-[0.5em] text-white hover:text-neon-yellow transition-all duration-500 uppercase group">
+                    Start A New Project
+                    <span className="w-12 h-[1px] bg-white/20 group-hover:bg-neon-yellow group-hover:w-20 transition-all duration-500" />
+                 </Link>
+              </div>
+           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 mb-32 relative pt-20">
-          {/* Brand Info */}
-          <div className="lg:col-span-4 space-y-12">
-            <Link to="/" className="inline-flex flex-col gap-2 group">
-              <div className="flex items-center gap-4">
-                 <div className="w-10 h-10 rounded-full border border-neon-yellow/30 flex items-center justify-center group-hover:border-neon-yellow transition-all duration-500">
-                    <div className="w-2 h-2 rounded-full bg-neon-yellow glow-yellow animate-pulse" />
-                 </div>
-                 <span className="font-satoshi text-3xl font-light text-white tracking-tighter uppercase">Geometric</span>
-              </div>
-              <span className="font-ibm text-[9px] tracking-[0.6em] text-white/20 uppercase pl-14">Studio_Protocol</span>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16 py-24">
+          {/* Brand & Mission */}
+          <div className="lg:col-span-4 space-y-10">
+            <Link to="/" className="inline-block group">
+               <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group-hover:border-neon-yellow transition-all duration-500">
+                     <div className="w-2 h-2 rounded-full bg-neon-yellow glow-yellow animate-pulse" />
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="font-satoshi text-2xl font-light text-white uppercase tracking-tighter">Geometric</span>
+                    <span className="text-[8px] font-ibm text-white/20 tracking-[0.5em] uppercase">Studio_Protocol_2.0</span>
+                  </div>
+               </div>
             </Link>
-
-            <p className="font-ibm text-xs text-white/30 leading-relaxed font-light max-w-sm pl-14">
-              Engineering cinematic 3D experiences that bridge the gap between imagination and physical reality. Cairo-based, globally focused.
+            <p className="font-ibm text-xs text-white/30 leading-relaxed font-light max-w-xs pl-16">
+              A creative laboratory specialized in high-end 3D visualization, motion design, and anamorphic displays. Precision engineering for the cinematic age.
             </p>
-
-            <div className="flex gap-4 pl-14">
+            <div className="flex gap-4 pl-16">
               {['Instagram', 'Behance', 'LinkedIn'].map((social) => (
                 <a
                   key={social}
                   href="#"
-                  className="px-4 py-2 rounded-full border border-white/5 bg-white/[0.02] text-[9px] text-white/40 font-ibm tracking-widest uppercase hover:bg-neon-yellow hover:text-background hover:border-neon-yellow transition-all duration-500"
+                  className="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center text-[9px] text-white/20 font-ibm hover:border-neon-yellow/40 hover:text-neon-yellow transition-all duration-500"
                 >
-                  {social.substring(0, 2)}
+                  {social.substring(0, 2).toUpperCase()}
                 </a>
               ))}
             </div>
           </div>
 
           {/* Links Grid */}
-          <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-3 gap-12 lg:pl-20">
-            {/* Services */}
-            <div className="space-y-10">
-              <div className="flex flex-col gap-2">
-                <span className="text-[9px] font-ibm tracking-[0.5em] text-neon-yellow/40 uppercase">Capabilities</span>
-                <div className="w-10 h-[1px] bg-white/10" />
-              </div>
-              <ul className="space-y-4">
-                {serviceLinks.map((link) => (
-                  <li key={link.href}>
-                    <Link to={link.href} className="text-[12px] text-white/30 font-ibm font-light hover:text-white hover:translate-x-1 inline-block transition-all duration-300">
-                      // {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Navigation */}
-            <div className="space-y-10">
-              <div className="flex flex-col gap-2">
-                <span className="text-[9px] font-ibm tracking-[0.5em] text-white/20 uppercase">Navigation</span>
-                <div className="w-10 h-[1px] bg-white/10" />
-              </div>
-              <ul className="space-y-4">
+          <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-3 gap-12 lg:pl-12">
+            <div>
+               <span className="block text-[10px] font-ibm tracking-[0.4em] text-neon-yellow/40 uppercase mb-8">Navigation</span>
+               <ul className="space-y-4">
                 {pageLinks.map((link) => (
                   <li key={link.href}>
-                    <Link to={link.href} className="text-[12px] text-white/30 font-ibm font-light hover:text-neon-yellow hover:translate-x-1 inline-block transition-all duration-300">
+                    <Link to={link.href} className="text-xs text-white/30 font-ibm font-light hover:text-white transition-all duration-300">
                       {link.label}
                     </Link>
                   </li>
@@ -101,54 +95,54 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Contact Details */}
-            <div className="space-y-10 col-span-2 md:col-span-1">
-              <div className="flex flex-col gap-2">
-                <span className="text-[9px] font-ibm tracking-[0.5em] text-white/20 uppercase">Connect</span>
-                <div className="w-10 h-[1px] bg-white/10" />
-              </div>
-              <div className="space-y-6">
-                <div>
-                  <span className="block text-[8px] text-white/10 uppercase tracking-widest mb-1">Direct_Mail</span>
-                  <a href="mailto:geometric3dadv@gmail.com" className="text-xs text-white/40 hover:text-neon-yellow transition-colors font-ibm font-light">
-                    geometric3dadv@gmail.com
-                  </a>
-                </div>
-                <div>
-                   <span className="block text-[8px] text-white/10 uppercase tracking-widest mb-1">HQ_Coordinates</span>
-                   <p className="text-xs text-white/40 font-ibm font-light">Cairo, Egypt [30.0444° N, 31.2357° E]</p>
-                </div>
-                <div className="pt-4">
-                   <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-neon-yellow/20 bg-neon-yellow/[0.02]">
-                      <div className="w-1 h-1 rounded-full bg-neon-yellow animate-ping" />
-                      <span className="text-[8px] font-ibm tracking-[0.3em] text-neon-yellow uppercase">System_Active</span>
-                   </div>
-                </div>
-              </div>
+            <div>
+               <span className="block text-[10px] font-ibm tracking-[0.4em] text-white/20 uppercase mb-8">Capabilities</span>
+               <ul className="space-y-4">
+                {serviceLinks.slice(0, 5).map((link) => (
+                  <li key={link.href}>
+                    <Link to={link.href} className="text-xs text-white/30 font-ibm font-light hover:text-white transition-all duration-300 italic">
+                      // {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="space-y-10">
+               <div>
+                  <span className="block text-[10px] font-ibm tracking-[0.4em] text-white/20 uppercase mb-8">Terminal</span>
+                  <div className="space-y-4 text-xs font-ibm font-light text-white/40">
+                     <p className="flex justify-between border-b border-white/[0.03] pb-2">
+                        <span>LAT:</span>
+                        <span className="text-white/20">30.0444° N</span>
+                     </p>
+                     <p className="flex justify-between border-b border-white/[0.03] pb-2">
+                        <span>LNG:</span>
+                        <span className="text-white/20">31.2357° E</span>
+                     </p>
+                     <p className="flex justify-between border-b border-white/[0.03] pb-2">
+                        <span>GMT:</span>
+                        <span className="text-white/20">+02:00</span>
+                     </p>
+                  </div>
+               </div>
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-white/5 pt-12 flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="flex flex-col gap-1 items-center md:items-start text-center md:text-left">
-            <p className="text-[10px] text-white/20 font-ibm tracking-[0.3em] uppercase font-light">
-              © {new Date().getFullYear()} Geometric Studio. All Rights Reserved.
-            </p>
-            <p className="text-[8px] text-white/10 font-ibm tracking-[0.2em] font-light">
-              COM_REG: 17195 // TAX_ID: 763211966
-            </p>
-          </div>
-
-          <div className="flex items-center gap-12">
-            <div className="hidden md:flex flex-col items-end gap-1">
-              <span className="text-[8px] text-white/10 uppercase tracking-widest">Execution_Model</span>
-              <span className="text-[10px] text-white/40 font-ibm font-light uppercase tracking-[0.4em]">Precision_First</span>
-            </div>
-            <p className="text-[10px] text-neon-yellow/60 font-ibm tracking-[0.5em] uppercase font-light italic glow-text-yellow">
-              We Shape Realities_
-            </p>
-          </div>
+        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6">
+           <div className="flex items-center gap-8">
+              <span className="text-[9px] text-white/10 font-ibm tracking-[0.3em] uppercase">© {new Date().getFullYear()} GEOMETRIC studio</span>
+              <span className="text-[9px] text-white/10 font-ibm tracking-[0.3em] uppercase hidden sm:block">CR_17195 // TAX_763211966</span>
+           </div>
+           
+           <div className="flex items-center gap-4">
+              <div className="w-2 h-2 rounded-full bg-neon-yellow glow-yellow animate-pulse" />
+              <span className="text-[10px] text-neon-yellow/60 font-ibm tracking-[0.5em] uppercase font-light italic">
+                We Shape Realities_
+              </span>
+           </div>
         </div>
       </div>
     </footer>

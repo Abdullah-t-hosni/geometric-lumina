@@ -1,22 +1,19 @@
-import img1 from '@/assets/images/1.jpg';
-import img2 from '@/assets/images/2.jpeg';
-import img3 from '@/assets/images/3.jpeg';
-import img4 from '@/assets/images/4.jpeg';
-import img5 from '@/assets/images/5.jpeg';
-import img6 from '@/assets/images/6.jpeg';
-import img7 from '@/assets/images/7.jpeg';
-import img8 from '@/assets/images/8.jpeg';
-import img9 from '@/assets/images/9.jpeg';
-import img10 from '@/assets/images/10.jpeg';
-import img11 from '@/assets/images/11.jpeg';
-import img12 from '@/assets/images/12.jpeg';
-import img13 from '@/assets/images/13.jpeg';
-import img14 from '@/assets/images/14.jpeg';
-import img15 from '@/assets/images/15.jpeg';
-import img16 from '@/assets/images/16.jpeg';
-import img17 from '@/assets/images/17.jpeg';
-import img18 from '@/assets/images/18.jpeg';
+import motionGraphics from '@/assets/images/Motion Graphics.jpeg';
+import productVisualization from '@/assets/images/Product Visualization & Animation.jpeg';
+import boothDesign from '@/assets/images/Booth Design.jpeg';
+import socialMedia from '@/assets/images/Social Media Content.jpeg';
+import anamorphicScreens from '@/assets/images/Anamorphic Screens.jpeg';
+import simulations from '@/assets/images/Simulations.jpeg';
+import architecturalVisualization from '@/assets/images/Architectural Visualization.jpeg';
+import microVisualization from '@/assets/images/Micro Visualization.jpeg';
+import vrEnvironments from '@/assets/images/VR Environments.jpeg';
+import cgiCompositing from '@/assets/images/CGI Compositing.jpeg';
+import threeDScanning from '@/assets/images/3D Scanning.jpeg';
+import aiProduction from '@/assets/images/AI-powered Production.jpeg';
+import technicalDrawing from '@/assets/images/technical drawing.jpeg';
 import servicesImg from '@/assets/images/Services.jpeg';
+import img10 from '@/assets/images/10.jpeg';
+import img6 from '@/assets/images/6.jpeg';
 
 export type PortfolioCategory = 'All' | 'Motion' | 'Product Visualization' | 'Architecture' | 'CGI' | 'Booth Design' | 'AI Content';
 
@@ -38,8 +35,8 @@ export const portfolioProjects: PortfolioProject[] = [
     title: 'Kinetic Brand Identity',
     category: 'Motion',
     description: 'A full motion identity system bringing a tech brand to life through animated typography and rhythmic shapes.',
-    image: img1,
-    gallery: [img1, img2, img4],
+    image: motionGraphics,
+    gallery: [motionGraphics, socialMedia, simulations],
     year: '2024',
     client: 'TechCorp',
     tags: ['Animation', 'Branding', 'Typography'],
@@ -49,8 +46,8 @@ export const portfolioProjects: PortfolioProject[] = [
     title: 'Luxury Product Campaign',
     category: 'Product Visualization',
     description: 'Cinematic product renders and animations for a premium fragrance launch — every reflection crafted to perfection.',
-    image: img2,
-    gallery: [img2, img1, img8],
+    image: productVisualization,
+    gallery: [productVisualization, microVisualization, img10],
     year: '2024',
     client: 'Luxe Co',
     tags: ['Product Viz', 'Animation', 'CGI'],
@@ -60,8 +57,8 @@ export const portfolioProjects: PortfolioProject[] = [
     title: 'Exhibition Masterpiece',
     category: 'Booth Design',
     description: 'A 500m² exhibition booth designed for maximum brand impact — immersive, bold, and engineered to perfection.',
-    image: img3,
-    gallery: [img3, img13, img15],
+    image: boothDesign,
+    gallery: [boothDesign, technicalDrawing, servicesImg],
     year: '2024',
     client: 'ExpoGiant',
     tags: ['Exhibition', 'Interior Design', 'Branding'],
@@ -71,8 +68,8 @@ export const portfolioProjects: PortfolioProject[] = [
     title: 'Social Media Takeover',
     category: 'Motion',
     description: 'Bold, scroll-stopping social content that drove 3x engagement for a regional fashion brand.',
-    image: img4,
-    gallery: [img4, img1, img12],
+    image: socialMedia,
+    gallery: [socialMedia, motionGraphics, aiProduction],
     year: '2023',
     client: 'FashionBrand',
     tags: ['Social Media', 'Reels', 'Motion'],
@@ -82,8 +79,8 @@ export const portfolioProjects: PortfolioProject[] = [
     title: 'Anamorphic City Takeover',
     category: 'CGI',
     description: 'A jaw-dropping anamorphic billboard experience that blurred the line between digital and physical reality.',
-    image: img5,
-    gallery: [img5, img14, img10],
+    image: anamorphicScreens,
+    gallery: [anamorphicScreens, cgiCompositing, simulations],
     year: '2024',
     client: 'MegaCorp',
     tags: ['Anamorphic', 'LED', 'OOH'],
@@ -93,8 +90,8 @@ export const portfolioProjects: PortfolioProject[] = [
     title: 'Fire & Fluid FX Reel',
     category: 'CGI',
     description: 'A showcase simulation reel: fire, smoke, fluid, and particle systems that defy physical limitations.',
-    image: img6,
-    gallery: [img6, img10, img5],
+    image: simulations,
+    gallery: [simulations, img6, anamorphicScreens],
     year: '2023',
     client: 'Internal',
     tags: ['VFX', 'Simulation', 'Houdini'],
@@ -104,8 +101,8 @@ export const portfolioProjects: PortfolioProject[] = [
     title: 'Skyline Residences',
     category: 'Architecture',
     description: 'A full architectural visualization package for a premium residential development in New Cairo.',
-    image: img7,
-    gallery: [img7, img9, img13],
+    image: architecturalVisualization,
+    gallery: [architecturalVisualization, vrEnvironments, servicesImg],
     year: '2024',
     client: 'PropDev',
     tags: ['ArchViz', 'Interior', 'Exterior'],
@@ -115,8 +112,8 @@ export const portfolioProjects: PortfolioProject[] = [
     title: 'Cellular Journey',
     category: 'Product Visualization',
     description: 'A medical visualization animating the human immune response at a microscopic level.',
-    image: img8,
-    gallery: [img8, img2, img11],
+    image: microVisualization,
+    gallery: [microVisualization, productVisualization, threeDScanning],
     year: '2023',
     client: 'MedTech',
     tags: ['Medical', 'Micro Viz', 'Education'],
@@ -126,8 +123,8 @@ export const portfolioProjects: PortfolioProject[] = [
     title: 'Virtual Showroom VR',
     category: 'Architecture',
     description: 'An immersive VR showroom letting clients explore a luxury car collection in a virtual environment.',
-    image: img9,
-    gallery: [img9, img7, img10],
+    image: vrEnvironments,
+    gallery: [vrEnvironments, architecturalVisualization, img10],
     year: '2024',
     client: 'AutoLux',
     tags: ['VR', 'Real-time', 'Interactive'],
@@ -137,8 +134,8 @@ export const portfolioProjects: PortfolioProject[] = [
     title: 'CGI Desert Campaign',
     category: 'CGI',
     description: 'A live-action + CGI composite placing a product in a breathtaking desert landscape — seamless and cinematic.',
-    image: img10,
-    gallery: [img10, img6, img5],
+    image: cgiCompositing,
+    gallery: [cgiCompositing, img10, simulations],
     year: '2024',
     client: 'BevCo',
     tags: ['Compositing', 'VFX', 'Live Action'],
@@ -148,8 +145,8 @@ export const portfolioProjects: PortfolioProject[] = [
     title: 'Heritage Object Digitization',
     category: 'Product Visualization',
     description: 'High-precision 3D scanning and digital preservation of rare archaeological artifacts.',
-    image: img11,
-    gallery: [img11, img8, img2],
+    image: threeDScanning,
+    gallery: [threeDScanning, microVisualization, productVisualization],
     year: '2023',
     client: 'Museum',
     tags: ['3D Scanning', 'Preservation', 'Digital'],
@@ -159,8 +156,8 @@ export const portfolioProjects: PortfolioProject[] = [
     title: 'AI Fashion Editorial',
     category: 'AI Content',
     description: 'A fully AI-generated fashion editorial pushing boundaries between photography and generative art.',
-    image: img12,
-    gallery: [img12, img4, img1],
+    image: aiProduction,
+    gallery: [aiProduction, socialMedia, motionGraphics],
     year: '2024',
     client: 'StyleMag',
     tags: ['AI Generated', 'Editorial', 'Fashion'],
@@ -176,3 +173,4 @@ export const portfolioCategories: PortfolioCategory[] = [
   'Booth Design',
   'AI Content',
 ];
+

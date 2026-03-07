@@ -1,22 +1,19 @@
-import img1 from '@/assets/images/1.jpg';
-import img2 from '@/assets/images/2.jpeg';
-import img3 from '@/assets/images/3.jpeg';
-import img4 from '@/assets/images/4.jpeg';
-import img5 from '@/assets/images/5.jpeg';
-import img6 from '@/assets/images/6.jpeg';
-import img7 from '@/assets/images/7.jpeg';
-import img8 from '@/assets/images/8.jpeg';
-import img9 from '@/assets/images/9.jpeg';
-import img10 from '@/assets/images/10.jpeg';
-import img11 from '@/assets/images/11.jpeg';
-import img12 from '@/assets/images/12.jpeg';
-import img13 from '@/assets/images/13.jpeg';
-import img14 from '@/assets/images/14.jpeg';
-import img15 from '@/assets/images/15.jpeg';
-import img16 from '@/assets/images/16.jpeg';
-import img17 from '@/assets/images/17.jpeg';
-import img18 from '@/assets/images/18.jpeg';
+import motionGraphics from '@/assets/images/Motion Graphics.jpeg';
+import productVisualization from '@/assets/images/Product Visualization & Animation.jpeg';
+import boothDesign from '@/assets/images/Booth Design.jpeg';
+import socialMedia from '@/assets/images/Social Media Content.jpeg';
+import anamorphicScreens from '@/assets/images/Anamorphic Screens.jpeg';
+import simulations from '@/assets/images/Simulations.jpeg';
+import architecturalVisualization from '@/assets/images/Architectural Visualization.jpeg';
+import microVisualization from '@/assets/images/Micro Visualization.jpeg';
+import vrEnvironments from '@/assets/images/VR Environments.jpeg';
+import cgiCompositing from '@/assets/images/CGI Compositing.jpeg';
+import threeDScanning from '@/assets/images/3D Scanning.jpeg';
+import aiProduction from '@/assets/images/AI-powered Production.jpeg';
+import technicalDrawing from '@/assets/images/technical drawing.jpeg';
 import servicesImg from '@/assets/images/Services.jpeg';
+import img10 from '@/assets/images/10.jpeg';
+import img6 from '@/assets/images/6.jpeg';
 
 export interface Service {
   id: string;
@@ -42,8 +39,8 @@ export const services: Service[] = [
     deliverables: ['Brand animations', 'Intro/Outro sequences', 'Logo reveals', 'Kinetic typography', 'Promotional videos', 'Social reels'],
     category: 'Motion',
     color: 'sky-blue',
-    image: img1,
-    heroImage: img13,
+    image: motionGraphics,
+    heroImage: motionGraphics,
     icon: '▶',
   },
   {
@@ -55,8 +52,8 @@ export const services: Service[] = [
     deliverables: ['360° product renders', 'Exploded views', 'Material animations', 'Packaging visualization', 'Commercial-ready shots', 'Lifestyle compositions'],
     category: 'Product Visualization',
     color: 'neon-yellow',
-    image: img2,
-    heroImage: img14,
+    image: productVisualization,
+    heroImage: productVisualization,
     icon: '◈',
   },
   {
@@ -68,8 +65,8 @@ export const services: Service[] = [
     deliverables: ['Interior design concepts', 'Exterior design renders', 'Technical drawings', 'Structural planning', 'Lighting design', 'Material specifications'],
     category: 'Booth Design',
     color: 'coral-red',
-    image: img3,
-    heroImage: img15,
+    image: boothDesign,
+    heroImage: technicalDrawing,
     icon: '⬡',
   },
   {
@@ -81,8 +78,8 @@ export const services: Service[] = [
     deliverables: ['Short-form video content', 'Story animations', 'Feed posts', 'Reels & TikTok', 'Carousel designs', 'Platform-optimized exports'],
     category: 'Motion',
     color: 'sea-green',
-    image: img4,
-    heroImage: img16,
+    image: socialMedia,
+    heroImage: socialMedia,
     icon: '◉',
   },
   {
@@ -94,8 +91,8 @@ export const services: Service[] = [
     deliverables: ['3D anamorphic content', 'LED cube content', 'Outdoor billboard visuals', 'Immersive display loops', 'Brand activations', 'Event screens'],
     category: 'CGI',
     color: 'deep-teal',
-    image: img5,
-    heroImage: img17,
+    image: anamorphicScreens,
+    heroImage: anamorphicScreens,
     icon: '◧',
   },
   {
@@ -107,8 +104,8 @@ export const services: Service[] = [
     deliverables: ['Fire & smoke simulations', 'Fluid dynamics', 'Cloth & soft body', 'Particle systems', 'Destruction effects', 'Environmental FX'],
     category: 'CGI',
     color: 'coral-red',
-    image: img6,
-    heroImage: img18,
+    image: simulations,
+    heroImage: img6,
     icon: '◌',
   },
   {
@@ -120,7 +117,7 @@ export const services: Service[] = [
     deliverables: ['Exterior renders', 'Interior visualization', 'Walkthrough animations', 'Virtual tours', 'Construction documentation', 'Lighting studies'],
     category: 'Architecture',
     color: 'sky-blue',
-    image: img7,
+    image: architecturalVisualization,
     heroImage: servicesImg,
     icon: '⬚',
   },
@@ -133,8 +130,8 @@ export const services: Service[] = [
     deliverables: ['Scientific visualization', 'Medical animations', 'Molecular models', 'Circuit & tech flows', 'Educational content', 'Nano-scale renders'],
     category: 'Product Visualization',
     color: 'sea-green',
-    image: img8,
-    heroImage: img2,
+    image: microVisualization,
+    heroImage: microVisualization,
     icon: '⬤',
   },
   {
@@ -146,8 +143,8 @@ export const services: Service[] = [
     deliverables: ['VR experience design', '360° environments', 'Interactive scenarios', 'Real-time rendering', 'Spatial audio integration', 'Cross-platform VR content'],
     category: 'Architecture',
     color: 'neon-yellow',
-    image: img9,
-    heroImage: img3,
+    image: vrEnvironments,
+    heroImage: vrEnvironments,
     icon: '⬣',
   },
   {
@@ -159,8 +156,8 @@ export const services: Service[] = [
     deliverables: ['Live-action compositing', 'VFX integration', 'Color grading', 'Green screen removal', 'Environment replacement', 'Product-in-scene insertion'],
     category: 'CGI',
     color: 'sky-blue',
-    image: img10,
-    heroImage: img4,
+    image: cgiCompositing,
+    heroImage: img10,
     icon: '⬟',
   },
   {
@@ -172,8 +169,8 @@ export const services: Service[] = [
     deliverables: ['High-res 3D scans', 'Mesh cleanup', 'Texture mapping', 'Heritage preservation', 'Product digitization', 'CAD-ready models'],
     category: 'Product Visualization',
     color: 'coral-red',
-    image: img11,
-    heroImage: img5,
+    image: threeDScanning,
+    heroImage: threeDScanning,
     icon: '◍',
   },
   {
@@ -185,10 +182,11 @@ export const services: Service[] = [
     deliverables: ['AI-generated imagery', 'AI video production', 'Prompt engineering', 'Style transfer', 'AI-enhanced compositing', 'Generative design assets'],
     category: 'AI Content',
     color: 'neon-yellow',
-    image: img12,
-    heroImage: img6,
+    image: aiProduction,
+    heroImage: aiProduction,
     icon: '◎',
   },
 ];
 
 export const getServiceBySlug = (slug: string) => services.find(s => s.slug === slug);
+
