@@ -1,28 +1,22 @@
-import motionGraphicsImg from '@/assets/services/motion-graphics.jpg';
-import productVizImg from '@/assets/services/product-visualization.jpg';
-import boothDesignImg from '@/assets/services/booth-design.jpg';
-import socialMediaImg from '@/assets/services/social-media.jpg';
-import anamorphicImg from '@/assets/services/anamorphic.jpg';
-import simulationsImg from '@/assets/services/simulations.jpg';
-import archvizImg from '@/assets/services/archviz.jpg';
-import microVizImg from '@/assets/services/micro-viz.jpg';
-import vrEnvironmentsImg from '@/assets/services/vr-environments.jpg';
-import cgiCompositingImg from '@/assets/services/cgi-compositing.jpg';
-import scanningImg from '@/assets/services/3d-scanning.jpg';
-import aiContentImg from '@/assets/services/ai-content.jpg';
-
-import motionGraphicsPage from '@/assets/services/motion-graphics-page.jpg';
-import productVizPage from '@/assets/services/product-visualization-page.jpg';
-import boothDesignPage from '@/assets/services/booth-design-page.jpg';
-import socialMediaPage from '@/assets/services/social-media-page.jpg';
-import anamorphicPage from '@/assets/services/anamorphic-page.jpg';
-import simulationsPage from '@/assets/services/simulations-page.jpg';
-import archvizPage from '@/assets/services/archviz-page.jpg';
-import microVizPage from '@/assets/services/micro-viz-page.jpg';
-import vrEnvironmentsPage from '@/assets/services/vr-environments-page.jpg';
-import cgiCompositingPage from '@/assets/services/cgi-compositing-page.jpg';
-import scanningPage from '@/assets/services/3d-scanning-page.jpg';
-import aiContentPage from '@/assets/services/ai-content-page.jpg';
+import img1 from '@/assets/images/1.jpg';
+import img2 from '@/assets/images/2.jpeg';
+import img3 from '@/assets/images/3.jpeg';
+import img4 from '@/assets/images/4.jpeg';
+import img5 from '@/assets/images/5.jpeg';
+import img6 from '@/assets/images/6.jpeg';
+import img7 from '@/assets/images/7.jpeg';
+import img8 from '@/assets/images/8.jpeg';
+import img9 from '@/assets/images/9.jpeg';
+import img10 from '@/assets/images/10.jpeg';
+import img11 from '@/assets/images/11.jpeg';
+import img12 from '@/assets/images/12.jpeg';
+import img13 from '@/assets/images/13.jpeg';
+import img14 from '@/assets/images/14.jpeg';
+import img15 from '@/assets/images/15.jpeg';
+import img16 from '@/assets/images/16.jpeg';
+import img17 from '@/assets/images/17.jpeg';
+import img18 from '@/assets/images/18.jpeg';
+import servicesImg from '@/assets/images/Services.jpeg';
 
 export interface Service {
   id: string;
@@ -48,8 +42,8 @@ export const services: Service[] = [
     deliverables: ['Brand animations', 'Intro/Outro sequences', 'Logo reveals', 'Kinetic typography', 'Promotional videos', 'Social reels'],
     category: 'Motion',
     color: 'sky-blue',
-    image: motionGraphicsImg,
-    heroImage: motionGraphicsPage,
+    image: img1,
+    heroImage: img13,
     icon: '▶',
   },
   {
@@ -61,8 +55,8 @@ export const services: Service[] = [
     deliverables: ['360° product renders', 'Exploded views', 'Material animations', 'Packaging visualization', 'Commercial-ready shots', 'Lifestyle compositions'],
     category: 'Product Visualization',
     color: 'neon-yellow',
-    image: productVizImg,
-    heroImage: productVizPage,
+    image: img2,
+    heroImage: img14,
     icon: '◈',
   },
   {
@@ -74,8 +68,8 @@ export const services: Service[] = [
     deliverables: ['Interior design concepts', 'Exterior design renders', 'Technical drawings', 'Structural planning', 'Lighting design', 'Material specifications'],
     category: 'Booth Design',
     color: 'coral-red',
-    image: boothDesignImg,
-    heroImage: boothDesignPage,
+    image: img3,
+    heroImage: img15,
     icon: '⬡',
   },
   {
@@ -87,8 +81,8 @@ export const services: Service[] = [
     deliverables: ['Short-form video content', 'Story animations', 'Feed posts', 'Reels & TikTok', 'Carousel designs', 'Platform-optimized exports'],
     category: 'Motion',
     color: 'sea-green',
-    image: socialMediaImg,
-    heroImage: socialMediaPage,
+    image: img4,
+    heroImage: img16,
     icon: '◉',
   },
   {
@@ -100,8 +94,8 @@ export const services: Service[] = [
     deliverables: ['3D anamorphic content', 'LED cube content', 'Outdoor billboard visuals', 'Immersive display loops', 'Brand activations', 'Event screens'],
     category: 'CGI',
     color: 'deep-teal',
-    image: anamorphicImg,
-    heroImage: anamorphicPage,
+    image: img5,
+    heroImage: img17,
     icon: '◧',
   },
   {
@@ -113,8 +107,8 @@ export const services: Service[] = [
     deliverables: ['Fire & smoke simulations', 'Fluid dynamics', 'Cloth & soft body', 'Particle systems', 'Destruction effects', 'Environmental FX'],
     category: 'CGI',
     color: 'coral-red',
-    image: simulationsImg,
-    heroImage: simulationsPage,
+    image: img6,
+    heroImage: img18,
     icon: '◌',
   },
   {
@@ -126,8 +120,8 @@ export const services: Service[] = [
     deliverables: ['Exterior renders', 'Interior visualization', 'Walkthrough animations', 'Virtual tours', 'Construction documentation', 'Lighting studies'],
     category: 'Architecture',
     color: 'sky-blue',
-    image: archvizImg,
-    heroImage: archvizPage,
+    image: img7,
+    heroImage: servicesImg,
     icon: '⬚',
   },
   {
@@ -139,8 +133,8 @@ export const services: Service[] = [
     deliverables: ['Scientific visualization', 'Medical animations', 'Molecular models', 'Circuit & tech flows', 'Educational content', 'Nano-scale renders'],
     category: 'Product Visualization',
     color: 'sea-green',
-    image: microVizImg,
-    heroImage: microVizPage,
+    image: img8,
+    heroImage: img2,
     icon: '⬤',
   },
   {
@@ -152,8 +146,8 @@ export const services: Service[] = [
     deliverables: ['VR experience design', '360° environments', 'Interactive scenarios', 'Real-time rendering', 'Spatial audio integration', 'Cross-platform VR content'],
     category: 'Architecture',
     color: 'neon-yellow',
-    image: vrEnvironmentsImg,
-    heroImage: vrEnvironmentsPage,
+    image: img9,
+    heroImage: img3,
     icon: '⬣',
   },
   {
@@ -165,8 +159,8 @@ export const services: Service[] = [
     deliverables: ['Live-action compositing', 'VFX integration', 'Color grading', 'Green screen removal', 'Environment replacement', 'Product-in-scene insertion'],
     category: 'CGI',
     color: 'sky-blue',
-    image: cgiCompositingImg,
-    heroImage: cgiCompositingPage,
+    image: img10,
+    heroImage: img4,
     icon: '⬟',
   },
   {
@@ -178,8 +172,8 @@ export const services: Service[] = [
     deliverables: ['High-res 3D scans', 'Mesh cleanup', 'Texture mapping', 'Heritage preservation', 'Product digitization', 'CAD-ready models'],
     category: 'Product Visualization',
     color: 'coral-red',
-    image: scanningImg,
-    heroImage: scanningPage,
+    image: img11,
+    heroImage: img5,
     icon: '◍',
   },
   {
@@ -191,8 +185,8 @@ export const services: Service[] = [
     deliverables: ['AI-generated imagery', 'AI video production', 'Prompt engineering', 'Style transfer', 'AI-enhanced compositing', 'Generative design assets'],
     category: 'AI Content',
     color: 'neon-yellow',
-    image: aiContentImg,
-    heroImage: aiContentPage,
+    image: img12,
+    heroImage: img6,
     icon: '◎',
   },
 ];

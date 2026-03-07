@@ -27,61 +27,88 @@ const stats = [
 
 export default function Technology() {
   return (
-    <div className="pt-20">
+    <div className="bg-background min-h-screen pt-24 pb-12 overflow-hidden relative">
+      {/* Premium Ambient Glows */}
+      <div className="absolute top-1/4 right-0 w-[800px] h-[800px] bg-deep-teal/20 rounded-full blur-[150px] mix-blend-screen pointer-events-none z-0" />
+      <div className="absolute top-3/4 left-0 w-[600px] h-[600px] bg-neon-yellow/5 rounded-full blur-[120px] mix-blend-screen pointer-events-none z-0" />
+
       {/* Header */}
-      <section className="py-24 px-6 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-deep-teal/10 to-background" />
-        <div className="relative max-w-5xl mx-auto">
+      <section className="px-6 relative pb-32 pt-20 z-10 overflow-hidden">
+        {/* Technical HUD elements */}
+        <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent" />
+        <div className="absolute top-1/2 left-0 w-full h-[1px] bg-white/[0.02] pointer-events-none" />
+
+        <div className="max-w-[1400px] mx-auto text-center relative">
           <SectionReveal>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-px bg-neon-yellow" />
-              <span className="text-xs text-neon-yellow font-ibm tracking-widest uppercase">Our Arsenal</span>
+            <div className="flex flex-col items-center">
+              <div className="flex items-center gap-4 mb-10">
+                <div className="w-12 h-[1px] bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
+                <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-neon-yellow">Technical Arsenal</span>
+                <div className="w-12 h-[1px] bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
+              </div>
+              
+              <h1 className="font-satoshi text-6xl md:text-8xl lg:text-[130px] font-light text-white leading-[0.85] tracking-tighter mb-12 uppercase">
+                Software <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/40 glow-text-yellow px-4">Stack.</span>
+              </h1>
+
+              <p className="font-ibm text-white/40 text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed border-t border-white/10 pt-12">
+                Merging industry-leading tools with custom AI pipelines to engineer visual experiences that defy the limits of reality.
+              </p>
             </div>
-            <h1 className="font-satoshi text-5xl md:text-7xl font-black text-foreground leading-tight mb-6">
-              Technology <span className="text-neon-yellow">Stack</span>
-            </h1>
-            <p className="font-ibm text-muted-foreground text-xl max-w-2xl">
-              We combine industry-leading tools with AI-powered workflows to deliver visuals that aren't just beautiful — they're technically flawless.
-            </p>
           </SectionReveal>
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="py-16 px-6 bg-card">
-        <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
+      {/* Stats Dashboard */}
+      <section className="py-24 px-6 relative z-10">
+        <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {stats.map((stat, i) => (
             <SectionReveal key={stat.label} delay={i * 0.1}>
-              <div className="border border-border p-6 hover:border-neon-yellow/50 transition-colors duration-300 group text-center">
-                <div className="font-satoshi text-5xl font-black text-neon-yellow mb-2">{stat.value}</div>
-                <div className="font-satoshi font-bold text-sm text-foreground mb-1">{stat.label}</div>
-                <div className="font-ibm text-xs text-muted-foreground">{stat.desc}</div>
+              <div className="glass-panel p-10 rounded-[32px] group hover:border-white/20 transition-all duration-700 relative overflow-hidden h-full">
+                <div className="absolute top-0 left-10 w-10 h-[2px] bg-neon-yellow/30 group-hover:bg-neon-yellow group-hover:w-20 transition-all duration-700 shadow-[0_0_10px_rgba(204,255,0,0.3)]" />
+                <div className="relative z-10">
+                  <div className="font-satoshi text-7xl font-light text-white mb-6 tracking-tighter group-hover:text-neon-yellow transition-colors duration-700">{stat.value}</div>
+                  <div className="font-ibm text-[10px] tracking-[0.4em] uppercase text-white/40 mb-3">{stat.label}</div>
+                  <p className="font-ibm text-xs text-white/20 leading-relaxed font-light">{stat.desc}</p>
+                </div>
               </div>
             </SectionReveal>
           ))}
         </div>
       </section>
 
-      {/* Tools Grid */}
-      <section className="py-24 px-6">
-        <div className="max-w-7xl mx-auto">
+      {/* Software Arsenal Grid */}
+      <section className="py-32 px-6 relative z-10 bg-white/[0.01]">
+        <div className="max-w-[1400px] mx-auto">
           <SectionReveal>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-px bg-neon-yellow" />
-              <span className="text-xs text-neon-yellow font-ibm tracking-widest uppercase">Core Tools</span>
+            <div className="flex flex-col items-center mb-24">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-12 h-[1px] bg-white/10" />
+                <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-white/40">Tool Inventory</span>
+                <div className="w-12 h-[1px] bg-white/10" />
+              </div>
+              <h2 className="font-satoshi text-5xl md:text-7xl font-light text-white tracking-tighter uppercase">Our <span className="italic text-white/20">Arsenal.</span></h2>
             </div>
-            <h2 className="font-satoshi text-4xl md:text-5xl font-black text-foreground mb-12">Our Software</h2>
           </SectionReveal>
-
+          
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             {tools.map((tool, i) => (
-              <SectionReveal key={tool.name} delay={i * 0.06}>
-                <div className="border border-border p-6 hover:border-neon-yellow/60 hover:bg-neon-yellow/5 transition-all duration-300 group">
-                  <div className="flex items-start justify-between mb-3">
-                    <h3 className="font-satoshi font-bold text-lg text-foreground group-hover:text-neon-yellow transition-colors">{tool.name}</h3>
+              <SectionReveal key={tool.name} delay={i * 0.05} className="h-full">
+                <div className="group h-full flex flex-col p-8 glass-panel rounded-[32px] hover:bg-white/[0.04] hover:border-white/20 transition-all duration-700 relative overflow-hidden">
+                  <div className="absolute top-8 right-8 w-8 h-8 rounded-full border border-white/5 flex items-center justify-center group-hover:border-neon-yellow/30 transition-all">
+                    <span className="text-[10px] text-white/10 group-hover:text-neon-yellow transition-colors italic">T</span>
                   </div>
-                  <span className="inline-block px-2 py-0.5 border border-border text-xs text-muted-foreground font-ibm mb-3">{tool.category}</span>
-                  <p className="font-ibm text-xs text-muted-foreground leading-relaxed">{tool.desc}</p>
+                  
+                  <div className="flex flex-col gap-1 mb-6 transition-all duration-700 group-hover:translate-x-2">
+                    <span className="text-[8px] font-ibm tracking-[0.4em] uppercase text-neon-yellow/40 group-hover:text-neon-yellow transition-colors">Software_0{i+1}</span>
+                    <h3 className="font-satoshi font-light text-2xl text-white tracking-tight leading-none uppercase">{tool.name}</h3>
+                  </div>
+                  
+                  <div className="px-3 py-1.5 rounded-full border border-white/5 bg-background text-[8px] font-ibm tracking-[0.3em] text-white/30 uppercase w-fit mb-8 transition-all group-hover:border-white/20 group-hover:text-white/60">
+                    {tool.category}
+                  </div>
+                  
+                  <p className="font-ibm text-[11px] text-white/30 font-light leading-relaxed group-hover:text-white/50 transition-colors duration-700 mt-auto">{tool.desc}</p>
                 </div>
               </SectionReveal>
             ))}
@@ -89,33 +116,46 @@ export default function Technology() {
         </div>
       </section>
 
-      {/* Philosophy */}
-      <section className="py-24 px-6 bg-card">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      {/* Philosophy Section */}
+      <section className="py-40 px-6 relative z-10">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
             <SectionReveal>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-8 h-px bg-neon-yellow" />
-                <span className="text-xs text-neon-yellow font-ibm tracking-widest uppercase">Our Approach</span>
+              <div className="flex items-center gap-4 mb-10">
+                <div className="w-12 h-[1px] bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
+                <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-neon-yellow">Operational Philosophy</span>
               </div>
-              <h2 className="font-satoshi text-4xl font-black text-foreground mb-6">Technology + Craftsmanship</h2>
-              <p className="font-ibm text-muted-foreground leading-relaxed mb-4">
-                At Geometric, technology is a tool — not a crutch. Every software we use is chosen deliberately, mastered deeply, and wielded with creative intent.
-              </p>
-              <p className="font-ibm text-muted-foreground leading-relaxed mb-6">
-                AI tools are integrated into our pipeline to speed up workflows, refine details and enhance visuals without compromising quality or craftsmanship. We explore bold new directions while maintaining the human touch that defines great art.
-              </p>
-              <Link to="/contact" className="inline-flex items-center gap-2 text-sm text-neon-yellow font-ibm hover:underline">
-                Discuss your technical requirements <span>→</span>
-              </Link>
-            </SectionReveal>
+              
+              <h2 className="font-satoshi text-5xl md:text-7xl font-light text-white mb-10 tracking-tighter uppercase leading-[0.85]">
+                Tech + <br />
+                <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/40 glow-text-yellow px-4">Craftsmanship.</span>
+              </h2>
 
+              <div className="space-y-6 max-w-xl">
+                <p className="font-ibm text-white/50 text-lg font-light leading-relaxed border-l border-neon-yellow/30 pl-8">
+                  At Geometric, technology is a tool — not a crutch. Every software we use is chosen deliberately, mastered deeply, and wielded with creative intent.
+                </p>
+                <p className="font-ibm text-white/30 text-base font-light leading-relaxed pl-8">
+                  AI tools are seamlessly integrated into our pipeline to speed up workflows and enhance visuals without compromising human artistic judgment.
+                </p>
+              </div>
+
+              <div className="mt-16 group inline-flex items-center gap-6">
+                <Link to="/contact" className="px-10 py-5 bg-white text-background rounded-full font-ibm text-[10px] tracking-[0.4em] uppercase font-bold hover:bg-neon-yellow hover:scale-105 transition-all duration-300">
+                  Technical Consultation
+                </Link>
+              </div>
+            </SectionReveal>
+ 
             <SectionReveal delay={0.2}>
-              <div className="grid grid-cols-2 gap-3">
-                {['Procedural FX', 'Real-time VR', 'AI Integration', 'GPU Rendering', 'Node-based Workflow', 'Multi-pass Pipeline'].map((item, i) => (
-                  <div key={item} className="border border-border p-4 flex items-center gap-3 hover:border-neon-yellow/50 transition-colors group">
-                    <span className="w-2 h-2 flex-shrink-0 bg-neon-yellow/60 group-hover:bg-neon-yellow transition-colors" />
-                    <span className="font-ibm text-xs text-muted-foreground group-hover:text-foreground transition-colors">{item}</span>
+              <div className="grid grid-cols-2 gap-4">
+                {['Procedural FX', 'Real-time VR', 'AI Integration', 'GPU Rendering', 'Node Pipeline', 'Cinematic Color'].map((item, i) => (
+                  <div key={item} className="glass-panel p-10 rounded-[32px] aspect-square flex flex-col items-center justify-center gap-6 group hover:border-white/20 transition-all duration-700 relative overflow-hidden text-center">
+                    <div className="absolute top-0 right-1/2 translate-x-1/2 w-[1px] h-0 group-hover:h-full bg-gradient-to-b from-neon-yellow to-transparent transition-all duration-1000 opacity-20" />
+                    <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-neon-yellow group-hover:border-neon-yellow/50 group-hover:bg-neon-yellow/10 transition-all duration-700 shadow-[0_0_15px_rgba(204,255,0,0.1)]">
+                       <span className="text-xl">✓</span>
+                    </div>
+                    <span className="font-satoshi font-light text-[10px] text-white/40 tracking-[0.4em] uppercase group-hover:text-white transition-colors duration-700">{item}</span>
                   </div>
                 ))}
               </div>
@@ -124,15 +164,19 @@ export default function Technology() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-24 px-6 text-center">
+      {/* Cinematic Final CTA */}
+      <section className="py-52 px-6 text-center relative bg-background overflow-hidden z-10">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-neon-yellow/[0.03] blur-[150px] rounded-full pointer-events-none" />
         <SectionReveal>
-          <h2 className="font-satoshi text-3xl md:text-4xl font-black text-foreground mb-4">
-            Need a specific technical solution?
+          <h2 className="font-satoshi text-6xl md:text-8xl lg:text-[140px] font-light text-white mb-16 tracking-tighter leading-[0.85] uppercase">
+            Let's Build <br />
+            <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/40 glow-text-yellow px-4">The Future.</span>
           </h2>
-          <p className="font-ibm text-muted-foreground mb-8">Our pipeline adapts to your project requirements.</p>
-          <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-4 bg-neon-yellow text-background font-satoshi font-bold text-sm tracking-wider uppercase hover:bg-neon-yellow/90 transition-all">
-            Talk to Us <span>→</span>
+          <Link to="/contact" className="group relative inline-flex items-center justify-center px-16 py-7 overflow-hidden rounded-full transition-all duration-500">
+            <div className="absolute inset-0 bg-neon-yellow group-hover:scale-105 transition-transform duration-500" />
+            <span className="relative z-10 font-ibm font-medium text-[12px] tracking-[0.5em] uppercase text-background">
+              Start The Conversation
+            </span>
           </Link>
         </SectionReveal>
       </section>

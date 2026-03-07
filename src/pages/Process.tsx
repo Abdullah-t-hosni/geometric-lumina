@@ -66,33 +66,45 @@ export default function Process() {
   const [expanded, setExpanded] = useState<string | null>('01');
 
   return (
-    <div className="pt-20">
+    <div className="bg-background min-h-screen pt-24 pb-12 overflow-hidden">
+      {/* Premium Ambient Glows */}
+      <div className="fixed top-0 right-0 w-[800px] h-[800px] bg-deep-teal/20 rounded-full blur-[150px] mix-blend-screen pointer-events-none z-0" />
+      <div className="fixed bottom-0 left-0 w-[600px] h-[600px] bg-neon-yellow/5 rounded-full blur-[120px] mix-blend-screen pointer-events-none z-0" />
+
       {/* Header */}
-      <section className="py-24 px-6 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-deep-teal/10 to-background" />
-        <div className="relative max-w-5xl mx-auto">
+      <section className="px-6 relative pb-32 pt-20 z-10 overflow-hidden">
+        {/* Technical background elements */}
+        <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent" />
+        <div className="absolute top-1/2 left-0 w-full h-[1px] bg-white/[0.02] pointer-events-none" />
+
+        <div className="max-w-[1400px] mx-auto text-center relative">
           <SectionReveal>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-px bg-neon-yellow" />
-              <span className="text-xs text-neon-yellow font-ibm tracking-widest uppercase">How We Work</span>
+            <div className="flex flex-col items-center">
+              <div className="flex items-center gap-4 mb-10">
+                <div className="w-12 h-[1px] bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
+                <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-neon-yellow">Sequence Protocol</span>
+                <div className="w-12 h-[1px] bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
+              </div>
+              
+              <h1 className="font-satoshi text-6xl md:text-8xl lg:text-[130px] font-light text-white leading-[0.85] tracking-tighter mb-12">
+                Creative <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/40 glow-text-yellow px-4 uppercase">Pipeline.</span>
+              </h1>
+
+              <p className="font-ibm text-creamy-white/50 text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed border-t border-white/10 pt-12">
+                A surgically precise methodology designed to manifest extraordinary cinematic results through technical rigor.
+              </p>
             </div>
-            <h1 className="font-satoshi text-5xl md:text-7xl font-black text-foreground leading-tight mb-6">
-              Creative <span className="text-neon-yellow">Process</span>
-            </h1>
-            <p className="font-ibm text-muted-foreground text-xl max-w-2xl">
-              From brief to delivery — a structured, collaborative journey designed to produce extraordinary results.
-            </p>
           </SectionReveal>
         </div>
       </section>
 
       {/* Timeline */}
-      <section className="pb-24 px-6">
-        <div className="max-w-4xl mx-auto">
-          {/* Connecting line */}
-          <div className="relative">
-            <div className="absolute left-7 top-0 bottom-0 w-px bg-border" />
-
+      <section className="py-24 px-6 relative z-10 overflow-hidden">
+        <div className="max-w-[1400px] mx-auto relative group">
+          {/* Main sequence line */}
+          <div className="absolute left-[34px] md:left-[64px] top-0 bottom-0 w-[1px] bg-white/5 group-hover:bg-neon-yellow/10 transition-colors duration-[2s]" />
+          
+          <div className="relative pl-16 md:pl-40">
             {steps.map((step, i) => (
               <ProcessStep
                 key={step.num}
@@ -106,15 +118,19 @@ export default function Process() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-24 px-6 bg-card text-center">
+      {/* Cinematic Final CTA */}
+      <section className="py-52 px-6 text-center relative bg-background overflow-hidden z-10">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-neon-yellow/[0.03] blur-[150px] rounded-full pointer-events-none" />
         <SectionReveal>
-          <h2 className="font-satoshi text-3xl md:text-4xl font-black text-foreground mb-4">
-            Ready to start your journey?
+          <h2 className="font-satoshi text-6xl md:text-8xl lg:text-[140px] font-light text-white mb-16 tracking-tighter leading-[0.85]">
+            Initiate The <br />
+            <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/40 glow-text-yellow px-4 uppercase">Protocol.</span>
           </h2>
-          <p className="font-ibm text-muted-foreground mb-8">Tell us about your project and let's begin the process together.</p>
-          <Link to="/contact" className="inline-flex items-center gap-2 px-8 py-4 bg-neon-yellow text-background font-satoshi font-bold text-sm tracking-wider uppercase hover:bg-neon-yellow/90 transition-all">
-            Begin Discovery <span>→</span>
+          <Link to="/contact" className="group relative inline-flex items-center justify-center px-16 py-7 overflow-hidden rounded-full transition-all duration-500">
+            <div className="absolute inset-0 bg-neon-yellow group-hover:scale-105 transition-transform duration-500" />
+            <span className="relative z-10 font-ibm font-medium text-[12px] tracking-[0.5em] uppercase text-background">
+              Begin Discovery
+            </span>
           </Link>
         </SectionReveal>
       </section>
@@ -136,54 +152,64 @@ function ProcessStep({ step, index, isExpanded, onToggle }: {
       ref={ref}
       initial={{ opacity: 0, x: -30 }}
       animate={inView ? { opacity: 1, x: 0 } : {}}
-      transition={{ duration: 0.7, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
-      className="relative flex gap-6 mb-6"
+      transition={{ duration: 1, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+      className="relative mb-8"
     >
-      {/* Number bubble */}
+      {/* Number and state indicator */}
       <button
         onClick={onToggle}
-        className={`relative z-10 w-14 h-14 flex-shrink-0 border-2 flex items-center justify-center transition-all duration-400 ${
+        className={`absolute -left-[60px] md:-left-[100px] top-6 w-10 h-10 md:w-12 md:h-12 border rounded-full flex items-center justify-center transition-all duration-700 z-10 group/btn ${
           isExpanded
-            ? 'border-neon-yellow bg-neon-yellow text-background'
-            : 'border-border bg-background hover:border-neon-yellow/60'
+            ? 'bg-neon-yellow border-neon-yellow text-background shadow-[0_0_20px_rgba(204,255,0,0.5)]'
+            : 'bg-background border-white/10 text-white/40 hover:border-white/30 hover:text-white'
         }`}
       >
-        <span className={`font-satoshi font-black text-sm ${isExpanded ? 'text-background' : 'text-neon-yellow'}`}>
+        <span className="font-ibm text-[10px] font-medium tracking-tighter">
           {step.num}
         </span>
       </button>
 
-      {/* Content */}
-      <div className="flex-1 pb-2">
-        <button onClick={onToggle} className="w-full text-left group">
-          <div className="flex items-center gap-3 py-3">
-            <h3 className={`font-satoshi text-2xl md:text-3xl font-black transition-colors duration-300 ${isExpanded ? 'text-neon-yellow' : 'text-foreground group-hover:text-neon-yellow'}`}>
+      {/* Main Container */}
+      <div className={`glass-panel rounded-[24px] transition-all duration-1000 overflow-hidden ${isExpanded ? 'bg-white/[0.03] border-white/10' : 'bg-transparent border-transparent hover:bg-white/[0.01]'}`}>
+        <button onClick={onToggle} className="w-full text-left p-6 md:p-10 flex flex-col md:flex-row md:items-center justify-between gap-6 group">
+          <div className="flex flex-col gap-2">
+            <span className="text-[8px] font-ibm tracking-[0.5em] uppercase text-white/20 group-hover:text-neon-yellow transition-colors duration-700">Module 00{index+1}</span>
+            <h3 className={`font-satoshi text-3xl md:text-5xl font-light tracking-tighter uppercase transition-colors duration-700 ${isExpanded ? 'text-white' : 'text-white/60 group-hover:text-white'}`}>
               {step.title}
             </h3>
-            <span className={`ml-auto text-muted-foreground transition-transform duration-300 ${isExpanded ? 'rotate-90 text-neon-yellow' : ''}`}>
-              →
-            </span>
+          </div>
+          
+          <div className="flex items-center gap-8">
+             <div className="hidden lg:flex flex-col items-end gap-1 opacity-20 group-hover:opacity-60 transition-opacity duration-700">
+                <div className="text-[7px] font-ibm tracking-[0.2em] uppercase">Status: {isExpanded ? 'Active' : 'Standby'}</div>
+                <div className="w-16 h-[1px] bg-white group-hover:bg-neon-yellow transition-colors" />
+             </div>
+             <div className={`w-10 h-10 rounded-full border border-white/10 flex items-center justify-center transition-all duration-700 ${isExpanded ? 'rotate-180 bg-white/5 border-neon-yellow/30 text-neon-yellow' : 'text-white/20'}`}>
+               <span className="text-xl">↓</span>
+             </div>
           </div>
         </button>
 
         <motion.div
           initial={false}
           animate={{ height: isExpanded ? 'auto' : 0, opacity: isExpanded ? 1 : 0 }}
-          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="overflow-hidden"
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          <div className="border-l-2 border-neon-yellow/30 pl-5 py-3 mb-4">
-            <p className="font-ibm text-muted-foreground leading-relaxed">{step.description}</p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pb-4">
-            {step.details.map((detail, i) => (
-              <div key={i} className="flex items-center gap-3 text-sm font-ibm text-muted-foreground">
-                <span className="w-4 h-4 flex-shrink-0 flex items-center justify-center border border-neon-yellow/40">
-                  <span className="text-neon-yellow text-xs">✓</span>
-                </span>
-                {detail}
+          <div className="px-6 md:px-10 pb-10">
+            <div className="max-w-3xl">
+              <p className="font-ibm font-light text-white/50 text-base md:text-lg leading-relaxed mb-10 border-l border-neon-yellow/30 pl-8">
+                {step.description}
+              </p>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-12">
+                {step.details.map((detail, i) => (
+                  <div key={i} className="group/item flex items-center justify-between p-4 bg-white/[0.02] border border-white/5 rounded-xl hover:border-white/10 transition-all duration-500">
+                    <span className="font-ibm tracking-[0.1em] text-[10px] text-white/40 group-hover:text-white transition-colors uppercase italic">{detail}</span>
+                    <div className="w-1 h-1 bg-white/10 group-hover:bg-neon-yellow transition-colors rounded-full shadow-[0_0_5px_rgba(204,255,0,0.5)]" />
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </motion.div>
       </div>

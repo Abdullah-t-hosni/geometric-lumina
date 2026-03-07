@@ -1,15 +1,16 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Logo } from '@/components/Logo';
 
 const navLinks = [
-  { label: 'Home', href: '/', number: '01' },
-  { label: 'About', href: '/about', number: '02' },
-  { label: 'Services', href: '/services', number: '03' },
-  { label: 'Portfolio', href: '/portfolio', number: '04' },
-  { label: 'Process', href: '/process', number: '05' },
-  { label: 'Technology', href: '/technology', number: '06' },
-  { label: 'Contact', href: '/contact', number: '07' },
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/about' },
+  { label: 'Services', href: '/services' },
+  { label: 'Portfolio', href: '/portfolio' },
+  { label: 'Process', href: '/process' },
+  { label: 'Technology', href: '/technology' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 export default function Header() {
@@ -39,39 +40,62 @@ export default function Header() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled ? 'bg-background/90 backdrop-blur-xl border-b border-border' : 'bg-transparent'
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
+          scrolled && !menuOpen ? 'bg-background/80 backdrop-blur-xl border-b border-white/5 shadow-lg shadow-black/20' : 'bg-transparent'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between gap-6">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-9 h-9 border-2 border-neon-yellow rotate-45 group-hover:rotate-0 transition-transform duration-500 flex items-center justify-center">
-              <div className="w-3 h-3 bg-neon-yellow rotate-45 group-hover:scale-125 transition-transform duration-500" />
-            </div>
-            <span className="font-satoshi text-xl font-bold text-foreground tracking-wide">
-              Geometric
-            </span>
+          <Link to="/" className="group flex-shrink-0">
+            <Logo className="group-hover:scale-[1.02] group-active:scale-[0.98] transition-transform duration-300" />
           </Link>
 
+          {/* Desktop navigation */}
+          <nav className="hidden lg:flex items-center gap-8 text-sm font-ibm text-creamy-white/60">
+            {navLinks.map((link) => {
+              const isActive =
+                link.href === '/'
+                  ? location.pathname === '/'
+                  : location.pathname.startsWith(link.href);
+              return (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className={`relative inline-flex items-center gap-2 tracking-[0.2em] font-light uppercase transition-all duration-300 group ${
+                    isActive ? 'text-neon-yellow' : 'hover:text-creamy-white'
+                  }`}
+                >
+                  <span>{link.label}</span>
+                  <span
+                    className={`absolute -bottom-1 left-0 h-[1px] rounded-full bg-neon-yellow shadow-[0_0_8px_rgba(204,255,0,0.5)] transition-transform duration-300 origin-left ${
+                      isActive ? 'w-full scale-x-100' : 'w-full scale-x-0 group-hover:scale-x-100'
+                    }`}
+                  />
+                </Link>
+              );
+            })}
+          </nav>
+
           {/* Right side */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-6">
             <Link
               to="/contact"
-              className="hidden md:flex items-center gap-2 px-5 py-2 border border-neon-yellow text-neon-yellow text-sm font-satoshi font-semibold tracking-wider uppercase hover:bg-neon-yellow hover:text-background transition-all duration-300"
+              className="hidden md:inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-white/5 border border-white/10 text-creamy-white text-[10px] font-ibm font-medium tracking-[0.2em] hover:bg-neon-yellow/10 hover:border-neon-yellow/40 hover:text-neon-yellow transition-all duration-300 uppercase shadow-lg shadow-black/20"
             >
-              Start a Project
+              Start Project
             </Link>
             
             {/* Hamburger */}
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="relative w-10 h-10 flex flex-col justify-center items-end gap-[5px] group"
-              aria-label="Toggle menu"
+              className="relative w-10 h-10 flex flex-col justify-center items-end gap-[5px] group lg:hidden z-50"
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={menuOpen}
+              aria-controls="mobile-menu"
             >
-              <span className={`block h-[2px] bg-foreground transition-all duration-500 ${menuOpen ? 'w-7 -rotate-45 translate-y-[7px] bg-neon-yellow' : 'w-7'}`} />
-              <span className={`block h-[2px] bg-foreground transition-all duration-500 ${menuOpen ? 'opacity-0 w-0' : 'w-5'}`} />
-              <span className={`block h-[2px] bg-foreground transition-all duration-500 ${menuOpen ? 'w-7 rotate-45 -translate-y-[7px] bg-neon-yellow' : 'w-7'}`} />
+              <span className={`block h-[2px] bg-creamy-white transition-all duration-500 ${menuOpen ? 'w-7 -rotate-45 translate-y-[7px] bg-neon-yellow' : 'w-7'}`} />
+              <span className={`block h-[2px] bg-creamy-white transition-all duration-500 ${menuOpen ? 'opacity-0 w-0' : 'w-5'}`} />
+              <span className={`block h-[2px] bg-creamy-white transition-all duration-500 ${menuOpen ? 'w-7 rotate-45 -translate-y-[7px] bg-neon-yellow' : 'w-7'}`} />
             </button>
           </div>
         </div>
@@ -84,40 +108,45 @@ export default function Header() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
-            className="fixed inset-0 z-40 bg-background/98 backdrop-blur-2xl flex items-center justify-center"
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            className="fixed inset-0 z-40 bg-background/95 backdrop-blur-2xl flex items-center justify-center"
           >
-            {/* Background accent */}
+            {/* Background cinematic glows */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
               <motion.div
-                initial={{ scale: 0, opacity: 0 }}
-                animate={{ scale: 1, opacity: 0.08 }}
-                transition={{ duration: 0.8 }}
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-deep-teal"
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 0.3 }}
+                transition={{ duration: 1, ease: 'easeOut' }}
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-deep-teal/40 blur-[150px] mix-blend-screen"
+              />
+              <motion.div
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 0.2 }}
+                transition={{ duration: 1.2, ease: 'easeOut', delay: 0.2 }}
+                className="absolute top-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-neon-yellow/20 blur-[120px] mix-blend-screen"
               />
             </div>
 
             <nav className="relative z-10 w-full max-w-5xl mx-auto px-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-4">
                 {navLinks.map((link, i) => (
                   <motion.div
                     key={link.href}
-                    initial={{ opacity: 0, x: -40 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -20 }}
-                    transition={{ delay: i * 0.07, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 20 }}
+                    transition={{ delay: i * 0.08, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                   >
                     <Link
                       to={link.href}
-                      className="group flex items-center gap-6 py-4 border-b border-border/40 hover:border-neon-yellow/60 transition-all duration-300"
+                      className="group flex items-center gap-6 py-5 border-b border-white/5 hover:border-neon-yellow/30 transition-all duration-500 relative overflow-hidden"
                     >
-                      <span className="font-ibm text-xs text-muted-foreground group-hover:text-neon-yellow transition-colors duration-300 w-8">
-                        {link.number}
-                      </span>
-                      <span className="font-satoshi text-4xl md:text-5xl font-black text-foreground group-hover:text-neon-yellow transition-colors duration-300 tracking-tight leading-none">
+                      <div className="absolute inset-0 bg-gradient-to-r from-neon-yellow/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none -z-10" />
+                      
+                      <span className="font-satoshi text-4xl md:text-5xl font-light text-creamy-white group-hover:text-neon-yellow transition-colors duration-500 tracking-tight leading-none group-hover:translate-x-2">
                         {link.label}
                       </span>
-                      <span className="ml-auto text-muted-foreground group-hover:text-neon-yellow group-hover:translate-x-2 transition-all duration-300">
+                      <span className="ml-auto text-creamy-white/20 group-hover:text-neon-yellow group-hover:translate-x-2 transition-all duration-500 font-light">
                         →
                       </span>
                     </Link>
@@ -125,21 +154,33 @@ export default function Header() {
                 ))}
               </div>
 
-              {/* Bottom contact info */}
+              {/* Bottom Actions & Contact info */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5, duration: 0.5 }}
-                className="mt-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-6 border-t border-border/40"
+                transition={{ delay: 0.6, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                className="mt-16 flex flex-col gap-10 pt-8 border-t border-white/10"
               >
-                <div className="flex gap-6 text-sm text-muted-foreground font-ibm">
-                  <a href="https://instagram.com/geometric_studios" target="_blank" rel="noopener noreferrer" className="hover:text-neon-yellow transition-colors">Instagram</a>
-                  <a href="https://behance.net/geometric_stud" target="_blank" rel="noopener noreferrer" className="hover:text-neon-yellow transition-colors">Behance</a>
-                  <a href="https://linkedin.com/company/geometric-studios" target="_blank" rel="noopener noreferrer" className="hover:text-neon-yellow transition-colors">LinkedIn</a>
+                {/* Mobile CTA (Shows only on small screens inside menu) */}
+                <div className="md:hidden flex justify-start">
+                  <Link
+                    to="/contact"
+                    className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-neon-yellow/10 border border-neon-yellow/30 text-neon-yellow text-xs font-ibm font-medium tracking-[0.2em] uppercase glow-yellow hover:bg-neon-yellow hover:text-background transition-all duration-500 w-full text-center"
+                  >
+                    Start a Project
+                  </Link>
                 </div>
-                <a href="mailto:geometric3dadv@gmail.com" className="text-sm text-muted-foreground hover:text-neon-yellow transition-colors font-ibm">
-                  geometric3dadv@gmail.com
-                </a>
+
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+                  <div className="flex gap-8 text-[11px] text-creamy-white/50 font-ibm tracking-[0.2em] uppercase font-light">
+                    <a href="https://instagram.com/geometric_studios" target="_blank" rel="noopener noreferrer" className="hover:text-neon-yellow transition-colors duration-300">Instagram</a>
+                    <a href="https://behance.net/geometric_stud" target="_blank" rel="noopener noreferrer" className="hover:text-neon-yellow transition-colors duration-300">Behance</a>
+                    <a href="https://linkedin.com/company/geometric-studios" target="_blank" rel="noopener noreferrer" className="hover:text-neon-yellow transition-colors duration-300">LinkedIn</a>
+                  </div>
+                  <a href="mailto:geometric3dadv@gmail.com" className="text-[12px] text-creamy-white/70 hover:text-neon-yellow transition-colors duration-300 font-ibm font-light tracking-wide">
+                    geometric3dadv@gmail.com
+                  </a>
+                </div>
               </motion.div>
             </nav>
           </motion.div>

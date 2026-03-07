@@ -72,78 +72,107 @@ export default function Contact() {
   };
 
   return (
-    <div className="pt-20">
+    <div className="bg-background min-h-screen pt-24 pb-12 overflow-hidden relative">
+      {/* Premium Ambient Glows */}
+      <div className="absolute top-1/4 right-0 w-[800px] h-[800px] bg-deep-teal/20 rounded-full blur-[150px] mix-blend-screen pointer-events-none z-0" />
+      <div className="absolute bottom-1/4 left-0 w-[600px] h-[600px] bg-neon-yellow/5 rounded-full blur-[120px] mix-blend-screen pointer-events-none z-0" />
+
       {/* Header */}
-      <section className="py-24 px-6 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-deep-teal/10 to-background" />
-        <div className="relative max-w-5xl mx-auto">
+      <section className="px-6 relative pb-32 pt-20 z-10 overflow-hidden">
+        {/* Technical HUD elements */}
+        <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent" />
+        <div className="absolute top-1/2 left-0 w-full h-[1px] bg-white/[0.02] pointer-events-none" />
+
+        <div className="max-w-[1400px] mx-auto text-center relative">
           <SectionReveal>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-px bg-neon-yellow" />
-              <span className="text-xs text-neon-yellow font-ibm tracking-widest uppercase">Get in Touch</span>
+            <div className="flex flex-col items-center">
+              <div className="flex items-center gap-4 mb-10">
+                <div className="w-12 h-[1px] bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
+                <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-neon-yellow">Communications Portal</span>
+                <div className="w-12 h-[1px] bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
+              </div>
+              
+              <h1 className="font-satoshi text-6xl md:text-8xl lg:text-[130px] font-light text-white leading-[0.85] tracking-tighter mb-12 uppercase">
+                Start The <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/40 glow-text-yellow px-4">Contact.</span>
+              </h1>
+
+              <p className="font-ibm text-white/40 text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed border-t border-white/10 pt-12">
+                Bypass the noise. Connect directly with our engineering team to manifest your cinematic vision.
+              </p>
             </div>
-            <h1 className="font-satoshi text-5xl md:text-7xl font-black text-foreground leading-tight mb-6">
-              Your Next Vision
-              <br />
-              <span className="text-neon-yellow">Starts Here</span>
-            </h1>
-            <p className="font-ibm text-muted-foreground text-xl max-w-2xl">
-              We're ready to collaborate, design, and build visuals that move beyond the screen. Let's connect and make it happen.
-            </p>
           </SectionReveal>
         </div>
       </section>
 
       {/* Main content */}
-      <section className="pb-24 px-6">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-12">
+      <section className="pb-24 px-6 relative z-10">
+        <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-5 gap-16 lg:gap-24">
 
           {/* Left — Contact info */}
-          <div className="lg:col-span-2 space-y-10">
+          <div className="lg:col-span-2 space-y-12">
             <SectionReveal>
-              <div>
-                <h3 className="font-satoshi font-bold text-foreground mb-5">Contact Details</h3>
-                <div className="space-y-4">
+              <div className="glass-panel p-10 rounded-[32px] group hover:border-white/20 transition-all duration-700 relative overflow-hidden">
+                <div className="absolute top-0 left-10 w-10 h-[2px] bg-neon-yellow/30 group-hover:bg-neon-yellow group-hover:w-20 transition-all duration-700 shadow-[0_0_10px_rgba(204,255,0,0.3)]" />
+                <h3 className="font-satoshi text-[10px] tracking-[0.5em] uppercase text-white/30 mb-12">Direct_Channels</h3>
+                <div className="space-y-10">
                   {contactInfo.map((item) => (
-                    <div key={item.label} className="flex items-start gap-4">
-                      <span className="font-ibm text-xs text-muted-foreground uppercase tracking-wider w-16 pt-0.5">{item.label}</span>
-                      <a href={item.href} className="font-ibm text-foreground hover:text-neon-yellow transition-colors text-sm">{item.value}</a>
+                    <div key={item.label} className="flex flex-col gap-2 group/item">
+                      <span className="font-ibm text-[8px] text-white/20 uppercase tracking-[0.4em] group-hover/item:text-neon-yellow/60 transition-colors">{item.label}</span>
+                      <a href={item.href} className="font-satoshi text-xl text-white font-light group-hover/item:translate-x-2 transition-transform duration-500 block">{item.value}</a>
                     </div>
                   ))}
                 </div>
               </div>
             </SectionReveal>
-
+ 
             <SectionReveal delay={0.1}>
-              <div>
-                <h3 className="font-satoshi font-bold text-foreground mb-5">Social Media</h3>
-                <div className="space-y-4">
+              <div className="glass-panel p-10 rounded-[32px] group hover:border-white/20 transition-all duration-700 relative overflow-hidden">
+                <div className="absolute top-0 left-10 w-10 h-[2px] bg-white/10 group-hover:bg-neon-yellow group-hover:w-20 transition-all duration-700 shadow-[0_0_10px_rgba(204,255,0,0.3)]" />
+                <h3 className="font-satoshi text-[10px] tracking-[0.5em] uppercase text-white/30 mb-12">Social_Grid</h3>
+                <div className="space-y-8">
                   {socialLinks.map((link) => (
                     <a
                       key={link.label}
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-4 group"
+                      className="flex items-center justify-between group/link"
                     >
-                      <span className="font-ibm text-xs text-muted-foreground uppercase tracking-wider w-16">{link.label}</span>
-                      <span className="font-ibm text-sm text-foreground group-hover:text-neon-yellow transition-colors">{link.handle}</span>
-                      <span className="text-muted-foreground group-hover:text-neon-yellow group-hover:translate-x-1 transition-all duration-300 text-xs">→</span>
+                      <div className="flex flex-col gap-1">
+                        <span className="font-ibm text-[8px] text-white/20 uppercase tracking-[0.4em] group-hover/link:text-neon-yellow/60 transition-colors">{link.label}</span>
+                        <span className="font-satoshi text-lg font-light text-white group-hover/link:translate-x-2 transition-transform duration-500">{link.handle}</span>
+                      </div>
+                      <div className="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center text-white/20 group-hover/link:border-neon-yellow/30 group-hover/link:text-neon-yellow transition-all duration-500">
+                        <span className="text-xl">↗</span>
+                      </div>
                     </a>
                   ))}
                 </div>
               </div>
             </SectionReveal>
-
+ 
             <SectionReveal delay={0.2}>
-              <div className="border border-border p-6">
-                <h4 className="font-satoshi font-bold text-foreground mb-2">Commercial Registration</h4>
-                <p className="font-ibm text-xs text-muted-foreground">No. 17195</p>
-                <p className="font-ibm text-xs text-muted-foreground mt-1">National No. 763211966</p>
-                <div className="mt-4 pt-4 border-t border-border">
-                  <p className="font-ibm text-xs text-muted-foreground leading-relaxed italic">
-                    "Every visual in this presentation was crafted by the Geometric Studio team."
-                  </p>
+              <div className="glass-panel p-10 rounded-[32px] relative overflow-hidden group border-neon-yellow/10 bg-neon-yellow/[0.01]">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-neon-yellow/5 rounded-full blur-[40px] pointer-events-none" />
+                <h4 className="font-satoshi text-[9px] tracking-[0.5em] uppercase text-white/40 mb-8 flex items-center gap-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-neon-yellow animate-pulse shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
+                  Legal_Entities
+                </h4>
+                <div className="space-y-6">
+                  <div className="flex flex-col gap-2 border-l border-white/5 pl-6">
+                    <span className="font-ibm text-[8px] text-white/20 uppercase tracking-[0.3em]">Commercial Register No.</span>
+                    <span className="font-ibm text-sm text-white/60 tracking-widest">17195</span>
+                  </div>
+                  <div className="flex flex-col gap-2 border-l border-white/5 pl-6">
+                    <span className="font-ibm text-[8px] text-white/20 uppercase tracking-[0.3em]">Tax National ID No.</span>
+                    <span className="font-ibm text-sm text-white/60 tracking-widest">763-211-966</span>
+                  </div>
+                </div>
+                <div className="mt-12 flex items-start gap-4 p-4 bg-white/[0.02] rounded-2xl border border-white/5">
+                   <span className="text-neon-yellow/40 text-xs italic">!</span>
+                   <p className="font-ibm text-[9px] text-white/30 leading-relaxed uppercase tracking-wider">
+                     All visual assets are protected property of Geometric Studio. Unauthorized use strictly prohibited.
+                   </p>
                 </div>
               </div>
             </SectionReveal>
@@ -152,107 +181,126 @@ export default function Contact() {
           {/* Right — Form */}
           <div className="lg:col-span-3">
             <SectionReveal delay={0.15}>
-              {submitted ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="border border-neon-yellow/50 p-12 text-center bg-neon-yellow/5"
-                >
-                  <div className="w-16 h-16 border-2 border-neon-yellow rotate-45 flex items-center justify-center mx-auto mb-6">
-                    <span className="text-neon-yellow text-xl -rotate-45">✓</span>
-                  </div>
-                  <h3 className="font-satoshi text-2xl font-black text-foreground mb-3">Message Sent!</h3>
-                  <p className="font-ibm text-muted-foreground mb-6">Thank you for reaching out. We'll get back to you within 24 hours.</p>
-                  <button
-                    onClick={() => setSubmitted(false)}
-                    className="text-sm text-neon-yellow hover:underline font-ibm"
+              <div className="glass-panel p-10 md:p-16 rounded-[40px] relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-[1px] bg-white/5" />
+                
+                {submitted ? (
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="text-center py-20"
                   >
-                    Send another message
-                  </button>
-                </motion.div>
-              ) : (
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <FormField
-                      label="Name *"
-                      error={errors.name?.message}
+                    <div className="w-24 h-24 rounded-full border border-neon-yellow/30 bg-neon-yellow/5 flex items-center justify-center mx-auto mb-10 shadow-[0_0_40px_rgba(204,255,0,0.1)]">
+                      <span className="text-neon-yellow text-4xl">✓</span>
+                    </div>
+                    <h3 className="font-satoshi text-5xl font-light text-white mb-6 tracking-tighter uppercase">Transmission Success.</h3>
+                    <p className="font-ibm text-white/40 text-sm font-light mb-12 max-w-md mx-auto leading-relaxed">
+                      Your inquiry has been logged into our sequence. Our strategy team will review the parameters and contact you within 24 hours.
+                    </p>
+                    <button
+                      onClick={() => setSubmitted(false)}
+                      className="px-10 py-4 bg-white/5 border border-white/10 rounded-full text-white font-ibm text-[10px] tracking-[0.4em] uppercase hover:bg-white hover:text-background transition-all duration-500"
                     >
+                      New Transmission
+                    </button>
+                  </motion.div>
+                ) : (
+                  <form onSubmit={handleSubmit(onSubmit)} className="space-y-10">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
+                      <FormField
+                        label="Identity_Check *"
+                        error={errors.name?.message}
+                      >
+                        <input
+                          {...register('name')}
+                          placeholder="Your full name"
+                          className="w-full bg-white/[0.02] border border-white/10 rounded-2xl px-6 py-5 font-ibm text-[13px] text-white placeholder:text-white/20 focus:outline-none focus:border-neon-yellow/40 focus:bg-white/[0.04] transition-all duration-500"
+                        />
+                      </FormField>
+   
+                      <FormField label="Organization_Ref" error={errors.company?.message}>
+                        <input
+                          {...register('company')}
+                          placeholder="Company name"
+                          className="w-full bg-white/[0.02] border border-white/10 rounded-2xl px-6 py-5 font-ibm text-[13px] text-white placeholder:text-white/20 focus:outline-none focus:border-neon-yellow/40 focus:bg-white/[0.04] transition-all duration-500"
+                        />
+                      </FormField>
+                    </div>
+   
+                    <FormField label="Digital_Terminal *" error={errors.email?.message}>
                       <input
-                        {...register('name')}
-                        placeholder="Your full name"
-                        className="w-full bg-muted border border-border px-4 py-3 font-ibm text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-neon-yellow transition-colors duration-300"
+                        {...register('email')}
+                        type="email"
+                        placeholder="your.email@instance.com"
+                        className="w-full bg-white/[0.02] border border-white/10 rounded-2xl px-6 py-5 font-ibm text-[13px] text-white placeholder:text-white/20 focus:outline-none focus:border-neon-yellow/40 focus:bg-white/[0.04] transition-all duration-500"
                       />
                     </FormField>
-
-                    <FormField label="Company" error={errors.company?.message}>
-                      <input
-                        {...register('company')}
-                        placeholder="Company name (optional)"
-                        className="w-full bg-muted border border-border px-4 py-3 font-ibm text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-neon-yellow transition-colors duration-300"
+   
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
+                      <FormField label="Capability_Requirement *" error={errors.projectType?.message}>
+                        <div className="relative">
+                          <select
+                            {...register('projectType')}
+                            className="w-full bg-white/[0.02] border border-white/10 rounded-2xl px-6 py-5 font-ibm text-[12px] text-white/50 focus:outline-none focus:border-neon-yellow/40 focus:bg-white/[0.04] transition-all duration-500 appearance-none cursor-pointer"
+                          >
+                            <option value="" className="bg-background text-white/40">Select Service</option>
+                            {projectTypes.map(pt => (
+                              <option key={pt} value={pt} className="bg-background text-white">{pt}</option>
+                            ))}
+                          </select>
+                          <div className="absolute inset-y-0 right-6 flex items-center pointer-events-none text-white/20">
+                            <span className="text-[8px]">▼</span>
+                          </div>
+                        </div>
+                      </FormField>
+   
+                      <FormField label="Budget_Scale *" error={errors.budget?.message}>
+                        <div className="relative">
+                          <select
+                            {...register('budget')}
+                            className="w-full bg-white/[0.02] border border-white/10 rounded-2xl px-6 py-5 font-ibm text-[12px] text-white/50 focus:outline-none focus:border-neon-yellow/40 focus:bg-white/[0.04] transition-all duration-500 appearance-none cursor-pointer"
+                          >
+                            <option value="" className="bg-background text-white/40">Select Budget</option>
+                            {budgetRanges.map(b => (
+                              <option key={b} value={b} className="bg-background text-white">{b}</option>
+                            ))}
+                          </select>
+                          <div className="absolute inset-y-0 right-6 flex items-center pointer-events-none text-white/20">
+                            <span className="text-[8px]">▼</span>
+                          </div>
+                        </div>
+                      </FormField>
+                    </div>
+   
+                    <FormField label="Brief_Specifications *" error={errors.message?.message}>
+                      <textarea
+                        {...register('message')}
+                        rows={6}
+                        placeholder="Outline your vision, timeline, and specifications..."
+                        className="w-full bg-white/[0.02] border border-white/10 rounded-3xl px-6 py-6 font-ibm text-[13px] text-white placeholder:text-white/20 focus:outline-none focus:border-neon-yellow/40 focus:bg-white/[0.04] transition-all duration-500 resize-none"
                       />
                     </FormField>
-                  </div>
-
-                  <FormField label="Email *" error={errors.email?.message}>
-                    <input
-                      {...register('email')}
-                      type="email"
-                      placeholder="your@email.com"
-                      className="w-full bg-muted border border-border px-4 py-3 font-ibm text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-neon-yellow transition-colors duration-300"
-                    />
-                  </FormField>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <FormField label="Project Type *" error={errors.projectType?.message}>
-                      <select
-                        {...register('projectType')}
-                        className="w-full bg-muted border border-border px-4 py-3 font-ibm text-sm text-foreground focus:outline-none focus:border-neon-yellow transition-colors duration-300 appearance-none cursor-pointer"
-                      >
-                        <option value="" className="bg-background">Select a service</option>
-                        {projectTypes.map(pt => (
-                          <option key={pt} value={pt} className="bg-background">{pt}</option>
-                        ))}
-                      </select>
-                    </FormField>
-
-                    <FormField label="Budget Range *" error={errors.budget?.message}>
-                      <select
-                        {...register('budget')}
-                        className="w-full bg-muted border border-border px-4 py-3 font-ibm text-sm text-foreground focus:outline-none focus:border-neon-yellow transition-colors duration-300 appearance-none cursor-pointer"
-                      >
-                        <option value="" className="bg-background">Select budget</option>
-                        {budgetRanges.map(b => (
-                          <option key={b} value={b} className="bg-background">{b}</option>
-                        ))}
-                      </select>
-                    </FormField>
-                  </div>
-
-                  <FormField label="Message *" error={errors.message?.message}>
-                    <textarea
-                      {...register('message')}
-                      rows={5}
-                      placeholder="Tell us about your project, timeline, and any specific requirements..."
-                      className="w-full bg-muted border border-border px-4 py-3 font-ibm text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-neon-yellow transition-colors duration-300 resize-none"
-                    />
-                  </FormField>
-
-                  <button
-                    type="submit"
-                    disabled={isLoading}
-                    className="w-full py-4 bg-neon-yellow text-background font-satoshi font-bold text-sm tracking-wider uppercase hover:bg-neon-yellow/90 transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-3"
-                  >
-                    {isLoading ? (
-                      <>
-                        <span className="w-4 h-4 border-2 border-background/40 border-t-background rounded-full animate-spin" />
-                        Sending...
-                      </>
-                    ) : (
-                      <>Send Message <span>→</span></>
-                    )}
-                  </button>
-                </form>
-              )}
+   
+                    <button
+                      type="submit"
+                      disabled={isLoading}
+                      className="group relative w-full py-6 overflow-hidden rounded-full transition-all duration-500 disabled:opacity-50"
+                    >
+                      <div className="absolute inset-0 bg-neon-yellow group-hover:scale-105 transition-transform duration-500" />
+                      <div className="relative z-10 flex items-center justify-center gap-4">
+                        {isLoading ? (
+                          <>
+                            <span className="w-5 h-5 border-2 border-background/30 border-t-background rounded-full animate-spin" />
+                            <span className="font-ibm font-medium text-[11px] tracking-[0.5em] uppercase text-background">Transmitting_Data</span>
+                          </>
+                        ) : (
+                          <span className="font-ibm font-medium text-[11px] tracking-[0.5em] uppercase text-background">Submit_Inquiry</span>
+                        )}
+                      </div>
+                    </button>
+                  </form>
+                )}
+              </div>
             </SectionReveal>
           </div>
         </div>
@@ -263,10 +311,10 @@ export default function Contact() {
 
 function FormField({ label, error, children }: { label: string; error?: string; children: React.ReactNode }) {
   return (
-    <div>
-      <label className="block font-ibm text-xs text-muted-foreground tracking-wider uppercase mb-2">{label}</label>
+    <div className="space-y-3">
+      <label className="block font-ibm text-[8px] text-white/30 tracking-[0.5em] uppercase px-2">{label}</label>
       {children}
-      {error && <p className="mt-1.5 text-xs text-coral-red font-ibm">{error}</p>}
+      {error && <p className="text-[10px] text-red-500/80 font-ibm px-2 tracking-wide">! {error}</p>}
     </div>
   );
 }

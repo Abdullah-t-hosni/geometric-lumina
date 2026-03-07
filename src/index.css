@@ -7,58 +7,58 @@
 
 @layer base {
   :root {
-    /* Geometric Brand Colors (HSL) */
-    --background: 210 43% 3%;
-    --foreground: 45 33% 93%;
+    /* Premium Cinematic Dark Theme */
+    --background: 220 30% 6%;    /* Deep rich cinematic blue/black */
+    --foreground: 45 15% 94%;    /* Soft, creamy off-white for reading comfort */
 
-    --card: 210 35% 6%;
-    --card-foreground: 45 33% 93%;
+    --card: 220 25% 8%;          /* Slightly lighter than background */
+    --card-foreground: 45 15% 94%;
 
-    --popover: 210 35% 6%;
-    --popover-foreground: 45 33% 93%;
+    --popover: 220 25% 8%;
+    --popover-foreground: 45 15% 94%;
 
-    /* Deep Teal #0B4956 */
-    --primary: 192 79% 19%;
-    --primary-foreground: 45 33% 93%;
+    --primary: 45 15% 94%;
+    --primary-foreground: 220 30% 6%;
 
-    /* Neon Yellow #E7F523 */
-    --accent: 65 91% 55%;
-    --accent-foreground: 210 43% 5%;
+    /* Premium Gold/Neon Accent */
+    --accent: 44 100% 65%;       /* Elegant subtle gold/yellow */
+    --accent-foreground: 220 30% 6%;
 
-    --secondary: 210 8% 35%;
-    --secondary-foreground: 45 33% 93%;
+    --secondary: 220 20% 12%;
+    --secondary-foreground: 45 15% 94%;
 
-    --muted: 210 20% 10%;
-    --muted-foreground: 210 8% 55%;
+    --muted: 220 20% 12%;
+    --muted-foreground: 220 15% 65%;
 
-    --destructive: 5 100% 69%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 0 100% 60%;
+    --destructive-foreground: 45 15% 94%;
 
-    --border: 210 20% 14%;
-    --input: 210 20% 12%;
-    --ring: 65 91% 55%;
+    --border: 220 20% 16%;
+    --input: 220 20% 16%;
+    --ring: 44 100% 65%;
 
-    --radius: 0.5rem;
+    /* Cinematic Softer Corners */
+    --radius: 0.75rem;
 
-    /* Brand tokens */
-    --neon-yellow: 65 91% 55%;
-    --deep-teal: 192 79% 19%;
-    --creamy-white: 45 33% 93%;
-    --slate-gray: 210 8% 35%;
-    --sky-blue: 207 100% 50%;
-    --coral-red: 5 100% 69%;
-    --sea-green: 160 40% 47%;
-    --dark-bg: 210 43% 3%;
+    /* Theme Variables for explicit usage */
+    --neon-yellow: 44 100% 65%; /* Reassigned to elegant Gold/Yellow */
+    --deep-teal: 190 40% 15%;   /* Deep premium teal */
+    --creamy-white: 45 15% 94%;
+    --slate-gray: 220 15% 35%;
+    --sky-blue: 210 100% 65%;
+    --coral-red: 0 80% 65%;
+    --sea-green: 150 60% 50%;
+    --dark-bg: 220 30% 6%;
     
     /* Sidebar */
-    --sidebar-background: 210 43% 3%;
-    --sidebar-foreground: 45 33% 93%;
-    --sidebar-primary: 192 79% 19%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 210 20% 10%;
-    --sidebar-accent-foreground: 45 33% 93%;
-    --sidebar-border: 210 20% 14%;
-    --sidebar-ring: 65 91% 55%;
+    --sidebar-background: 220 30% 6%;
+    --sidebar-foreground: 45 15% 94%;
+    --sidebar-primary: 45 15% 94%;
+    --sidebar-primary-foreground: 220 30% 6%;
+    --sidebar-accent: 220 20% 12%;
+    --sidebar-accent-foreground: 45 15% 94%;
+    --sidebar-border: 220 20% 16%;
+    --sidebar-ring: 44 100% 65%;
   }
 }
 
@@ -134,26 +134,36 @@
     border-color: hsl(var(--deep-teal));
   }
 
-  /* Glow effects */
+  /* Cinematic Soft Glow Shadows */
   .glow-teal {
-    box-shadow: 0 0 20px hsl(var(--deep-teal) / 0.5), 0 0 60px hsl(var(--deep-teal) / 0.2);
+    box-shadow: 0 0 30px -5px hsl(var(--deep-teal) / 0.5);
   }
 
   .glow-yellow {
-    box-shadow: 0 0 20px hsl(var(--neon-yellow) / 0.5), 0 0 60px hsl(var(--neon-yellow) / 0.2);
+    box-shadow: 0 0 40px -10px hsl(var(--neon-yellow) / 0.3);
   }
 
   .glow-text-yellow {
-    text-shadow: 0 0 20px hsl(var(--neon-yellow) / 0.8);
+    text-shadow: 0 0 20px hsl(var(--neon-yellow) / 0.5);
   }
 
   /* Gradient backgrounds */
   .bg-gradient-teal {
-    background: linear-gradient(135deg, hsl(var(--deep-teal)), hsl(var(--dark-bg)));
+    background: linear-gradient(135deg, hsl(var(--deep-teal) / 0.8), hsl(var(--dark-bg)));
   }
 
   .bg-gradient-hero {
-    background: radial-gradient(ellipse at center, hsl(var(--deep-teal) / 0.15) 0%, hsl(var(--dark-bg)) 70%);
+    background: radial-gradient(ellipse at top center, hsl(var(--deep-teal) / 0.6) 0%, hsl(var(--dark-bg)) 70%);
+  }
+
+  /* Cinematic Glassmorphism Panel */
+  .glass-panel {
+    background: linear-gradient(145deg, hsl(var(--background) / 0.8), hsl(var(--background) / 0.4));
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid hsl(var(--foreground) / 0.08);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    border-radius: var(--radius);
   }
 
   /* Noise texture overlay */
