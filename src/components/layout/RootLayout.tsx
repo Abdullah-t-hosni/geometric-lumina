@@ -1,13 +1,16 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import Lenis from 'lenis';
 import Header from './Header';
 import Footer from './Footer';
+import CustomCursor from '../ui/CustomCursor';
+import PageTransition from '../ui/PageTransition';
 
 export default function RootLayout() {
   const location = useLocation();
   const lenisRef = useRef<Lenis | null>(null);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   useEffect(() => {
     lenisRef.current = new Lenis({
@@ -25,23 +28,27 @@ export default function RootLayout() {
     return () => lenisRef.current?.destroy();
   }, []);
 
-  // Scroll to top on route change
+  // Update layout when location changes
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <div className="min-h-screen bg-background flex flex-col font-satoshi selection:bg-neon-yellow selection:text-background">
+      <CustomCursor />
+      
       <Header />
+      
       <AnimatePresence mode="wait">
         <motion.main
           key={location.pathname}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.4, delay: 0.6 }}
           className="flex-1"
         >
+          <PageTransition key={`transition-${location.pathname}`} />
           <Outlet />
         </motion.main>
       </AnimatePresence>

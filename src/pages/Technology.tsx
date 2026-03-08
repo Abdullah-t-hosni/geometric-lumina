@@ -91,9 +91,22 @@ export default function Technology() {
             </div>
           </SectionReveal>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-4 md:auto-rows-[250px]">
             {tools.map((tool, i) => (
-              <SectionReveal key={tool.name} delay={i * 0.05} className="h-full">
+              <SectionReveal 
+                key={tool.name} 
+                delay={i * 0.05} 
+                className={
+                  i === 0 ? "lg:col-span-6 lg:row-span-2" : 
+                  i === 1 ? "lg:col-span-6 lg:row-span-1" :
+                  i === 2 ? "lg:col-span-3 lg:row-span-1" :
+                  i === 3 ? "lg:col-span-3 lg:row-span-1" :
+                  i === 4 ? "lg:col-span-4 lg:row-span-2" :
+                  i === 5 ? "lg:col-span-4 lg:row-span-1" :
+                  i === 6 ? "lg:col-span-4 lg:row-span-1" :
+                  "lg:col-span-3 lg:row-span-1"
+                }
+              >
                 <div className="group h-full flex flex-col p-8 glass-panel rounded-[32px] hover:bg-white/[0.04] hover:border-white/20 transition-all duration-700 relative overflow-hidden">
                   <div className="absolute top-8 right-8 w-8 h-8 rounded-full border border-white/5 flex items-center justify-center group-hover:border-neon-yellow/30 transition-all">
                     <span className="text-[10px] text-white/10 group-hover:text-neon-yellow transition-colors italic">T</span>

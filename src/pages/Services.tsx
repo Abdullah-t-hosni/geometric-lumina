@@ -1,6 +1,6 @@
+import { motion, AnimatePresence } from 'framer-motion';
+import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { useRef } from 'react';
 import { useInView } from 'framer-motion';
 import { SectionReveal } from '@/components/ui/SectionReveal';
 import { services } from '@/data/services';
@@ -9,8 +9,9 @@ export default function Services() {
   return (
     <div className="bg-background min-h-screen pt-24 pb-12 overflow-hidden relative">
       {/* Premium Ambient Glows */}
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-deep-teal/20 rounded-full blur-[150px] mix-blend-screen pointer-events-none z-0" />
-      <div className="absolute top-1/2 left-0 w-[600px] h-[600px] bg-neon-yellow/5 rounded-full blur-[120px] mix-blend-screen pointer-events-none z-0" />
+      <div className="absolute top-0 right-0 w-[1000px] h-[1000px] bg-deep-teal/10 rounded-full blur-[150px] mix-blend-screen pointer-events-none z-0" />
+      <div className="absolute top-1/2 left-0 w-[800px] h-[800px] bg-neon-yellow/5 rounded-full blur-[150px] mix-blend-screen pointer-events-none z-0" />
+      <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-sky-blue/5 rounded-full blur-[120px] mix-blend-screen pointer-events-none z-0" />
 
       {/* Header */}
       <section className="px-6 relative pb-32 pt-20 z-10 overflow-hidden">
@@ -74,6 +75,7 @@ export default function Services() {
 function ServiceCard({ service, index }: { service: typeof services[0]; index: number }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-60px' });
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <motion.div
@@ -82,46 +84,99 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, delay: (index % 3) * 0.1, ease: [0.16, 1, 0.3, 1] }}
       className="h-full"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       <Link
         to={`/services/${service.slug}`}
-        className="group block h-full glass-panel p-2 rounded-[32px] hover:border-white/20 transition-all duration-700 relative overflow-hidden"
+        className="group block h-full rounded-[32px] border border-white/5 hover:border-white/20 transition-all duration-700 relative overflow-hidden bg-background/40 backdrop-blur-sm shadow-2xl"
       >
-        <div className="bg-white/[0.02] rounded-[24px] overflow-hidden p-8 h-full flex flex-col group-hover:bg-white/[0.04] transition-colors duration-700">
-          <div className="flex justify-between items-start mb-8">
-            <div className="px-4 py-1.5 rounded-full border border-white/5 bg-background/50 text-[10px] font-ibm tracking-[0.4em] text-white/40 uppercase">
-              ID.00{index + 1}
-            </div>
-            <div className="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center group-hover:border-neon-yellow/30 transition-all">
-              <span className="text-white/20 group-hover:text-neon-yellow transition-colors italic">S</span>
-            </div>
-          </div>
-          
-          <div className="aspect-[16/10] w-full rounded-2xl overflow-hidden glass-panel p-1 mb-10 relative">
-             <div className="w-full h-full rounded-xl overflow-hidden relative">
-                <img
-                  src={service.heroImage}
-                  alt={service.name}
-                  loading="lazy"
-                  className="w-full h-full object-cover grayscale opacity-40 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-[1.5s] ease-out scale-105 group-hover:scale-100"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-60" />
-                <div className="absolute bottom-4 left-4 font-ibm text-[8px] tracking-[0.3em] uppercase text-white/50">{service.category}</div>
-             </div>
-          </div>
+        {/* Background Image with reveal effect */}
+        <div className="absolute inset-0 z-0">
+          <motion.img
+            src={service.heroImage}
+            alt={service.name}
+            initial={{ scale: 1.1, filter: 'grayscale(1) brightness(0.2)' }}
+            animate={{ 
+              scale: isHovered ? 1.05 : 1.1,
+              filter: isHovered ? 'grayscale(0.4) brightness(0.4)' : 'grayscale(1) brightness(0.2)',
+            }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+            className="w-full h-full object-cover"
+          />
+          {/* Color Overlay */}
+          <div 
+            className={`absolute inset-0 opacity-40 mix-blend-overlay transition-colors duration-700 ${
+              service.color === 'neon-yellow' ? 'bg-neon-yellow' :
+              service.color === 'sky-blue' ? 'bg-sky-blue' :
+              service.color === 'coral-red' ? 'bg-coral-red' :
+              service.color === 'deep-teal' ? 'bg-deep-teal' :
+              service.color === 'sea-green' ? 'bg-sea-green' :
+              'bg-white'
+            }`} 
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
+        </div>
 
-          <h3 className="font-satoshi font-light text-3xl md:text-3xl text-white tracking-tight mb-4 group-hover:text-neon-yellow transition-colors duration-500 uppercase">
-            {service.name}
-          </h3>
-          
-          <p className="font-ibm text-sm font-light text-white/40 leading-relaxed mb-12 flex-grow group-hover:text-white/60 transition-colors duration-500">
-            {service.tagline}
-          </p>
-          
-          <div className="flex items-center gap-4 group-hover:translate-x-2 transition-transform duration-500 mt-auto">
-            <div className="w-10 h-[1px] bg-white/10 group-hover:bg-neon-yellow transition-colors" />
-            <span className="font-ibm text-[9px] tracking-[0.4em] uppercase text-white/30 group-hover:text-neon-yellow transition-colors">View Details</span>
+        {/* Scanning Line on hover */}
+        <AnimatePresence>
+          {isHovered && (
+            <motion.div
+              initial={{ top: '-10%' }}
+              animate={{ top: '110%' }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+              className="absolute left-0 right-0 h-[1px] bg-neon-yellow/30 shadow-[0_0_15px_rgba(204,255,0,0.5)] z-20 pointer-events-none"
+            />
+          )}
+        </AnimatePresence>
+
+        <div className="relative z-10 p-10 h-full flex flex-col">
+          <div className="flex justify-between items-start mb-8">
+            <div className="flex flex-col gap-1">
+              <div className="px-4 py-1.5 rounded-full border border-white/10 bg-background/80 backdrop-blur-md text-[10px] font-ibm tracking-[0.4em] text-white/40 uppercase">
+                DISCIPLINE.00{index + 1}
+              </div>
+              <div className={`h-[1px] bg-current transition-all duration-700 ${isHovered ? 'w-full' : 'w-4'} ${
+                service.color === 'neon-yellow' ? 'text-neon-yellow' : 'text-white/20'
+              }`} />
+            </div>
+            
+            <motion.div 
+              animate={{ rotate: isHovered ? 90 : 0 }}
+              className={`w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-xl transition-all duration-500 ${isHovered ? 'border-neon-yellow/50 text-neon-yellow bg-neon-yellow/5' : 'text-white/20'}`}
+            >
+              <span className="italic">{service.icon}</span>
+            </motion.div>
           </div>
+          
+          <div className="mt-auto space-y-4">
+            <div className="flex items-center gap-3">
+              <div className={`w-2 h-2 rounded-full transition-all duration-500 ${isHovered ? 'bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.8)]' : 'bg-white/10'}`} />
+              <span className="font-ibm text-[8px] tracking-[0.3em] uppercase text-white/30">{service.category}</span>
+            </div>
+            
+            <h3 className="font-satoshi font-light text-3xl md:text-4xl text-white tracking-tight group-hover:text-neon-yellow transition-colors duration-500 uppercase leading-none">
+              {service.name}
+            </h3>
+            
+            <p className="font-ibm text-sm font-light text-white/40 leading-relaxed group-hover:text-white/70 transition-colors duration-500">
+              {service.tagline}
+            </p>
+            
+            <div className="flex items-center gap-6 pt-6">
+              <div className={`h-[1px] transition-all duration-500 ${isHovered ? 'w-16 bg-neon-yellow' : 'w-8 bg-white/10'}`} />
+              <span className={`font-ibm text-[9px] tracking-[0.5em] uppercase transition-colors duration-500 ${isHovered ? 'text-white' : 'text-white/30'}`}>
+                Engage Discipline
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* HUD Elements corner decoration */}
+        <div className="absolute -bottom-2 -right-2 w-16 h-16 pointer-events-none opacity-20">
+           <div className="absolute bottom-6 right-6 w-1 h-8 bg-white/40" />
+           <div className="absolute bottom-6 right-6 w-8 h-1 bg-white/40" />
         </div>
       </Link>
     </motion.div>

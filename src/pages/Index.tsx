@@ -1,7 +1,7 @@
-import { useRef, lazy, Suspense } from 'react';
+import { useRef, lazy, Suspense, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { SectionReveal, StaggerReveal } from '@/components/ui/SectionReveal';
-import { motion, useInView, useScroll, useTransform } from 'framer-motion';
+import { AnimatePresence, motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { services } from '@/data/services';
 import { Logo } from '@/components/Logo';
 import logo5 from '@/assets/images/Logo-5.png';
@@ -331,12 +331,13 @@ export default function Index() {
       <section className="py-32 px-6 bg-background relative overflow-hidden">
         {/* Soft elegant background flow */}
         <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-deep-teal/[0.02] rounded-full blur-[150px] pointer-events-none" />
         
         <div className="max-w-[1400px] mx-auto relative z-10">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">
             <SectionReveal>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-8 h-[1px] bg-neon-yellow/50" />
+                <div className="w-8 h-[1px] bg-neon-yellow shadow-[0_0_8px_rgba(204,255,0,0.5)]" />
                 <span className="text-[10px] font-ibm tracking-[0.4em] uppercase text-neon-yellow/80">Core Disciplines</span>
               </div>
               <h2 className="font-satoshi text-5xl md:text-7xl lg:text-8xl font-light text-white tracking-tight leading-[0.9]">
@@ -356,9 +357,19 @@ export default function Index() {
             </SectionReveal>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, i) => (
-              <ServiceCard key={service.id} service={service} index={i} />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 auto-rows-[250px] md:auto-rows-[300px]">
+            {services.slice(0, 6).map((service, i) => (
+              <ServiceCard 
+                key={service.id} 
+                service={service} 
+                index={i} 
+                className={
+                  i === 0 ? "lg:col-span-8 lg:row-span-2" : 
+                  i === 1 ? "lg:col-span-4 lg:row-span-1" :
+                  i === 2 ? "lg:col-span-4 lg:row-span-1" :
+                  "lg:col-span-4 lg:row-span-1"
+                }
+              />
             ))}
           </div>
         </div>
@@ -409,11 +420,7 @@ export default function Index() {
             </div>
           </SectionReveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-6">
-            {processSteps.map((step, i) => (
-              <ProcessStep key={step.num} step={step} index={i} />
-            ))}
-          </div>
+          <PipelineWrapper />
         </div>
       </section>
 
@@ -495,9 +502,10 @@ export default function Index() {
 
 // ─── Sub Components ────────────────────────────────
 
-function ServiceCard({ service, index }: { service: typeof services[0]; index: number }) {
+function ServiceCard({ service, index, className }: { service: typeof services[0]; index: number; className?: string }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-40px' });
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <motion.div
@@ -505,29 +513,105 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
       initial={{ opacity: 0, y: 30 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, delay: (index % 3) * 0.15, ease: [0.16, 1, 0.3, 1] }}
+      className={className}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       <Link
         to={`/services/${service.slug}`}
-        className="group block h-full glass-panel p-10 hover:border-white/20 transition-all duration-700 relative overflow-hidden"
+        data-cursor="DISCOVER"
+        className="group block h-full rounded-[32px] border border-white/5 hover:border-white/20 transition-all duration-700 relative overflow-hidden bg-background/40 backdrop-blur-sm"
       >
-        <div className="absolute top-0 right-0 p-8 font-ibm text-[8px] text-white/5 uppercase tracking-[1em] group-hover:text-neon-yellow/20 transition-all duration-700">Service 0{index + 1}</div>
-        
-        <div className="w-12 h-12 rounded-full border border-white/5 flex items-center justify-center mb-10 group-hover:border-neon-yellow/30 transition-all duration-700">
-           <div className="w-1.5 h-1.5 rounded-full bg-white/20 group-hover:bg-neon-yellow transition-all duration-500" />
+        {/* Background Image with reveal effect */}
+        <div className="absolute inset-0 z-0">
+          <motion.img
+            src={service.heroImage}
+            alt={service.name}
+            initial={{ scale: 1.1, filter: 'grayscale(1) brightness(0.3)' }}
+            animate={{ 
+              scale: isHovered ? 1.05 : 1.1,
+              filter: isHovered ? 'grayscale(0.4) brightness(0.5)' : 'grayscale(1) brightness(0.3)',
+            }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+            className="w-full h-full object-cover"
+          />
+          {/* Color Overlay */}
+          <div 
+            className={`absolute inset-0 opacity-40 mix-blend-overlay transition-colors duration-700 ${
+              service.color === 'neon-yellow' ? 'bg-neon-yellow' :
+              service.color === 'sky-blue' ? 'bg-sky-blue' :
+              service.color === 'coral-red' ? 'bg-coral-red' :
+              service.color === 'deep-teal' ? 'bg-deep-teal' :
+              service.color === 'sea-green' ? 'bg-sea-green' :
+              'bg-white'
+            }`} 
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
         </div>
-        
-        <h3 className="font-satoshi font-light text-3xl text-white tracking-tight mb-4 group-hover:text-neon-yellow transition-colors duration-500 uppercase">
-          {service.name}
-        </h3>
-        
-        <p className="font-ibm text-sm font-light text-white/40 leading-relaxed mb-10 group-hover:text-white/60 transition-colors">
-          {service.tagline}
-        </p>
-        
-        <div className="flex items-center gap-4">
-          <div className="w-8 h-[1px] bg-white/10 group-hover:bg-neon-yellow group-hover:w-12 transition-all duration-500" />
-          <span className="font-ibm text-[9px] tracking-[0.4em] font-light uppercase text-white/30 group-hover:text-white/60">View Details</span>
+
+        {/* Content */}
+        <div className="relative z-10 h-full p-8 md:p-10 flex flex-col">
+          <div className="flex justify-between items-start mb-auto">
+             <div className="flex flex-col gap-1">
+                <div className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[7px] md:text-[8px] font-ibm tracking-[0.3em] uppercase text-creamy-white/40">
+                  DISCIPLINE.00{index + 1}
+                </div>
+                <div className={`h-[1px] bg-current transition-all duration-700 ${isHovered ? 'w-full' : 'w-4'} ${
+                  service.color === 'neon-yellow' ? 'text-neon-yellow' : 'text-white/20'
+                }`} />
+             </div>
+             
+             <motion.div 
+               animate={{ rotate: isHovered ? 90 : 0 }}
+               className={`w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-[10px] font-ibm transition-colors duration-500 ${isHovered ? 'border-neon-yellow/50 text-neon-yellow' : 'text-white/20'}`}
+             >
+                {service.icon}
+             </motion.div>
+          </div>
+          
+          <div className="space-y-4">
+            <h3 className="font-satoshi font-light text-2xl md:text-4xl text-white tracking-tight leading-none group-hover:text-neon-yellow transition-colors duration-500 uppercase">
+              {service.name}
+            </h3>
+            
+            <p className="font-ibm text-xs md:text-sm font-light text-white/40 leading-relaxed max-w-md group-hover:text-white/80 transition-colors duration-700">
+              {service.tagline}
+            </p>
+
+            <div className="flex items-center gap-4 pt-4">
+              <div className={`w-8 h-[1px] transition-all duration-500 group-hover:w-16 ${isHovered ? 'bg-neon-yellow' : 'bg-white/10'}`} />
+              <span className={`font-ibm text-[9px] tracking-[0.4em] font-light uppercase transition-colors duration-500 ${isHovered ? 'text-white' : 'text-white/30'}`}>View Details</span>
+            </div>
+          </div>
         </div>
+
+        {/* Scanning Line on hover */}
+        <AnimatePresence>
+          {isHovered && (
+            <motion.div
+              initial={{ top: '-10%' }}
+              animate={{ top: '110%' }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+              className="absolute left-0 right-0 h-[1px] bg-neon-yellow/30 shadow-[0_0_15px_rgba(204,255,0,0.5)] z-20 pointer-events-none"
+            />
+          )}
+        </AnimatePresence>
+
+        {/* HUD Elements */}
+        {index === 0 && (
+           <div className="absolute bottom-10 right-10 w-32 h-32 rounded-full border border-white/5 flex items-center justify-center hidden lg:flex pointer-events-none">
+              <div className="w-24 h-24 rounded-full border border-neon-yellow/5 animate-spin-slow flex items-center justify-center border-dashed">
+                 <div className="w-16 h-16 rounded-full border border-white/5 flex items-center justify-center">
+                    <div className="w-1 h-1 bg-neon-yellow rounded-full shadow-[0_0_8px_rgba(204,255,0,0.8)]" />
+                 </div>
+              </div>
+              <div className="absolute inset-0 flex items-center justify-center">
+                 <div className="w-[110%] h-[1px] bg-white/[0.03] rotate-45" />
+                 <div className="w-[110%] h-[1px] bg-white/[0.03] -rotate-45" />
+              </div>
+           </div>
+        )}
       </Link>
     </motion.div>
   );
@@ -578,27 +662,95 @@ function FeaturedProjectCard({ service, index }: { service: typeof services[0]; 
   );
 }
 
-function ProcessStep({ step, index }: { step: typeof processSteps[0]; index: number; }) {
+function PipelineWrapper() {
+  const [activeStep, setActiveStep] = useState(0);
+
+  return (
+    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+       {/* Preview Panel */}
+       <div className="lg:col-span-5 relative order-2 lg:order-1">
+          <div className="aspect-[4/3] rounded-[32px] overflow-hidden glass-panel p-2 shadow-2xl relative">
+             <div className="absolute inset-0 bg-neon-yellow/5 mix-blend-overlay z-10" />
+             <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeStep}
+                  initial={{ opacity: 0, scale: 1.1 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.7 }}
+                  className="w-full h-full bg-white/[0.02] flex items-center justify-center overflow-hidden rounded-2xl"
+                >
+                   {/* HUD Text for each step */}
+                   <div className="absolute top-10 left-10 flex flex-col gap-2 z-20">
+                      <span className="text-[10px] font-ibm text-neon-yellow tracking-[0.5em] uppercase">SYSTEM_CHECK // {processSteps[activeStep].label}</span>
+                      <div className="w-20 h-[1px] bg-neon-yellow/30" />
+                   </div>
+
+                   <div className="flex flex-col items-center gap-4 opacity-20">
+                      <div className="w-32 h-32 rounded-full border border-white/10 animate-spin-slow flex items-center justify-center">
+                         <span className="font-satoshi text-6xl font-light">{processSteps[activeStep].num}</span>
+                      </div>
+                      <span className="font-ibm text-[8px] tracking-[1em] uppercase">Processing Data</span>
+                   </div>
+                </motion.div>
+             </AnimatePresence>
+             
+             {/* Bottom Metadata */}
+             <div className="absolute bottom-10 left-10 right-10 flex justify-between items-end z-20">
+                <div className="flex flex-col gap-2">
+                   <div className="flex gap-1">
+                      {[...Array(5)].map((_, i) => (
+                        <div key={i} className="w-1 h-3 bg-neon-yellow/20" />
+                      ))}
+                   </div>
+                   <span className="text-[8px] font-ibm text-white/30 tracking-[0.2em] uppercase">Status: Optimal</span>
+                </div>
+                <div className="text-[10px] font-ibm text-neon-yellow/60 tracking-[0.2em] uppercase font-bold">Geometric // Pipeline</div>
+             </div>
+          </div>
+       </div>
+
+       {/* Steps Grid */}
+       <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 order-1 lg:order-2">
+          {processSteps.map((step, i) => (
+            <ProcessStep 
+              key={step.num} 
+              step={step} 
+              index={i} 
+              isActive={activeStep === i} 
+              onHover={() => setActiveStep(i)} 
+            />
+          ))}
+       </div>
+    </div>
+  );
+}
+
+function ProcessStep({ step, index, isActive, onHover }: { step: typeof processSteps[0]; index: number; isActive: boolean; onHover: () => void; }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-40px' });
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 20 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
+      onMouseEnter={onHover}
+      initial={{ opacity: 0, x: 20 }}
+      animate={inView ? { opacity: 1, x: 0 } : {}}
       transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-      className="relative group p-8 glass-panel border-white/5 hover:border-white/10 rounded-2xl transition-all duration-500 flex flex-col items-center justify-center text-center aspect-[4/5]"
+      data-cursor={isActive ? "ACTIVE" : "SELECT"}
+      className={`relative group p-6 rounded-3xl border transition-all duration-500 flex flex-col items-center justify-center text-center aspect-square cursor-pointer ${
+        isActive ? 'bg-white/[0.05] border-neon-yellow/30 shadow-[0_0_20px_rgba(204,255,0,0.05)]' : 'border-white/5 hover:border-white/10'
+      }`}
     >
-      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+      <div className={`absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent transition-opacity duration-700 ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} />
       
-      <div className="font-satoshi font-light text-5xl text-white/5 group-hover:text-neon-yellow/20 mb-6 transition-all duration-700 italic transform group-hover:scale-110">
+      <div className={`font-satoshi font-light text-4xl mb-4 transition-all duration-700 italic ${isActive ? 'text-neon-yellow' : 'text-white/5 group-hover:text-neon-yellow/20'}`}>
         {step.num}
       </div>
       
-      <div className="w-1.5 h-1.5 rounded-full bg-neon-yellow mb-6 shadow-[0_0_10px_rgba(204,255,0,0.5)] group-hover:scale-150 transition-transform duration-500" />
+      <div className={`w-1.5 h-1.5 rounded-full mb-4 transition-all duration-500 ${isActive ? 'bg-neon-yellow scale-150 shadow-[0_0_15px_rgba(204,255,0,0.8)]' : 'bg-white/10'}`} />
       
-      <h4 className="font-ibm font-light tracking-[0.2em] text-[10px] text-white/40 group-hover:text-white transition-colors uppercase">
+      <h4 className={`font-ibm font-light tracking-[0.2em] text-[9px] transition-colors uppercase ${isActive ? 'text-white' : 'text-white/40'}`}>
         {step.label}
       </h4>
     </motion.div>
