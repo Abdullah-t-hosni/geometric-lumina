@@ -1,4 +1,4 @@
-import { useRef, lazy, Suspense, useState } from 'react';
+import { useRef, lazy, Suspense, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { SectionReveal, StaggerReveal } from '@/components/ui/SectionReveal';
 import { AnimatePresence, motion, useInView, useScroll, useTransform } from 'framer-motion';
@@ -8,35 +8,43 @@ import logo5 from '@/assets/images/Logo-5.png';
 import ourCore from '@/assets/images/our core.jpg';
 import heroVideo from '@/assets/video/Geometric-video.mp4';
 
-const processSteps = [
-  { num: '01', label: 'Discovery' },
-  { num: '02', label: 'Concept' },
-  { num: '03', label: '3D Modeling' },
-  { num: '04', label: 'Simulation' },
-  { num: '05', label: 'Animation' },
-  { num: '06', label: 'Rendering' },
-  { num: '07', label: 'Delivery' },
-];
 
 const techStack = [
-  'Blender', 'Cinema 4D', 'Unreal Engine', 'Houdini', 'After Effects', 'Premiere Pro', 'ZBrush', 'Substance 3D', 'Midjourney', 'Stable Diffusion', 'DaVinci Resolve', 'Nuke',
+  { name: 'Blender', category: '3D/Modeling', spec: 'Cycles/Eevee' },
+  { name: 'Cinema 4D', category: 'Motion/Design', spec: 'Redshift' },
+  { name: 'Unreal Engine', category: 'Real-time/VR', spec: 'Lumen/Nanite' },
+  { name: 'Houdini', category: 'Simulation/FX', spec: 'Vellum/Pyro' },
+  { name: 'After Effects', category: 'Compositing', spec: 'Multi-Pass' },
+  { name: 'ZBrush', category: 'Sculpting', spec: 'Dynamesh' },
+  { name: 'Midjourney', category: 'Generative AI', spec: 'V6_PRO' },
+  { name: 'Nuke', category: 'High-End Comp', spec: 'Deep Comp' },
+];
+
+const clients = [
+  'TechCorp', 'ExpoGiant', 'PropDev', 'Lumina Group', 'Nexus Media', 'Aether Lux', 'Geometric Global'
 ];
 
 const testimonials = [
   {
     quote: "Geometric transformed our product launch with visuals that stopped people in their tracks. Pure cinematic quality.",
     author: "Ahmed Khalil",
-    role: "Marketing Director, TechCorp Egypt",
+    role: "Marketing Director",
+    project: "Launch_System_V4",
+    location: "Cairo_HQ"
   },
   {
     quote: "The booth design they created was the talk of the entire exhibition. Every detail was executed with surgical precision.",
     author: "Sara Mostafa",
-    role: "Brand Manager, ExpoGiant",
+    role: "Brand Manager",
+    project: "Exhibition_Architect",
+    location: "Global_Expo"
   },
   {
     quote: "Their VR environment exceeded every expectation. Our clients felt like they were actually inside the building.",
     author: "Omar Hassan",
-    role: "CEO, PropDev Developments",
+    role: "CEO, PropDev",
+    project: "Immersive_Habit",
+    location: "New_Capital"
   },
 ];
 
@@ -375,95 +383,97 @@ export default function Index() {
         </div>
       </section>
 
-      {/* ─── CINEMATIC FEATURED PROJECTS ────────────────── */}
-      <section className="py-32 md:py-48 px-6 relative">
-        <div className="absolute inset-0 bg-background pointer-events-none" />
-        <div className="absolute top-1/2 left-0 w-full h-[1px] bg-white/[0.02] -z-0" />
-        
-        <div className="max-w-[1400px] mx-auto relative z-10">
-          <SectionReveal>
-            <div className="flex flex-col items-center justify-center text-center mb-24">
-              <span className="text-[10px] font-ibm tracking-[0.4em] uppercase text-neon-yellow/80 block mb-6">Portfolio</span>
-              <h2 className="font-satoshi text-5xl md:text-7xl lg:text-8xl font-light text-white tracking-tighter leading-[0.9]">
-                Selected <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-white to-white/30">Masterpieces.</span>
-              </h2>
-            </div>
-          </SectionReveal>
+      {/* ─── CINEMATIC STICKY HORIZONTAL PORTFOLIO ────────────── */}
+      <PortfolioHorizontalSection />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            {services.slice(0, 4).map((service, i) => (
-              <FeaturedProjectCard key={service.id} service={service} index={i} />
-            ))}
-          </div>
-          
-          <div className="mt-24 text-center">
-             <Link to="/portfolio" className="group relative inline-flex items-center justify-center px-16 py-6 overflow-hidden rounded-full border border-white/10 backdrop-blur-md transition-all duration-500">
-                <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-                <span className="relative font-ibm text-[11px] tracking-[0.4em] uppercase text-creamy-white flex items-center gap-4">
-                  View Full Showcase <span className="text-neon-yellow group-hover:translate-x-2 transition-transform duration-500">→</span>
-                </span>
-             </Link>
-          </div>
-        </div>
-      </section>
 
-      {/* ─── PREMIUM PIPELINE TIMELINE ─────────────────── */}
-      <section className="py-40 px-6 bg-background relative overflow-hidden">
-        {/* Technical flow background */}
-        <div className="absolute left-1/2 top-0 w-[1px] h-full bg-gradient-to-b from-transparent via-white/5 to-transparent hidden lg:block" />
-        
-        <div className="max-w-[1400px] mx-auto">
-          <SectionReveal>
-            <div className="text-center mb-32">
-              <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-neon-yellow/60 block mb-6">Workflow Intelligence</span>
-              <h2 className="font-satoshi text-5xl md:text-7xl lg:text-8xl font-light text-white tracking-tighter">The <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow via-neon-yellow/80 to-creamy-white">Pipeline.</span></h2>
-            </div>
-          </SectionReveal>
-
-          <PipelineWrapper />
-        </div>
-      </section>
-
-      {/* ─── ELEGANT TECH STACK MARQUEE ───────────────────────── */}
-      <section className="py-20 bg-background border-y border-white/5 overflow-hidden whitespace-nowrap flex select-none relative">
+      {/* ─── CLIENT MARQUEE ───────────────────────── */}
+      <section className="py-12 bg-background border-y border-white/5 overflow-hidden whitespace-nowrap flex select-none relative">
         <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-background z-10 pointer-events-none" />
-        <div className="animate-marquee flex gap-24 items-center flex-shrink-0 opacity-20 grayscale hover:opacity-50 transition-opacity duration-1000">
-          {techStack.map((tech) => (
-             <span key={tech} className="font-satoshi font-light text-4xl text-white tracking-[0.1em] uppercase">{tech}</span>
+        <div className="animate-marquee flex gap-32 items-center flex-shrink-0 opacity-20 grayscale">
+          {clients.map((client) => (
+             <span key={client} className="font-ibm font-light text-xs text-white tracking-[0.5em] uppercase">{client} // Global_Partner</span>
           ))}
-          {techStack.map((tech) => (
-             <span key={`${tech}-2`} className="font-satoshi font-light text-4xl text-white tracking-[0.1em] uppercase">{tech}</span>
+          {clients.map((client) => (
+             <span key={`${client}-2`} className="font-ibm font-light text-xs text-white tracking-[0.5em] uppercase">{client} // Global_Partner</span>
           ))}
         </div>
       </section>
 
-      {/* ─── TESTIMONIALS ─────────────────────── */}
+      {/* ─── THE LABORATORY (TECH CORE) ───────────────── */}
+      <section className="py-40 px-6 bg-background relative overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,rgba(204,255,0,0.02)_0%,transparent_100%)]" />
+        <div className="max-w-[1400px] mx-auto relative z-10">
+           <div className="flex flex-col items-center text-center mb-24">
+              <span className="text-[10px] font-ibm tracking-[0.6em] text-neon-yellow mb-6 uppercase">System Capabilities</span>
+              <h2 className="font-satoshi text-5xl md:text-8xl font-light text-white tracking-tighter uppercase leading-none">
+                Technical <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-white/20">Laboratory.</span>
+              </h2>
+           </div>
+
+           <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/5 border border-white/5 rounded-[40px] overflow-hidden">
+              {techStack.map((tech, i) => (
+                <div key={i} className="group relative bg-background p-10 hover:bg-neon-yellow/[0.02] transition-colors duration-700">
+                  <div className="absolute top-4 right-4 text-[7px] font-ibm text-white/10 group-hover:text-neon-yellow/30 transition-colors tracking-widest uppercase">ID: 0{i+1}_NODE</div>
+                  <div className="flex flex-col gap-6">
+                    <div className="w-12 h-12 rounded-full border border-white/5 flex items-center justify-center group-hover:border-neon-yellow/20 transition-all duration-700 relative">
+                       <div className="w-1.5 h-1.5 bg-white/20 rounded-full group-hover:bg-neon-yellow transition-colors" />
+                       <div className="absolute inset-x-[-10px] h-px bg-white/5 group-hover:bg-neon-yellow/20 transition-all scale-x-0 group-hover:scale-x-100" />
+                    </div>
+                    <div>
+                      <h4 className="font-satoshi text-xl text-white tracking-wide group-hover:text-neon-yellow transition-colors mb-2 uppercase">{tech.name}</h4>
+                      <div className="flex flex-col gap-1 items-start text-[8px] font-ibm tracking-widest text-white/30 uppercase">
+                        <span className="group-hover:text-white/60 transition-colors">Category: {tech.category}</span>
+                        <span className="text-neon-yellow/40">Spec: {tech.spec}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+           </div>
+        </div>
+      </section>
+
+      {/* ─── ENHANCED TESTIMONIALS (PERFORMANCE REPORTS) ──────── */}
       <section className="py-40 px-6 relative bg-background">
         <div className="max-w-[1400px] mx-auto">
           <SectionReveal>
             <div className="flex flex-col items-center justify-center text-center mb-24">
-              <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-white/30 block mb-6">Industry Voice</span>
-              <h2 className="font-satoshi text-5xl md:text-7xl font-light text-white tracking-tighter italic">The <span className="text-neon-yellow">Verdict.</span></h2>
+              <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-white/30 block mb-6">Client Feedback // Secure_Log</span>
+              <h2 className="font-satoshi text-5xl md:text-7xl font-light text-white tracking-tighter uppercase">Operations <span className="italic text-neon-yellow">Analysis.</span></h2>
             </div>
           </SectionReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {testimonials.map((t, i) => (
               <SectionReveal key={i} delay={i * 0.15}>
                 <div className="relative group h-full">
-                  <div className="absolute inset-0 bg-neon-yellow blur-[50px] opacity-0 group-hover:opacity-[0.03] transition-opacity duration-1000" />
-                  <div className="glass-panel h-full rounded-2xl p-12 hover:border-white/20 transition-all duration-700 flex flex-col items-center text-center relative overflow-hidden">
-                    <div className="absolute top-0 right-0 p-8 font-ibm text-[8px] text-white/10 uppercase tracking-[0.5em] group-hover:text-neon-yellow/20">Ref. 00{i+1}</div>
-                    
-                    <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center mb-10 group-hover:border-neon-yellow/30 transition-all duration-700">
-                       <span className="text-neon-yellow/50 text-2xl group-hover:text-neon-yellow">"</span>
+                  <div className="glass-panel h-full rounded-[35px] p-10 border-white/5 hover:border-neon-yellow/20 transition-all duration-700 flex flex-col relative overflow-hidden bg-white/[0.01]">
+                    {/* Header HUD */}
+                    <div className="flex justify-between items-start mb-12">
+                       <div className="flex flex-col gap-1">
+                          <span className="text-[7px] font-ibm text-white/20 tracking-tighter uppercase">Report_Ref: GEOM_{i+1}</span>
+                          <span className="text-[7px] font-ibm text-neon-yellow tracking-tighter uppercase">Status: ENCRYPTED_OK</span>
+                       </div>
+                       <div className="w-4 h-4 border border-white/10 flex items-center justify-center">
+                          <div className="w-1 h-1 bg-neon-yellow animate-pulse" />
+                       </div>
                     </div>
                     
                     <p className="font-ibm text-creamy-white/60 text-lg leading-relaxed font-light mb-12 italic group-hover:text-creamy-white transition-colors duration-700">“{t.quote}”</p>
                     
-                    <div className="mt-auto">
-                      <div className="font-satoshi text-lg font-medium text-white tracking-tight mb-1">{t.author}</div>
-                      <div className="font-ibm text-[9px] text-white/30 uppercase tracking-[0.3em] font-light">{t.role}</div>
+                    <div className="mt-auto pt-8 border-t border-white/5">
+                       <div className="flex justify-between items-end">
+                          <div>
+                             <div className="font-satoshi text-lg font-medium text-white tracking-tight mb-1 uppercase">{t.author}</div>
+                             <div className="font-ibm text-[9px] text-white/30 uppercase tracking-[0.3em] font-light">{t.role}</div>
+                          </div>
+                          <div className="text-right">
+                             <div className="font-ibm text-[7px] text-neon-yellow/40 uppercase mb-1 tracking-widest">{t.project}</div>
+                             <div className="font-ibm text-[7px] text-white/10 uppercase tracking-widest">{t.location}</div>
+                          </div>
+                       </div>
                     </div>
                   </div>
                 </div>
@@ -473,29 +483,7 @@ export default function Index() {
         </div>
       </section>
 
-      {/* ─── PREMIUM FINAL CTA ──────────────────────────────── */}
-      <section className="py-52 px-6 flex items-center justify-center text-center bg-background relative overflow-hidden">
-        {/* Soft elegant glow behind CTA text */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-neon-yellow/[0.03] blur-[150px] rounded-full pointer-events-none" />
-        
-        <div className="max-w-4xl w-full relative z-10">
-          <SectionReveal>
-            <h2 className="font-satoshi text-6xl md:text-8xl lg:text-[140px] font-light text-white tracking-tighter leading-[0.85] mb-16">
-              Ready to <br/>
-              <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/50 glow-text-yellow px-4">Elevate.</span>
-            </h2>
-            <Link
-              to="/contact"
-              className="group relative inline-flex items-center justify-center px-16 py-7 overflow-hidden rounded-full transition-all duration-500"
-            >
-              <div className="absolute inset-0 bg-neon-yellow group-hover:scale-105 transition-transform duration-500" />
-              <span className="relative z-10 font-ibm font-medium text-[12px] tracking-[0.5em] uppercase text-background">
-                Start A Conversation
-              </span>
-            </Link>
-          </SectionReveal>
-        </div>
-      </section>
+   
     </div>
   );
 }
@@ -617,142 +605,190 @@ function ServiceCard({ service, index, className }: { service: typeof services[0
   );
 }
 
-function FeaturedProjectCard({ service, index }: { service: typeof services[0]; index: number }) {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-60px' });
+function PortfolioHorizontalSection() {
+  const targetRef = useRef(null);
+  const { scrollYProgress } = useScroll({ target: targetRef });
+  
+  // Use a state to detect desktop for the sticky effect
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const checkIsDesktop = () => setIsDesktop(window.innerWidth >= 1024);
+    checkIsDesktop();
+    window.addEventListener('resize', checkIsDesktop);
+    return () => window.removeEventListener('resize', checkIsDesktop);
+  }, []);
+
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-65%"]);
 
   return (
+    <section ref={targetRef} className={`relative bg-background ${isDesktop ? 'h-[300vh]' : 'py-20'}`}>
+      <div className={`${isDesktop ? 'sticky top-0 h-screen flex flex-col justify-center overflow-hidden' : 'px-6'}`}>
+        <div className="mb-12 max-w-[1400px] mx-auto w-full">
+           <SectionReveal>
+              <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
+                 <div>
+                    <div className="flex items-center gap-3 mb-4">
+                       <div className="w-12 h-px bg-neon-yellow shadow-[0_0_8px_rgba(204,255,0,0.5)]" />
+                       <span className="text-[10px] font-ibm tracking-[0.4em] uppercase text-neon-yellow">Showcase</span>
+                    </div>
+                    <h2 className="font-satoshi text-5xl md:text-8xl font-light text-white tracking-tighter leading-[0.9] uppercase">
+                       Selected <br />
+                       <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-white to-white/20">Masterpieces.</span>
+                    </h2>
+                 </div>
+                 
+                 {isDesktop && (
+                   <div className="hidden lg:block">
+                      <div className="flex flex-col items-end gap-2 pr-10 border-r border-white/10">
+                         <span className="text-[8px] font-ibm text-white/30 tracking-[0.5em] uppercase">Scroll Direction</span>
+                         <div className="flex items-center gap-4">
+                            <span className="text-[10px] font-ibm text-neon-yellow uppercase">Horizontal</span>
+                            <div className="w-20 h-px bg-gradient-to-r from-neon-yellow to-transparent" />
+                         </div>
+                      </div>
+                   </div>
+                 )}
+              </div>
+           </SectionReveal>
+        </div>
+
+        {isDesktop ? (
+          <motion.div style={{ x }} className="flex gap-8 px-6 lg:px-[10vw]">
+            {services.slice(0, 5).map((service, i) => (
+              <FeaturedProjectCard key={service.id} service={service} index={i} />
+            ))}
+            
+            {/* Final CTA Card */}
+            <div className="flex-shrink-0 w-[80vw] md:w-[400px] flex items-center justify-center">
+               <Link to="/portfolio" className="group flex flex-col items-center gap-6">
+                  <div className="w-24 h-24 rounded-full border border-white/10 flex items-center justify-center group-hover:border-neon-yellow/50 group-hover:bg-neon-yellow/5 transition-all duration-700">
+                     <span className="text-3xl text-white transform group-hover:translate-x-2 transition-transform duration-500">→</span>
+                  </div>
+                  <div className="text-center">
+                     <div className="font-ibm text-[10px] tracking-[0.5em] uppercase text-white/30 mb-2">Portfolio</div>
+                     <div className="font-satoshi text-xl text-white uppercase tracking-widest group-hover:text-neon-yellow transition-colors">View All Works</div>
+                  </div>
+               </Link>
+            </div>
+          </motion.div>
+        ) : (
+          <div className="flex flex-col gap-12">
+            {services.slice(0, 4).map((service, i) => (
+              <FeaturedProjectCard key={service.id} service={service} index={i} />
+            ))}
+            <div className="py-12 flex justify-center">
+              <Link to="/portfolio" className="group flex flex-col items-center gap-4">
+                <div className="w-16 h-16 rounded-full border border-neon-yellow/30 flex items-center justify-center">
+                   <span className="text-white">→</span>
+                </div>
+                <span className="font-ibm text-[10px] tracking-[0.4em] uppercase text-neon-yellow">View All Projects</span>
+              </Link>
+            </div>
+          </div>
+        )}
+
+        {/* Technical Progress Bar - Desktop Only */}
+        {isDesktop && (
+          <div className="absolute bottom-12 left-[10vw] right-[10vw] h-px bg-white/5 hidden md:block">
+             <motion.div 
+               className="absolute top-0 left-0 h-full bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]"
+               style={{ width: scrollYProgress }} 
+             />
+             <div className="absolute -top-6 left-0 font-ibm text-[7px] text-white/20 tracking-widest uppercase">System_Nav // Portfolio_01</div>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
+
+function FeaturedProjectCard({ service, index }: { service: typeof services[0]; index: number }) {
+  const [isHovered, setIsHovered] = useState(false);
+  
+  return (
     <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 40 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 1, delay: index * 0.2, ease: [0.16, 1, 0.3, 1] }}
+      className="flex-shrink-0 w-[85vw] md:w-[600px] lg:w-[800px] group"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
-      <Link to={`/portfolio`} className="group block relative w-full aspect-[16/10] sm:aspect-[4/3] rounded-3xl overflow-hidden glass-panel p-2">
-        <div className="w-full h-full rounded-2xl overflow-hidden relative">
-          <img
-            src={service.heroImage}
-            alt={service.name}
-            loading="lazy"
-            className="w-full h-full object-cover transform scale-[1.05] group-hover:scale-100 transition-transform duration-[1.5s] ease-out opacity-80 group-hover:opacity-100 grayscale-[0.5] group-hover:grayscale-0"
-          />
+      <Link to={`/portfolio`} className="block relative aspect-[16/9] rounded-[40px] overflow-hidden glass-panel p-2 transition-all duration-700 hover:p-3">
+        <div className="w-full h-full rounded-[32px] overflow-hidden relative">
           
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/10 to-transparent opacity-90 group-hover:opacity-60 transition-opacity duration-700" />
+          {/* Glitch-like image container */}
+          <div className="absolute inset-0 overflow-hidden">
+            <motion.img
+              src={service.heroImage}
+              alt={service.name}
+              animate={{ 
+                scale: isHovered ? 1.02 : 1.1,
+                x: isHovered ? [0, -2, 2, 0] : 0, // Micro glitch
+              }}
+              transition={{ 
+                scale: { duration: 1.5, ease: "easeOut" },
+                x: { duration: 0.2, repeat: isHovered ? Infinity : 0, repeatType: "mirror" }
+              }}
+              className="w-full h-full object-cover opacity-60 group-hover:opacity-100 grayscale-[0.8] group-hover:grayscale-0 transition-opacity duration-1000"
+            />
+          </div>
           
-          <div className="absolute top-8 right-8 flex items-center gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-             <div className="px-3 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-[8px] text-white font-ibm tracking-[0.2em] uppercase">Rendered 8K</div>
+          {/* HUD Brackets */}
+          <div className="absolute inset-8 pointer-events-none">
+             <div className="absolute top-0 left-0 w-8 h-8 border-t border-l border-white/20 transition-all duration-700 group-hover:border-neon-yellow group-hover:-translate-x-2 group-hover:-translate-y-2" />
+             <div className="absolute top-0 right-0 w-8 h-8 border-t border-r border-white/20 transition-all duration-700 group-hover:border-neon-yellow group-hover:translate-x-2 group-hover:-translate-y-2" />
+             <div className="absolute bottom-0 left-0 w-8 h-8 border-b border-l border-white/20 transition-all duration-700 group-hover:border-neon-yellow group-hover:-translate-x-2 group-hover:translate-y-2" />
+             <div className="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-white/20 transition-all duration-700 group-hover:border-neon-yellow group-hover:translate-x-2 group-hover:translate-y-2" />
           </div>
 
-          <div className="absolute bottom-10 left-10 right-10">
-            <div className="flex items-center gap-3 mb-4 opacity-70">
-               <div className="w-6 h-[1px] bg-neon-yellow" />
-               <span className="text-[9px] text-white font-ibm tracking-[0.3em] uppercase">{service.category}</span>
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80" />
+          
+          {/* Metadata corner */}
+          <div className="absolute top-10 right-10 flex flex-col items-end gap-2 translate-x-4 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-700">
+             <div className="px-3 py-1 rounded-sm bg-background/80 backdrop-blur-md border border-white/10 text-[7px] text-white font-ibm tracking-[0.2em] uppercase">Resolution: 8K_NATIVE</div>
+             <div className="px-3 py-1 rounded-sm bg-background/80 backdrop-blur-md border border-white/10 text-[7px] text-white font-ibm tracking-[0.2em] uppercase">Engine: RayTracing_MAX</div>
+          </div>
+
+          <div className="absolute bottom-12 left-12 right-12">
+            <div className="flex items-center gap-4 mb-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700 delay-100">
+               <span className="px-3 py-1 rounded-full bg-neon-yellow text-background text-[8px] font-ibm font-bold tracking-[0.2em] uppercase">Featured</span>
+               <span className="text-[10px] text-white/50 font-ibm tracking-[0.3em] uppercase">{service.category}</span>
             </div>
             
             <div className="flex items-end justify-between">
-               <h3 className="font-satoshi text-3xl md:text-4xl font-light text-white tracking-tighter transform group-hover:-translate-x-2 transition-transform duration-700">{service.name}</h3>
-               <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 group-hover:border-neon-yellow transition-all duration-700 ease-out">
-                 <span className="text-xl">↗</span>
+               <div className="max-w-xl">
+                  <h3 className="font-satoshi text-4xl md:text-6xl font-light text-white tracking-tighter leading-none mb-4 uppercase group-hover:text-neon-yellow transition-colors duration-500">
+                    {service.name}
+                  </h3>
+                  <div className={`h-[1px] bg-neon-yellow/30 transition-all duration-1000 ${isHovered ? 'w-full' : 'w-0'}`} />
+               </div>
+               
+               <div className="w-16 h-16 rounded-full border border-white/10 flex items-center justify-center text-white transform rotate-[-45deg] group-hover:rotate-0 group-hover:border-neon-yellow group-hover:text-neon-yellow transition-all duration-700 overflow-hidden relative">
+                  <motion.span 
+                    animate={isHovered ? { x: [0, 40, -40, 0] } : {}}
+                    transition={{ duration: 0.5 }}
+                    className="text-2xl"
+                  >
+                    →
+                  </motion.span>
                </div>
             </div>
           </div>
         </div>
+
+        {/* Scanning Line */}
+        <AnimatePresence>
+          {isHovered && (
+            <motion.div
+              initial={{ top: '-10%' }}
+              animate={{ top: '110%' }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 2.5, repeat: Infinity, ease: "linear" }}
+              className="absolute left-0 right-0 h-px bg-neon-yellow shadow-[0_0_15px_rgba(204,255,0,0.8)] z-20 pointer-events-none"
+            />
+          )}
+        </AnimatePresence>
       </Link>
     </motion.div>
   );
 }
 
-function PipelineWrapper() {
-  const [activeStep, setActiveStep] = useState(0);
-
-  return (
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-       {/* Preview Panel */}
-       <div className="lg:col-span-5 relative order-2 lg:order-1">
-          <div className="aspect-[4/3] rounded-[32px] overflow-hidden glass-panel p-2 shadow-2xl relative">
-             <div className="absolute inset-0 bg-neon-yellow/5 mix-blend-overlay z-10" />
-             <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeStep}
-                  initial={{ opacity: 0, scale: 1.1 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.7 }}
-                  className="w-full h-full bg-white/[0.02] flex items-center justify-center overflow-hidden rounded-2xl"
-                >
-                   {/* HUD Text for each step */}
-                   <div className="absolute top-10 left-10 flex flex-col gap-2 z-20">
-                      <span className="text-[10px] font-ibm text-neon-yellow tracking-[0.5em] uppercase">SYSTEM_CHECK // {processSteps[activeStep].label}</span>
-                      <div className="w-20 h-[1px] bg-neon-yellow/30" />
-                   </div>
-
-                   <div className="flex flex-col items-center gap-4 opacity-20">
-                      <div className="w-32 h-32 rounded-full border border-white/10 animate-spin-slow flex items-center justify-center">
-                         <span className="font-satoshi text-6xl font-light">{processSteps[activeStep].num}</span>
-                      </div>
-                      <span className="font-ibm text-[8px] tracking-[1em] uppercase">Processing Data</span>
-                   </div>
-                </motion.div>
-             </AnimatePresence>
-             
-             {/* Bottom Metadata */}
-             <div className="absolute bottom-10 left-10 right-10 flex justify-between items-end z-20">
-                <div className="flex flex-col gap-2">
-                   <div className="flex gap-1">
-                      {[...Array(5)].map((_, i) => (
-                        <div key={i} className="w-1 h-3 bg-neon-yellow/20" />
-                      ))}
-                   </div>
-                   <span className="text-[8px] font-ibm text-white/30 tracking-[0.2em] uppercase">Status: Optimal</span>
-                </div>
-                <div className="text-[10px] font-ibm text-neon-yellow/60 tracking-[0.2em] uppercase font-bold">Geometric // Pipeline</div>
-             </div>
-          </div>
-       </div>
-
-       {/* Steps Grid */}
-       <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 order-1 lg:order-2">
-          {processSteps.map((step, i) => (
-            <ProcessStep 
-              key={step.num} 
-              step={step} 
-              index={i} 
-              isActive={activeStep === i} 
-              onHover={() => setActiveStep(i)} 
-            />
-          ))}
-       </div>
-    </div>
-  );
-}
-
-function ProcessStep({ step, index, isActive, onHover }: { step: typeof processSteps[0]; index: number; isActive: boolean; onHover: () => void; }) {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-40px' });
-
-  return (
-    <motion.div
-      ref={ref}
-      onMouseEnter={onHover}
-      initial={{ opacity: 0, x: 20 }}
-      animate={inView ? { opacity: 1, x: 0 } : {}}
-      transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-      data-cursor={isActive ? "ACTIVE" : "SELECT"}
-      className={`relative group p-6 rounded-3xl border transition-all duration-500 flex flex-col items-center justify-center text-center aspect-square cursor-pointer ${
-        isActive ? 'bg-white/[0.05] border-neon-yellow/30 shadow-[0_0_20px_rgba(204,255,0,0.05)]' : 'border-white/5 hover:border-white/10'
-      }`}
-    >
-      <div className={`absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent transition-opacity duration-700 ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} />
-      
-      <div className={`font-satoshi font-light text-4xl mb-4 transition-all duration-700 italic ${isActive ? 'text-neon-yellow' : 'text-white/5 group-hover:text-neon-yellow/20'}`}>
-        {step.num}
-      </div>
-      
-      <div className={`w-1.5 h-1.5 rounded-full mb-4 transition-all duration-500 ${isActive ? 'bg-neon-yellow scale-150 shadow-[0_0_15px_rgba(204,255,0,0.8)]' : 'bg-white/10'}`} />
-      
-      <h4 className={`font-ibm font-light tracking-[0.2em] text-[9px] transition-colors uppercase ${isActive ? 'text-white' : 'text-white/40'}`}>
-        {step.label}
-      </h4>
-    </motion.div>
-  );
-}

@@ -204,22 +204,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* PREMIUM FINAL CTA */}
-      <section className="py-52 px-6 text-center relative bg-background overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-neon-yellow/[0.03] blur-[150px] rounded-full pointer-events-none" />
-        <SectionReveal>
-          <h2 className="font-satoshi text-6xl md:text-8xl lg:text-[140px] font-light text-white mb-16 tracking-tighter leading-[0.85]">
-            Shape your <br />
-            <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/40 glow-text-yellow px-4">Reality.</span>
-          </h2>
-          <Link to="/contact" className="group relative inline-flex items-center justify-center px-16 py-7 overflow-hidden rounded-full transition-all duration-500">
-            <div className="absolute inset-0 bg-neon-yellow group-hover:scale-105 transition-transform duration-500" />
-            <span className="relative z-10 font-ibm font-medium text-[12px] tracking-[0.5em] uppercase text-background">
-              Start The Journey
-            </span>
-          </Link>
-        </SectionReveal>
-      </section>
+ 
     </div>
   );
 }
