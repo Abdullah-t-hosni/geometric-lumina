@@ -15,6 +15,11 @@ import servicesImg from '@/assets/images/Services.jpeg';
 import img10 from '@/assets/images/10.jpeg';
 import img6 from '@/assets/images/6.jpeg';
 
+export interface ServiceStat {
+  label: string;
+  value: string;
+}
+
 export interface Service {
   id: string;
   slug: string;
@@ -26,7 +31,9 @@ export interface Service {
   color: string;
   image: string;
   heroImage: string;
+  gallery?: string[];
   icon: string;
+  stats: ServiceStat[];
 }
 
 export const services: Service[] = [
@@ -42,11 +49,17 @@ export const services: Service[] = [
     image: motionGraphics,
     heroImage: motionGraphics,
     icon: '▶',
+    stats: [
+      { label: 'Framerate', value: '120 FPS' },
+      { label: 'Resolution', value: 'Dynamic 4K' },
+      { label: 'Bitrate', value: 'Long-GOP 10-Bit' },
+      { label: 'Motion', value: 'Non-Linear' }
+    ]
   },
   {
     id: '2',
     slug: 'product-visualization',
-    name: 'Product Visualization & Animation',
+    name: 'Product Visualization',
     tagline: 'Every product deserves a cinematic spotlight.',
     description: "Whether your product is still in concept or already on shelves, it deserves a cinematic spotlight. Every reflection, texture, and movement is designed to make it look irresistible on screen.",
     deliverables: ['360° product renders', 'Exploded views', 'Material animations', 'Packaging visualization', 'Commercial-ready shots', 'Lifestyle compositions'],
@@ -54,20 +67,34 @@ export const services: Service[] = [
     color: 'neon-yellow',
     image: productVisualization,
     heroImage: productVisualization,
+    gallery: [productVisualization, microVisualization],
     icon: '◈',
+    stats: [
+      { label: 'Precision', value: '0.001mm' },
+      { label: 'Texture', value: '8K PBR' },
+      { label: 'Lighting', value: 'Raytraced' },
+      { label: 'Engine', value: 'Octane/Redshift' }
+    ]
   },
   {
     id: '3',
     slug: 'booth-exhibition-design',
     name: 'Booth & Exhibition Design',
     tagline: 'Every booth we create is an experience.',
-    description: "Every booth we create is more than a space — it's an experience. We design environments that attract attention, tell stories and connect brands with their audience through form, light, and motion. From structure to detail, every element is crafted to reflect identity, enhance interaction and leave a lasting impression.",
+    description: "Every booth we create is more than a space — it's an experience. We design environments that attract attention, tell stories and connect brands with their audience through form, light, and motion.",
     deliverables: ['Interior design concepts', 'Exterior design renders', 'Technical drawings', 'Structural planning', 'Lighting design', 'Material specifications'],
     category: 'Booth Design',
     color: 'coral-red',
     image: boothDesign,
     heroImage: technicalDrawing,
+    gallery: [boothDesign, technicalDrawing],
     icon: '⬡',
+    stats: [
+      { label: 'Scale', value: '1:1 Reality' },
+      { label: 'Specs', value: 'ISO 9001' },
+      { label: 'Logic', value: 'Structural' },
+      { label: 'Design', value: 'Ergonomic' }
+    ]
   },
   {
     id: '4',
@@ -81,6 +108,12 @@ export const services: Service[] = [
     image: socialMedia,
     heroImage: socialMedia,
     icon: '◉',
+    stats: [
+      { label: 'Aspect', value: '9:16 / 4:5' },
+      { label: 'Impact', value: 'Retention 85%+' },
+      { label: 'Frequency', value: 'High-Output' },
+      { label: 'Style', value: 'Minimalist' }
+    ]
   },
   {
     id: '5',
@@ -94,19 +127,32 @@ export const services: Service[] = [
     image: anamorphicScreens,
     heroImage: anamorphicScreens,
     icon: '◧',
+    stats: [
+      { label: 'Dimension', value: 'Hyper-3D' },
+      { label: 'Sync', value: 'LED Clock' },
+      { label: 'FOV', value: 'Fixed Point' },
+      { label: 'Scale', value: '8K Master' }
+    ]
   },
   {
     id: '6',
     slug: 'simulations',
     name: 'Simulations',
-    tagline: 'Chaos has its own rhythm. We bend the rules of reality.',
+    tagline: 'Chaos has its own rhythm.',
     description: "Chaos has its own rhythm. Fire burns, smoke dances, fluids collide — and even wires can move like clouds. We bend the rules of reality, shaping the impossible into motion.",
     deliverables: ['Fire & smoke simulations', 'Fluid dynamics', 'Cloth & soft body', 'Particle systems', 'Destruction effects', 'Environmental FX'],
     category: 'CGI',
     color: 'coral-red',
     image: simulations,
     heroImage: img6,
+    gallery: [simulations, img6],
     icon: '◌',
+    stats: [
+      { label: 'Solver', value: 'Vellum/Pyro' },
+      { label: 'Density', value: '1B+ Particles' },
+      { label: 'Logic', value: 'Physics-Based' },
+      { label: 'Software', value: 'Houdini FX' }
+    ]
   },
   {
     id: '7',
@@ -119,7 +165,14 @@ export const services: Service[] = [
     color: 'sky-blue',
     image: architecturalVisualization,
     heroImage: servicesImg,
+    gallery: [architecturalVisualization, servicesImg],
     icon: '⬚',
+    stats: [
+      { label: 'Accuracy', value: 'BIM Level 3' },
+      { label: 'Context', value: 'Geo-Spatial' },
+      { label: 'Light', value: 'True-Lumen' },
+      { label: 'Speed', value: 'Real-time UE5' }
+    ]
   },
   {
     id: '8',
@@ -133,6 +186,12 @@ export const services: Service[] = [
     image: microVisualization,
     heroImage: microVisualization,
     icon: '⬤',
+    stats: [
+      { label: 'Macro', value: '2000X Digital' },
+      { label: 'Subsurface', value: 'SSS-Shader' },
+      { label: 'Accuracy', value: 'Atomic-Scale' },
+      { label: 'Focus', value: 'Macro-Depth' }
+    ]
   },
   {
     id: '9',
@@ -146,6 +205,12 @@ export const services: Service[] = [
     image: vrEnvironments,
     heroImage: vrEnvironments,
     icon: '⬣',
+    stats: [
+      { label: 'Latence', value: '< 20ms' },
+      { label: 'Platform', value: 'Oculus/Vive' },
+      { label: 'Audio', value: 'Spatial 3D' },
+      { label: 'Refresh', value: '90Hz Stable' }
+    ]
   },
   {
     id: '10',
@@ -158,33 +223,52 @@ export const services: Service[] = [
     color: 'sky-blue',
     image: cgiCompositing,
     heroImage: img10,
+    gallery: [cgiCompositing, img10],
     icon: '⬟',
+    stats: [
+      { label: 'Deep', value: 'EXR 32-Bit' },
+      { label: 'Key', value: 'Delta-Stellar' },
+      { label: 'Space', value: 'ACES-cg' },
+      { label: 'Soft', value: 'Nuke Studio' }
+    ]
   },
   {
     id: '11',
     slug: '3d-scanning',
     name: '3D Scanning',
     tagline: 'Every curve, every imperfection captured perfectly.',
-    description: "Every curve, every imperfection captured perfectly. 3D scanning bridges the physical and digital, turning real objects into detailed assets ready for visualization, animation, or preservation.",
+    description: "Every curve, every imperfection captured perfectly. 3D scanning bridges the physical and digital, turning real objects into detailed assets ready for visualization.",
     deliverables: ['High-res 3D scans', 'Mesh cleanup', 'Texture mapping', 'Heritage preservation', 'Product digitization', 'CAD-ready models'],
     category: 'Product Visualization',
     color: 'coral-red',
     image: threeDScanning,
     heroImage: threeDScanning,
     icon: '◍',
+    stats: [
+      { label: 'Points', value: '50M+ Cloud' },
+      { label: 'Texture', value: 'Photogrammetry' },
+      { label: 'Output', value: 'Retopologized' },
+      { label: 'Tolerance', value: '±0.1mm' }
+    ]
   },
   {
     id: '12',
     slug: 'ai-content-production',
     name: 'AI Content Production',
     tagline: 'AI tools integrated into our pipeline.',
-    description: "AI tools are integrated into our pipeline to speed up workflows, refine details and enhance visuals without compromising quality or craftsmanship. We also offer a dedicated section for fully AI-generated content, exploring bold new directions in motion and design.",
+    description: "AI tools are integrated into our pipeline to speed up workflows, refine details and enhance visuals without compromising quality or craftsmanship.",
     deliverables: ['AI-generated imagery', 'AI video production', 'Prompt engineering', 'Style transfer', 'AI-enhanced compositing', 'Generative design assets'],
     category: 'AI Content',
     color: 'neon-yellow',
     image: aiProduction,
     heroImage: aiProduction,
     icon: '◎',
+    stats: [
+      { label: 'Model', value: 'Flux/MJ/SD' },
+      { label: 'Upscale', value: '4X Neural' },
+      { label: 'Iterate', value: 'Rapid Proto' },
+      { label: 'Custom', value: 'LoRA Trained' }
+    ]
   },
 ];
 
