@@ -198,22 +198,6 @@ export default function PortfolioProject() {
         </section>
       )}
 
-      {/* Cinematic Final CTA */}
-      <section className="py-52 px-6 text-center bg-background relative overflow-hidden z-10 border-t border-white/5">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-neon-yellow/[0.03] blur-[150px] rounded-full pointer-events-none" />
-        <SectionReveal>
-          <h2 className="font-ibm text-[11vw] xs:text-5xl md:text-8xl lg:text-[140px] font-light text-white mb-12 md:mb-16 tracking-tighter leading-[1] md:leading-[0.85] uppercase">
-            Let's Shape <br className="hidden sm:block" />
-            <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/40 glow-text-yellow block sm:inline mt-2 sm:mt-0">Your Reality.</span>
-          </h2>
-          <Link to="/contact" className="group relative inline-flex items-center justify-center px-16 py-7 overflow-hidden rounded-full transition-all duration-500">
-            <div className="absolute inset-0 bg-neon-yellow group-hover:scale-105 transition-transform duration-500" />
-            <span className="relative z-10 font-ibm font-medium text-[12px] tracking-[0.5em] uppercase text-background">
-              Initiate New Protocol
-            </span>
-          </Link>
-        </SectionReveal>
-      </section>
     </div>
   );
 }

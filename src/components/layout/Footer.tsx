@@ -1,7 +1,10 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Logo } from '@/components/Logo';
-import { Instagram, Twitter, Linkedin } from 'lucide-react';
+import { SectionReveal } from '@/components/ui/SectionReveal';
+import { Instagram, Twitter, Linkedin, ArrowRight, ExternalLink, ShieldCheck, Activity } from 'lucide-react';
+
+// ... (TikTok and Pinterest icons remain the same)
 
 const TikTokIcon = ({ size = 24, className = "" }: { size?: number; className?: string }) => (
   <svg viewBox="0 0 24 24" fill="currentColor" width={size} height={size} className={className}>
@@ -34,84 +37,119 @@ const pageLinks = [
 ];
 
 export default function Footer() {
+  const location = useLocation();
+  const isContactPage = location.pathname === '/contact';
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer role="contentinfo" aria-label="Geometric Studio site footer" className="relative bg-background overflow-hidden pt-20 pb-12 z-10 border-t border-white/5">
-      {/* Background Ambience */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-      <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-neon-yellow/[0.03] blur-[100px] rounded-full pointer-events-none" />
+    <footer role="contentinfo" aria-label="Geometric Studio site footer" className="relative bg-background overflow-hidden pb-12 z-10">
+      {/* Decorative Technical Borders */}
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      <div className="absolute top-[1px] left-0 w-full h-[400px] bg-gradient-to-b from-white/[0.02] to-transparent pointer-events-none" />
       
-      <div className="max-w-[1400px] mx-auto px-6 relative z-10">
-        {/* Cinematic CTA / Brand Message */}
-        <div className="py-24 border-b border-white/5 flex flex-col items-center text-center">
-           <motion.div 
-             initial={{ opacity: 0, y: 20 }}
-             whileInView={{ opacity: 1, y: 0 }}
-             transition={{ duration: 0.8 }}
-             className="space-y-6"
-           >
-              <h2 className="font-ibm text-5xl md:text-8xl font-light text-white tracking-tighter uppercase leading-none">
-                Let's <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-white/40 glow-text-yellow px-4">Transform</span> Your Vision.
-              </h2>
-              <p className="font-ibm text-sm text-white/30 uppercase tracking-[0.4em] font-light">
-                Engineering Cinematic Realities • Globally Managed
-              </p>
-              <div className="pt-8">
-                 <Link to="/contact" className="inline-flex items-center gap-4 text-[11px] font-ibm tracking-[0.5em] text-white hover:text-neon-yellow transition-all duration-500 uppercase group">
-                    Start A New Project
-                    <span className="w-12 h-[1px] bg-white/20 group-hover:bg-neon-yellow group-hover:w-20 transition-all duration-500" />
+      {/* Premium Ambient Glows */}
+      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-deep-teal/10 rounded-full blur-[120px] mix-blend-screen pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-neon-yellow/[0.03] rounded-full blur-[100px] mix-blend-screen pointer-events-none" />
+
+      <div className="max-w-[1440px] mx-auto px-6 relative z-10">
+        
+        {/* Cinematic Master CTA */}
+        {!isContactPage && (
+          <section className="pt-32 pb-48 border-b border-white/5 relative text-center">
+            <SectionReveal>
+              <div className="flex flex-col items-center group">
+                 <div className="flex items-center gap-3 mb-10">
+                    <div className="w-8 h-[1px] bg-neon-yellow/30" />
+                    <span className="text-[10px] font-ibm tracking-[0.4em] uppercase text-neon-yellow/60">Creative Engine 2.5_OK</span>
+                    <div className="w-8 h-[1px] bg-neon-yellow/30" />
+                 </div>
+
+                 <Link to="/contact" className="relative inline-block">
+                    <h2 className="font-ibm text-5xl md:text-8xl lg:text-9xl font-light text-white tracking-tighter leading-[0.85] uppercase transition-all duration-700 hover:tracking-tight cursor-pointer">
+                      Let's Build <br />
+                      <span className="font-black italic text-transparent bg-clip-text bg-gradient-to-r from-white via-neon-yellow to-white/20 glow-text-yellow px-4">The Future.</span>
+                    </h2>
+                    <div className="mt-16 flex items-center justify-center gap-6 group-hover:gap-10 transition-all duration-500">
+                       <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group-hover:border-neon-yellow group-hover:bg-neon-yellow group-hover:text-background transition-all duration-500">
+                          <ArrowRight size={20} strokeWidth={1} />
+                       </div>
+                       <span className="text-[11px] font-ibm tracking-[0.5em] text-white/40 group-hover:text-neon-yellow uppercase transition-colors">Initiate Project Sequence</span>
+                    </div>
                  </Link>
               </div>
-           </motion.div>
-        </div>
+            </SectionReveal>
+          </section>
+        )}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16 py-24">
-          {/* Brand & Mission */}
-          <div className="lg:col-span-4 space-y-10">
-            <Link to="/" className="inline-block group" aria-label="Geometric Studio — Go to homepage">
-               <div className="flex items-center gap-4">
-                  <Logo className="h-10 md:h-12" />
-                  <div className="flex flex-col">
-                    <span className="font-ibm text-[10px] font-light text-white/20 tracking-[0.5em] uppercase">Visual_Node</span>
-                    <span className="font-ibm text-[10px] font-light text-neon-yellow/40 tracking-[0.5em] uppercase italic">Studio_Protocol_2.1</span>
-                  </div>
+        {/* Main Links & Metadata Infrastructure */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-20 py-32 border-b border-white/5">
+          
+          {/* Identity & Legal Node */}
+          <div className="lg:col-span-5 space-y-12 text-left">
+            <div>
+              <Link to="/" className="inline-flex items-center gap-5 group">
+                <Logo className="h-12 w-auto group-hover:rotate-12 transition-transform duration-700" />
+                <div className="flex flex-col border-l border-white/10 pl-5 text-left">
+                  <span className="font-ibm text-lg font-bold text-white tracking-widest uppercase">Geometric</span>
+                  <span className="font-ibm text-[8px] text-neon-yellow tracking-[0.5em] uppercase italic opacity-60">Visual_Intelligence_Studio</span>
+                </div>
+              </Link>
+              <p className="mt-8 font-ibm text-xs md:text-sm text-white/30 leading-relaxed font-light max-w-sm tracking-tight text-left">
+                A high-precision creative laboratory engineering the next generation of 3D visualization, cinematic motion design, and high-impact digital experiences.
+              </p>
+            </div>
+
+            {/* Verification Metadata */}
+            <div className="flex flex-wrap gap-10 p-6 rounded-2xl bg-white/[0.02] border border-white/5 w-fit">
+               <div className="space-y-2">
+                  <span className="block text-[7px] font-ibm text-white/20 uppercase tracking-widest flex items-center gap-2">
+                     <ShieldCheck size={8} className="text-neon-yellow" /> Status: Certified
+                  </span>
+                  <span className="block font-ibm text-[9px] text-white/40 tracking-widest uppercase">CR. 17195_EG</span>
                </div>
-            </Link>
-            <p className="font-ibm text-xs text-white/30 leading-relaxed font-light max-w-xs pl-16">
-              A creative laboratory specialized in high-end 3D visualization, motion design, and anamorphic displays. Precision engineering for the cinematic age.
-            </p>
-            <div className="flex flex-wrap gap-4 pl-16" aria-label="Social media links">
+               <div className="space-y-2">
+                  <span className="block text-[7px] font-ibm text-white/20 uppercase tracking-widest flex items-center gap-2">
+                     <Activity size={8} className="text-neon-yellow" /> System: Stable
+                  </span>
+                  <span className="block font-ibm text-[9px] text-white/40 tracking-widest uppercase">TAX. 763211966</span>
+               </div>
+            </div>
+
+            {/* Enhanced Social Hub */}
+            <div className="flex flex-wrap gap-3">
               {[
-                { icon: Instagram, label: 'Instagram', href: 'https://instagram.com/geometric_studios' },
-                { icon: Twitter, label: 'X (Twitter)', href: 'https://x.com/geometric_stud' },
-                { icon: Linkedin, label: 'LinkedIn', href: 'https://linkedin.com/company/geometric-studios' },
-                { icon: TikTokIcon, label: 'TikTok', href: 'https://www.tiktok.com/@geometric_studios' },
-                { icon: PinterestIcon, label: 'Pinterest', href: 'https://pinterest.com/geometric_studios' }
+                { icon: Instagram, label: 'IG', href: 'https://instagram.com/geometric_studios' },
+                { icon: Twitter, label: 'X', href: 'https://x.com/geometric_stud' },
+                { icon: Linkedin, label: 'IN', href: 'https://linkedin.com/company/geometric-studios' },
+                { icon: TikTokIcon, label: 'TK', href: 'https://www.tiktok.com/@geometric_studios' },
+                { icon: PinterestIcon, label: 'PT', href: 'https://pinterest.com/geometric_studios' }
               ].map((social) => (
                 <a
                   key={social.label}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={`Follow Geometric Studio on ${social.label}`}
-                  className="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center text-white/20 hover:border-neon-yellow/40 hover:text-neon-yellow transition-all duration-500 hover:bg-neon-yellow/5"
+                  className="w-12 h-12 rounded-xl border border-white/5 flex items-center justify-center text-white/20 hover:border-neon-yellow/30 hover:text-neon-yellow hover:bg-neon-yellow/[0.03] transition-all duration-500 group/social"
                 >
-                  <social.icon size={18} strokeWidth={1.5} />
+                  <social.icon size={18} strokeWidth={1.5} className="group-hover/social:scale-110 transition-transform" />
                 </a>
               ))}
             </div>
           </div>
 
-          {/* Links Grid */}
-          <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-3 gap-12 lg:pl-12">
-            <div>
-               <div className="flex items-center gap-2 mb-8">
-                  <div className="w-1 h-1 rounded-full bg-neon-yellow shadow-[0_0_5px_rgba(204,255,0,0.5)]" />
-                  <span className="text-[10px] font-ibm tracking-[0.4em] text-neon-yellow/40 uppercase">Navigation</span>
-               </div>
-               <ul className="space-y-4">
+          {/* Links Grid Architecture */}
+          <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-16 text-left">
+            
+            {/* Nav Node */}
+            <div className="space-y-10">
+               <h4 className="font-ibm text-[9px] tracking-[0.5em] text-white/20 uppercase flex items-center gap-3">
+                  <div className="w-1.5 h-px bg-neon-yellow" /> Navigator_1.0
+               </h4>
+               <ul className="space-y-5 text-left">
                 {pageLinks.map((link) => (
                   <li key={link.href}>
-                    <Link to={link.href} className="text-xs text-white/30 font-ibm font-light hover:text-white transition-all duration-300">
+                    <Link to={link.href} className="group flex items-center gap-3 text-[11px] text-white/40 font-ibm font-light hover:text-white transition-all">
+                      <span className="w-0 h-px bg-neon-yellow group-hover:w-4 transition-all duration-500" />
                       {link.label}
                     </Link>
                   </li>
@@ -119,54 +157,99 @@ export default function Footer() {
               </ul>
             </div>
 
-            <div>
-               <div className="flex items-center gap-2 mb-8">
-                  <div className="w-1 h-1 rounded-full bg-white/20 shadow-[0_0_5px_rgba(255,255,255,0.2)]" />
-                  <span className="text-[10px] font-ibm tracking-[0.4em] text-white/20 uppercase">Capabilities</span>
-               </div>
-               <ul className="space-y-4">
-                {serviceLinks.slice(0, 5).map((link) => (
+            {/* Capability Node */}
+            <div className="space-y-10">
+               <h4 className="font-ibm text-[9px] tracking-[0.5em] text-white/20 uppercase flex items-center gap-3">
+                  <div className="w-1.5 h-px bg-neon-yellow" /> Capacities_2.4
+               </h4>
+               <ul className="space-y-5 text-left">
+                {serviceLinks.map((link) => (
                   <li key={link.href}>
-                    <Link to={link.href} className="text-xs text-white/30 font-ibm font-light hover:text-white transition-all duration-300 italic">
-                      • {link.label}
+                    <Link to={link.href} className="group flex items-center gap-3 text-[10px] text-white/30 font-ibm font-light hover:text-neon-yellow/80 transition-all uppercase tracking-wider">
+                      <ExternalLink size={10} className="text-white/10 group-hover:text-neon-yellow transition-colors" />
+                      {link.label}
                     </Link>
                   </li>
                 ))}
               </ul>
             </div>
 
+            {/* Location & Contact Node */}
             <div className="space-y-10">
-               <div>
-                  <span className="block text-[10px] font-ibm tracking-[0.4em] text-white/20 uppercase mb-8">Status</span>
-                  <div className="space-y-4 text-xs font-ibm font-light text-white/40 italic">
-                     <p className="pb-2 border-b border-white/[0.03]">
-                       <span className="text-neon-yellow/40">•</span> Studio_Protocol: ACTIVE
+               <h4 className="font-ibm text-[9px] tracking-[0.5em] text-white/20 uppercase flex items-center gap-3">
+                  <div className="w-1.5 h-px bg-neon-yellow" /> Connection_Pnt
+               </h4>
+               <div className="space-y-8">
+                  <div className="group text-left">
+                     <span className="block text-[8px] text-white/10 uppercase tracking-widest mb-1 text-left uppercase">HQ_Cairo_EG</span>
+                     <p className="font-ibm text-[11px] text-white/50 font-light leading-relaxed group-hover:text-white transition-colors text-left">
+                        Zayed City, Giza<br />
+                        Egypt Terminal
                      </p>
-                     <p className="pb-2 border-b border-white/[0.03]">
-                       <span className="text-neon-yellow/40">•</span> Secure_Link: ESTABLISHED
-                     </p>
-                     <p className="pb-2 border-b border-white/[0.03]">
-                       <span className="text-neon-yellow/40">•</span> Output_Node: GLOBAL
-                     </p>
+                  </div>
+                  <div className="group text-left">
+                     <span className="block text-[8px] text-white/10 uppercase tracking-widest mb-1 text-left">Direct_Node</span>
+                     <div className="text-left">
+                       <a href="mailto:geometric3dadv@gmail.com" className="font-ibm text-[11px] text-neon-yellow/60 underline underline-offset-4 hover:text-neon-yellow transition-colors">
+                          geometric3dadv@gmail.com
+                       </a>
+                     </div>
                   </div>
                </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6">
+        {/* Bottom System Readout Bar */}
+        <div className="pt-16 border-t border-white/5">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
+            
+            {/* Left Zone: Rights & Credits */}
+            <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10">
+              <div className="flex flex-col gap-1 items-center md:items-start">
+                <span className="text-[10px] text-white/40 font-ibm tracking-[0.2em] uppercase font-medium">© {currentYear} GEOMETRIC STUDIO PROTOCOL</span>
+                <span className="text-[8px] text-white/10 font-ibm tracking-[0.1em] uppercase">All rights reserved • Cinematic Intelligence Unit</span>
+              </div>
+              
+              <div className="w-px h-8 bg-white/5 hidden md:block" />
+              
+              <div className="flex flex-col gap-1 items-center md:items-start group">
+                 <span className="text-[8px] text-white/10 font-ibm tracking-[0.3em] uppercase">Design & Dev By</span>
+                 <a href="tel:+201099422002" className="text-[10px] text-white/30 font-ibm tracking-[0.2em] uppercase hover:text-neon-yellow transition-all duration-300 flex items-center gap-2">
+                   Abdullah t.hosni
+                   <div className="w-1 h-1 rounded-full bg-neon-yellow/40 group-hover:bg-neon-yellow transition-colors" />
+                 </a>
+              </div>
+            </div>
+
+            {/* Middle Zone: Coordinate HUD (Desktop Only) */}
+            <div className="hidden lg:flex items-center gap-8 px-10 border-x border-white/5">
+               <div className="flex flex-col gap-1">
+                  <span className="text-[7px] text-white/10 uppercase tracking-[0.5em]">Global_Loc</span>
+                  <div className="flex items-center gap-3 text-[9px] text-white/20 font-ibm tracking-[0.2em]">
+                     <span>30.0444° N</span>
+                     <div className="w-[1px] h-2 bg-white/5" />
+                     <span>31.2357° E</span>
+                  </div>
+               </div>
+               <div className="flex flex-col gap-1">
+                  <span className="text-[7px] text-white/10 uppercase tracking-[0.5em]">Terminal_Ref</span>
+                  <span className="text-[9px] text-neon-yellow/20 font-ibm tracking-[0.3em]">GEOM_SVR_01</span>
+               </div>
+            </div>
+
+           {/* Right Zone: System Status */}
            <div className="flex items-center gap-8">
-              <span className="text-[9px] text-white/10 font-ibm tracking-[0.3em] uppercase">© {new Date().getFullYear()} Geometric studio</span>
-              <span className="text-[9px] text-white/10 font-ibm tracking-[0.3em] uppercase hidden sm:block">CR_17195 • TAX_763211966</span>
+              <div className="flex flex-col items-center md:items-end gap-2">
+                 <div className="flex items-center gap-3 px-4 py-1.5 rounded-full border border-white/5 bg-white/[0.01]">
+                    <div className="w-1.5 h-1.5 rounded-full bg-neon-yellow glow-yellow animate-pulse" />
+                    <span className="text-[9px] text-neon-yellow/60 font-ibm tracking-[0.4em] uppercase font-light">System_Active</span>
+                 </div>
+                 <span className="text-[8px] text-white/10 font-ibm tracking-[0.2em] uppercase italic">Shaping Realities Since_2019</span>
+              </div>
            </div>
-           
-           <div className="flex items-center gap-4">
-              <div className="w-2 h-2 rounded-full bg-neon-yellow glow-yellow animate-pulse" />
-              <span className="text-[10px] text-neon-yellow/60 font-ibm tracking-[0.5em] uppercase font-light italic">
-                We Shape Realities_
-              </span>
-           </div>
+
+          </div>
         </div>
       </div>
     </footer>
