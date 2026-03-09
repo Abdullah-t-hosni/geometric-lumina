@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { useRef, useState } from 'react';
 import { SectionReveal } from '@/components/ui/SectionReveal';
 import { services } from '@/data/services';
+import { SEO, Schemas } from '@/components/seo/SEO';
 
 export default function ServiceDetail() {
   const { serviceName } = useParams();
@@ -32,6 +33,19 @@ export default function ServiceDetail() {
 
   return (
     <div ref={containerRef} className="bg-background min-h-screen overflow-hidden">
+      <SEO
+        title={`${service.name} | 3D & Motion Services`}
+        description={`${service.tagline} — ${service.description.slice(0, 120)}...`}
+        keywords={`${service.name.toLowerCase()}, ${service.category.toLowerCase()}, 3D studio Egypt, motion graphics Cairo, ${service.name.toLowerCase()} service`}
+        schema={[
+          Schemas.service(service.name, service.description, `/services/${service.slug}`),
+          Schemas.breadcrumb([
+            { name: 'Home', url: '/' },
+            { name: 'Services', url: '/services' },
+            { name: service.name, url: `/services/${service.slug}` },
+          ]),
+        ]}
+      />
       {/* Premium Ambient Glows - Fixed Position */}
       <div className="fixed inset-0 pointer-events-none z-0">
         <div className={`absolute top-0 right-0 w-[1000px] h-[1000px] rounded-full blur-[150px] mix-blend-screen opacity-10 transition-colors duration-1000 ${

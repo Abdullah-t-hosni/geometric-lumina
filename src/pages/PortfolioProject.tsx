@@ -2,6 +2,7 @@ import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { SectionReveal } from '@/components/ui/SectionReveal';
 import { portfolioProjects } from '@/data/portfolio';
+import { SEO, Schemas } from '@/components/seo/SEO';
 
 export default function PortfolioProject() {
   const { projectId } = useParams();
@@ -22,6 +23,20 @@ export default function PortfolioProject() {
 
   return (
     <div className="bg-background min-h-screen pt-24 pb-12 overflow-hidden">
+      <SEO
+        title={`${project.title} | ${project.category} Portfolio`}
+        description={project.description}
+        keywords={`${project.title.toLowerCase()}, ${project.category.toLowerCase()}, 3d visualization, geometric studio portfolio, ${project.tags.join(', ').toLowerCase()}`}
+        ogImage={project.image}
+        schema={[
+          Schemas.breadcrumb([
+            { name: 'Home', url: '/' },
+            { name: 'Portfolio', url: '/portfolio' },
+            { name: project.title, url: `/portfolio/${project.id}` },
+          ]),
+          Schemas.creativeWork(project.title, project.description, `/portfolio/${project.id}`, project.image)
+        ]}
+      />
       {/* Premium Ambient Glows */}
       <div className="fixed top-0 left-0 w-[800px] h-[800px] bg-deep-teal/20 rounded-full blur-[150px] mix-blend-screen pointer-events-none z-0" />
       <div className="fixed bottom-0 right-0 w-[600px] h-[600px] bg-neon-yellow/5 rounded-full blur-[120px] mix-blend-screen pointer-events-none z-0" />

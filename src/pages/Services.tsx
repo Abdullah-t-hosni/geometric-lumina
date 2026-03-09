@@ -4,10 +4,23 @@ import { Link } from 'react-router-dom';
 import { useInView } from 'framer-motion';
 import { SectionReveal } from '@/components/ui/SectionReveal';
 import { services } from '@/data/services';
+import { SEO, Schemas } from '@/components/seo/SEO';
 
 export default function Services() {
   return (
     <div className="bg-background min-h-screen pt-24 pb-12 overflow-hidden relative">
+      <SEO
+        title="Our Services & Disciplines"
+        description="Explore Geometric Studio's full range of creative disciplines: 3D visualization, motion graphics, product animation, anamorphic screens, VR environments, AI content, and more. Serving brands across Egypt and MENA."
+        keywords="3D visualization services, motion graphics Egypt, product animation Cairo, anamorphic advertising, VR environments, CGI compositing, 3D scanning, AI content production, exhibition booth design"
+        schema={[
+          Schemas.breadcrumb([
+            { name: 'Home', url: '/' },
+            { name: 'Services', url: '/services' },
+          ]),
+          ...services.map(s => Schemas.service(s.name, s.description, `/services/${s.slug}`)),
+        ]}
+      />
       {/* Premium Ambient Glows */}
       <div className="absolute top-0 right-0 w-[1000px] h-[1000px] bg-deep-teal/10 rounded-full blur-[150px] mix-blend-screen pointer-events-none z-0" />
       <div className="absolute top-1/2 left-0 w-[800px] h-[800px] bg-neon-yellow/5 rounded-full blur-[150px] mix-blend-screen pointer-events-none z-0" />

@@ -1,5 +1,6 @@
 import { SectionReveal } from '@/components/ui/SectionReveal';
 import { Link } from 'react-router-dom';
+import { SEO, Schemas } from '@/components/seo/SEO';
 
 const tools = [
   { name: 'Blender', category: 'Modeling & Animation', desc: 'Open-source powerhouse for 3D modeling, sculpting, and animation.' },
@@ -28,6 +29,17 @@ const stats = [
 export default function Technology() {
   return (
     <div className="bg-background min-h-screen pt-24 pb-12 overflow-hidden relative">
+      <SEO
+        title="Software Stack & Technology Arsenal"
+        description="Explore the professional tools powering Geometric Studio: Blender, Cinema 4D, Houdini, Unreal Engine, ZBrush, Substance 3D, After Effects, DaVinci Resolve, and cutting-edge AI tools like Midjourney."
+        keywords="3D software stack, Blender studio Egypt, Cinema 4D production, Houdini VFX Cairo, Unreal Engine visualization, ZBrush sculpting, After Effects compositing, AI 3D production"
+        schema={[
+          Schemas.breadcrumb([
+            { name: 'Home', url: '/' },
+            { name: 'Technology', url: '/technology' },
+          ]),
+        ]}
+      />
       {/* Premium Ambient Glows */}
       <div className="absolute top-1/4 right-0 w-[800px] h-[800px] bg-deep-teal/20 rounded-full blur-[150px] mix-blend-screen pointer-events-none z-0" />
       <div className="absolute top-3/4 left-0 w-[600px] h-[600px] bg-neon-yellow/5 rounded-full blur-[120px] mix-blend-screen pointer-events-none z-0" />

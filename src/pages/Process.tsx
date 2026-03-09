@@ -2,6 +2,7 @@ import { useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { SectionReveal } from '@/components/ui/SectionReveal';
 import { Link } from 'react-router-dom';
+import { SEO, Schemas } from '@/components/seo/SEO';
 
 const steps = [
   {
@@ -67,6 +68,20 @@ export default function Process() {
 
   return (
     <div className="bg-background min-h-screen pt-24 pb-12 overflow-hidden">
+      <SEO
+        title="Our Creative Pipeline & Process"
+        description="Discover Geometric Studio's 7-stage production pipeline: from Discovery and Concept through 3D Modeling, Simulation, Animation, Rendering, to final Delivery. A precise methodology for extraordinary cinematic results."
+        keywords="3D production pipeline, creative process Egypt, 3D animation workflow, cinematic production pipeline, motion graphics process, geometric studio methodology, 3D rendering process"
+        schema={[
+          Schemas.breadcrumb([
+            { name: 'Home', url: '/' },
+            { name: 'Process', url: '/process' },
+          ]),
+          Schemas.faq(
+            steps.map(s => ({ question: `What happens during the ${s.title} phase?`, answer: s.description }))
+          ),
+        ]}
+      />
       {/* Premium Ambient Glows */}
       <div className="fixed top-0 right-0 w-[800px] h-[800px] bg-deep-teal/20 rounded-full blur-[150px] mix-blend-screen pointer-events-none z-0" />
       <div className="fixed bottom-0 left-0 w-[600px] h-[600px] bg-neon-yellow/5 rounded-full blur-[120px] mix-blend-screen pointer-events-none z-0" />

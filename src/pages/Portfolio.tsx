@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { SectionReveal } from '@/components/ui/SectionReveal';
 import { portfolioProjects, portfolioCategories, type PortfolioCategory } from '@/data/portfolio';
+import { SEO, Schemas } from '@/components/seo/SEO';
 
 export default function Portfolio() {
   const [activeCategory, setActiveCategory] = useState<PortfolioCategory>('All');
@@ -13,6 +14,20 @@ export default function Portfolio() {
 
   return (
     <div className="bg-background min-h-screen pt-24 pb-12 overflow-hidden relative">
+      <SEO
+        title="Selected Works & Portfolio"
+        description="Browse Geometric Studio's masterpiece archive: cinematic 3D projects, motion graphics, product visualizations, and immersive experiences crafted for leading brands across Egypt and MENA."
+        keywords="geometric studio portfolio, 3D project showcase, motion graphics reel, product visualization portfolio, cinematic 3D Egypt, creative studio works"
+        schema={[
+          Schemas.breadcrumb([
+            { name: 'Home', url: '/' },
+            { name: 'Portfolio', url: '/portfolio' },
+          ]),
+          ...portfolioProjects.map(p =>
+            Schemas.creativeWork(p.title, p.description ?? p.title, '/portfolio', p.image)
+          ),
+        ]}
+      />
       {/* Premium Ambient Glows */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-deep-teal/20 rounded-full blur-[150px] mix-blend-screen pointer-events-none z-0" />
       <div className="absolute top-1/2 left-0 w-[600px] h-[600px] bg-neon-yellow/5 rounded-full blur-[120px] mix-blend-screen pointer-events-none z-0" />

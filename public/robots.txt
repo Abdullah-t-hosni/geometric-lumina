@@ -1,3 +1,23 @@
+# ──────────────────────────────────────────────────
+#  Geometric Studio — robots.txt
+#  https://geometricstudio.com
+# ──────────────────────────────────────────────────
+
+User-agent: *
+Allow: /
+
+# Disallow non-content paths
+Disallow: /api/
+Disallow: /_next/
+Disallow: /node_modules/
+
+# Sitemap
+Sitemap: https://geometric-studios.com/sitemap.xml
+
+# Crawl-delay (be gentle on the server)
+Crawl-delay: 1
+
+# ── Major crawlers ────────────────────────────────
 User-agent: Googlebot
 Allow: /
 
@@ -10,5 +30,5 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
-User-agent: *
+User-agent: LinkedInBot
 Allow: /

@@ -4,6 +4,7 @@ import { SectionReveal } from '@/components/ui/SectionReveal';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
+import { SEO, Schemas } from '@/components/seo/SEO';
 
 const schema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -73,6 +74,24 @@ export default function Contact() {
 
   return (
     <div className="bg-background min-h-screen pt-24 pb-12 overflow-hidden relative">
+      <SEO
+        title="Contact Us — Start Your Project"
+        description="Connect with Geometric Studio to bring your cinematic 3D vision to life. Reach out for project inquiries, collaborations, or consultations. Based in Cairo, serving clients worldwide."
+        keywords="contact geometric studio, 3D project inquiry, hire 3D studio Egypt, motion graphics quote, cinematic production contact Cairo"
+        schema={[
+          Schemas.contactPage(),
+          Schemas.breadcrumb([
+            { name: 'Home', url: '/' },
+            { name: 'Contact', url: '/contact' },
+          ]),
+          Schemas.faq([
+            { question: 'Where is Geometric Studio located?', answer: 'Geometric Studio is based in Cairo, Egypt and serves clients across Egypt, MENA, and globally.' },
+            { question: 'How do I start a project with Geometric Studio?', answer: 'Fill in the contact form or reach us directly by email at geometric3dadv@gmail.com or by phone at +20 10 63565635.' },
+            { question: 'What services does Geometric Studio offer?', answer: 'We offer 3D visualization, motion graphics, product animation, anamorphic screens, VR environments, CGI compositing, 3D scanning, AI content production, and more.' },
+            { question: 'How long does a typical project take?', answer: 'Project timelines vary by complexity. Simple animations can take 1-2 weeks, while full production projects can range from 4-12 weeks. We discuss timelines during discovery.' },
+          ]),
+        ]}
+      />
       {/* Premium Ambient Glows */}
       <div className="absolute top-1/4 right-0 w-[800px] h-[800px] bg-deep-teal/20 rounded-full blur-[150px] mix-blend-screen pointer-events-none z-0" />
       <div className="absolute bottom-1/4 left-0 w-[600px] h-[600px] bg-neon-yellow/5 rounded-full blur-[120px] mix-blend-screen pointer-events-none z-0" />

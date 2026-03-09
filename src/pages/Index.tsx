@@ -7,6 +7,7 @@ import { Logo } from '@/components/Logo';
 import logo5 from '@/assets/images/Logo-5.png';
 import ourCore from '@/assets/images/our core.jpg';
 import heroVideo from '@/assets/video/Geometric-video.mp4';
+import { SEO, Schemas } from '@/components/seo/SEO';
 
 
 const techStack = [
@@ -63,6 +64,17 @@ export default function Index() {
 
   return (
     <div className="bg-background">
+      <SEO
+        title="Geometric Studio | Precision in Imagination"
+        description="Geometric Studio is Cairo's leading 3D visualization and motion graphics powerhouse. We craft cinematic visuals, product animations, VR environments, anamorphic screens, and AI-powered content that refuse to be ignored."
+        keywords="geometric studio, 3D visualization Cairo, motion graphics Egypt, cinematic 3D, product animation, VR environments, anamorphic screens, CGI Egypt, 3D advertising Cairo, MENA 3D studio"
+        ogType="website"
+        schema={[
+          Schemas.organization(),
+          Schemas.website(),
+          Schemas.breadcrumb([{ name: 'Home', url: '/' }]),
+        ]}
+      />
       {/* ─── PREMIUM CINEMATIC HERO ─────────────────────────────── */}
       <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background Video */}

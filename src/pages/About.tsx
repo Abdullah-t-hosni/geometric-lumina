@@ -1,5 +1,6 @@
 import { SectionReveal } from '@/components/ui/SectionReveal';
 import { Link } from 'react-router-dom';
+import { SEO, Schemas } from '@/components/seo/SEO';
 
 const values = [
   { title: 'Creativity with Structure', desc: 'Design with direction — we channel creative freedom through precise intent.', icon: '◈' },
@@ -40,6 +41,18 @@ const animPrinciples = [
 export default function About() {
   return (
     <div className="bg-background min-h-screen pt-24 pb-12 overflow-hidden">
+      <SEO
+        title="About Geometric Studio"
+        description="Discover the story, values, and creative philosophy behind Geometric Studio — Cairo's premier 3D visualization and motion graphics powerhouse. Built on precision, driven by imagination."
+        keywords="about geometric studio, 3D studio Cairo, motion graphics Egypt, creative agency Cairo, 3D visualization team, cinematic production house"
+        schema={[
+          Schemas.organization(),
+          Schemas.breadcrumb([
+            { name: 'Home', url: '/' },
+            { name: 'About', url: '/about' },
+          ]),
+        ]}
+      />
       {/* Premium Ambient Glows */}
       <div className="fixed top-0 left-0 w-[800px] h-[800px] bg-deep-teal/20 rounded-full blur-[150px] mix-blend-screen pointer-events-none z-0" />
       <div className="fixed bottom-0 right-0 w-[600px] h-[600px] bg-neon-yellow/5 rounded-full blur-[120px] mix-blend-screen pointer-events-none z-0" />
