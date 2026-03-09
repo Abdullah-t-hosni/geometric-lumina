@@ -1,26 +1,43 @@
 import { SectionReveal } from '@/components/ui/SectionReveal';
 import { Link } from 'react-router-dom';
 import { SEO, Schemas } from '@/components/seo/SEO';
+import { 
+  Sparkles, 
+  Cpu, 
+  Users, 
+  Target, 
+  ShieldCheck,
+  Scale,
+  Contrast,
+  Star,
+  AlignLeft,
+  Repeat,
+  Shapes,
+  SortAsc,
+  Frame,
+  Link as LinkIcon,
+  Zap
+} from 'lucide-react';
 
 const values = [
-  { title: 'Creativity with Structure', desc: 'Design with direction — we channel creative freedom through precise intent.', icon: '◈' },
-  { title: 'Innovation-Driven', desc: 'Always evolving with the latest tech & creative trends.', icon: '◎' },
-  { title: 'Collaboration', desc: 'Co-creating with our clients at every step of the journey.', icon: '⬡' },
-  { title: 'Detail-Oriented', desc: 'Every pixel matters. Perfection isn\'t the destination — it\'s the direction.', icon: '◉' },
-  { title: 'Reliability', desc: 'On-time, consistent, and professional — always.', icon: '◍' },
+  { title: 'Creativity with Structure', desc: 'Design with direction — we channel creative freedom through precise intent.', icon: Sparkles },
+  { title: 'Innovation-Driven', desc: 'Always evolving with the latest tech & creative trends.', icon: Cpu },
+  { title: 'Collaboration', desc: 'Co-creating with our clients at every step of the journey.', icon: Users },
+  { title: 'Detail-Oriented', desc: 'Every pixel matters. Perfection isn\'t the destination — it\'s the direction.', icon: Target },
+  { title: 'Reliability', desc: 'On-time, consistent, and professional — always.', icon: ShieldCheck },
 ];
 
 const designPrinciples = [
-  { title: 'Balance', desc: 'Distribution of visual weight — symmetrical or asymmetrical.' },
-  { title: 'Contrast', desc: 'Difference between elements to create emphasis and clarity.' },
-  { title: 'Emphasis', desc: 'Making one element stand out — the visual hierarchy\'s starting point.' },
-  { title: 'Alignment', desc: 'Arranging elements to create order and consistency.' },
-  { title: 'Repetition', desc: 'Reusing elements to create unity and consistency.' },
-  { title: 'Proximity', desc: 'Grouping related items together to show their connection.' },
-  { title: 'Hierarchy', desc: 'Organizing information so the most important elements are noticed first.' },
-  { title: 'White Space', desc: 'Empty space that helps designs breathe and improves readability.' },
-  { title: 'Unity', desc: 'All elements working together to create a cohesive whole.' },
-  { title: 'Movement', desc: 'Guiding the viewer\'s eye through the design in a deliberate path.' },
+  { title: 'Balance', desc: 'Distribution of visual weight — symmetrical or asymmetrical.', icon: Scale },
+  { title: 'Contrast', desc: 'Difference between elements to create emphasis and clarity.', icon: Contrast },
+  { title: 'Emphasis', desc: 'Making one element stand out — the visual hierarchy\'s starting point.', icon: Star },
+  { title: 'Alignment', desc: 'Arranging elements to create order and consistency.', icon: AlignLeft },
+  { title: 'Repetition', desc: 'Reusing elements to create unity and consistency.', icon: Repeat },
+  { title: 'Proximity', desc: 'Grouping related items together to show their connection.', icon: Shapes },
+  { title: 'Hierarchy', desc: 'Organizing information so the most important elements are noticed first.', icon: SortAsc },
+  { title: 'White Space', desc: 'Empty space that helps designs breathe and improves readability.', icon: Frame },
+  { title: 'Unity', desc: 'All elements working together to create a cohesive whole.', icon: LinkIcon },
+  { title: 'Movement', desc: 'Guiding the viewer\'s eye through the design in a deliberate path.', icon: Zap },
 ];
 
 const animPrinciples = [
@@ -67,12 +84,10 @@ export default function About() {
           <SectionReveal>
             <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 mb-24">
               <div className="w-full lg:w-3/5">
-                <div className="flex items-center gap-6 mb-10">
-                  <div className="flex flex-col gap-1">
-                    <div className="w-10 h-[1px] bg-neon-yellow" />
-                    <div className="w-5 h-[1px] bg-neon-yellow/30" />
-                  </div>
-                  <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-neon-yellow">Geometric Studios</span>
+                <div className="flex items-center gap-4 mb-10">
+                  <div className="w-12 h-[1px] bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
+                  <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-neon-yellow">Protocol_Design_System</span>
+                  <div className="w-12 h-[1px] bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
                 </div>
                 
                 <h1 className="font-ibm text-[13vw] xs:text-6xl md:text-8xl lg:text-[120px] font-light text-white leading-[1.1] md:leading-[0.85] tracking-tighter mb-6 md:mb-4">
@@ -135,8 +150,8 @@ export default function About() {
             {values.map((v, i) => (
               <SectionReveal key={v.title} delay={i * 0.1}>
                 <div className="h-full glass-panel p-8 hover:border-white/20 transition-all duration-700 group relative flex flex-col items-center text-center lg:items-start lg:text-left">
-                  <div className="font-ibm text-3xl text-white/10 group-hover:text-neon-yellow transition-colors duration-700 mb-8 italic">
-                    {v.icon}
+                  <div className="mb-8 text-white/10 group-hover:text-neon-yellow transition-colors duration-700">
+                    <v.icon size={32} strokeWidth={1.5} />
                   </div>
                   <h3 className="font-ibm font-light text-xl text-white tracking-tight mb-4 uppercase">{v.title}</h3>
                   <p className="font-ibm text-[11px] text-white/40 font-light leading-relaxed group-hover:text-white/60 transition-colors">{v.desc}</p>
@@ -166,6 +181,9 @@ export default function About() {
             {designPrinciples.map((p, i) => (
               <SectionReveal key={p.title} delay={i * 0.05}>
                 <div className="glass-panel p-6 hover:bg-white/5 transition-all duration-300 group h-full flex flex-col justify-start">
+                  <div className="mb-6 text-white/10 group-hover:text-neon-yellow transition-colors duration-500">
+                    <p.icon size={20} strokeWidth={1.5} />
+                  </div>
                   <h4 className="font-ibm font-bold text-lg text-creamy-white mb-3 tracking-tight group-hover:text-neon-yellow transition-colors">{p.title}</h4>
                   <p className="font-ibm text-[11px] text-creamy-white/50 font-medium tracking-wide leading-relaxed group-hover:text-creamy-white/70 transition-colors uppercase">{p.desc}</p>
                 </div>

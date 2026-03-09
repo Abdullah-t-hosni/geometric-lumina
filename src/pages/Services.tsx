@@ -5,6 +5,39 @@ import { useInView } from 'framer-motion';
 import { SectionReveal } from '@/components/ui/SectionReveal';
 import { services } from '@/data/services';
 import { SEO, Schemas } from '@/components/seo/SEO';
+import { 
+  Play, 
+  Box, 
+  Layout, 
+  Share2, 
+  Expand, 
+  Wind, 
+  Home, 
+  Focus, 
+  Headset, 
+  Layers, 
+  Scan, 
+  Cpu 
+} from 'lucide-react';
+
+const ServiceIcon = ({ slug, size = 24 }: { slug: string; size?: number }) => {
+  const icons: Record<string, any> = {
+    'motion-graphics': Play,
+    'product-visualization': Box,
+    'booth-exhibition-design': Layout,
+    'social-media-content': Share2,
+    'anamorphic-screens': Expand,
+    'simulations': Wind,
+    'architectural-visualization': Home,
+    'micro-visualization': Focus,
+    'vr-environments': Headset,
+    'cgi-compositing': Layers,
+    '3d-scanning': Scan,
+    'ai-content-production': Cpu,
+  };
+  const Icon = icons[slug] || Box;
+  return <Icon size={size} strokeWidth={1.5} />;
+};
 
 export default function Services() {
   return (
@@ -158,9 +191,9 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
             
             <motion.div 
               animate={{ rotate: isHovered ? 90 : 0 }}
-              className={`w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-xl transition-all duration-500 ${isHovered ? 'border-neon-yellow/50 text-neon-yellow bg-neon-yellow/5' : 'text-white/20'}`}
+              className={`w-12 h-12 rounded-full border border-white/10 flex items-center justify-center transition-all duration-500 ${isHovered ? 'border-neon-yellow/50 text-neon-yellow bg-neon-yellow/5' : 'text-white/20'}`}
             >
-              <span className="italic">{service.icon}</span>
+              <ServiceIcon slug={service.slug} size={20} />
             </motion.div>
           </div>
           

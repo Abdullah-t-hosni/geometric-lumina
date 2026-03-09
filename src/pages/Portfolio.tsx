@@ -148,7 +148,7 @@ function ProjectCard({ project, index }: { project: typeof portfolioProjects[0];
             src={project.image}
             alt={project.title}
             loading="lazy"
-            className="w-full h-full object-cover grayscale opacity-50 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-[2s] ease-out scale-105 group-hover:scale-100"
+            className="w-full h-full object-cover grayscale opacity-50 group-hover:opacity-100 group-hover:grayscale-0 transition-all [transition-duration:2000ms] ease-out scale-105 group-hover:scale-100"
           />
           
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/10 to-transparent opacity-90 group-hover:opacity-60 transition-opacity duration-700" />

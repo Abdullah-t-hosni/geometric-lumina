@@ -5,6 +5,29 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { SEO, Schemas } from '@/components/seo/SEO';
+import { 
+  Mail, 
+  Phone, 
+  Instagram, 
+  Twitter, 
+  Linkedin, 
+  ArrowUpRight,
+  Send,
+  CheckCircle2,
+  FileText
+} from 'lucide-react';
+
+const TikTokIcon = ({ size = 24, className = "" }: { size?: number; className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" width={size} height={size} className={className}>
+    <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.06-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.59-1.01-.01 2.62-.02 5.24-.02 7.86 0 1.91-.37 3.84-1.55 5.39-1.27 1.72-3.4 2.69-5.5 2.71-2.73.06-5.41-1.54-6.64-3.97-1.29-2.5-.9-5.71 1.05-7.73 1.4-1.49 3.51-2.18 5.51-1.75.01 1.4-.01 2.8.01 4.2-.66-.19-1.4-.18-2.01.07-.84.34-1.47 1.11-1.64 2-.23.99.11 2.08.85 2.76.71.69 1.76.91 2.7.59 1.07-.35 1.83-1.41 1.95-2.52.05-1.07.03-2.15.03-3.23.01-4.48.01-8.97.01-13.45z"/>
+  </svg>
+);
+
+const PinterestIcon = ({ size = 24, className = "" }: { size?: number; className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" width={size} height={size} className={className}>
+    <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.411-5.97 1.411-5.97s-.361-.722-.361-1.79c0-1.677.973-2.93 2.185-2.93 1.031 0 1.53.774 1.53 1.701 0 1.037-.659 2.587-.998 4.026-.283 1.196.598 2.172 1.776 2.172 2.131 0 3.772-2.249 3.772-5.492 0-2.871-2.063-4.88-5.005-4.88-3.411 0-5.411 2.561-5.411 5.202 0 1.031.397 2.138.893 2.738.098.118.112.221.083.344-.092.38-.297 1.21-.337 1.378-.053.224-.176.27-.406.163-1.516-.706-2.463-2.921-2.463-4.704 0-3.829 2.784-7.344 8.019-7.344 4.211 0 7.485 2.999 7.485 7.015 0 4.181-2.635 7.545-6.29 7.545-1.229 0-2.384-.639-2.779-1.396l-.756 2.879c-.274 1.043-1.016 2.352-1.512 3.161 1.121.346 2.308.533 3.538.533 6.621 0 11.988-5.367 11.988-11.987C24.004 5.367 18.638 0 12.017 0z"/>
+  </svg>
+);
 
 const schema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -44,18 +67,18 @@ const budgetRanges = [
 ];
 
 const contactInfo = [
-  { label: 'Email', value: 'geometric3dadv@gmail.com', href: 'mailto:geometric3dadv@gmail.com' },
-  { label: 'Phone 1', value: '+20 10 63565635', href: 'tel:+201063565635' },
-  { label: 'Phone 2', value: '+20 10 25247955', href: 'tel:+201025247955' },
-  { label: 'Phone 3', value: '+20 10 32843037', href: 'tel:+201032843037' },
+  { label: 'Email', value: 'geometric3dadv@gmail.com', href: 'mailto:geometric3dadv@gmail.com', icon: Mail },
+  { label: 'Primary Line', value: '+20 10 63565635', href: 'tel:+201063565635', icon: Phone },
+  { label: 'Internal Node 2', value: '+20 10 25247955', href: 'tel:+201025247955', icon: Phone },
+  { label: 'Support Node 3', value: '+20 10 32843037', href: 'tel:+201032843037', icon: Phone },
 ];
 
 const socialLinks = [
-  { label: 'Instagram', handle: '@geometric_studios', href: 'https://instagram.com/geometric_studios' },
-  { label: 'X', handle: '@geometric_stud', href: 'https://x.com/geometric_stud' },
-  { label: 'LinkedIn', handle: 'geometric-studios', href: 'https://linkedin.com/company/geometric-studios' },
-  { label: 'TikTok', handle: '@geometric_studios', href: 'https://www.tiktok.com/@geometric_studios' },
-  { label: 'Pinterest', handle: 'geometric_studios', href: 'https://pinterest.com/geometric_studios' }
+  { label: 'Instagram', handle: '@geometric_studios', href: 'https://instagram.com/geometric_studios', icon: Instagram },
+  { label: 'X (Twitter)', handle: '@geometric_stud', href: 'https://x.com/geometric_stud', icon: Twitter },
+  { label: 'LinkedIn', handle: 'geometric-studios', href: 'https://linkedin.com/company/geometric-studios', icon: Linkedin },
+  { label: 'TikTok', handle: '@geometric_studios', href: 'https://www.tiktok.com/@geometric_studios', icon: TikTokIcon },
+  { label: 'Pinterest', handle: 'geometric_studios', href: 'https://pinterest.com/geometric_studios', icon: PinterestIcon }
 ];
 
 export default function Contact() {
@@ -137,8 +160,11 @@ export default function Contact() {
                 <h3 className="font-ibm text-[10px] tracking-[0.5em] uppercase text-white/30 mb-12">Direct_Channels</h3>
                 <div className="space-y-6 md:space-y-10">
                   {contactInfo.map((item) => (
-                    <div key={item.label} className="flex flex-col gap-2 group/item">
-                      <span className="font-ibm text-[8px] text-white/20 uppercase tracking-[0.4em] group-hover/item:text-neon-yellow/60 transition-colors">{item.label}</span>
+                    <div key={item.label} className="flex flex-col gap-4 group/item">
+                      <div className="flex items-center gap-3">
+                        <item.icon size={12} className="text-neon-yellow animate-pulse" />
+                        <span className="font-ibm text-[8px] text-white/20 uppercase tracking-[0.4em] group-hover/item:text-neon-yellow/60 transition-colors">{item.label}</span>
+                      </div>
                       <a href={item.href} className="font-ibm text-lg xs:text-xl text-white font-light group-hover/item:translate-x-2 transition-transform duration-500 block break-words">{item.value}</a>
                     </div>
                   ))}
@@ -159,12 +185,17 @@ export default function Contact() {
                       rel="noopener noreferrer"
                       className="flex items-center justify-between group/link"
                     >
-                      <div className="flex flex-col gap-1 w-2/3 md:w-full">
-                        <span className="font-ibm text-[8px] text-white/20 uppercase tracking-[0.4em] group-hover/link:text-neon-yellow/60 transition-colors">{link.label}</span>
-                        <span className="font-ibm text-base xs:text-lg font-light text-white group-hover/link:translate-x-2 transition-transform duration-500 truncate">{link.handle}</span>
+                      <div className="flex items-center gap-4 w-2/3 md:w-full">
+                        <div className="p-3 rounded-xl bg-white/[0.03] text-white/10 group-hover/link:text-neon-yellow transition-colors">
+                          <link.icon size={18} strokeWidth={1.5} />
+                        </div>
+                        <div className="flex flex-col gap-1">
+                          <span className="font-ibm text-[8px] text-white/20 uppercase tracking-[0.4em] group-hover/link:text-neon-yellow/60 transition-colors">{link.label}</span>
+                          <span className="font-ibm text-base xs:text-lg font-light text-white group-hover/link:translate-x-2 transition-transform duration-500 truncate">{link.handle}</span>
+                        </div>
                       </div>
                       <div className="w-8 h-8 md:w-10 md:h-10 rounded-full border border-white/5 flex items-center justify-center text-white/20 group-hover/link:border-neon-yellow/30 group-hover/link:text-neon-yellow transition-all duration-500 flex-shrink-0">
-                        <span className="text-xl">↗</span>
+                        <ArrowUpRight size={18} strokeWidth={1.5} />
                       </div>
                     </a>
                   ))}

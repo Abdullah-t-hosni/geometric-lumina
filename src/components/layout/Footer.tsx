@@ -1,5 +1,19 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { Logo } from '@/components/Logo';
+import { Instagram, Twitter, Linkedin } from 'lucide-react';
+
+const TikTokIcon = ({ size = 24, className = "" }: { size?: number; className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" width={size} height={size} className={className}>
+    <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.06-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.59-1.01-.01 2.62-.02 5.24-.02 7.86 0 1.91-.37 3.84-1.55 5.39-1.27 1.72-3.4 2.69-5.5 2.71-2.73.06-5.41-1.54-6.64-3.97-1.29-2.5-.9-5.71 1.05-7.73 1.4-1.49 3.51-2.18 5.51-1.75.01 1.4-.01 2.8.01 4.2-.66-.19-1.4-.18-2.01.07-.84.34-1.47 1.11-1.64 2-.23.99.11 2.08.85 2.76.71.69 1.76.91 2.7.59 1.07-.35 1.83-1.41 1.95-2.52.05-1.07.03-2.15.03-3.23.01-4.48.01-8.97.01-13.45z"/>
+  </svg>
+);
+
+const PinterestIcon = ({ size = 24, className = "" }: { size?: number; className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" width={size} height={size} className={className}>
+    <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.411-5.97 1.411-5.97s-.361-.722-.361-1.79c0-1.677.973-2.93 2.185-2.93 1.031 0 1.53.774 1.53 1.701 0 1.037-.659 2.587-.998 4.026-.283 1.196.598 2.172 1.776 2.172 2.131 0 3.772-2.249 3.772-5.492 0-2.871-2.063-4.88-5.005-4.88-3.411 0-5.411 2.561-5.411 5.202 0 1.031.397 2.138.893 2.738.098.118.112.221.083.344-.092.38-.297 1.21-.337 1.378-.053.224-.176.27-.406.163-1.516-.706-2.463-2.921-2.463-4.704 0-3.829 2.784-7.344 8.019-7.344 4.211 0 7.485 2.999 7.485 7.015 0 4.181-2.635 7.545-6.29 7.545-1.229 0-2.384-.639-2.779-1.396l-.756 2.879c-.274 1.043-1.016 2.352-1.512 3.161 1.121.346 2.308.533 3.538.533 6.621 0 11.988-5.367 11.988-11.987C24.004 5.367 18.638 0 12.017 0z"/>
+  </svg>
+);
 
 const serviceLinks = [
   { label: 'Motion Graphics', href: '/services/motion-graphics' },
@@ -53,14 +67,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16 py-24">
           {/* Brand & Mission */}
           <div className="lg:col-span-4 space-y-10">
-            <Link to="/" className="inline-block group">
+            <Link to="/" className="inline-block group" aria-label="Geometric Studio — Go to homepage">
                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group-hover:border-neon-yellow transition-all duration-500">
-                     <div className="w-2 h-2 rounded-full bg-neon-yellow glow-yellow animate-pulse" />
-                  </div>
+                  <Logo className="h-10 md:h-12" />
                   <div className="flex flex-col">
-                    <span className="font-ibm text-2xl font-light text-white tracking-tighter">Geometric</span>
-                    <span className="text-[8px] font-ibm text-white/20 tracking-[0.5em] uppercase">Studio_Protocol_2.0</span>
+                    <span className="font-ibm text-[10px] font-light text-white/20 tracking-[0.5em] uppercase">Visual_Node</span>
+                    <span className="font-ibm text-[10px] font-light text-neon-yellow/40 tracking-[0.5em] uppercase italic">Studio_Protocol_2.1</span>
                   </div>
                </div>
             </Link>
@@ -69,21 +81,21 @@ export default function Footer() {
             </p>
             <div className="flex flex-wrap gap-4 pl-16" aria-label="Social media links">
               {[
-                { name: 'IN', label: 'Instagram', href: 'https://instagram.com/geometric_studios' },
-                { name: 'X', label: 'X (Twitter)', href: 'https://x.com/geometric_stud' },
-                { name: 'LI', label: 'LinkedIn', href: 'https://linkedin.com/company/geometric-studios' },
-                { name: 'TK', label: 'TikTok', href: 'https://www.tiktok.com/@geometric_studios' },
-                { name: 'PN', label: 'Pinterest', href: 'https://pinterest.com/geometric_studios' }
+                { icon: Instagram, label: 'Instagram', href: 'https://instagram.com/geometric_studios' },
+                { icon: Twitter, label: 'X (Twitter)', href: 'https://x.com/geometric_stud' },
+                { icon: Linkedin, label: 'LinkedIn', href: 'https://linkedin.com/company/geometric-studios' },
+                { icon: TikTokIcon, label: 'TikTok', href: 'https://www.tiktok.com/@geometric_studios' },
+                { icon: PinterestIcon, label: 'Pinterest', href: 'https://pinterest.com/geometric_studios' }
               ].map((social) => (
                 <a
-                  key={social.name}
+                  key={social.label}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`Follow Geometric Studio on ${social.label}`}
-                  className="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center text-[9px] text-white/20 font-ibm hover:border-neon-yellow/40 hover:text-neon-yellow transition-all duration-500"
+                  className="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center text-white/20 hover:border-neon-yellow/40 hover:text-neon-yellow transition-all duration-500 hover:bg-neon-yellow/5"
                 >
-                  {social.name}
+                  <social.icon size={18} strokeWidth={1.5} />
                 </a>
               ))}
             </div>

@@ -8,17 +8,65 @@ import logo5 from '@/assets/images/Logo-5.webp';
 import ourCore from '@/assets/images/our core.webp';
 import heroVideo from '@/assets/video/Geometric-video.mp4';
 import { SEO, Schemas } from '@/components/seo/SEO';
+import { 
+  Play, 
+  Box, 
+  Layout, 
+  Share2, 
+  Expand, 
+  Wind, 
+  Home, 
+  Focus, 
+  Headset, 
+  Layers, 
+  Scan, 
+  Cpu,
+  ArrowRight,
+  Sparkles,
+  Zap,
+  Mountain,
+  Palette,
+  Video,
+  Film,
+  Eye,
+  Star,
+  CheckCircle2,
+  Users,
+  Briefcase,
+  Quote,
+  Activity,
+  ShieldCheck
+} from 'lucide-react';
+
+const ServiceIcon = ({ slug, size = 24, className = "" }: { slug: string; size?: number; className?: string }) => {
+  const icons: Record<string, any> = {
+    'motion-graphics': Play,
+    'product-visualization': Box,
+    'booth-exhibition-design': Layout,
+    'social-media-content': Share2,
+    'anamorphic-screens': Expand,
+    'simulations': Wind,
+    'architectural-visualization': Home,
+    'micro-visualization': Focus,
+    'vr-environments': Headset,
+    'cgi-compositing': Layers,
+    '3d-scanning': Scan,
+    'ai-content-production': Cpu,
+  };
+  const Icon = icons[slug] || Box;
+  return <Icon size={size} strokeWidth={1.5} className={className} />;
+};
 
 
 const techStack = [
-  { name: 'Blender', category: '3D/Modeling', spec: 'Cycles/Eevee' },
-  { name: 'Cinema 4D', category: 'Motion/Design', spec: 'Redshift' },
-  { name: 'Unreal Engine', category: 'Real-time/VR', spec: 'Lumen/Nanite' },
-  { name: 'Houdini', category: 'Simulation/FX', spec: 'Vellum/Pyro' },
-  { name: 'After Effects', category: 'Compositing', spec: 'Multi-Pass' },
-  { name: 'ZBrush', category: 'Sculpting', spec: 'Dynamesh' },
-  { name: 'Midjourney', category: 'Generative AI', spec: 'V6_PRO' },
-  { name: 'Nuke', category: 'High-End Comp', spec: 'Deep Comp' },
+  { name: 'Blender', category: '3D/Modeling', spec: 'Cycles/Eevee', icon: Box },
+  { name: 'Cinema 4D', category: 'Motion/Design', spec: 'Redshift', icon: Layers },
+  { name: 'Unreal Engine', category: 'Real-time/VR', spec: 'Lumen/Nanite', icon: Zap },
+  { name: 'Houdini', category: 'Simulation/FX', spec: 'Vellum/Pyro', icon: Wind },
+  { name: 'After Effects', category: 'Compositing', spec: 'Multi-Pass', icon: Video },
+  { name: 'ZBrush', category: 'Sculpting', spec: 'Dynamesh', icon: Mountain },
+  { name: 'Midjourney', category: 'Generative AI', spec: 'V6_PRO', icon: Sparkles },
+  { name: 'Nuke', category: 'High-End Comp', spec: 'Deep Comp', icon: Eye },
 ];
 
 const clients = [
@@ -50,10 +98,10 @@ const testimonials = [
 ];
 
 const stats = [
-  { value: '5+', label: 'Years of Excellence' },
-  { value: '200+', label: 'Projects Delivered' },
-  { value: '80+', label: 'Happy Clients' },
-  { value: '12', label: 'Creative Services' },
+  { value: '5+', label: 'Years of Excellence', icon: Star },
+  { value: '200+', label: 'Projects Delivered', icon: CheckCircle2 },
+  { value: '80+', label: 'Happy Clients', icon: Users },
+  { value: '12', label: 'Creative Services', icon: Briefcase },
 ];
 
 export default function Index() {
@@ -156,13 +204,17 @@ export default function Index() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                className="flex items-center justify-center lg:justify-start gap-4 md:gap-6"
+                className="flex items-center justify-center lg:justify-start gap-4 md:gap-8"
               >
-                <div className="flex items-center gap-4">
-                  <div className="w-1.5 h-1.5 rounded-full bg-neon-yellow shadow-[0_0_8px_rgba(204,255,0,0.5)]" />
-                  <span className="text-[9px] md:text-[10px] font-ibm text-neon-yellow tracking-[0.3em] md:tracking-[0.4em] uppercase font-light">
-                    Geometric Studios • Precision Rendering
-                  </span>
+                <div className="flex flex-col gap-1 items-start">
+                  <div className="flex items-center gap-3">
+                    <div className="w-1.5 h-1.5 rounded-full bg-neon-yellow shadow-[0_0_8px_rgba(204,255,0,0.5)]" />
+                    <span className="text-[9px] md:text-[10px] font-ibm text-neon-yellow tracking-[0.3em] md:tracking-[0.4em] uppercase font-light">
+                      Geometric Studios • Integrated_Node
+                    </span>
+                  </div>
+                  <div className="w-24 h-[1px] bg-white/10" />
+                  <span className="text-[8px] font-ibm text-white/20 tracking-[0.2em] uppercase font-light italic">System_Version_4.0_Stable</span>
                 </div>
               </motion.div>
 
@@ -248,6 +300,9 @@ export default function Index() {
                     className="relative group cursor-default p-4 lg:pr-10 lg:py-4 flex flex-col justify-center items-center lg:items-end bg-white/[0.02] lg:bg-transparent rounded-xl border border-white/5 lg:border-0"
                   >
                     <div className="absolute right-0 top-1/2 -translate-y-1/2 w-8 h-[1px] bg-white/10 group-hover:bg-neon-yellow group-hover:w-12 transition-all duration-500 hidden lg:block" />
+                    <div className="mb-2 text-white/10 group-hover:text-neon-yellow transition-colors duration-500">
+                      <stat.icon size={20} strokeWidth={1} />
+                    </div>
                     <div className="font-ibm text-2xl md:text-3xl font-light text-creamy-white group-hover:text-neon-yellow transition-colors duration-500 tracking-tighter mb-1">{stat.value}</div>
                     <div className="font-ibm text-[8px] md:text-[9px] text-creamy-white/30 tracking-[0.2em] md:tracking-[0.3em] uppercase font-light group-hover:text-creamy-white/60 transition-colors text-center lg:text-right">{stat.label}</div>
                   </motion.div>
@@ -383,8 +438,8 @@ export default function Index() {
                   Explore All Services
                   <div className="absolute -bottom-2 left-0 w-0 h-[1px] bg-neon-yellow group-hover:w-full transition-all duration-500" />
                 </span>
-                <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group-hover:border-neon-yellow group-hover:bg-neon-yellow/5 transition-all duration-500">
-                  <span className="transform group-hover:translate-x-1 transition-transform">→</span>
+                <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group-hover:border-neon-yellow group-hover:bg-neon-yellow/5 transition-all duration-500 text-white/20 group-hover:text-neon-yellow">
+                  <ArrowRight size={18} strokeWidth={1.5} className="transform group-hover:translate-x-1 transition-transform" />
                 </div>
               </Link>
             </SectionReveal>
@@ -445,8 +500,8 @@ export default function Index() {
                 <div key={i} className="group relative bg-background p-8 md:p-10 hover:bg-neon-yellow/[0.02] transition-colors duration-700">
                   <div className="absolute top-4 right-4 text-[7px] font-ibm text-white/10 group-hover:text-neon-yellow/30 transition-colors tracking-widest uppercase">ID: 0{i+1}_NODE</div>
                   <div className="flex flex-col gap-6">
-                    <div className="w-12 h-12 rounded-full border border-white/5 flex items-center justify-center group-hover:border-neon-yellow/20 transition-all duration-700 relative">
-                       <div className="w-1.5 h-1.5 bg-white/20 rounded-full group-hover:bg-neon-yellow transition-colors" />
+                    <div className="w-12 h-12 rounded-2xl bg-white/[0.02] border border-white/5 flex items-center justify-center group-hover:border-neon-yellow/20 group-hover:bg-neon-yellow/5 transition-all duration-700 relative text-white/20 group-hover:text-neon-yellow">
+                       <tech.icon size={22} strokeWidth={1.5} />
                        <div className="absolute inset-x-[-10px] h-px bg-white/5 group-hover:bg-neon-yellow/20 transition-all scale-x-0 group-hover:scale-x-100" />
                     </div>
                     <div>
@@ -481,11 +536,15 @@ export default function Index() {
                     {/* Header HUD */}
                     <div className="flex justify-between items-start mb-12">
                        <div className="flex flex-col gap-1">
-                          <span className="text-[7px] font-ibm text-white/20 tracking-tighter uppercase">Report_Ref: GEOM_{i+1}</span>
-                          <span className="text-[7px] font-ibm text-neon-yellow tracking-tighter uppercase">Status: ENCRYPTED_OK</span>
+                          <span className="text-[7px] font-ibm text-white/20 tracking-tighter uppercase flex items-center gap-2">
+                             <Activity size={8} className="text-neon-yellow" /> Report_Ref: GEOM_{i+1}
+                          </span>
+                          <span className="text-[7px] font-ibm text-neon-yellow tracking-tighter uppercase flex items-center gap-2">
+                             <ShieldCheck size={8} /> Status: ENCRYPTED_OK
+                          </span>
                        </div>
-                       <div className="w-4 h-4 border border-white/10 flex items-center justify-center">
-                          <div className="w-1 h-1 bg-neon-yellow animate-pulse" />
+                       <div className="p-2 rounded-lg bg-white/[0.03] text-white/10">
+                          <Quote size={16} strokeWidth={1} />
                        </div>
                     </div>
                     
@@ -581,9 +640,9 @@ function ServiceCard({ service, index, className }: { service: typeof services[0
              
              <motion.div 
                animate={{ rotate: isHovered ? 90 : 0 }}
-               className={`w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-[10px] font-ibm transition-colors duration-500 ${isHovered ? 'border-neon-yellow/50 text-neon-yellow' : 'text-white/20'}`}
+               className={`w-10 h-10 rounded-full border border-white/10 flex items-center justify-center transition-colors duration-500 ${isHovered ? 'border-neon-yellow/50 text-neon-yellow bg-neon-yellow/5' : 'text-white/20'}`}
              >
-                {service.icon}
+                <ServiceIcon slug={service.slug} size={18} />
              </motion.div>
           </div>
           

@@ -32,7 +32,7 @@ export default function ServiceDetail() {
   }
 
   return (
-    <div ref={containerRef} className="bg-background min-h-screen overflow-hidden">
+    <div ref={containerRef} className="bg-background min-h-screen overflow-hidden relative">
       <SEO
         title={`${service.name} | 3D & Motion Services`}
         description={`${service.tagline} — ${service.description.slice(0, 120)}...`}
@@ -268,7 +268,7 @@ function GalleryItem({ image, delay }: { image: string; delay: number }) {
     <SectionReveal delay={delay}>
       <div className="aspect-[16/10] overflow-hidden rounded-[40px] glass-panel p-2 group bg-white/[0.01]">
          <div className="w-full h-full rounded-[32px] overflow-hidden relative">
-            <img src={image} alt="Showcase" loading="lazy" className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-all duration-[1.5s] ease-out opacity-60 group-hover:opacity-100" />
+            <img src={image} alt="Showcase" loading="lazy" className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-all [transition-duration:1500ms] ease-out opacity-60 group-hover:opacity-100" />
             <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-60 group-hover:opacity-20 transition-opacity" />
             
             {/* HUD Corner decos */}

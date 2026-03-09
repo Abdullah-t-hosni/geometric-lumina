@@ -1,29 +1,45 @@
 import { SectionReveal } from '@/components/ui/SectionReveal';
 import { Link } from 'react-router-dom';
 import { SEO, Schemas } from '@/components/seo/SEO';
+import { 
+  Box, 
+  Layers, 
+  Wind, 
+  Zap, 
+  Mountain, 
+  Palette, 
+  Video, 
+  Film, 
+  Sliders, 
+  Eye, 
+  Sparkles, 
+  Cpu,
+  Star,
+  CheckCircle2,
+  Users,
+  Briefcase
+} from 'lucide-react';
 
 const tools = [
-  { name: 'Blender', category: 'Modeling & Animation', desc: 'Open-source powerhouse for 3D modeling, sculpting, and animation.' },
-  { name: 'Cinema 4D', category: 'Motion & Design', desc: 'Industry-standard tool for motion graphics and 3D design.' },
-  { name: 'Houdini', category: 'Simulations & VFX', desc: 'The gold standard for procedural VFX, simulations, and dynamics.' },
-  { name: 'Unreal Engine', category: 'Real-time & VR', desc: 'Real-time rendering, VR environments, and architectural visualization.' },
-  { name: 'ZBrush', category: 'Digital Sculpting', desc: 'Organic sculpting with unparalleled detail and flexibility.' },
-  { name: 'Substance 3D', category: 'Materials & Texturing', desc: 'End-to-end material creation and texturing pipeline.' },
-  { name: 'After Effects', category: 'Compositing', desc: 'Industry-leading compositing and motion graphics tool.' },
-  { name: 'Premiere Pro', category: 'Video Editing', desc: 'Professional non-linear video editing and finishing.' },
-  { name: 'DaVinci Resolve', category: 'Color Grading', desc: 'Cinematic color grading and advanced audio post.' },
-  { name: 'Nuke', category: 'VFX Compositing', desc: 'Node-based compositing for high-end VFX production.' },
-  { name: 'Midjourney', category: 'AI Generation', desc: 'AI-powered image generation integrated into creative workflows.' },
-  { name: 'Stable Diffusion', category: 'AI Generation', desc: 'Open-source AI model for visual exploration and concept generation.' },
+  { name: 'Blender', category: 'Modeling & Animation', desc: 'Open-source powerhouse for 3D modeling, sculpting, and animation.', icon: Box },
+  { name: 'Cinema 4D', category: 'Motion & Design', desc: 'Industry-standard tool for motion graphics and 3D design.', icon: Layers },
+  { name: 'Houdini', category: 'Simulations & VFX', desc: 'The gold standard for procedural VFX, simulations, and dynamics.', icon: Wind },
+  { name: 'Unreal Engine', category: 'Real-time & VR', desc: 'Real-time rendering, VR environments, and architectural visualization.', icon: Zap },
+  { name: 'ZBrush', category: 'Digital Sculpting', desc: 'Organic sculpting with unparalleled detail and flexibility.', icon: Mountain },
+  { name: 'Substance 3D', category: 'Materials & Texturing', desc: 'End-to-end material creation and texturing pipeline.', icon: Palette },
+  { name: 'After Effects', category: 'Compositing', desc: 'Industry-leading compositing and motion graphics tool.', icon: Video },
+  { name: 'Premiere Pro', category: 'Video Editing', desc: 'Professional non-linear video editing and finishing.', icon: Film },
+  { name: 'DaVinci Resolve', category: 'Color Grading', desc: 'Cinematic color grading and advanced audio post.', icon: Sliders },
+  { name: 'Nuke', category: 'VFX Compositing', desc: 'Node-based compositing for high-end VFX production.', icon: Eye },
+  { name: 'Midjourney', category: 'AI Generation', desc: 'AI-powered image generation integrated into creative workflows.', icon: Sparkles },
+  { name: 'Stable Diffusion', category: 'AI Generation', desc: 'Open-source AI model for visual exploration and concept generation.', icon: Cpu },
 ];
 
-const categories = ['All', 'Modeling & Animation', 'Simulations & VFX', 'Real-time & VR', 'AI Generation', 'Compositing'];
-
 const stats = [
-  { value: '5+', label: 'Years of Experience', desc: 'Pushing the boundaries of 3D creative production' },
-  { value: '200+', label: 'Projects Delivered', desc: 'From concept to final render — on time, every time' },
-  { value: '80+', label: 'Satisfied Clients', desc: 'Brands across Egypt and the MENA region' },
-  { value: '12', label: 'Core Services', desc: 'A complete creative ecosystem under one roof' },
+  { value: '5+', label: 'Years of Experience', desc: 'Pushing the boundaries of 3D creative production', icon: Star },
+  { value: '200+', label: 'Projects Delivered', desc: 'From concept to final render — on time, every time', icon: CheckCircle2 },
+  { value: '80+', label: 'Satisfied Clients', desc: 'Brands across Egypt and the MENA region', icon: Users },
+  { value: '12', label: 'Core Services', desc: 'A complete creative ecosystem under one roof', icon: Briefcase },
 ];
 
 export default function Technology() {
@@ -79,7 +95,10 @@ export default function Technology() {
               <div className="glass-panel p-10 rounded-[32px] group hover:border-white/20 transition-all duration-700 relative overflow-hidden h-full">
                 <div className="absolute top-0 left-10 w-10 h-[2px] bg-neon-yellow/30 group-hover:bg-neon-yellow group-hover:w-20 transition-all duration-700 shadow-[0_0_10px_rgba(204,255,0,0.3)]" />
                 <div className="relative z-10">
-                  <div className="font-ibm text-7xl font-light text-white mb-6 tracking-tighter group-hover:text-neon-yellow transition-colors duration-700">{stat.value}</div>
+                  <div className="mb-8 text-white/10 group-hover:text-neon-yellow transition-colors duration-700">
+                    <stat.icon size={48} strokeWidth={1} />
+                  </div>
+                  <div className="font-ibm text-6xl md:text-7xl font-light text-white mb-6 tracking-tighter group-hover:text-neon-yellow transition-colors duration-700">{stat.value}</div>
                   <div className="font-ibm text-[10px] tracking-[0.4em] uppercase text-white/40 mb-3">{stat.label}</div>
                   <p className="font-ibm text-xs text-white/20 leading-relaxed font-light">{stat.desc}</p>
                 </div>
@@ -120,8 +139,8 @@ export default function Technology() {
                 }
               >
                 <div className="group h-full flex flex-col p-8 glass-panel rounded-[32px] hover:bg-white/[0.04] hover:border-white/20 transition-all duration-700 relative overflow-hidden">
-                  <div className="absolute top-8 right-8 w-8 h-8 rounded-full border border-white/5 flex items-center justify-center group-hover:border-neon-yellow/30 transition-all">
-                    <span className="text-[10px] text-white/10 group-hover:text-neon-yellow transition-colors italic">T</span>
+                  <div className="absolute top-8 right-8 w-10 h-10 rounded-2xl bg-white/[0.02] border border-white/5 flex items-center justify-center group-hover:border-neon-yellow/30 group-hover:bg-neon-yellow/5 transition-all text-white/10 group-hover:text-neon-yellow">
+                    <tool.icon size={20} strokeWidth={1.5} />
                   </div>
                   
                   <div className="flex flex-col gap-1 mb-6 transition-all duration-700 group-hover:translate-x-2">

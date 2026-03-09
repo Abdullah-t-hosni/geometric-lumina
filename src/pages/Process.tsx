@@ -3,12 +3,13 @@ import { motion, useInView } from 'framer-motion';
 import { SectionReveal } from '@/components/ui/SectionReveal';
 import { Link } from 'react-router-dom';
 import { SEO, Schemas } from '@/components/seo/SEO';
+import { Compass, Lightbulb, Box, Wind, Play, Image as ImageIcon, PackageCheck } from 'lucide-react';
 
 const steps = [
   {
     num: '01',
     title: 'Discovery',
-    icon: '◎',
+    icon: Compass,
     color: 'neon-yellow',
     description: 'We begin by deeply understanding your brand, goals, and audience. Through discovery sessions, briefs, and competitor research, we lay the intellectual foundation for everything that follows.',
     details: ['Brand deep-dive session', 'Target audience analysis', 'Competitor visual audit', 'Goals & KPI definition', 'Timeline planning'],
@@ -16,7 +17,7 @@ const steps = [
   {
     num: '02',
     title: 'Concept',
-    icon: '◈',
+    icon: Lightbulb,
     color: 'sky-blue',
     description: 'Ideas take shape. Moodboards, style references, and initial sketches explore multiple creative directions before we converge on the strongest concept that serves your vision.',
     details: ['Moodboard creation', 'Style exploration', 'Creative direction proposals', 'Client feedback & refinement', 'Final concept approval'],
@@ -24,7 +25,7 @@ const steps = [
   {
     num: '03',
     title: '3D Modeling',
-    icon: '⬡',
+    icon: Box,
     color: 'coral-red',
     description: 'The concept becomes geometry. Our artists construct the digital world — whether product, space, or character — with meticulous attention to form, scale, and proportion.',
     details: ['Base mesh creation', 'Topology optimization', 'UV unwrapping', 'Detail sculpting', 'Asset library preparation'],
@@ -32,7 +33,7 @@ const steps = [
   {
     num: '04',
     title: 'Simulation',
-    icon: '◉',
+    icon: Wind,
     color: 'sea-green',
     description: 'Physics and dynamics breathe life into the scene. Fire, smoke, cloth, and fluid simulations are tuned to perfection — chaos choreographed with precision.',
     details: ['Physics simulation setup', 'Particle systems', 'Fluid & fire dynamics', 'Cloth & soft body', 'Simulation caching'],
@@ -40,7 +41,7 @@ const steps = [
   {
     num: '05',
     title: 'Animation',
-    icon: '◌',
+    icon: Play,
     color: 'neon-yellow',
     description: 'Following the 12 Principles of Animation, every motion is intentional. Characters move with weight, objects have personality, and the camera tells its own story.',
     details: ['Keyframe animation', 'Motion graph refinement', 'Camera choreography', 'Timing & spacing', 'Motion review'],
@@ -48,7 +49,7 @@ const steps = [
   {
     num: '06',
     title: 'Rendering',
-    icon: '⬟',
+    icon: ImageIcon,
     color: 'sky-blue',
     description: 'Light, shadow, and material transform models into photorealistic imagery. Our render pipeline balances quality and efficiency to deliver breathtaking results.',
     details: ['Lighting setup & HDRi', 'Material & shader work', 'Multi-pass rendering', 'Render optimization', 'Output format setup'],
@@ -56,7 +57,7 @@ const steps = [
   {
     num: '07',
     title: 'Delivery',
-    icon: '◍',
+    icon: PackageCheck,
     color: 'coral-red',
     description: 'Compositing, color grading, and final polish bring everything together. The deliverable is packaged for your exact platform requirements — on time, every time.',
     details: ['Compositing & color grade', 'VFX integration', 'Audio sync', 'Format optimization', 'Final delivery & handoff'],
@@ -117,7 +118,7 @@ export default function Process() {
       <section className="py-24 px-6 relative z-10 overflow-hidden">
         <div className="max-w-[1400px] mx-auto relative group">
           {/* Main sequence line */}
-          <div className="absolute left-[34px] md:left-[64px] top-0 bottom-0 w-[1px] bg-white/5 group-hover:bg-neon-yellow/10 transition-colors duration-[2s]" />
+          <div className="absolute left-[34px] md:left-[64px] top-0 bottom-0 w-[1px] bg-white/5 group-hover:bg-neon-yellow/10 transition-colors [transition-duration:2000ms]" />
           
           <div className="relative pl-16 md:pl-40">
             {steps.map((step, i) => (
@@ -187,11 +188,16 @@ function ProcessStep({ step, index, isExpanded, onToggle }: {
       {/* Main Container */}
       <div className={`glass-panel rounded-[24px] transition-all duration-1000 overflow-hidden ${isExpanded ? 'bg-white/[0.03] border-white/10' : 'bg-transparent border-transparent hover:bg-white/[0.01]'}`}>
         <button onClick={onToggle} className="w-full text-left p-6 md:p-10 flex flex-col md:flex-row md:items-center justify-between gap-6 group">
-          <div className="flex flex-col gap-2">
-            <span className="text-[8px] font-ibm tracking-[0.5em] uppercase text-white/20 group-hover:text-neon-yellow transition-colors duration-700">Module 00{index+1}</span>
-            <h3 className={`font-ibm text-2xl xs:text-3xl md:text-5xl font-light tracking-tighter uppercase transition-colors duration-700 ${isExpanded ? 'text-white' : 'text-white/60 group-hover:text-white'}`}>
-              {step.title}
-            </h3>
+          <div className="flex items-center gap-6">
+            <div className={`p-4 rounded-2xl bg-white/[0.03] border border-white/5 transition-colors duration-700 ${isExpanded ? 'text-neon-yellow border-neon-yellow/20 bg-neon-yellow/5' : 'text-white/20'}`}>
+               <step.icon size={28} strokeWidth={1.5} />
+            </div>
+            <div className="flex flex-col gap-1 items-start">
+              <span className="text-[8px] font-ibm tracking-[0.5em] uppercase text-white/20 group-hover:text-neon-yellow transition-colors duration-700">Module 00{index+1}</span>
+              <h3 className={`font-ibm text-2xl xs:text-3xl md:text-5xl font-light tracking-tighter uppercase transition-colors duration-700 ${isExpanded ? 'text-white' : 'text-white/60 group-hover:text-white'}`}>
+                {step.title}
+              </h3>
+            </div>
           </div>
           
           <div className="flex items-center gap-8">
