@@ -72,7 +72,7 @@ export default function Process() {
       <SEO
         title="Our Creative Pipeline & Process"
         description="Discover Geometric Studio's 7-stage production pipeline: from Discovery and Concept through 3D Modeling, Simulation, Animation, Rendering, to final Delivery. A precise methodology for extraordinary cinematic results."
-        keywords="3D production pipeline, creative process Egypt, 3D animation workflow, cinematic production pipeline, motion graphics process, geometric studio methodology, 3D rendering process"
+        keywords="3D production pipeline, creative process, 3D animation workflow, cinematic production pipeline, motion graphics process, geometric studio methodology, 3D rendering process"
         schema={[
           Schemas.breadcrumb([
             { name: 'Home', url: '/' },

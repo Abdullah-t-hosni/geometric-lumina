@@ -137,13 +137,8 @@ export const Schemas = {
       contactType: 'customer service',
       availableLanguage: ['English', 'Arabic'],
     },
-    address: {
-      '@type': 'PostalAddress',
-      addressCountry: 'EG',
-      addressRegion: 'Cairo',
-    },
     description:
-      'Geometric Studio is a Cairo-based creative powerhouse specializing in cinematic 3D visualization, motion graphics, and immersive visual experiences.',
+      'Geometric Studio is a creative powerhouse specializing in cinematic 3D visualization, motion graphics, and immersive visual experiences.',
   }),
 
   /** Website schema */
@@ -172,11 +167,6 @@ export const Schemas = {
       '@type': 'Organization',
       name: 'Geometric Studio',
       url: SITE_URL,
-    },
-    areaServed: {
-      '@type': 'GeoCircle',
-      geoMidpoint: { '@type': 'GeoCoordinates', latitude: 30.0444, longitude: 31.2357 },
-      geoRadius: '5000',
     },
   }),
 
@@ -227,7 +217,7 @@ export const Schemas = {
     mainEntity: {
       '@type': 'Organization',
       name: 'Geometric Studio',
-      email: 'geometric3dadv@gmail.com',
+      email: 'contact@geometric-studios.com',
       telephone: '+201063565635',
     },
   }),
@@ -244,27 +234,15 @@ export const Schemas = {
     name: 'Geometric Studio',
     alternateName: 'Geometric Studios',
     description:
-      'Cairo-based 3D visualization, motion graphics, product animation, anamorphic screens, VR environments, and AI content production studio. Serving brands across Egypt, MENA, and globally.',
+      '3D visualization, motion graphics, product animation, anamorphic screens, VR environments, and AI content production studio serving brands globally.',
     url: SITE_URL,
     logo: `${SITE_URL}/assets/images/Logo-5.webp`,
     image: `${SITE_URL}/assets/og-image.png`,
     telephone: ['+201063565635', '+201025247955', '+201032843037'],
-    email: 'geometric3dadv@gmail.com',
+    email: 'contact@geometric-studios.com',
     priceRange: '$$$',
     currenciesAccepted: 'EGP, USD',
     paymentAccepted: 'Cash, Bank Transfer',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Cairo',
-      addressRegion: 'Cairo Governorate',
-      addressCountry: 'EG',
-      postalCode: '11511',
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: 30.0444,
-      longitude: 31.2357,
-    },
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',
@@ -284,14 +262,14 @@ export const Schemas = {
       '@type': 'OfferCatalog',
       name: 'Creative Services',
       itemListElement: [
-        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Motion Graphics Egypt' } },
-        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: '3D Visualization Cairo' } },
-        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Product Animation Egypt' } },
-        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Anamorphic Screens MENA' } },
-        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'VR Environments Cairo' } },
-        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'CGI Compositing Egypt' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Motion Graphics' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: '3D Visualization' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Product Animation' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Anamorphic Screens' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'VR Environments' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'CGI Compositing' } },
         { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'AI Content Production' } },
-        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Booth Exhibition Design Cairo' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Booth Exhibition Design' } },
       ],
     },
     sameAs: [
@@ -302,14 +280,14 @@ export const Schemas = {
       'https://linkedin.com/company/geometric-studios',
     ],
     areaServed: [
-      { '@type': 'Country', name: 'Egypt' },
-      { '@type': 'AdministrativeArea', name: 'MENA Region' },
+      { '@type': 'Country', name: 'MENA Region' },
+      { '@type': 'Country', name: 'Global' },
     ],
     knowsLanguage: ['en', 'ar'],
     foundingDate: '2019',
     numberOfEmployees: { '@type': 'QuantitativeValue', value: 15 },
     slogan: 'Precision in Imagination',
-    keywords: 'motion graphics egypt, 3D studio cairo, product visualization, anamorphic screens, CGI egypt, VR environments cairo, cinematic 3D, motion graphics studio',
+    keywords: 'motion graphics, 3D studio, product visualization, anamorphic screens, CGI, VR environments, cinematic 3D, motion graphics studio',
   }),
 
   /** VideoObject schema — for portfolio / reel pages */

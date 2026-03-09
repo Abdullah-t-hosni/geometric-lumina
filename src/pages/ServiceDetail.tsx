@@ -36,7 +36,7 @@ export default function ServiceDetail() {
       <SEO
         title={`${service.name} | 3D & Motion Services`}
         description={`${service.tagline} — ${service.description.slice(0, 120)}...`}
-        keywords={`${service.name.toLowerCase()}, ${service.category.toLowerCase()}, 3D studio Egypt, motion graphics Cairo, ${service.name.toLowerCase()} service`}
+        keywords={`${service.name.toLowerCase()}, ${service.category.toLowerCase()}, 3D studio, motion graphics, ${service.name.toLowerCase()} service`}
         schema={[
           Schemas.service(service.name, service.description, `/services/${service.slug}`),
           Schemas.breadcrumb([
@@ -237,9 +237,9 @@ export default function ServiceDetail() {
 
 function SpecMetric({ label, value }: { label: string; value: string }) {
   return (
-    <div className="group border-b border-white/5 pb-6 hover:border-white/20 transition-all duration-500">
-      <div className="text-[9px] font-ibm tracking-[0.3em] uppercase text-white/30 group-hover:text-neon-yellow/60 transition-colors mb-2">{label}</div>
-      <div className="text-xl md:text-2xl font-ibm font-light text-white tracking-tight uppercase">{value}</div>
+    <div className="group border-b border-white/5 pb-6 hover:border-white/20 transition-all duration-500 text-left">
+      <div className="text-[8px] md:text-[9px] font-ibm tracking-[0.3em] uppercase text-white/30 group-hover:text-neon-yellow/60 transition-colors mb-2 text-left">{label}</div>
+      <div className="text-lg md:text-xl lg:text-2xl font-ibm font-light text-white tracking-tight uppercase leading-tight text-left">{value}</div>
     </div>
   );
 }
@@ -270,29 +270,29 @@ function AlternativeCard({ service, index }: { service: typeof services[0]; inde
         to={`/services/${service.slug}`}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        className="group relative flex flex-col p-10 h-full rounded-[40px] bg-white/[0.02] border border-white/5 hover:border-white/20 transition-all duration-700 overflow-hidden"
+        className="group relative flex flex-col p-6 sm:p-8 md:p-10 h-full rounded-[32px] md:rounded-[40px] bg-white/[0.02] border border-white/5 hover:border-white/20 transition-all duration-700 overflow-hidden text-left"
       >
         <div className="absolute inset-0 bg-gradient-to-b from-white/[0.05] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
         
-        <div className="relative z-10 flex flex-col h-full">
-           <div className="flex justify-between items-start mb-12">
-              <div className="w-20 h-20 rounded-[30px] overflow-hidden p-1 glass-panel border-white/5 group-hover:border-neon-yellow/30 transition-all duration-700 shadow-2xl">
-                 <img src={service.image} alt={service.name} loading="lazy" className="w-full h-full object-cover rounded-[22px] grayscale group-hover:grayscale-0 transition-all duration-1000" />
+        <div className="relative z-10 flex flex-col h-full text-left">
+           <div className="flex justify-between items-start mb-8 md:mb-12">
+              <div className="w-16 h-16 md:w-20 md:h-20 rounded-[20px] md:rounded-[30px] overflow-hidden p-1 glass-panel border-white/5 group-hover:border-neon-yellow/30 transition-all duration-700 shadow-2xl">
+                 <img src={service.image} alt={service.name} loading="lazy" className="w-full h-full object-cover rounded-[14px] md:rounded-[22px] grayscale group-hover:grayscale-0 transition-all duration-1000" />
               </div>
-              <div className="text-[10px] font-ibm text-white/20 uppercase tracking-[0.3em]">Module_0{index + 1}</div>
+              <div className="text-[8px] md:text-[10px] font-ibm text-white/20 uppercase tracking-[0.3em]">Module_0{index + 1}</div>
            </div>
 
-           <div className="mt-auto space-y-4">
-              <h3 className="font-ibm font-light text-3xl text-white tracking-tighter uppercase leading-none group-hover:text-neon-yellow transition-colors duration-500">
+           <div className="mt-auto space-y-3 md:space-y-4 text-left">
+              <h3 className="font-ibm font-light text-xl md:text-2xl lg:text-3xl text-white tracking-tighter uppercase leading-tight group-hover:text-neon-yellow transition-colors duration-500">
                 {service.name}
               </h3>
-              <p className="font-ibm text-[10px] text-white/30 tracking-[0.2em] uppercase max-w-[200px] leading-relaxed group-hover:text-white/60 transition-all">
+              <p className="font-ibm text-[9px] md:text-[10px] text-white/30 tracking-[0.2em] uppercase max-w-[200px] leading-relaxed group-hover:text-white/60 transition-all text-left">
                 {service.tagline}
               </p>
               
-              <div className="flex items-center gap-4 pt-6">
+              <div className="flex items-center justify-start gap-4 pt-4 md:pt-6">
                 <div className={`h-[1px] transition-all duration-500 ${isHovered ? 'w-12 bg-neon-yellow' : 'w-6 bg-white/10'}`} />
-                <span className={`text-[8px] font-ibm tracking-[0.4em] uppercase transition-colors duration-500 ${isHovered ? 'text-white' : 'text-white/20'}`}>Select Protocol</span>
+                <span className={`text-[7px] md:text-[8px] font-ibm tracking-[0.4em] uppercase transition-colors duration-500 ${isHovered ? 'text-white' : 'text-white/20'}`}>Select Protocol</span>
               </div>
            </div>
         </div>

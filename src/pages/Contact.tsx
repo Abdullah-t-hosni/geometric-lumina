@@ -67,7 +67,7 @@ const budgetRanges = [
 ];
 
 const contactInfo = [
-  { label: 'Email', value: 'geometric3dadv@gmail.com', href: 'mailto:geometric3dadv@gmail.com', icon: Mail },
+  { label: 'Email', value: 'contact@geometric-studios.com', href: 'mailto:contact@geometric-studios.com', icon: Mail },
   { label: 'Primary Line', value: '+20 10 63565635', href: 'tel:+201063565635', icon: Phone },
   { label: 'Internal Node 2', value: '+20 10 25247955', href: 'tel:+201025247955', icon: Phone },
   { label: 'Support Node 3', value: '+20 10 32843037', href: 'tel:+201032843037', icon: Phone },
@@ -101,8 +101,8 @@ export default function Contact() {
     <div className="bg-background min-h-screen pt-24 pb-12 overflow-hidden relative">
       <SEO
         title="Contact Us — Start Your Project"
-        description="Connect with Geometric Studio to bring your cinematic 3D vision to life. Reach out for project inquiries, collaborations, or consultations. Based in Cairo, serving clients worldwide."
-        keywords="contact geometric studio, 3D project inquiry, hire 3D studio Egypt, motion graphics quote, cinematic production contact Cairo"
+        description="Connect with Geometric Studio to bring your cinematic 3D vision to life. Reach out for project inquiries, collaborations, or consultations serving clients worldwide."
+        keywords="contact geometric studio, 3D project inquiry, hire 3D studio, motion graphics quote, cinematic production contact"
         schema={[
           Schemas.contactPage(),
           Schemas.breadcrumb([
@@ -110,8 +110,8 @@ export default function Contact() {
             { name: 'Contact', url: '/contact' },
           ]),
           Schemas.faq([
-            { question: 'Where is Geometric Studio located?', answer: 'Geometric Studio is based in Cairo, Egypt and serves clients across Egypt, MENA, and globally.' },
-            { question: 'How do I start a project with Geometric Studio?', answer: 'Fill in the contact form or reach us directly by email at geometric3dadv@gmail.com or by phone at +20 10 63565635.' },
+            { question: 'Where is Geometric Studio available?', answer: 'Geometric Studio operates as a digital-first creative lab serving clients globally across all time zones.' },
+            { question: 'How do I start a project with Geometric Studio?', answer: 'Fill in the contact form or reach us directly by email at contact@geometric-studios.com or by phone at +20 10 63565635.' },
             { question: 'What services does Geometric Studio offer?', answer: 'We offer 3D visualization, motion graphics, product animation, anamorphic screens, VR environments, CGI compositing, 3D scanning, AI content production, and more.' },
             { question: 'How long does a typical project take?', answer: 'Project timelines vary by complexity. Simple animations can take 1-2 weeks, while full production projects can range from 4-12 weeks. We discuss timelines during discovery.' },
           ]),

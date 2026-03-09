@@ -181,17 +181,10 @@ export default function Footer() {
                </h4>
                <div className="space-y-8">
                   <div className="group text-left">
-                     <span className="block text-[8px] text-white/10 uppercase tracking-widest mb-1 text-left uppercase">HQ_Cairo_EG</span>
-                     <p className="font-ibm text-[11px] text-white/50 font-light leading-relaxed group-hover:text-white transition-colors text-left">
-                        Zayed City, Giza<br />
-                        Egypt Terminal
-                     </p>
-                  </div>
-                  <div className="group text-left">
-                     <span className="block text-[8px] text-white/10 uppercase tracking-widest mb-1 text-left">Direct_Node</span>
+                     <span className="block text-[8px] text-white/10 uppercase tracking-widest mb-1 text-left uppercase">Direct_Sequence</span>
                      <div className="text-left">
-                       <a href="mailto:geometric3dadv@gmail.com" className="font-ibm text-[11px] text-neon-yellow/60 underline underline-offset-4 hover:text-neon-yellow transition-colors">
-                          geometric3dadv@gmail.com
+                       <a href="mailto:contact@geometric-studios.com" className="font-ibm text-[11px] text-neon-yellow/60 underline underline-offset-4 hover:text-neon-yellow transition-colors italic">
+                          contact@geometric-studios.com
                        </a>
                      </div>
                   </div>
@@ -222,14 +215,14 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Middle Zone: Coordinate HUD (Desktop Only) */}
+            {/* Middle Zone: Technical Huddeco (Purely Abstract) */}
             <div className="hidden lg:flex items-center gap-8 px-10 border-x border-white/5">
                <div className="flex flex-col gap-1">
-                  <span className="text-[7px] text-white/10 uppercase tracking-[0.5em]">Global_Loc</span>
+                  <span className="text-[7px] text-white/10 uppercase tracking-[0.5em]">Network_Status</span>
                   <div className="flex items-center gap-3 text-[9px] text-white/20 font-ibm tracking-[0.2em]">
-                     <span>30.0444° N</span>
+                     <span className="text-neon-yellow/40">ENC_025</span>
                      <div className="w-[1px] h-2 bg-white/5" />
-                     <span>31.2357° E</span>
+                     <span>GLOBAL_NODE</span>
                   </div>
                </div>
                <div className="flex flex-col gap-1">

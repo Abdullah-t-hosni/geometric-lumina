@@ -16,8 +16,8 @@ export default function Portfolio() {
     <div className="bg-background min-h-screen pt-24 pb-12 overflow-hidden relative">
       <SEO
         title="Selected Works & Portfolio"
-        description="Browse Geometric Studio's masterpiece archive: cinematic 3D projects, motion graphics, product visualizations, and immersive experiences crafted for leading brands across Egypt and MENA."
-        keywords="geometric studio portfolio, 3D project showcase, motion graphics reel, product visualization portfolio, cinematic 3D Egypt, creative studio works"
+        description="Browse Geometric Studio's masterpiece archive: cinematic 3D projects, motion graphics, product visualizations, and immersive experiences crafted for leading brands globally."
+        keywords="geometric studio portfolio, 3D project showcase, motion graphics reel, product visualization portfolio, cinematic 3D, creative studio works"
         schema={[
           Schemas.breadcrumb([
             { name: 'Home', url: '/' },
@@ -138,36 +138,36 @@ function ProjectCard({ project, index }: { project: typeof portfolioProjects[0];
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/10 to-transparent opacity-90 group-hover:opacity-60 transition-opacity duration-700" />
           
           {/* Technical Metadata Header */}
-          <div className="absolute top-8 left-8 flex items-center gap-12 transition-all duration-700">
+          <div className="absolute top-6 left-6 md:top-8 md:left-8 flex items-center gap-8 md:gap-12 transition-all duration-700">
              <div className="flex flex-col gap-1 group-hover:translate-x-2 transition-transform duration-700">
-                <div className="text-[8px] font-ibm text-white/40 tracking-[0.5em] uppercase">Archive No.00{index+1}</div>
-                <div className="w-12 h-[1px] bg-neon-yellow/30 group-hover:bg-neon-yellow group-hover:w-20 transition-all duration-700 shadow-[0_0_10px_rgba(204,255,0,0.3)]" />
+                <div className="text-[7px] md:text-[8px] font-ibm text-white/40 tracking-[0.5em] uppercase">Archive No.00{index+1}</div>
+                <div className="w-8 md:w-12 h-[1px] bg-neon-yellow/30 group-hover:bg-neon-yellow group-hover:w-16 md:group-hover:w-20 transition-all duration-700 shadow-[0_0_10px_rgba(204,255,0,0.3)]" />
              </div>
              
-             <div className="flex items-center gap-4 opacity-0 group-hover:opacity-30 transition-opacity duration-1000 delay-500 hidden sm:flex">
-                <div className="text-[7px] font-ibm text-white tracking-[0.3em] uppercase">Client // {project.client || 'INTERNAL'}</div>
-                <div className="w-[1px] h-3 bg-white/20" />
-                <div className="text-[7px] font-ibm text-white tracking-[0.3em] uppercase">Year // {project.year}</div>
+             <div className="flex items-center gap-3 md:gap-4 opacity-0 group-hover:opacity-30 transition-opacity duration-1000 delay-500 hidden sm:flex">
+                <div className="text-[6px] md:text-[7px] font-ibm text-white tracking-[0.3em] uppercase">Client // {project.client || 'INTERNAL'}</div>
+                <div className="w-[1px] h-2 md:h-3 bg-white/20" />
+                <div className="text-[6px] md:text-[7px] font-ibm text-white tracking-[0.3em] uppercase">Year // {project.year}</div>
              </div>
           </div>
 
-          <div className="absolute bottom-10 left-10 right-10">
-            <div className="flex flex-wrap gap-2 mb-6 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-700">
-              {project.tags.map(tag => (
-                <span key={tag} className="text-[8px] text-white/50 font-ibm tracking-[0.2em] uppercase px-3 py-1.5 bg-black/40 backdrop-blur-md border border-white/5 rounded-full">
-                  {tag}
+          <div className="absolute bottom-6 left-6 right-6 md:bottom-10 md:left-10 md:right-10">
+            <div className="flex flex-wrap gap-1.5 md:gap-2 mb-4 md:mb-6 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-700">
+               {project.tags.map(tag => (
+                <span key={tag} className="text-[7px] md:text-[8px] text-white/50 font-ibm tracking-[0.2em] uppercase px-2 py-1 md:px-3 md:py-1.5 bg-black/40 backdrop-blur-md border border-white/5 rounded-full">
+                   {tag}
                 </span>
               ))}
             </div>
             
             <div className="flex items-end justify-between">
-              <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-700">
-                <span className="text-[9px] text-neon-yellow/60 font-ibm tracking-[0.3em] uppercase block mb-2 md:mb-3">{project.category}</span>
-                <h3 className="font-ibm font-light text-2xl xs:text-3xl md:text-5xl text-white tracking-tighter uppercase leading-none">{project.title}</h3>
+              <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-700 max-w-[80%]">
+                <span className="text-[8px] md:text-[9px] text-neon-yellow/60 font-ibm tracking-[0.3em] uppercase block mb-1.5 md:mb-3">{project.category}</span>
+                <h3 className="font-ibm font-light text-xl xs:text-2xl md:text-4xl lg:text-5xl text-white tracking-tighter uppercase leading-[0.9]">{project.title}</h3>
               </div>
               
-              <div className="w-14 h-14 rounded-full border border-white/5 flex items-center justify-center text-white scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100 group-hover:border-neon-yellow/30 transition-all duration-700 ease-out">
-                <span className="text-2xl group-hover:text-neon-yellow">↗</span>
+              <div className="w-10 h-10 md:w-14 md:h-14 rounded-full border border-white/5 flex items-center justify-center text-white scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100 group-hover:border-neon-yellow/30 transition-all duration-700 ease-out">
+                <span className="text-xl group-hover:text-neon-yellow">↗</span>
               </div>
             </div>
           </div>

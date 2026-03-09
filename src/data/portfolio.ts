@@ -100,7 +100,7 @@ export const portfolioProjects: PortfolioProject[] = [
     id: '7',
     title: 'Skyline Residences',
     category: 'Architecture',
-    description: 'A full architectural visualization package for a premium residential development in New Cairo.',
+    description: 'A full architectural visualization package for a premium residential development.',
     image: architecturalVisualization,
     gallery: [architecturalVisualization, vrEnvironments, servicesImg],
     year: '2024',

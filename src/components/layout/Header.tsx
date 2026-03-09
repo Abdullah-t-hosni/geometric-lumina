@@ -180,8 +180,8 @@ export default function Header() {
                     <a href="https://linkedin.com/company/geometric-studios" target="_blank" rel="noopener noreferrer" className="hover:text-neon-yellow transition-colors duration-300">LinkedIn</a>
                     <a href="https://www.tiktok.com/@geometric_studios" target="_blank" rel="noopener noreferrer" className="hover:text-neon-yellow transition-colors duration-300">TikTok</a>
                   </div>
-                  <a href="mailto:geometric3dadv@gmail.com" className="text-[11px] md:text-[12px] text-creamy-white/70 hover:text-neon-yellow transition-colors duration-300 font-ibm font-light tracking-wide break-all">
-                    geometric3dadv@gmail.com
+                  <a href="mailto:contact@geometric-studios.com" className="text-[11px] md:text-[12px] text-creamy-white/70 hover:text-neon-yellow transition-colors duration-300 font-ibm font-light tracking-wide break-all">
+                    contact@geometric-studios.com
                   </a>
                 </div>
               </motion.div>

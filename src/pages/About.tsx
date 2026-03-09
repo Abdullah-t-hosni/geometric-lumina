@@ -60,8 +60,8 @@ export default function About() {
     <div className="bg-background min-h-screen pt-24 pb-12 overflow-hidden">
       <SEO
         title="About Geometric Studio"
-        description="Discover the story, values, and creative philosophy behind Geometric Studio — Cairo's premier 3D visualization and motion graphics powerhouse. Built on precision, driven by imagination."
-        keywords="about geometric studio, 3D studio Cairo, motion graphics Egypt, creative agency Cairo, 3D visualization team, cinematic production house"
+        description="Discover the story, values, and creative philosophy behind Geometric Studio — a premier 3D visualization and motion graphics powerhouse. Built on precision, driven by imagination."
+        keywords="about geometric studio, 3D studio, motion graphics, creative agency, 3D visualization team, cinematic production house"
         schema={[
           Schemas.organization(),
           Schemas.breadcrumb([
@@ -149,12 +149,12 @@ export default function About() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
             {values.map((v, i) => (
               <SectionReveal key={v.title} delay={i * 0.1}>
-                <div className="h-full glass-panel p-8 hover:border-white/20 transition-all duration-700 group relative flex flex-col items-center text-center lg:items-start lg:text-left">
-                  <div className="mb-8 text-white/10 group-hover:text-neon-yellow transition-colors duration-700">
-                    <v.icon size={32} strokeWidth={1.5} />
+                <div className="h-full glass-panel p-6 sm:p-8 hover:border-white/20 transition-all duration-700 group relative flex flex-col items-center text-center lg:items-start lg:text-left">
+                  <div className="mb-6 md:mb-8 text-white/10 group-hover:text-neon-yellow transition-colors duration-700">
+                    <v.icon className="w-8 h-8 md:w-10 md:h-10" strokeWidth={1.5} />
                   </div>
-                  <h3 className="font-ibm font-light text-xl text-white tracking-tight mb-4 uppercase">{v.title}</h3>
-                  <p className="font-ibm text-[11px] text-white/40 font-light leading-relaxed group-hover:text-white/60 transition-colors">{v.desc}</p>
+                  <h3 className="font-ibm font-light text-lg md:text-xl text-white tracking-tight mb-3 md:mb-4 uppercase leading-tight">{v.title}</h3>
+                  <p className="font-ibm text-[10px] md:text-[11px] text-white/40 font-light leading-relaxed group-hover:text-white/60 transition-colors uppercase">{v.desc}</p>
                 </div>
               </SectionReveal>
             ))}
@@ -180,12 +180,12 @@ export default function About() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             {designPrinciples.map((p, i) => (
               <SectionReveal key={p.title} delay={i * 0.05}>
-                <div className="glass-panel p-6 hover:bg-white/5 transition-all duration-300 group h-full flex flex-col justify-start">
-                  <div className="mb-6 text-white/10 group-hover:text-neon-yellow transition-colors duration-500">
-                    <p.icon size={20} strokeWidth={1.5} />
+                <div className="glass-panel p-6 sm:p-8 hover:bg-white/5 transition-all duration-300 group h-full flex flex-col justify-start text-left">
+                  <div className="mb-4 md:mb-6 text-white/10 group-hover:text-neon-yellow transition-colors duration-500">
+                    <p.icon className="w-5 h-5 md:w-6 md:h-6" strokeWidth={1.5} />
                   </div>
-                  <h4 className="font-ibm font-bold text-lg text-creamy-white mb-3 tracking-tight group-hover:text-neon-yellow transition-colors">{p.title}</h4>
-                  <p className="font-ibm text-[11px] text-creamy-white/50 font-medium tracking-wide leading-relaxed group-hover:text-creamy-white/70 transition-colors uppercase">{p.desc}</p>
+                  <h4 className="font-ibm font-bold text-base md:text-lg text-creamy-white mb-2 md:mb-3 tracking-tight group-hover:text-neon-yellow transition-colors leading-tight">{p.title}</h4>
+                  <p className="font-ibm text-[10px] md:text-[11px] text-creamy-white/50 font-medium tracking-wide leading-relaxed group-hover:text-creamy-white/70 transition-colors uppercase text-left">{p.desc}</p>
                 </div>
               </SectionReveal>
             ))}
@@ -217,16 +217,16 @@ export default function About() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {animPrinciples.map((p, i) => (
               <SectionReveal key={p.title} delay={i * 0.05}>
-                <div className="glass-panel p-10 hover:border-white/20 transition-all duration-700 group flex flex-col h-full relative overflow-hidden bg-white/[0.01]">
-                   <div className="absolute -bottom-6 -right-6 font-ibm font-light text-9xl text-white/[0.02] group-hover:text-neon-yellow/[0.05] transition-colors duration-1000 pointer-events-none select-none italic">
+                <div className="glass-panel p-6 sm:p-8 md:p-10 hover:border-white/20 transition-all duration-700 group flex flex-col h-full relative overflow-hidden bg-white/[0.01] text-left">
+                   <div className="absolute -bottom-4 -right-4 md:-bottom-6 md:-right-6 font-ibm font-light text-7xl md:text-9xl text-white/[0.02] group-hover:text-neon-yellow/[0.05] transition-colors duration-1000 pointer-events-none select-none italic">
                      {String(i + 1).padStart(2, '0')}
                    </div>
-                  <div className="font-ibm font-light text-neon-yellow/30 text-2xl mb-6 group-hover:text-neon-yellow transition-colors duration-500 italic">
+                  <div className="font-ibm font-light text-neon-yellow/30 text-xl md:text-2xl mb-4 md:mb-6 group-hover:text-neon-yellow transition-colors duration-500 italic">
                     {String(i + 1).padStart(2, '0')}.
                   </div>
-                  <div className="relative z-10">
-                    <h4 className="font-ibm font-light text-xl text-white mb-3 tracking-tight group-hover:text-neon-yellow transition-colors uppercase">{p.title}</h4>
-                    <p className="font-ibm text-[10px] text-white/30 font-light tracking-[0.1em] leading-relaxed group-hover:text-white/60 transition-colors uppercase">{p.desc}</p>
+                  <div className="relative z-10 text-left">
+                    <h4 className="font-ibm font-light text-lg md:text-xl text-white mb-2 md:mb-3 tracking-tight group-hover:text-neon-yellow transition-colors uppercase leading-tight">{p.title}</h4>
+                    <p className="font-ibm text-[10px] md:text-[11px] text-white/30 font-light tracking-[0.1em] leading-relaxed group-hover:text-white/60 transition-colors uppercase">{p.desc}</p>
                   </div>
                 </div>
               </SectionReveal>

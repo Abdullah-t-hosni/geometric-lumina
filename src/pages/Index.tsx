@@ -79,7 +79,7 @@ const testimonials = [
     author: "Ahmed Khalil",
     role: "Marketing Director",
     project: "Launch_System_V4",
-    location: "Cairo_HQ"
+    location: "Global_HQ"
   },
   {
     quote: "The booth design they created was the talk of the entire exhibition. Every detail was executed with surgical precision.",
@@ -93,7 +93,7 @@ const testimonials = [
     author: "Omar Hassan",
     role: "CEO, PropDev",
     project: "Immersive_Habit",
-    location: "New_Capital"
+    location: "Project_Node_03"
   },
 ];
 
@@ -113,9 +113,9 @@ export default function Index() {
   return (
     <div className="bg-background">
       <SEO
-        title="Geometric Studio | 3D Visualization & Motion Graphics Cairo"
-        description="Geometric Studio — Cairo's premier 3D visualization and motion graphics studio. Award-winning cinematic 3D, product animation, anamorphic screens, VR environments, and AI-powered content for brands across Egypt and the MENA region."
-        keywords="motion graphics egypt, 3D studio cairo, 3D visualization egypt, product animation cairo, cinematic 3D MENA, anamorphic screens egypt, VR environments cairo, CGI egypt, motion graphics studio cairo, 3D advertising egypt"
+        title="Geometric Studio | 3D Visualization & Motion Graphics"
+        description="Geometric Studio — premier 3D visualization and motion graphics studio. Award-winning cinematic 3D, product animation, anamorphic screens, VR environments, and AI-powered content for brands globally."
+        keywords="motion graphics, 3D studio, 3D visualization, product animation, cinematic 3D, anamorphic screens, VR environments, CGI, motion graphics studio, 3D advertising"
         ogType="website"
         schema={[
           Schemas.organization(),
@@ -532,14 +532,14 @@ export default function Index() {
             {testimonials.map((t, i) => (
               <SectionReveal key={i} delay={i * 0.15}>
                 <div className="relative group h-full">
-                  <div className="glass-panel h-full rounded-[35px] p-10 border-white/5 hover:border-neon-yellow/20 transition-all duration-700 flex flex-col relative overflow-hidden bg-white/[0.01]">
+                  <div className="glass-panel h-full rounded-[32px] md:rounded-[35px] p-6 sm:p-8 md:p-10 border-white/5 hover:border-neon-yellow/20 transition-all duration-700 flex flex-col relative overflow-hidden bg-white/[0.01] text-left">
                     {/* Header HUD */}
-                    <div className="flex justify-between items-start mb-12">
-                       <div className="flex flex-col gap-1">
-                          <span className="text-[7px] font-ibm text-white/20 tracking-tighter uppercase flex items-center gap-2">
+                    <div className="flex justify-between items-start mb-8 md:mb-12">
+                       <div className="flex flex-col gap-1 text-left">
+                          <span className="text-[7px] font-ibm text-white/20 tracking-tighter uppercase flex items-center justify-start gap-2">
                              <Activity size={8} className="text-neon-yellow" /> Report_Ref: GEOM_{i+1}
                           </span>
-                          <span className="text-[7px] font-ibm text-neon-yellow tracking-tighter uppercase flex items-center gap-2">
+                          <span className="text-[7px] font-ibm text-neon-yellow tracking-tighter uppercase flex items-center justify-start gap-2">
                              <ShieldCheck size={8} /> Status: ENCRYPTED_OK
                           </span>
                        </div>
@@ -548,17 +548,17 @@ export default function Index() {
                        </div>
                     </div>
                     
-                    <p className="font-ibm text-creamy-white/60 text-lg leading-relaxed font-light mb-12 italic group-hover:text-creamy-white transition-colors duration-700">“{t.quote}”</p>
+                    <p className="font-ibm text-creamy-white/60 text-base md:text-lg leading-relaxed font-light mb-8 md:mb-12 italic group-hover:text-creamy-white transition-colors duration-700 text-left">“{t.quote}”</p>
                     
-                    <div className="mt-auto pt-8 border-t border-white/5">
+                    <div className="mt-auto pt-6 md:pt-8 border-t border-white/5">
                        <div className="flex justify-between items-end">
-                          <div>
-                             <div className="font-ibm text-lg font-medium text-white tracking-tight mb-1 uppercase">{t.author}</div>
-                             <div className="font-ibm text-[9px] text-white/30 uppercase tracking-[0.3em] font-light">{t.role}</div>
+                          <div className="text-left">
+                             <div className="font-ibm text-base md:text-lg font-medium text-white tracking-tight mb-1 uppercase leading-tight">{t.author}</div>
+                             <div className="font-ibm text-[8px] md:text-[9px] text-white/30 uppercase tracking-[0.3em] font-light">{t.role}</div>
                           </div>
                           <div className="text-right">
-                             <div className="font-ibm text-[7px] text-neon-yellow/40 uppercase mb-1 tracking-widest">{t.project}</div>
-                             <div className="font-ibm text-[7px] text-white/10 uppercase tracking-widest">{t.location}</div>
+                             <div className="font-ibm text-[7px] text-neon-yellow/40 uppercase mb-1 tracking-widest leading-none">{t.project}</div>
+                             <div className="font-ibm text-[7px] text-white/10 uppercase tracking-widest leading-none">{t.location}</div>
                           </div>
                        </div>
                     </div>
@@ -627,10 +627,10 @@ function ServiceCard({ service, index, className }: { service: typeof services[0
         </div>
 
         {/* Content */}
-        <div className="relative z-10 h-full p-8 md:p-10 flex flex-col">
+        <div className="relative z-10 h-full p-6 sm:p-8 md:p-10 flex flex-col text-left">
           <div className="flex justify-between items-start mb-auto">
-             <div className="flex flex-col gap-1">
-                <div className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[7px] md:text-[8px] font-ibm tracking-[0.3em] uppercase text-creamy-white/40">
+             <div className="flex flex-col gap-1 items-start">
+                <div className="px-2.5 py-1 md:px-3 rounded-full bg-white/5 border border-white/10 text-[7px] md:text-[8px] font-ibm tracking-[0.3em] uppercase text-creamy-white/40">
                   DISCIPLINE.00{index + 1}
                 </div>
                 <div className={`h-[1px] bg-current transition-all duration-700 ${isHovered ? 'w-full' : 'w-4'} ${
@@ -640,24 +640,24 @@ function ServiceCard({ service, index, className }: { service: typeof services[0
              
              <motion.div 
                animate={{ rotate: isHovered ? 90 : 0 }}
-               className={`w-10 h-10 rounded-full border border-white/10 flex items-center justify-center transition-colors duration-500 ${isHovered ? 'border-neon-yellow/50 text-neon-yellow bg-neon-yellow/5' : 'text-white/20'}`}
+               className={`w-9 h-9 md:w-10 md:h-10 rounded-full border border-white/10 flex items-center justify-center transition-colors duration-500 ${isHovered ? 'border-neon-yellow/50 text-neon-yellow bg-neon-yellow/5' : 'text-white/20'}`}
              >
                 <ServiceIcon slug={service.slug} size={18} />
              </motion.div>
           </div>
           
-          <div className="space-y-4">
-            <h3 className="font-ibm font-light text-2xl md:text-4xl text-white tracking-tight leading-none group-hover:text-neon-yellow transition-colors duration-500 uppercase">
+          <div className="space-y-3 md:space-y-4 text-left">
+            <h3 className="font-ibm font-light text-xl xs:text-2xl md:text-3xl lg:text-4xl text-white tracking-tight leading-tight group-hover:text-neon-yellow transition-colors duration-500 uppercase">
               {service.name}
             </h3>
             
-            <p className="font-ibm text-xs md:text-sm font-light text-white/40 leading-relaxed max-w-md group-hover:text-white/80 transition-colors duration-700">
+            <p className="font-ibm text-[10px] md:text-xs lg:text-sm font-light text-white/40 leading-relaxed max-w-md group-hover:text-white/80 transition-colors duration-700">
               {service.tagline}
             </p>
 
-            <div className="flex items-center gap-4 pt-4">
+            <div className="flex items-center justify-start gap-4 pt-4">
               <div className={`w-8 h-[1px] transition-all duration-500 group-hover:w-16 ${isHovered ? 'bg-neon-yellow' : 'bg-white/10'}`} />
-              <span className={`font-ibm text-[9px] tracking-[0.4em] font-light uppercase transition-colors duration-500 ${isHovered ? 'text-white' : 'text-white/30'}`}>View Details</span>
+              <span className={`font-ibm text-[8px] md:text-[9px] tracking-[0.4em] font-light uppercase transition-colors duration-500 ${isHovered ? 'text-white' : 'text-white/30'}`}>View Details</span>
             </div>
           </div>
         </div>
@@ -823,41 +823,41 @@ function FeaturedProjectCard({ service, index }: { service: typeof services[0]; 
             />
           </div>
           
-          {/* HUD Brackets */}
-          <div className="absolute inset-8 pointer-events-none">
-             <div className="absolute top-0 left-0 w-8 h-8 border-t border-l border-white/20 transition-all duration-700 group-hover:border-neon-yellow group-hover:-translate-x-2 group-hover:-translate-y-2" />
-             <div className="absolute top-0 right-0 w-8 h-8 border-t border-r border-white/20 transition-all duration-700 group-hover:border-neon-yellow group-hover:translate-x-2 group-hover:-translate-y-2" />
-             <div className="absolute bottom-0 left-0 w-8 h-8 border-b border-l border-white/20 transition-all duration-700 group-hover:border-neon-yellow group-hover:-translate-x-2 group-hover:translate-y-2" />
-             <div className="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-white/20 transition-all duration-700 group-hover:border-neon-yellow group-hover:translate-x-2 group-hover:translate-y-2" />
+          {/* HUD Brackets - Responsive inset */}
+          <div className="absolute inset-4 sm:inset-6 md:inset-8 pointer-events-none">
+             <div className="absolute top-0 left-0 w-4 h-4 md:w-8 md:h-8 border-t border-l border-white/20 transition-all duration-700 group-hover:border-neon-yellow group-hover:-translate-x-1 md:group-hover:-translate-x-2 group-hover:-translate-y-1 md:group-hover:-translate-y-2" />
+             <div className="absolute top-0 right-0 w-4 h-4 md:w-8 md:h-8 border-t border-r border-white/20 transition-all duration-700 group-hover:border-neon-yellow group-hover:translate-x-1 md:group-hover:translate-x-2 group-hover:-translate-y-1 md:group-hover:-translate-y-2" />
+             <div className="absolute bottom-0 left-0 w-4 h-4 md:w-8 md:h-8 border-b border-l border-white/20 transition-all duration-700 group-hover:border-neon-yellow group-hover:-translate-x-1 md:group-hover:-translate-x-2 group-hover:translate-y-1 md:group-hover:translate-y-2" />
+             <div className="absolute bottom-0 right-0 w-4 h-4 md:w-8 md:h-8 border-b border-r border-white/20 transition-all duration-700 group-hover:border-neon-yellow group-hover:translate-x-1 md:group-hover:translate-x-2 group-hover:translate-y-1 md:group-hover:translate-y-2" />
           </div>
 
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80" />
           
           {/* Metadata corner */}
-          <div className="absolute top-10 right-10 flex flex-col items-end gap-2 translate-x-4 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-700">
-             <div className="px-3 py-1 rounded-sm bg-background/80 backdrop-blur-md border border-white/10 text-[7px] text-white font-ibm tracking-[0.2em] uppercase">Resolution: 8K_NATIVE</div>
-             <div className="px-3 py-1 rounded-sm bg-background/80 backdrop-blur-md border border-white/10 text-[7px] text-white font-ibm tracking-[0.2em] uppercase">Engine: RayTracing_MAX</div>
+          <div className="absolute top-6 right-6 md:top-10 md:right-10 flex flex-col items-end gap-2 translate-x-4 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-700">
+             <div className="px-2 md:px-3 py-1 rounded-sm bg-background/80 backdrop-blur-md border border-white/10 text-[6px] md:text-[7px] text-white font-ibm tracking-[0.2em] uppercase">Resolution: 8K_NATIVE</div>
+             <div className="px-2 md:px-3 py-1 rounded-sm bg-background/80 backdrop-blur-md border border-white/10 text-[6px] md:text-[7px] text-white font-ibm tracking-[0.2em] uppercase">Engine: RayTracing_MAX</div>
           </div>
 
-          <div className="absolute bottom-12 left-12 right-12">
-            <div className="flex items-center gap-4 mb-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700 delay-100">
-               <span className="px-3 py-1 rounded-full bg-neon-yellow text-background text-[8px] font-ibm font-bold tracking-[0.2em] uppercase">Featured</span>
-               <span className="text-[10px] text-white/50 font-ibm tracking-[0.3em] uppercase">{service.category}</span>
+          <div className="absolute bottom-6 left-6 right-6 sm:bottom-8 sm:left-8 sm:right-8 md:bottom-12 md:left-12 md:right-12">
+            <div className="flex items-center gap-2 md:gap-4 mb-4 md:mb-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700 delay-100">
+               <span className="px-2 md:px-3 py-0.5 md:py-1 rounded-full bg-neon-yellow text-background text-[7px] md:text-[8px] font-ibm font-bold tracking-[0.2em] uppercase">Featured</span>
+               <span className="text-[8px] md:text-[10px] text-white/50 font-ibm tracking-[0.3em] uppercase">{service.category}</span>
             </div>
             
-            <div className="flex items-end justify-between">
+            <div className="flex items-end justify-between gap-4">
                <div className="max-w-xl">
-                  <h3 className="font-ibm text-4xl md:text-6xl font-light text-white tracking-tighter leading-none mb-4 uppercase group-hover:text-neon-yellow transition-colors duration-500">
+                  <h3 className="font-ibm text-2xl xs:text-3xl sm:text-4xl md:text-6xl font-light text-white tracking-tighter leading-tight md:leading-none mb-2 md:mb-4 uppercase group-hover:text-neon-yellow transition-colors duration-500">
                     {service.name}
                   </h3>
                   <div className={`h-[1px] bg-neon-yellow/30 transition-all duration-1000 ${isHovered ? 'w-full' : 'w-0'}`} />
                </div>
                
-               <div className="w-16 h-16 rounded-full border border-white/10 flex items-center justify-center text-white transform rotate-[-45deg] group-hover:rotate-0 group-hover:border-neon-yellow group-hover:text-neon-yellow transition-all duration-700 overflow-hidden relative">
+               <div className="w-10 h-10 md:w-16 md:h-16 rounded-full border border-white/10 flex-shrink-0 flex items-center justify-center text-white transform rotate-[-45deg] group-hover:rotate-0 group-hover:border-neon-yellow group-hover:text-neon-yellow transition-all duration-700 overflow-hidden relative">
                   <motion.span 
                     animate={isHovered ? { x: [0, 40, -40, 0] } : {}}
                     transition={{ duration: 0.5 }}
-                    className="text-2xl"
+                    className="text-xl md:text-2xl"
                   >
                     →
                   </motion.span>

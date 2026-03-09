@@ -38,7 +38,7 @@ const tools = [
 const stats = [
   { value: '5+', label: 'Years of Experience', desc: 'Pushing the boundaries of 3D creative production', icon: Star },
   { value: '200+', label: 'Projects Delivered', desc: 'From concept to final render — on time, every time', icon: CheckCircle2 },
-  { value: '80+', label: 'Satisfied Clients', desc: 'Brands across Egypt and the MENA region', icon: Users },
+  { value: '80+', label: 'Satisfied Clients', desc: 'Serving brands globally with precision', icon: Users },
   { value: '12', label: 'Core Services', desc: 'A complete creative ecosystem under one roof', icon: Briefcase },
 ];
 
@@ -48,7 +48,7 @@ export default function Technology() {
       <SEO
         title="Software Stack & Technology Arsenal"
         description="Explore the professional tools powering Geometric Studio: Blender, Cinema 4D, Houdini, Unreal Engine, ZBrush, Substance 3D, After Effects, DaVinci Resolve, and cutting-edge AI tools like Midjourney."
-        keywords="3D software stack, Blender studio Egypt, Cinema 4D production, Houdini VFX Cairo, Unreal Engine visualization, ZBrush sculpting, After Effects compositing, AI 3D production"
+        keywords="3D software stack, Blender studio, Cinema 4D production, Houdini VFX, Unreal Engine visualization, ZBrush sculpting, After Effects compositing, AI 3D production"
         schema={[
           Schemas.breadcrumb([
             { name: 'Home', url: '/' },
@@ -92,15 +92,15 @@ export default function Technology() {
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {stats.map((stat, i) => (
             <SectionReveal key={stat.label} delay={i * 0.1}>
-              <div className="glass-panel p-10 rounded-[32px] group hover:border-white/20 transition-all duration-700 relative overflow-hidden h-full">
-                <div className="absolute top-0 left-10 w-10 h-[2px] bg-neon-yellow/30 group-hover:bg-neon-yellow group-hover:w-20 transition-all duration-700 shadow-[0_0_10px_rgba(204,255,0,0.3)]" />
+              <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-[32px] group hover:border-white/20 transition-all duration-700 relative overflow-hidden h-full">
+                <div className="absolute top-0 left-6 sm:left-10 w-10 h-[2px] bg-neon-yellow/30 group-hover:bg-neon-yellow group-hover:w-20 transition-all duration-700 shadow-[0_0_10px_rgba(204,255,0,0.3)]" />
                 <div className="relative z-10">
-                  <div className="mb-8 text-white/10 group-hover:text-neon-yellow transition-colors duration-700">
-                    <stat.icon size={48} strokeWidth={1} />
+                  <div className="mb-6 md:mb-8 text-white/10 group-hover:text-neon-yellow transition-colors duration-700">
+                    <stat.icon className="w-10 h-10 md:w-12 md:h-12" strokeWidth={1} />
                   </div>
-                  <div className="font-ibm text-6xl md:text-7xl font-light text-white mb-6 tracking-tighter group-hover:text-neon-yellow transition-colors duration-700">{stat.value}</div>
-                  <div className="font-ibm text-[10px] tracking-[0.4em] uppercase text-white/40 mb-3">{stat.label}</div>
-                  <p className="font-ibm text-xs text-white/20 leading-relaxed font-light">{stat.desc}</p>
+                  <div className="font-ibm text-5xl md:text-6xl lg:text-7xl font-light text-white mb-4 md:mb-6 tracking-tighter group-hover:text-neon-yellow transition-colors duration-700">{stat.value}</div>
+                  <div className="font-ibm text-[8px] md:text-[10px] tracking-[0.4em] uppercase text-white/40 mb-2 md:mb-3">{stat.label}</div>
+                  <p className="font-ibm text-[10px] md:text-xs text-white/20 leading-relaxed font-light">{stat.desc}</p>
                 </div>
               </div>
             </SectionReveal>
@@ -138,21 +138,21 @@ export default function Technology() {
                   "lg:col-span-3 lg:row-span-1"
                 }
               >
-                <div className="group h-full flex flex-col p-8 glass-panel rounded-[32px] hover:bg-white/[0.04] hover:border-white/20 transition-all duration-700 relative overflow-hidden">
-                  <div className="absolute top-8 right-8 w-10 h-10 rounded-2xl bg-white/[0.02] border border-white/5 flex items-center justify-center group-hover:border-neon-yellow/30 group-hover:bg-neon-yellow/5 transition-all text-white/10 group-hover:text-neon-yellow">
-                    <tool.icon size={20} strokeWidth={1.5} />
+                <div className="group h-full flex flex-col p-6 sm:p-8 glass-panel rounded-[32px] hover:bg-white/[0.04] hover:border-white/20 transition-all duration-700 relative overflow-hidden text-left">
+                  <div className="absolute top-6 right-6 md:top-8 md:right-8 w-8 h-8 md:w-10 md:h-10 rounded-xl md:rounded-2xl bg-white/[0.02] border border-white/5 flex items-center justify-center group-hover:border-neon-yellow/30 group-hover:bg-neon-yellow/5 transition-all text-white/10 group-hover:text-neon-yellow">
+                    <tool.icon className="w-[18px] h-[18px] md:w-5 md:h-5" strokeWidth={1.5} />
                   </div>
                   
-                  <div className="flex flex-col gap-1 mb-6 transition-all duration-700 group-hover:translate-x-2">
-                    <span className="text-[8px] font-ibm tracking-[0.4em] uppercase text-neon-yellow/40 group-hover:text-neon-yellow transition-colors">Software_0{i+1}</span>
-                    <h3 className="font-ibm font-light text-2xl text-white tracking-tight leading-none uppercase">{tool.name}</h3>
+                  <div className="flex flex-col gap-1 mb-4 md:mb-6 transition-all duration-700 group-hover:translate-x-2 text-left">
+                    <span className="text-[7px] md:text-[8px] font-ibm tracking-[0.4em] uppercase text-neon-yellow/40 group-hover:text-neon-yellow transition-colors">Software_0{i+1}</span>
+                    <h3 className="font-ibm font-light text-xl md:text-2xl text-white tracking-tight leading-tight uppercase">{tool.name}</h3>
                   </div>
                   
-                  <div className="px-3 py-1.5 rounded-full border border-white/5 bg-background text-[8px] font-ibm tracking-[0.3em] text-white/30 uppercase w-fit mb-8 transition-all group-hover:border-white/20 group-hover:text-white/60">
+                  <div className="px-2.5 py-1 md:px-3 md:py-1.5 rounded-full border border-white/5 bg-background text-[7px] md:text-[8px] font-ibm tracking-[0.3em] text-white/30 uppercase w-fit mb-6 md:mb-8 transition-all group-hover:border-white/20 group-hover:text-white/60">
                     {tool.category}
                   </div>
                   
-                  <p className="font-ibm text-[11px] text-white/30 font-light leading-relaxed group-hover:text-white/50 transition-colors duration-700 mt-auto">{tool.desc}</p>
+                  <p className="font-ibm text-[10px] md:text-[11px] text-white/30 font-light leading-relaxed group-hover:text-white/50 transition-colors duration-700 mt-auto text-left">{tool.desc}</p>
                 </div>
               </SectionReveal>
             ))}

@@ -44,8 +44,8 @@ export default function Services() {
     <div className="bg-background min-h-screen pt-24 pb-12 overflow-hidden relative">
       <SEO
         title="Our Services & Disciplines"
-        description="Explore Geometric Studio's full range of creative disciplines: 3D visualization, motion graphics, product animation, anamorphic screens, VR environments, AI content, and more. Serving brands across Egypt and MENA."
-        keywords="3D visualization services, motion graphics Egypt, product animation Cairo, anamorphic advertising, VR environments, CGI compositing, 3D scanning, AI content production, exhibition booth design"
+        description="Explore Geometric Studio's full range of creative disciplines: 3D visualization, motion graphics, product animation, anamorphic screens, VR environments, AI content, and more serving brands globally."
+        keywords="3D visualization services, motion graphics, product animation, anamorphic advertising, VR environments, CGI compositing, 3D scanning, AI content production, exhibition booth design"
         schema={[
           Schemas.breadcrumb([
             { name: 'Home', url: '/' },
@@ -161,10 +161,10 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
           )}
         </AnimatePresence>
 
-        <div className="relative z-10 p-10 h-full flex flex-col">
-          <div className="flex justify-between items-start mb-8">
+        <div className="relative z-10 p-6 sm:p-8 md:p-10 h-full flex flex-col">
+          <div className="flex justify-between items-start mb-6 md:mb-8">
             <div className="flex flex-col gap-1">
-              <div className="px-4 py-1.5 rounded-full border border-white/10 bg-background/80 backdrop-blur-md text-[10px] font-ibm tracking-[0.4em] text-white/40 uppercase">
+              <div className="px-3 py-1 md:px-4 md:py-1.5 rounded-full border border-white/10 bg-background/80 backdrop-blur-md text-[8px] md:text-[10px] font-ibm tracking-[0.4em] text-white/40 uppercase">
                 DISCIPLINE.00{index + 1}
               </div>
               <div className={`h-[1px] bg-current transition-all duration-700 ${isHovered ? 'w-full' : 'w-4'} ${
@@ -174,29 +174,29 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
             
             <motion.div 
               animate={{ rotate: isHovered ? 90 : 0 }}
-              className={`w-12 h-12 rounded-full border border-white/10 flex items-center justify-center transition-all duration-500 ${isHovered ? 'border-neon-yellow/50 text-neon-yellow bg-neon-yellow/5' : 'text-white/20'}`}
+              className={`w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/10 flex items-center justify-center transition-all duration-500 ${isHovered ? 'border-neon-yellow/50 text-neon-yellow bg-neon-yellow/5' : 'text-white/20'}`}
             >
-              <ServiceIcon slug={service.slug} size={20} />
+              <ServiceIcon slug={service.slug} size={18} />
             </motion.div>
           </div>
           
-          <div className="mt-auto space-y-4">
-            <div className="flex items-center gap-3">
-              <div className={`w-2 h-2 rounded-full transition-all duration-500 ${isHovered ? 'bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.8)]' : 'bg-white/10'}`} />
-              <span className="font-ibm text-[8px] tracking-[0.3em] uppercase text-white/30">{service.category}</span>
+          <div className="mt-auto space-y-3 md:space-y-4">
+            <div className="flex items-center gap-2 md:gap-3">
+              <div className={`w-1.5 h-1.5 md:w-2 md:h-2 rounded-full transition-all duration-500 ${isHovered ? 'bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.8)]' : 'bg-white/10'}`} />
+              <span className="font-ibm text-[7px] md:text-[8px] tracking-[0.3em] uppercase text-white/30">{service.category}</span>
             </div>
             
-            <h3 className="font-ibm font-light text-2xl xs:text-3xl md:text-4xl text-white tracking-tight group-hover:text-neon-yellow transition-colors duration-500 uppercase leading-none">
+            <h3 className="font-ibm font-light text-xl xs:text-2xl md:text-3xl lg:text-4xl text-white tracking-tight group-hover:text-neon-yellow transition-colors duration-500 uppercase leading-tight">
               {service.name}
             </h3>
             
-            <p className="font-ibm text-xs md:text-sm font-light text-white/40 leading-relaxed group-hover:text-white/70 transition-colors duration-500">
+            <p className="font-ibm text-[10px] md:text-xs lg:text-sm font-light text-white/40 leading-relaxed group-hover:text-white/70 transition-colors duration-500 line-clamp-2 md:line-clamp-none">
               {service.tagline}
             </p>
             
-            <div className="flex items-center gap-6 pt-6">
-              <div className={`h-[1px] transition-all duration-500 ${isHovered ? 'w-16 bg-neon-yellow' : 'w-8 bg-white/10'}`} />
-              <span className={`font-ibm text-[9px] tracking-[0.5em] uppercase transition-colors duration-500 ${isHovered ? 'text-white' : 'text-white/30'}`}>
+            <div className="flex items-center gap-4 md:gap-6 pt-4 md:pt-6">
+              <div className={`h-[1px] transition-all duration-500 ${isHovered ? 'w-12 md:w-16 bg-neon-yellow' : 'w-6 md:w-8 bg-white/10'}`} />
+              <span className={`font-ibm text-[8px] md:text-[9px] tracking-[0.5em] uppercase transition-colors duration-500 ${isHovered ? 'text-white' : 'text-white/30'}`}>
                 Engage Discipline
               </span>
             </div>
