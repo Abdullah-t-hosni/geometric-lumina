@@ -101,8 +101,8 @@ export default function Process() {
                 <div className="w-12 h-[1px] bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
               </div>
               
-              <h1 className="font-ibm text-6xl md:text-8xl lg:text-[130px] font-light text-white leading-[0.85] tracking-tighter mb-12">
-                Creative <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/40 glow-text-yellow px-4 uppercase">Pipeline.</span>
+              <h1 className="font-ibm text-[14vw] xs:text-6xl md:text-8xl lg:text-[130px] font-light text-white leading-[1.1] md:leading-[0.85] tracking-tighter mb-8 md:mb-12 whitespace-nowrap lg:whitespace-normal">
+                Creative <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/40 glow-text-yellow block sm:inline mt-2 sm:mt-0 uppercase">Pipeline.</span>
               </h1>
 
               <p className="font-ibm text-creamy-white/50 text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed border-t border-white/10 pt-12">
@@ -137,9 +137,9 @@ export default function Process() {
       <section className="py-52 px-6 text-center relative bg-background overflow-hidden z-10">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-neon-yellow/[0.03] blur-[150px] rounded-full pointer-events-none" />
         <SectionReveal>
-          <h2 className="font-ibm text-6xl md:text-8xl lg:text-[140px] font-light text-white mb-16 tracking-tighter leading-[0.85]">
-            Initiate The <br />
-            <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/40 glow-text-yellow px-4 uppercase">Protocol.</span>
+          <h2 className="font-ibm text-[11vw] xs:text-5xl md:text-8xl lg:text-[140px] font-light text-white mb-12 md:mb-16 tracking-tighter leading-[1] md:leading-[0.85]">
+            Initiate The <br className="hidden sm:block" />
+            <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/40 glow-text-yellow block sm:inline mt-2 sm:mt-0 uppercase">Protocol.</span>
           </h2>
           <Link to="/contact" className="group relative inline-flex items-center justify-center px-16 py-7 overflow-hidden rounded-full transition-all duration-500">
             <div className="absolute inset-0 bg-neon-yellow group-hover:scale-105 transition-transform duration-500" />
@@ -189,7 +189,7 @@ function ProcessStep({ step, index, isExpanded, onToggle }: {
         <button onClick={onToggle} className="w-full text-left p-6 md:p-10 flex flex-col md:flex-row md:items-center justify-between gap-6 group">
           <div className="flex flex-col gap-2">
             <span className="text-[8px] font-ibm tracking-[0.5em] uppercase text-white/20 group-hover:text-neon-yellow transition-colors duration-700">Module 00{index+1}</span>
-            <h3 className={`font-ibm text-3xl md:text-5xl font-light tracking-tighter uppercase transition-colors duration-700 ${isExpanded ? 'text-white' : 'text-white/60 group-hover:text-white'}`}>
+            <h3 className={`font-ibm text-2xl xs:text-3xl md:text-5xl font-light tracking-tighter uppercase transition-colors duration-700 ${isExpanded ? 'text-white' : 'text-white/60 group-hover:text-white'}`}>
               {step.title}
             </h3>
           </div>

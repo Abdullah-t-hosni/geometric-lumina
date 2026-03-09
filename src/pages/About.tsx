@@ -75,9 +75,9 @@ export default function About() {
                   <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-neon-yellow">Geometric Studios</span>
                 </div>
                 
-                <h1 className="font-ibm text-6xl md:text-8xl lg:text-[120px] font-light text-white leading-[0.85] tracking-tighter mb-4">
-                  We Build <br />
-                  <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/40">Visual Impact.</span>
+                <h1 className="font-ibm text-[13vw] xs:text-6xl md:text-8xl lg:text-[120px] font-light text-white leading-[1.1] md:leading-[0.85] tracking-tighter mb-6 md:mb-4">
+                  We Build <br className="hidden sm:block" />
+                  <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/40 block sm:inline mt-2 sm:mt-0">Visual Impact.</span>
                 </h1>
               </div>
 
@@ -126,9 +126,9 @@ export default function About() {
       <section className="py-32 px-6 relative bg-background overflow-hidden">
         <div className="max-w-[1400px] mx-auto">
           <SectionReveal>
-            <div className="text-center md:text-left mb-24">
-              <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-neon-yellow/60 block mb-6">Execution Ethos</span>
-              <h2 className="font-ibm text-5xl md:text-7xl font-light text-white tracking-tighter italic">The <span className="text-neon-yellow">Core.</span></h2>
+            <div className="text-center md:text-left mb-16 md:mb-24">
+              <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-neon-yellow/60 block mb-4 md:mb-6">Execution Ethos</span>
+              <h2 className="font-ibm text-4xl xs:text-5xl md:text-7xl font-light text-white tracking-tighter italic">The <span className="text-neon-yellow">Core.</span></h2>
             </div>
           </SectionReveal>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
@@ -156,8 +156,8 @@ export default function About() {
                 <span className="w-8 h-[1px] bg-neon-yellow/50" />
                 <span className="text-[10px] font-ibm tracking-[0.3em] uppercase text-creamy-white/60">Our Foundation</span>
               </div>
-              <h2 className="font-ibm text-4xl md:text-6xl font-light text-creamy-white tracking-tight mb-6">Design <span className="font-black">Principles.</span></h2>
-              <p className="font-ibm text-creamy-white/60 text-lg md:text-xl max-w-2xl font-light">
+              <h2 className="font-ibm text-4xl xs:text-5xl md:text-6xl font-light text-creamy-white tracking-tight mb-4 md:mb-6 leading-none">Design <br className="block sm:hidden" /><span className="font-black">Principles.</span></h2>
+              <p className="font-ibm text-creamy-white/60 text-base md:text-xl max-w-2xl font-light leading-relaxed">
                 Great design is built on solid foundations. These principles guide every visual decision we make.
               </p>
             </div>
@@ -185,7 +185,7 @@ export default function About() {
                   <div className="w-12 h-[1px] bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
                   <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-neon-yellow/60">Motion Philosophy</span>
                 </div>
-                <h2 className="font-ibm text-5xl md:text-8xl font-light text-white tracking-tighter leading-[0.9]">
+                <h2 className="font-ibm text-4xl xs:text-5xl md:text-8xl font-light text-white tracking-tighter leading-[1] md:leading-[0.9]">
                   Liquid <br />
                   <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/30">Intelligence.</span>
                 </h2>

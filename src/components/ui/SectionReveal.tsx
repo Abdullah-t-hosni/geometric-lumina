@@ -18,6 +18,7 @@ export function SectionReveal({ children, className = '', delay = 0 }: SectionRe
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, delay, ease: [0.16, 1, 0.3, 1] }}
       className={className}
+      style={{ willChange: "opacity, transform" }}
     >
       {children}
     </motion.div>
@@ -44,6 +45,7 @@ export function StaggerReveal({ children, className = '', itemClassName = '', st
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: i * stagger, ease: [0.16, 1, 0.3, 1] }}
           className={itemClassName}
+          style={{ willChange: "opacity, transform" }}
         >
           {child}
         </motion.div>

@@ -1,19 +1,19 @@
-import motionGraphics from '@/assets/images/Motion Graphics.jpeg';
-import productVisualization from '@/assets/images/Product Visualization & Animation.jpeg';
-import boothDesign from '@/assets/images/Booth Design.jpeg';
-import socialMedia from '@/assets/images/Social Media Content.jpeg';
-import anamorphicScreens from '@/assets/images/Anamorphic Screens.jpeg';
-import simulations from '@/assets/images/Simulations.jpeg';
-import architecturalVisualization from '@/assets/images/Architectural Visualization.jpeg';
-import microVisualization from '@/assets/images/Micro Visualization.jpeg';
-import vrEnvironments from '@/assets/images/VR Environments.jpeg';
-import cgiCompositing from '@/assets/images/CGI Compositing.jpeg';
-import threeDScanning from '@/assets/images/3D Scanning.jpeg';
-import aiProduction from '@/assets/images/AI-powered Production.jpeg';
-import technicalDrawing from '@/assets/images/technical drawing.jpeg';
-import servicesImg from '@/assets/images/Services.jpeg';
-import img10 from '@/assets/images/10.jpeg';
-import img6 from '@/assets/images/6.jpeg';
+import motionGraphics from '@/assets/images/Motion Graphics.webp';
+import productVisualization from '@/assets/images/Product Visualization & Animation.webp';
+import boothDesign from '@/assets/images/Booth Design.webp';
+import socialMedia from '@/assets/images/Social Media Content.webp';
+import anamorphicScreens from '@/assets/images/Anamorphic Screens.webp';
+import simulations from '@/assets/images/Simulations.webp';
+import architecturalVisualization from '@/assets/images/Architectural Visualization.webp';
+import microVisualization from '@/assets/images/Micro Visualization.webp';
+import vrEnvironments from '@/assets/images/VR Environments.webp';
+import cgiCompositing from '@/assets/images/CGI Compositing.webp';
+import threeDScanning from '@/assets/images/3D Scanning.webp';
+import aiProduction from '@/assets/images/AI-powered Production.webp';
+import technicalDrawing from '@/assets/images/technical drawing.webp';
+import servicesImg from '@/assets/images/Services.webp';
+import img10 from '@/assets/images/10.webp';
+import img6 from '@/assets/images/6.webp';
 
 export type PortfolioCategory = 'All' | 'Motion' | 'Product Visualization' | 'Architecture' | 'CGI' | 'Booth Design' | 'AI Content';
 

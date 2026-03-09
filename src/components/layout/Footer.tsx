@@ -21,7 +21,7 @@ const pageLinks = [
 
 export default function Footer() {
   return (
-    <footer className="relative bg-background overflow-hidden pt-20 pb-12 z-10 border-t border-white/5">
+    <footer role="contentinfo" aria-label="Geometric Studio site footer" className="relative bg-background overflow-hidden pt-20 pb-12 z-10 border-t border-white/5">
       {/* Background Ambience */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-neon-yellow/[0.03] blur-[100px] rounded-full pointer-events-none" />
@@ -67,14 +67,23 @@ export default function Footer() {
             <p className="font-ibm text-xs text-white/30 leading-relaxed font-light max-w-xs pl-16">
               A creative laboratory specialized in high-end 3D visualization, motion design, and anamorphic displays. Precision engineering for the cinematic age.
             </p>
-            <div className="flex gap-4 pl-16">
-              {['Instagram', 'Behance', 'LinkedIn'].map((social) => (
+            <div className="flex flex-wrap gap-4 pl-16" aria-label="Social media links">
+              {[
+                { name: 'IN', label: 'Instagram', href: 'https://instagram.com/geometric_studios' },
+                { name: 'X', label: 'X (Twitter)', href: 'https://x.com/geometric_stud' },
+                { name: 'LI', label: 'LinkedIn', href: 'https://linkedin.com/company/geometric-studios' },
+                { name: 'TK', label: 'TikTok', href: 'https://www.tiktok.com/@geometric_studios' },
+                { name: 'PN', label: 'Pinterest', href: 'https://pinterest.com/geometric_studios' }
+              ].map((social) => (
                 <a
-                  key={social}
-                  href="#"
+                  key={social.name}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Follow Geometric Studio on ${social.label}`}
                   className="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center text-[9px] text-white/20 font-ibm hover:border-neon-yellow/40 hover:text-neon-yellow transition-all duration-500"
                 >
-                  {social.substring(0, 2).toUpperCase()}
+                  {social.name}
                 </a>
               ))}
             </div>

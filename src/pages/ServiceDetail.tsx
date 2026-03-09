@@ -60,7 +60,7 @@ export default function ServiceDetail() {
 
       {/* ─── PREMIUM SCROLLING HERO ────────────────────── */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden z-10">
-        <motion.div style={{ scale: heroScale, opacity: heroOpacity }} className="absolute inset-0">
+        <motion.div style={{ scale: heroScale, opacity: heroOpacity, willChange: "transform, opacity" }} className="absolute inset-0">
           <img src={service.heroImage} alt={service.name} className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-black/40" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
@@ -97,9 +97,9 @@ export default function ServiceDetail() {
                 <div className="w-2 h-2 rounded-full bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.8)] animate-pulse" />
               </div>
 
-              <h1 className="font-ibm text-5xl md:text-8xl lg:text-[140px] font-light text-white leading-[0.8] tracking-tighter uppercase mb-12">
-                {service.name.split(' ')[0]} <br />
-                <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/30 glow-text-yellow px-4">{service.name.split(' ').slice(1).join(' ')}</span>
+              <h1 className="font-ibm text-[16vw] xs:text-6xl md:text-8xl lg:text-[140px] font-light text-white leading-[1.1] md:leading-[0.8] tracking-tighter uppercase mb-8 md:mb-12">
+                {service.name.split(' ')[0]} <br className="hidden sm:block" />
+                <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/30 glow-text-yellow block sm:inline mt-2 sm:mt-0">{service.name.split(' ').slice(1).join(' ')}</span>
               </h1>
 
               <motion.div style={{ y: contentY }} className="max-w-2xl px-6">
@@ -133,9 +133,9 @@ export default function ServiceDetail() {
                   <div className="w-12 h-[1px] bg-neon-yellow/50 shadow-[0_0_8px_rgba(204,255,0,0.5)]" />
                   <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-neon-yellow/80">Capability Profile</span>
                 </div>
-                <h2 className="font-ibm text-4xl md:text-6xl font-light text-white leading-[1] tracking-tighter uppercase">
-                  Precision engineered <br />
-                  <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-white to-white/40">Visual Supremacy.</span>
+                <h2 className="font-ibm text-[10vw] xs:text-4xl md:text-6xl font-light text-white leading-[1] tracking-tighter uppercase">
+                  Precision engineered <br className="hidden sm:block" />
+                  <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-white to-white/40 block sm:inline mt-2 sm:mt-0">Visual Supremacy.</span>
                 </h2>
                 <div className="h-[1px] w-full bg-gradient-to-r from-white/10 to-transparent my-10" />
                 <p className="font-ibm text-creamy-white/40 text-lg md:text-2xl leading-relaxed font-light max-w-3xl border-l-2 border-neon-yellow/20 pl-10">
@@ -191,7 +191,7 @@ export default function ServiceDetail() {
               <div className="flex flex-col md:flex-row items-end justify-between mb-24 gap-8">
                   <div>
                     <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-white/30 block mb-4">Visual Evidence</span>
-                    <h2 className="font-ibm text-5xl md:text-7xl font-light text-white tracking-tighter uppercase leading-none">The <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-white/40">Portfolio.</span></h2>
+                    <h2 className="font-ibm text-[12vw] xs:text-5xl md:text-7xl font-light text-white tracking-tighter uppercase leading-none">The <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-white/40 block sm:inline mt-2 sm:mt-0">Portfolio.</span></h2>
                   </div>
                   <div className="text-[10px] font-ibm text-white/20 tracking-[0.2em] uppercase text-right max-w-[200px] border-r border-white/10 pr-6">
                     Samples from recent technical deployments
@@ -214,7 +214,7 @@ export default function ServiceDetail() {
           <SectionReveal>
             <div className="flex flex-col items-center text-center mb-24">
               <span className="text-[10px] font-ibm tracking-[0.4em] uppercase text-neon-yellow/60 block mb-6">Cross-Module Integration</span>
-              <h2 className="font-ibm text-5xl md:text-6xl font-light text-white tracking-tighter uppercase">Explore <span className="italic text-white/30">Similar Modules.</span></h2>
+              <h2 className="font-ibm text-[10vw] xs:text-5xl md:text-6xl font-light text-white tracking-tighter uppercase leading-none">Explore <span className="italic text-white/30 block sm:inline mt-2 sm:mt-0">Similar Modules.</span></h2>
             </div>
           </SectionReveal>
           
@@ -235,9 +235,9 @@ export default function ServiceDetail() {
         <SectionReveal>
           <div className="flex flex-col items-center">
             <div className="text-[10px] font-ibm tracking-[0.8em] uppercase text-neon-yellow/60 mb-12">SYSTEM_READY // INITIATE_PROJECT</div>
-            <h2 className="font-ibm text-6xl md:text-8xl lg:text-[140px] font-light text-white mb-20 tracking-tighter leading-[0.8] uppercase max-w-5xl">
-              Construct the <br />
-              <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-white/30 glow-text-yellow px-4">Next Reality.</span>
+            <h2 className="font-ibm text-[11vw] xs:text-5xl md:text-8xl lg:text-[140px] font-light text-white mb-12 md:mb-20 tracking-tighter leading-[1] md:leading-[0.8] uppercase max-w-5xl">
+              Construct the <br className="hidden sm:block" />
+              <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-white/30 glow-text-yellow block sm:inline mt-2 sm:mt-0">Next Reality.</span>
             </h2>
             <Link to="/contact" className="group relative inline-flex items-center justify-center px-20 py-8 overflow-hidden rounded-full bg-neon-yellow transition-all duration-500 shadow-[0_0_30px_rgba(204,255,0,0.1)]">
               <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-500" />
@@ -268,7 +268,7 @@ function GalleryItem({ image, delay }: { image: string; delay: number }) {
     <SectionReveal delay={delay}>
       <div className="aspect-[16/10] overflow-hidden rounded-[40px] glass-panel p-2 group bg-white/[0.01]">
          <div className="w-full h-full rounded-[32px] overflow-hidden relative">
-            <img src={image} alt="Showcase" className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-all duration-[1.5s] ease-out opacity-60 group-hover:opacity-100" />
+            <img src={image} alt="Showcase" loading="lazy" className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-all duration-[1.5s] ease-out opacity-60 group-hover:opacity-100" />
             <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-60 group-hover:opacity-20 transition-opacity" />
             
             {/* HUD Corner decos */}
@@ -296,7 +296,7 @@ function AlternativeCard({ service, index }: { service: typeof services[0]; inde
         <div className="relative z-10 flex flex-col h-full">
            <div className="flex justify-between items-start mb-12">
               <div className="w-20 h-20 rounded-[30px] overflow-hidden p-1 glass-panel border-white/5 group-hover:border-neon-yellow/30 transition-all duration-700 shadow-2xl">
-                 <img src={service.image} alt={service.name} className="w-full h-full object-cover rounded-[22px] grayscale group-hover:grayscale-0 transition-all duration-1000" />
+                 <img src={service.image} alt={service.name} loading="lazy" className="w-full h-full object-cover rounded-[22px] grayscale group-hover:grayscale-0 transition-all duration-1000" />
               </div>
               <div className="text-[10px] font-ibm text-white/20 uppercase tracking-[0.3em]">Module_0{index + 1}</div>
            </div>

@@ -41,8 +41,8 @@ export default function Services() {
                 <div className="w-12 h-[1px] bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
               </div>
               
-              <h1 className="font-ibm text-6xl md:text-8xl lg:text-[130px] font-light text-white leading-[0.85] tracking-tighter mb-12">
-                Our <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/40 glow-text-yellow px-4">Expertise.</span>
+              <h1 className="font-ibm text-[14vw] xs:text-6xl md:text-8xl lg:text-[130px] font-light text-white leading-[1.1] md:leading-[0.85] tracking-tighter mb-8 md:mb-12 whitespace-nowrap lg:whitespace-normal">
+                Our <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/40 glow-text-yellow block sm:inline mt-2 sm:mt-0">Expertise.</span>
               </h1>
 
               <p className="font-ibm text-creamy-white/50 text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed border-t border-white/10 pt-12">
@@ -57,7 +57,7 @@ export default function Services() {
       <section className="py-20 px-6 relative z-10 w-full mx-auto">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/[0.02] to-transparent pointer-events-none" />
         <div className="max-w-[1200px] mx-auto relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 auto-rows-fr">
             {services.map((service, i) => (
               <ServiceCard key={service.id} service={service} index={i} />
             ))}
@@ -69,9 +69,9 @@ export default function Services() {
       <section className="py-52 px-6 text-center relative bg-background overflow-hidden z-10">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-neon-yellow/[0.03] blur-[150px] rounded-full pointer-events-none" />
         <SectionReveal>
-          <h2 className="font-ibm text-6xl md:text-8xl lg:text-[140px] font-light text-white mb-16 tracking-tighter leading-[0.85]">
-            Let's Shape <br />
-            <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/40 glow-text-yellow px-4">The Future.</span>
+          <h2 className="font-ibm text-[11vw] xs:text-6xl md:text-8xl lg:text-[140px] font-light text-white mb-12 md:mb-16 tracking-tighter leading-[1] md:leading-[0.85]">
+            Let's Shape <br className="hidden sm:block" />
+            <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/40 glow-text-yellow block sm:inline mt-2 sm:mt-0">The Future.</span>
           </h2>
           <Link to="/contact" className="group relative inline-flex items-center justify-center px-16 py-7 overflow-hidden rounded-full transition-all duration-500">
             <div className="absolute inset-0 bg-neon-yellow group-hover:scale-105 transition-transform duration-500" />
@@ -109,6 +109,7 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
           <motion.img
             src={service.heroImage}
             alt={service.name}
+            loading="lazy"
             initial={{ scale: 1.1, filter: 'grayscale(1) brightness(0.2)' }}
             animate={{ 
               scale: isHovered ? 1.05 : 1.1,
@@ -169,11 +170,11 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
               <span className="font-ibm text-[8px] tracking-[0.3em] uppercase text-white/30">{service.category}</span>
             </div>
             
-            <h3 className="font-ibm font-light text-3xl md:text-4xl text-white tracking-tight group-hover:text-neon-yellow transition-colors duration-500 uppercase leading-none">
+            <h3 className="font-ibm font-light text-2xl xs:text-3xl md:text-4xl text-white tracking-tight group-hover:text-neon-yellow transition-colors duration-500 uppercase leading-none">
               {service.name}
             </h3>
             
-            <p className="font-ibm text-sm font-light text-white/40 leading-relaxed group-hover:text-white/70 transition-colors duration-500">
+            <p className="font-ibm text-xs md:text-sm font-light text-white/40 leading-relaxed group-hover:text-white/70 transition-colors duration-500">
               {service.tagline}
             </p>
             

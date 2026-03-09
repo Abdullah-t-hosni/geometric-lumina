@@ -47,8 +47,8 @@ export default function Portfolio() {
                 <div className="w-12 h-[1px] bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
               </div>
               
-              <h1 className="font-ibm text-6xl md:text-8xl lg:text-[130px] font-light text-white leading-[0.85] tracking-tighter mb-12 uppercase">
-                Selected <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/30 px-4">Works.</span>
+              <h1 className="font-ibm text-[14vw] xs:text-6xl md:text-8xl lg:text-[130px] font-light text-white leading-[1.1] md:leading-[0.85] tracking-tighter mb-8 md:mb-12 uppercase whitespace-nowrap lg:whitespace-normal">
+                Selected <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/30 block sm:inline mt-2 sm:mt-0">Works.</span>
               </h1>
 
               <p className="font-ibm text-white/40 text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed border-t border-white/10 pt-12">
@@ -111,9 +111,9 @@ export default function Portfolio() {
       <section className="py-52 px-6 text-center relative bg-background overflow-hidden z-10">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-neon-yellow/[0.03] blur-[150px] rounded-full pointer-events-none" />
         <SectionReveal>
-          <h2 className="font-ibm text-6xl md:text-8xl lg:text-[140px] font-light text-white mb-16 tracking-tighter leading-[0.85]">
-            Need Your Own <br />
-            <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/40 glow-text-yellow px-4 uppercase">Legacy.</span>
+          <h2 className="font-ibm text-[11vw] xs:text-5xl md:text-8xl lg:text-[140px] font-light text-white mb-12 md:mb-16 tracking-tighter leading-[1] md:leading-[0.85]">
+            Need Your Own <br className="hidden sm:block" />
+            <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/40 glow-text-yellow block sm:inline mt-2 sm:mt-0 uppercase">Legacy.</span>
           </h2>
           <Link to="/contact" className="group relative inline-flex items-center justify-center px-16 py-7 overflow-hidden rounded-full transition-all duration-500">
             <div className="absolute inset-0 bg-neon-yellow group-hover:scale-105 transition-transform duration-500" />
@@ -160,7 +160,7 @@ function ProjectCard({ project, index }: { project: typeof portfolioProjects[0];
                 <div className="w-12 h-[1px] bg-neon-yellow/30 group-hover:bg-neon-yellow group-hover:w-20 transition-all duration-700 shadow-[0_0_10px_rgba(204,255,0,0.3)]" />
              </div>
              
-             <div className="flex items-center gap-4 opacity-0 group-hover:opacity-30 transition-opacity duration-1000 delay-500">
+             <div className="flex items-center gap-4 opacity-0 group-hover:opacity-30 transition-opacity duration-1000 delay-500 hidden sm:flex">
                 <div className="text-[7px] font-ibm text-white tracking-[0.3em] uppercase">Client // {project.client || 'INTERNAL'}</div>
                 <div className="w-[1px] h-3 bg-white/20" />
                 <div className="text-[7px] font-ibm text-white tracking-[0.3em] uppercase">Year // {project.year}</div>
@@ -178,8 +178,8 @@ function ProjectCard({ project, index }: { project: typeof portfolioProjects[0];
             
             <div className="flex items-end justify-between">
               <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-700">
-                <span className="text-[9px] text-neon-yellow/60 font-ibm tracking-[0.3em] uppercase block mb-3">{project.category}</span>
-                <h3 className="font-ibm font-light text-3xl md:text-5xl text-white tracking-tighter uppercase leading-none">{project.title}</h3>
+                <span className="text-[9px] text-neon-yellow/60 font-ibm tracking-[0.3em] uppercase block mb-2 md:mb-3">{project.category}</span>
+                <h3 className="font-ibm font-light text-2xl xs:text-3xl md:text-5xl text-white tracking-tighter uppercase leading-none">{project.title}</h3>
               </div>
               
               <div className="w-14 h-14 rounded-full border border-white/5 flex items-center justify-center text-white scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100 group-hover:border-neon-yellow/30 transition-all duration-700 ease-out">

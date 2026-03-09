@@ -59,8 +59,8 @@ export default function Technology() {
                 <div className="w-12 h-[1px] bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
               </div>
               
-              <h1 className="font-ibm text-6xl md:text-8xl lg:text-[130px] font-light text-white leading-[0.85] tracking-tighter mb-12 uppercase">
-                Software <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/40 glow-text-yellow px-4">Stack.</span>
+              <h1 className="font-ibm text-[16vw] xs:text-6xl md:text-8xl lg:text-[130px] font-light text-white leading-[1.1] md:leading-[0.85] tracking-tighter mb-8 md:mb-12 uppercase whitespace-nowrap lg:whitespace-normal">
+                Software <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/40 glow-text-yellow block sm:inline mt-2 sm:mt-0">Stack.</span>
               </h1>
 
               <p className="font-ibm text-white/40 text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed border-t border-white/10 pt-12">
@@ -99,7 +99,7 @@ export default function Technology() {
                 <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-white/40">Tool Inventory</span>
                 <div className="w-12 h-[1px] bg-white/10" />
               </div>
-              <h2 className="font-ibm text-5xl md:text-7xl font-light text-white tracking-tighter uppercase">Our <span className="italic text-white/20">Arsenal.</span></h2>
+              <h2 className="font-ibm text-[12vw] xs:text-5xl md:text-7xl font-light text-white tracking-tighter uppercase leading-none">Our <span className="italic text-white/20 block sm:inline mt-2 sm:mt-0">Arsenal.</span></h2>
             </div>
           </SectionReveal>
           
@@ -151,9 +151,9 @@ export default function Technology() {
                 <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-neon-yellow">Operational Philosophy</span>
               </div>
               
-              <h2 className="font-ibm text-5xl md:text-7xl font-light text-white mb-10 tracking-tighter uppercase leading-[0.85]">
-                Tech + <br />
-                <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/40 glow-text-yellow px-4">Craftsmanship.</span>
+              <h2 className="font-ibm text-[12vw] xs:text-5xl md:text-7xl font-light text-white mb-10 tracking-tighter uppercase leading-[1] md:leading-[0.85]">
+                Tech + <br className="hidden sm:block" />
+                <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/40 glow-text-yellow block sm:inline mt-2 sm:mt-0">Craftsmanship.</span>
               </h2>
 
               <div className="space-y-6 max-w-xl">
@@ -193,9 +193,9 @@ export default function Technology() {
       <section className="py-52 px-6 text-center relative bg-background overflow-hidden z-10">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-neon-yellow/[0.03] blur-[150px] rounded-full pointer-events-none" />
         <SectionReveal>
-          <h2 className="font-ibm text-6xl md:text-8xl lg:text-[140px] font-light text-white mb-16 tracking-tighter leading-[0.85] uppercase">
-            Let's Build <br />
-            <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/40 glow-text-yellow px-4">The Future.</span>
+          <h2 className="font-ibm text-[11vw] xs:text-5xl md:text-8xl lg:text-[140px] font-light text-white mb-12 md:mb-16 tracking-tighter leading-[1] md:leading-[0.85] uppercase">
+            Let's Build <br className="hidden sm:block" />
+            <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/40 glow-text-yellow block sm:inline mt-2 sm:mt-0">The Future.</span>
           </h2>
           <Link to="/contact" className="group relative inline-flex items-center justify-center px-16 py-7 overflow-hidden rounded-full transition-all duration-500">
             <div className="absolute inset-0 bg-neon-yellow group-hover:scale-105 transition-transform duration-500" />

@@ -4,8 +4,8 @@ import { SectionReveal, StaggerReveal } from '@/components/ui/SectionReveal';
 import { AnimatePresence, motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { services } from '@/data/services';
 import { Logo } from '@/components/Logo';
-import logo5 from '@/assets/images/Logo-5.png';
-import ourCore from '@/assets/images/our core.jpg';
+import logo5 from '@/assets/images/Logo-5.webp';
+import ourCore from '@/assets/images/our core.webp';
 import heroVideo from '@/assets/video/Geometric-video.mp4';
 import { SEO, Schemas } from '@/components/seo/SEO';
 
@@ -65,18 +65,26 @@ export default function Index() {
   return (
     <div className="bg-background">
       <SEO
-        title="Geometric Studio | Precision in Imagination"
-        description="Geometric Studio is Cairo's leading 3D visualization and motion graphics powerhouse. We craft cinematic visuals, product animations, VR environments, anamorphic screens, and AI-powered content that refuse to be ignored."
-        keywords="geometric studio, 3D visualization Cairo, motion graphics Egypt, cinematic 3D, product animation, VR environments, anamorphic screens, CGI Egypt, 3D advertising Cairo, MENA 3D studio"
+        title="Geometric Studio | 3D Visualization & Motion Graphics Cairo"
+        description="Geometric Studio — Cairo's premier 3D visualization and motion graphics studio. Award-winning cinematic 3D, product animation, anamorphic screens, VR environments, and AI-powered content for brands across Egypt and the MENA region."
+        keywords="motion graphics egypt, 3D studio cairo, 3D visualization egypt, product animation cairo, cinematic 3D MENA, anamorphic screens egypt, VR environments cairo, CGI egypt, motion graphics studio cairo, 3D advertising egypt"
         ogType="website"
         schema={[
           Schemas.organization(),
           Schemas.website(),
+          Schemas.localBusiness(),
           Schemas.breadcrumb([{ name: 'Home', url: '/' }]),
+          Schemas.videoObject({
+            name: 'Geometric Studio Showreel 2024',
+            description: 'A cinematic showreel showcasing Geometric Studio 3D visualization, motion graphics, and immersive visual experiences.',
+            thumbnailUrl: 'https://geometric-studios.com/assets/og-image.png',
+            uploadDate: '2024-01-01',
+            duration: 'PT2M30S',
+          }),
         ]}
       />
-      {/* ─── PREMIUM CINEMATIC HERO ─────────────────────────────── */}
-      <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* ─── PREMIUM CINEMATIC HERO ────────────────────────── */}
+      <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden" aria-label="Hero - Geometric Studio Showreel">
         {/* Background Video */}
         <motion.div
           style={{ y: heroY, opacity: heroOpacity }}
@@ -89,6 +97,8 @@ export default function Index() {
             loop
             playsInline
             preload="auto"
+            aria-hidden="true"
+            title="Geometric Studio cinematic showreel background"
             className="w-full h-full object-cover"
           />
           {/* Balanced Cinematic Overlays - Stronger contrast for text readability */}
@@ -102,6 +112,7 @@ export default function Index() {
             opacity: [0.05, 0.1, 0.05],
           }}
           transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+          style={{ willChange: "opacity" }}
           className="absolute -top-1/4 -right-1/4 w-[600px] h-[600px] bg-neon-yellow/5 rounded-full blur-[120px] mix-blend-screen pointer-events-none z-10" 
         />
 
@@ -124,6 +135,7 @@ export default function Index() {
               repeat: Infinity, 
               delay: Math.random() * 5 
             }}
+            style={{ willChange: "transform, opacity" }}
             className="absolute w-1 h-1 bg-neon-yellow rounded-full blur-[2px] pointer-events-none z-20"
           />
         ))}
@@ -154,11 +166,11 @@ export default function Index() {
                 </div>
               </motion.div>
 
-              <div className="relative">
+              <div className="relative w-full">
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 0.02 }}
-                  className="absolute -top-8 md:-top-12 left-1/2 lg:left-0 -translate-x-1/2 lg:translate-x-0 text-6xl md:text-8xl lg:text-9xl font-black text-white pointer-events-none select-none uppercase tracking-tighter w-full"
+                  className="absolute -top-6 md:-top-12 left-1/2 lg:left-0 -translate-x-1/2 lg:translate-x-0 text-[18vw] xs:text-7xl md:text-8xl lg:text-9xl font-black text-white pointer-events-none select-none uppercase tracking-tighter w-full text-center lg:text-left whitespace-nowrap"
                 >
                   Creative
                 </motion.div>
@@ -167,7 +179,7 @@ export default function Index() {
                   initial={{ opacity: 0, y: 40 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                  className="font-ibm text-4xl sm:text-6xl md:text-8xl lg:text-[110px] xl:text-[130px] font-light text-white leading-[1] md:leading-[0.85] tracking-tighter drop-shadow-2xl relative"
+                  className="font-ibm text-[12vw] xs:text-5xl sm:text-6xl md:text-8xl lg:text-[100px] xl:text-[130px] font-light text-white leading-[1.1] md:leading-[0.85] tracking-tighter drop-shadow-2xl relative"
                 >
                   We Bend <br className="hidden sm:block" />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow via-neon-yellow/90 to-neon-yellow/30 glow-text-yellow italic block sm:inline">
@@ -233,7 +245,7 @@ export default function Index() {
                       ease: [0.16, 1, 0.3, 1] 
                     }}
                     whileHover={{ x: -10, transition: { duration: 0.4 } }}
-                    className="relative group cursor-default p-4 lg:pr-10 lg:py-4 flex flex-col items-center lg:items-end bg-white/[0.02] lg:bg-transparent rounded-xl border border-white/5 lg:border-0"
+                    className="relative group cursor-default p-4 lg:pr-10 lg:py-4 flex flex-col justify-center items-center lg:items-end bg-white/[0.02] lg:bg-transparent rounded-xl border border-white/5 lg:border-0"
                   >
                     <div className="absolute right-0 top-1/2 -translate-y-1/2 w-8 h-[1px] bg-white/10 group-hover:bg-neon-yellow group-hover:w-12 transition-all duration-500 hidden lg:block" />
                     <div className="font-ibm text-2xl md:text-3xl font-light text-creamy-white group-hover:text-neon-yellow transition-colors duration-500 tracking-tighter mb-1">{stat.value}</div>
@@ -265,6 +277,7 @@ export default function Index() {
           <div className="w-[1px] h-12 bg-white/10 overflow-hidden">
             <motion.div 
               className="w-full h-1/2 bg-neon-yellow" 
+              style={{ willChange: "transform" }}
               animate={{ y: ['-100%', '200%'] }} 
               transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
             />
@@ -284,7 +297,7 @@ export default function Index() {
         <div className="absolute bottom-1/4 -right-1/4 w-[600px] h-[600px] bg-neon-yellow/5 rounded-full blur-[150px] mix-blend-screen pointer-events-none" />
 
         <div className="max-w-[1400px] mx-auto relative z-10 text-center lg:text-left">
-          <div className="flex flex-col lg:flex-row items-center gap-16 md:gap-32">
+          <div className="flex flex-col lg:flex-row items-center lg:items-start gap-16 md:gap-24 lg:gap-32">
             <div className="w-full lg:w-3/5 space-y-12">
               <SectionReveal>
                 <div className="inline-flex items-center gap-4 group">
@@ -294,9 +307,9 @@ export default function Index() {
               </SectionReveal>
               
               <SectionReveal delay={0.1}>
-                <h2 className="font-ibm text-4xl md:text-6xl lg:text-[85px] font-light text-white tracking-tighter leading-[0.95]">
-                  Surgical precision meets <br className="hidden md:block"/>
-                  <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow via-neon-yellow/80 to-creamy-white glow-text-yellow">cinematic imagination.</span>
+                <h2 className="font-ibm text-4xl sm:text-5xl md:text-6xl lg:text-[85px] font-light text-white tracking-tighter leading-[1.1] lg:leading-[0.95]">
+                  Surgical precision meets <br className="hidden lg:block"/>
+                  <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow via-neon-yellow/80 to-creamy-white glow-text-yellow block lg:inline mt-2 lg:mt-0">cinematic imagination.</span>
                 </h2>
               </SectionReveal>
               
@@ -324,6 +337,7 @@ export default function Index() {
                       <img 
                         src={ourCore} 
                         alt="Geometric Excellence" 
+                        loading="lazy"
                         className="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-100 group-hover:scale-105 transition-all duration-1000 ease-out"
                       />
                       
@@ -346,8 +360,8 @@ export default function Index() {
         </div>
       </section>
 
-      {/* ─── PREMIUM SERVICES GALLERY ────────────────────── */}
-      <section className="py-32 px-6 bg-background relative overflow-hidden">
+      {/* ─── PREMIUM SERVICES GALLERY ───────────────────── */}
+      <section className="py-32 px-6 bg-background relative overflow-hidden" aria-label="Our Core Service Disciplines">
         {/* Soft elegant background flow */}
         <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-deep-teal/[0.02] rounded-full blur-[150px] pointer-events-none" />
@@ -359,8 +373,8 @@ export default function Index() {
                   <div className="w-1.5 h-1.5 rounded-full bg-neon-yellow shadow-[0_0_8px_rgba(204,255,0,0.5)]" />
                   <span className="text-[10px] font-ibm tracking-[0.4em] uppercase text-neon-yellow/80">Core Disciplines</span>
                 </div>
-              <h2 className="font-ibm text-5xl md:text-7xl lg:text-8xl font-light text-white tracking-tight leading-[0.9]">
-                Our <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/40 glow-text-yellow">Expertise.</span>
+              <h2 className="font-ibm text-4xl xs:text-5xl md:text-7xl lg:text-8xl font-light text-white tracking-tight leading-[1] lg:leading-[0.9]">
+                Our <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/40 glow-text-yellow block sm:inline">Expertise.</span>
               </h2>
             </SectionReveal>
             <SectionReveal delay={0.2}>
@@ -376,7 +390,7 @@ export default function Index() {
             </SectionReveal>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 auto-rows-[250px] md:auto-rows-[300px]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4 md:gap-6 auto-rows-[300px] md:auto-rows-[350px]">
             {services.slice(0, 6).map((service, i) => (
               <ServiceCard 
                 key={service.id} 
@@ -426,9 +440,9 @@ export default function Index() {
               </h2>
            </div>
 
-           <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/5 border border-white/5 rounded-[40px] overflow-hidden">
+           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-px bg-white/5 border border-white/5 rounded-3xl md:rounded-[40px] overflow-hidden">
               {techStack.map((tech, i) => (
-                <div key={i} className="group relative bg-background p-10 hover:bg-neon-yellow/[0.02] transition-colors duration-700">
+                <div key={i} className="group relative bg-background p-8 md:p-10 hover:bg-neon-yellow/[0.02] transition-colors duration-700">
                   <div className="absolute top-4 right-4 text-[7px] font-ibm text-white/10 group-hover:text-neon-yellow/30 transition-colors tracking-widest uppercase">ID: 0{i+1}_NODE</div>
                   <div className="flex flex-col gap-6">
                     <div className="w-12 h-12 rounded-full border border-white/5 flex items-center justify-center group-hover:border-neon-yellow/20 transition-all duration-700 relative">
@@ -453,9 +467,9 @@ export default function Index() {
       <section className="py-40 px-6 relative bg-background">
         <div className="max-w-[1400px] mx-auto">
           <SectionReveal>
-            <div className="flex flex-col items-center justify-center text-center mb-24">
-              <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-white/30 block mb-6">Client Feedback • Secure_Log</span>
-              <h2 className="font-ibm text-5xl md:text-7xl font-light text-white tracking-tighter uppercase">Operations <span className="italic text-neon-yellow">Analysis.</span></h2>
+            <div className="flex flex-col items-center justify-center text-center mb-16 md:mb-24">
+              <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-white/30 block mb-4 md:mb-6">Client Feedback • Secure_Log</span>
+              <h2 className="font-ibm text-4xl sm:text-5xl md:text-7xl font-light text-white tracking-tighter uppercase leading-none">Operations <span className="italic text-neon-yellow block sm:inline">Analysis.</span></h2>
             </div>
           </SectionReveal>
 
@@ -529,12 +543,14 @@ function ServiceCard({ service, index, className }: { service: typeof services[0
           <motion.img
             src={service.heroImage}
             alt={service.name}
+            loading="lazy"
             initial={{ scale: 1.1, filter: 'grayscale(1) brightness(0.3)' }}
             animate={{ 
               scale: isHovered ? 1.05 : 1.1,
               filter: isHovered ? 'grayscale(0.4) brightness(0.5)' : 'grayscale(1) brightness(0.3)',
             }}
             transition={{ duration: 1.2, ease: "easeOut" }}
+            style={{ willChange: "transform, filter" }}
             className="w-full h-full object-cover"
           />
           {/* Color Overlay */}
@@ -734,6 +750,7 @@ function FeaturedProjectCard({ service, index }: { service: typeof services[0]; 
             <motion.img
               src={service.heroImage}
               alt={service.name}
+              loading="lazy"
               animate={{ 
                 scale: isHovered ? 1.02 : 1.1,
                 x: isHovered ? [0, -2, 2, 0] : 0, // Micro glitch
@@ -742,6 +759,7 @@ function FeaturedProjectCard({ service, index }: { service: typeof services[0]; 
                 scale: { duration: 1.5, ease: "easeOut" },
                 x: { duration: 0.2, repeat: isHovered ? Infinity : 0, repeatType: "mirror" }
               }}
+              style={{ willChange: "transform, filter" }}
               className="w-full h-full object-cover opacity-60 group-hover:opacity-100 grayscale-[0.8] group-hover:grayscale-0 transition-opacity duration-1000"
             />
           </div>

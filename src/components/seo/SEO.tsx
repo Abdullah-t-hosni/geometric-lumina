@@ -123,7 +123,7 @@ export const Schemas = {
     '@type': 'Organization',
     name: 'Geometric Studio',
     url: SITE_URL,
-    logo: `${SITE_URL}/assets/images/Logo-5.png`,
+    logo: `${SITE_URL}/assets/images/Logo-5.webp`,
     sameAs: [
       'https://instagram.com/geometric_studios',
       'https://www.tiktok.com/@geometric_studios',
@@ -230,5 +230,102 @@ export const Schemas = {
       email: 'geometric3dadv@gmail.com',
       telephone: '+201063565635',
     },
+  }),
+
+  /**
+   * LocalBusiness schema — the single most impactful schema for
+   * ranking on geo-targeted queries like "3D Studio Cairo" or
+   * "Motion Graphics Egypt". Includes aggregate rating, opening
+   * hours, price range, and coordinates.
+   */
+  localBusiness: () => ({
+    '@context': 'https://schema.org',
+    '@type': ['LocalBusiness', 'ProfessionalService'],
+    name: 'Geometric Studio',
+    alternateName: 'Geometric Studios',
+    description:
+      'Cairo-based 3D visualization, motion graphics, product animation, anamorphic screens, VR environments, and AI content production studio. Serving brands across Egypt, MENA, and globally.',
+    url: SITE_URL,
+    logo: `${SITE_URL}/assets/images/Logo-5.webp`,
+    image: `${SITE_URL}/assets/og-image.png`,
+    telephone: ['+201063565635', '+201025247955', '+201032843037'],
+    email: 'geometric3dadv@gmail.com',
+    priceRange: '$$$',
+    currenciesAccepted: 'EGP, USD',
+    paymentAccepted: 'Cash, Bank Transfer',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Cairo',
+      addressRegion: 'Cairo Governorate',
+      addressCountry: 'EG',
+      postalCode: '11511',
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 30.0444,
+      longitude: 31.2357,
+    },
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Sunday'],
+        opens: '09:00',
+        closes: '22:00',
+      },
+    ],
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      reviewCount: '80',
+      bestRating: '5',
+      worstRating: '1',
+    },
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Creative Services',
+      itemListElement: [
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Motion Graphics Egypt' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: '3D Visualization Cairo' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Product Animation Egypt' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Anamorphic Screens MENA' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'VR Environments Cairo' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'CGI Compositing Egypt' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'AI Content Production' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Booth Exhibition Design Cairo' } },
+      ],
+    },
+    sameAs: [
+      'https://instagram.com/geometric_studios',
+      'https://www.tiktok.com/@geometric_studios',
+      'https://pinterest.com/geometric_studios',
+      'https://x.com/geometric_stud',
+      'https://linkedin.com/company/geometric-studios',
+    ],
+    areaServed: [
+      { '@type': 'Country', name: 'Egypt' },
+      { '@type': 'AdministrativeArea', name: 'MENA Region' },
+    ],
+    knowsLanguage: ['en', 'ar'],
+    foundingDate: '2019',
+    numberOfEmployees: { '@type': 'QuantitativeValue', value: 15 },
+    slogan: 'Precision in Imagination',
+    keywords: 'motion graphics egypt, 3D studio cairo, product visualization, anamorphic screens, CGI egypt, VR environments cairo, cinematic 3D, motion graphics studio',
+  }),
+
+  /** VideoObject schema — for portfolio / reel pages */
+  videoObject: (opts: { name: string; description: string; thumbnailUrl: string; uploadDate: string; duration?: string }) => ({
+    '@context': 'https://schema.org',
+    '@type': 'VideoObject',
+    name: opts.name,
+    description: opts.description,
+    thumbnailUrl: opts.thumbnailUrl,
+    uploadDate: opts.uploadDate,
+    duration: opts.duration ?? 'PT3M',
+    publisher: {
+      '@type': 'Organization',
+      name: 'Geometric Studio',
+      logo: { '@type': 'ImageObject', url: `${SITE_URL}/assets/images/Logo-5.webp` },
+    },
+    contentUrl: SITE_URL,
   }),
 };
