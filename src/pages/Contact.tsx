@@ -92,7 +92,7 @@ export default function Contact() {
                 <div className="w-12 h-[1px] bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
               </div>
               
-              <h1 className="font-satoshi text-6xl md:text-8xl lg:text-[130px] font-light text-white leading-[0.85] tracking-tighter mb-12 uppercase">
+              <h1 className="font-ibm text-6xl md:text-8xl lg:text-[130px] font-light text-white leading-[0.85] tracking-tighter mb-12 uppercase">
                 Start The <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/40 glow-text-yellow px-4">Contact.</span>
               </h1>
 
@@ -113,12 +113,12 @@ export default function Contact() {
             <SectionReveal>
               <div className="glass-panel p-10 rounded-[32px] group hover:border-white/20 transition-all duration-700 relative overflow-hidden">
                 <div className="absolute top-0 left-10 w-10 h-[2px] bg-neon-yellow/30 group-hover:bg-neon-yellow group-hover:w-20 transition-all duration-700 shadow-[0_0_10px_rgba(204,255,0,0.3)]" />
-                <h3 className="font-satoshi text-[10px] tracking-[0.5em] uppercase text-white/30 mb-12">Direct_Channels</h3>
+                <h3 className="font-ibm text-[10px] tracking-[0.5em] uppercase text-white/30 mb-12">Direct_Channels</h3>
                 <div className="space-y-10">
                   {contactInfo.map((item) => (
                     <div key={item.label} className="flex flex-col gap-2 group/item">
                       <span className="font-ibm text-[8px] text-white/20 uppercase tracking-[0.4em] group-hover/item:text-neon-yellow/60 transition-colors">{item.label}</span>
-                      <a href={item.href} className="font-satoshi text-xl text-white font-light group-hover/item:translate-x-2 transition-transform duration-500 block">{item.value}</a>
+                      <a href={item.href} className="font-ibm text-xl text-white font-light group-hover/item:translate-x-2 transition-transform duration-500 block">{item.value}</a>
                     </div>
                   ))}
                 </div>
@@ -128,7 +128,7 @@ export default function Contact() {
             <SectionReveal delay={0.1}>
               <div className="glass-panel p-10 rounded-[32px] group hover:border-white/20 transition-all duration-700 relative overflow-hidden">
                 <div className="absolute top-0 left-10 w-10 h-[2px] bg-white/10 group-hover:bg-neon-yellow group-hover:w-20 transition-all duration-700 shadow-[0_0_10px_rgba(204,255,0,0.3)]" />
-                <h3 className="font-satoshi text-[10px] tracking-[0.5em] uppercase text-white/30 mb-12">Social_Grid</h3>
+                <h3 className="font-ibm text-[10px] tracking-[0.5em] uppercase text-white/30 mb-12">Social_Grid</h3>
                 <div className="space-y-8">
                   {socialLinks.map((link) => (
                     <a
@@ -140,7 +140,7 @@ export default function Contact() {
                     >
                       <div className="flex flex-col gap-1">
                         <span className="font-ibm text-[8px] text-white/20 uppercase tracking-[0.4em] group-hover/link:text-neon-yellow/60 transition-colors">{link.label}</span>
-                        <span className="font-satoshi text-lg font-light text-white group-hover/link:translate-x-2 transition-transform duration-500">{link.handle}</span>
+                        <span className="font-ibm text-lg font-light text-white group-hover/link:translate-x-2 transition-transform duration-500">{link.handle}</span>
                       </div>
                       <div className="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center text-white/20 group-hover/link:border-neon-yellow/30 group-hover/link:text-neon-yellow transition-all duration-500">
                         <span className="text-xl">↗</span>
@@ -154,7 +154,7 @@ export default function Contact() {
             <SectionReveal delay={0.2}>
               <div className="glass-panel p-10 rounded-[32px] relative overflow-hidden group border-neon-yellow/10 bg-neon-yellow/[0.01]">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-neon-yellow/5 rounded-full blur-[40px] pointer-events-none" />
-                <h4 className="font-satoshi text-[9px] tracking-[0.5em] uppercase text-white/40 mb-8 flex items-center gap-3">
+                <h4 className="font-ibm text-[9px] tracking-[0.5em] uppercase text-white/40 mb-8 flex items-center gap-3">
                   <div className="w-1.5 h-1.5 rounded-full bg-neon-yellow animate-pulse shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
                   Legal_Entities
                 </h4>
@@ -193,7 +193,7 @@ export default function Contact() {
                     <div className="w-24 h-24 rounded-full border border-neon-yellow/30 bg-neon-yellow/5 flex items-center justify-center mx-auto mb-10 shadow-[0_0_40px_rgba(204,255,0,0.1)]">
                       <span className="text-neon-yellow text-4xl">✓</span>
                     </div>
-                    <h3 className="font-satoshi text-5xl font-light text-white mb-6 tracking-tighter uppercase">Transmission Success.</h3>
+                    <h3 className="font-ibm text-5xl font-light text-white mb-6 tracking-tighter uppercase">Transmission Success.</h3>
                     <p className="font-ibm text-white/40 text-sm font-light mb-12 max-w-md mx-auto leading-relaxed">
                       Your inquiry has been logged into our sequence. Our strategy team will review the parameters and contact you within 24 hours.
                     </p>

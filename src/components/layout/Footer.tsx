@@ -35,11 +35,11 @@ export default function Footer() {
              transition={{ duration: 0.8 }}
              className="space-y-6"
            >
-              <h2 className="font-satoshi text-5xl md:text-8xl font-light text-white tracking-tighter uppercase leading-none">
+              <h2 className="font-ibm text-5xl md:text-8xl font-light text-white tracking-tighter uppercase leading-none">
                 Let's <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-white/40 glow-text-yellow px-4">Transform</span> Your Vision.
               </h2>
               <p className="font-ibm text-sm text-white/30 uppercase tracking-[0.4em] font-light">
-                Engineering Cinematic Realities // Globally Managed
+                Engineering Cinematic Realities • Globally Managed
               </p>
               <div className="pt-8">
                  <Link to="/contact" className="inline-flex items-center gap-4 text-[11px] font-ibm tracking-[0.5em] text-white hover:text-neon-yellow transition-all duration-500 uppercase group">
@@ -59,7 +59,7 @@ export default function Footer() {
                      <div className="w-2 h-2 rounded-full bg-neon-yellow glow-yellow animate-pulse" />
                   </div>
                   <div className="flex flex-col">
-                    <span className="font-satoshi text-2xl font-light text-white uppercase tracking-tighter">Geometric</span>
+                    <span className="font-ibm text-2xl font-light text-white tracking-tighter">Geometric</span>
                     <span className="text-[8px] font-ibm text-white/20 tracking-[0.5em] uppercase">Studio_Protocol_2.0</span>
                   </div>
                </div>
@@ -83,7 +83,10 @@ export default function Footer() {
           {/* Links Grid */}
           <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-3 gap-12 lg:pl-12">
             <div>
-               <span className="block text-[10px] font-ibm tracking-[0.4em] text-neon-yellow/40 uppercase mb-8">Navigation</span>
+               <div className="flex items-center gap-2 mb-8">
+                  <div className="w-1 h-1 rounded-full bg-neon-yellow shadow-[0_0_5px_rgba(204,255,0,0.5)]" />
+                  <span className="text-[10px] font-ibm tracking-[0.4em] text-neon-yellow/40 uppercase">Navigation</span>
+               </div>
                <ul className="space-y-4">
                 {pageLinks.map((link) => (
                   <li key={link.href}>
@@ -96,12 +99,15 @@ export default function Footer() {
             </div>
 
             <div>
-               <span className="block text-[10px] font-ibm tracking-[0.4em] text-white/20 uppercase mb-8">Capabilities</span>
+               <div className="flex items-center gap-2 mb-8">
+                  <div className="w-1 h-1 rounded-full bg-white/20 shadow-[0_0_5px_rgba(255,255,255,0.2)]" />
+                  <span className="text-[10px] font-ibm tracking-[0.4em] text-white/20 uppercase">Capabilities</span>
+               </div>
                <ul className="space-y-4">
                 {serviceLinks.slice(0, 5).map((link) => (
                   <li key={link.href}>
                     <Link to={link.href} className="text-xs text-white/30 font-ibm font-light hover:text-white transition-all duration-300 italic">
-                      // {link.label}
+                      • {link.label}
                     </Link>
                   </li>
                 ))}
@@ -110,19 +116,16 @@ export default function Footer() {
 
             <div className="space-y-10">
                <div>
-                  <span className="block text-[10px] font-ibm tracking-[0.4em] text-white/20 uppercase mb-8">Terminal</span>
-                  <div className="space-y-4 text-xs font-ibm font-light text-white/40">
-                     <p className="flex justify-between border-b border-white/[0.03] pb-2">
-                        <span>LAT:</span>
-                        <span className="text-white/20">30.0444° N</span>
+                  <span className="block text-[10px] font-ibm tracking-[0.4em] text-white/20 uppercase mb-8">Status</span>
+                  <div className="space-y-4 text-xs font-ibm font-light text-white/40 italic">
+                     <p className="pb-2 border-b border-white/[0.03]">
+                       <span className="text-neon-yellow/40">•</span> Studio_Protocol: ACTIVE
                      </p>
-                     <p className="flex justify-between border-b border-white/[0.03] pb-2">
-                        <span>LNG:</span>
-                        <span className="text-white/20">31.2357° E</span>
+                     <p className="pb-2 border-b border-white/[0.03]">
+                       <span className="text-neon-yellow/40">•</span> Secure_Link: ESTABLISHED
                      </p>
-                     <p className="flex justify-between border-b border-white/[0.03] pb-2">
-                        <span>GMT:</span>
-                        <span className="text-white/20">+02:00</span>
+                     <p className="pb-2 border-b border-white/[0.03]">
+                       <span className="text-neon-yellow/40">•</span> Output_Node: GLOBAL
                      </p>
                   </div>
                </div>
@@ -133,8 +136,8 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6">
            <div className="flex items-center gap-8">
-              <span className="text-[9px] text-white/10 font-ibm tracking-[0.3em] uppercase">© {new Date().getFullYear()} GEOMETRIC studio</span>
-              <span className="text-[9px] text-white/10 font-ibm tracking-[0.3em] uppercase hidden sm:block">CR_17195 // TAX_763211966</span>
+              <span className="text-[9px] text-white/10 font-ibm tracking-[0.3em] uppercase">© {new Date().getFullYear()} Geometric studio</span>
+              <span className="text-[9px] text-white/10 font-ibm tracking-[0.3em] uppercase hidden sm:block">CR_17195 • TAX_763211966</span>
            </div>
            
            <div className="flex items-center gap-4">

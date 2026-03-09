@@ -21,7 +21,7 @@ export default function ServiceDetail() {
     return (
       <div className="pt-20 min-h-screen flex items-center justify-center bg-background">
         <div className="text-center">
-          <h1 className="font-satoshi text-4xl font-light text-white mb-8 tracking-tighter">SERVICE_NOT_FOUND</h1>
+          <h1 className="font-ibm text-4xl font-light text-white mb-8 tracking-tighter">SERVICE_NOT_FOUND</h1>
           <Link to="/services" className="group relative px-10 py-4 overflow-hidden rounded-full border border-white/10 text-[10px] font-ibm tracking-[0.4em] uppercase text-white transition-all">
             <span className="relative z-10">← Return to Capabilities</span>
           </Link>
@@ -83,7 +83,7 @@ export default function ServiceDetail() {
                 <div className="w-2 h-2 rounded-full bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.8)] animate-pulse" />
               </div>
 
-              <h1 className="font-satoshi text-5xl md:text-8xl lg:text-[140px] font-light text-white leading-[0.8] tracking-tighter uppercase mb-12">
+              <h1 className="font-ibm text-5xl md:text-8xl lg:text-[140px] font-light text-white leading-[0.8] tracking-tighter uppercase mb-12">
                 {service.name.split(' ')[0]} <br />
                 <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/30 glow-text-yellow px-4">{service.name.split(' ').slice(1).join(' ')}</span>
               </h1>
@@ -119,7 +119,7 @@ export default function ServiceDetail() {
                   <div className="w-12 h-[1px] bg-neon-yellow/50 shadow-[0_0_8px_rgba(204,255,0,0.5)]" />
                   <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-neon-yellow/80">Capability Profile</span>
                 </div>
-                <h2 className="font-satoshi text-4xl md:text-6xl font-light text-white leading-[1] tracking-tighter uppercase">
+                <h2 className="font-ibm text-4xl md:text-6xl font-light text-white leading-[1] tracking-tighter uppercase">
                   Precision engineered <br />
                   <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-white to-white/40">Visual Supremacy.</span>
                 </h2>
@@ -144,7 +144,7 @@ export default function ServiceDetail() {
                     <div className="absolute top-0 right-10 p-10 text-[8px] font-ibm text-white/5 tracking-[0.5em] uppercase">M-CAP_0{service.id}</div>
                     <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-neon-yellow/0 via-neon-yellow/20 to-neon-yellow/0" />
                     
-                    <h3 className="font-satoshi text-[10px] tracking-[0.5em] uppercase text-white/30 mb-12 flex items-center gap-4">
+                    <h3 className="font-ibm text-[10px] tracking-[0.5em] uppercase text-white/30 mb-12 flex items-center gap-4">
                        <span className="w-2 h-2 rounded-full bg-neon-yellow/40" />
                        Deliverables Output
                     </h3>
@@ -177,7 +177,7 @@ export default function ServiceDetail() {
               <div className="flex flex-col md:flex-row items-end justify-between mb-24 gap-8">
                   <div>
                     <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-white/30 block mb-4">Visual Evidence</span>
-                    <h2 className="font-satoshi text-5xl md:text-7xl font-light text-white tracking-tighter uppercase leading-none">The <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-white/40">Portfolio.</span></h2>
+                    <h2 className="font-ibm text-5xl md:text-7xl font-light text-white tracking-tighter uppercase leading-none">The <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-white/40">Portfolio.</span></h2>
                   </div>
                   <div className="text-[10px] font-ibm text-white/20 tracking-[0.2em] uppercase text-right max-w-[200px] border-r border-white/10 pr-6">
                     Samples from recent technical deployments
@@ -200,7 +200,7 @@ export default function ServiceDetail() {
           <SectionReveal>
             <div className="flex flex-col items-center text-center mb-24">
               <span className="text-[10px] font-ibm tracking-[0.4em] uppercase text-neon-yellow/60 block mb-6">Cross-Module Integration</span>
-              <h2 className="font-satoshi text-5xl md:text-6xl font-light text-white tracking-tighter uppercase">Explore <span className="italic text-white/30">Similar Modules.</span></h2>
+              <h2 className="font-ibm text-5xl md:text-6xl font-light text-white tracking-tighter uppercase">Explore <span className="italic text-white/30">Similar Modules.</span></h2>
             </div>
           </SectionReveal>
           
@@ -221,7 +221,7 @@ export default function ServiceDetail() {
         <SectionReveal>
           <div className="flex flex-col items-center">
             <div className="text-[10px] font-ibm tracking-[0.8em] uppercase text-neon-yellow/60 mb-12">SYSTEM_READY // INITIATE_PROJECT</div>
-            <h2 className="font-satoshi text-6xl md:text-8xl lg:text-[140px] font-light text-white mb-20 tracking-tighter leading-[0.8] uppercase max-w-5xl">
+            <h2 className="font-ibm text-6xl md:text-8xl lg:text-[140px] font-light text-white mb-20 tracking-tighter leading-[0.8] uppercase max-w-5xl">
               Construct the <br />
               <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-white/30 glow-text-yellow px-4">Next Reality.</span>
             </h2>
@@ -244,7 +244,7 @@ function SpecMetric({ label, value }: { label: string; value: string }) {
   return (
     <div className="group border-b border-white/5 pb-6 hover:border-white/20 transition-all duration-500">
       <div className="text-[9px] font-ibm tracking-[0.3em] uppercase text-white/30 group-hover:text-neon-yellow/60 transition-colors mb-2">{label}</div>
-      <div className="text-xl md:text-2xl font-satoshi font-light text-white tracking-tight uppercase">{value}</div>
+      <div className="text-xl md:text-2xl font-ibm font-light text-white tracking-tight uppercase">{value}</div>
     </div>
   );
 }
@@ -288,7 +288,7 @@ function AlternativeCard({ service, index }: { service: typeof services[0]; inde
            </div>
 
            <div className="mt-auto space-y-4">
-              <h3 className="font-satoshi font-light text-3xl text-white tracking-tighter uppercase leading-none group-hover:text-neon-yellow transition-colors duration-500">
+              <h3 className="font-ibm font-light text-3xl text-white tracking-tighter uppercase leading-none group-hover:text-neon-yellow transition-colors duration-500">
                 {service.name}
               </h3>
               <p className="font-ibm text-[10px] text-white/30 tracking-[0.2em] uppercase max-w-[200px] leading-relaxed group-hover:text-white/60 transition-all">

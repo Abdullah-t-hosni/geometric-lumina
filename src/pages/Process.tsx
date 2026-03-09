@@ -86,7 +86,7 @@ export default function Process() {
                 <div className="w-12 h-[1px] bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
               </div>
               
-              <h1 className="font-satoshi text-6xl md:text-8xl lg:text-[130px] font-light text-white leading-[0.85] tracking-tighter mb-12">
+              <h1 className="font-ibm text-6xl md:text-8xl lg:text-[130px] font-light text-white leading-[0.85] tracking-tighter mb-12">
                 Creative <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/40 glow-text-yellow px-4 uppercase">Pipeline.</span>
               </h1>
 
@@ -122,7 +122,7 @@ export default function Process() {
       <section className="py-52 px-6 text-center relative bg-background overflow-hidden z-10">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-neon-yellow/[0.03] blur-[150px] rounded-full pointer-events-none" />
         <SectionReveal>
-          <h2 className="font-satoshi text-6xl md:text-8xl lg:text-[140px] font-light text-white mb-16 tracking-tighter leading-[0.85]">
+          <h2 className="font-ibm text-6xl md:text-8xl lg:text-[140px] font-light text-white mb-16 tracking-tighter leading-[0.85]">
             Initiate The <br />
             <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/40 glow-text-yellow px-4 uppercase">Protocol.</span>
           </h2>
@@ -174,7 +174,7 @@ function ProcessStep({ step, index, isExpanded, onToggle }: {
         <button onClick={onToggle} className="w-full text-left p-6 md:p-10 flex flex-col md:flex-row md:items-center justify-between gap-6 group">
           <div className="flex flex-col gap-2">
             <span className="text-[8px] font-ibm tracking-[0.5em] uppercase text-white/20 group-hover:text-neon-yellow transition-colors duration-700">Module 00{index+1}</span>
-            <h3 className={`font-satoshi text-3xl md:text-5xl font-light tracking-tighter uppercase transition-colors duration-700 ${isExpanded ? 'text-white' : 'text-white/60 group-hover:text-white'}`}>
+            <h3 className={`font-ibm text-3xl md:text-5xl font-light tracking-tighter uppercase transition-colors duration-700 ${isExpanded ? 'text-white' : 'text-white/60 group-hover:text-white'}`}>
               {step.title}
             </h3>
           </div>

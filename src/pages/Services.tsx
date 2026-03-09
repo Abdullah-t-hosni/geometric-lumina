@@ -28,7 +28,7 @@ export default function Services() {
                 <div className="w-12 h-[1px] bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
               </div>
               
-              <h1 className="font-satoshi text-6xl md:text-8xl lg:text-[130px] font-light text-white leading-[0.85] tracking-tighter mb-12">
+              <h1 className="font-ibm text-6xl md:text-8xl lg:text-[130px] font-light text-white leading-[0.85] tracking-tighter mb-12">
                 Our <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/40 glow-text-yellow px-4">Expertise.</span>
               </h1>
 
@@ -56,7 +56,7 @@ export default function Services() {
       <section className="py-52 px-6 text-center relative bg-background overflow-hidden z-10">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-neon-yellow/[0.03] blur-[150px] rounded-full pointer-events-none" />
         <SectionReveal>
-          <h2 className="font-satoshi text-6xl md:text-8xl lg:text-[140px] font-light text-white mb-16 tracking-tighter leading-[0.85]">
+          <h2 className="font-ibm text-6xl md:text-8xl lg:text-[140px] font-light text-white mb-16 tracking-tighter leading-[0.85]">
             Let's Shape <br />
             <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/40 glow-text-yellow px-4">The Future.</span>
           </h2>
@@ -156,7 +156,7 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
               <span className="font-ibm text-[8px] tracking-[0.3em] uppercase text-white/30">{service.category}</span>
             </div>
             
-            <h3 className="font-satoshi font-light text-3xl md:text-4xl text-white tracking-tight group-hover:text-neon-yellow transition-colors duration-500 uppercase leading-none">
+            <h3 className="font-ibm font-light text-3xl md:text-4xl text-white tracking-tight group-hover:text-neon-yellow transition-colors duration-500 uppercase leading-none">
               {service.name}
             </h3>
             

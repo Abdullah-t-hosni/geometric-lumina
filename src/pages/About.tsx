@@ -62,7 +62,7 @@ export default function About() {
                   <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-neon-yellow">Geometric Studios</span>
                 </div>
                 
-                <h1 className="font-satoshi text-6xl md:text-8xl lg:text-[120px] font-light text-white leading-[0.85] tracking-tighter mb-4">
+                <h1 className="font-ibm text-6xl md:text-8xl lg:text-[120px] font-light text-white leading-[0.85] tracking-tighter mb-4">
                   We Build <br />
                   <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/40">Visual Impact.</span>
                 </h1>
@@ -75,9 +75,9 @@ export default function About() {
                      A powerhouse of creative engineering, merging the precision of geometry with the raw emotion of cinematic arts.
                    </p>
                    <div className="flex items-center gap-4 text-[9px] font-ibm text-neon-yellow/60 tracking-[0.2em] uppercase">
-                      <span>Cairo / Global</span>
+                      <span>Remote • Digital</span>
                       <span className="w-1 h-1 rounded-full bg-white/20" />
-                      <span>Est. 2024</span>
+                      <span>Active Since 2024</span>
                    </div>
                 </div>
               </div>
@@ -115,17 +115,17 @@ export default function About() {
           <SectionReveal>
             <div className="text-center md:text-left mb-24">
               <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-neon-yellow/60 block mb-6">Execution Ethos</span>
-              <h2 className="font-satoshi text-5xl md:text-7xl font-light text-white tracking-tighter italic">The <span className="text-neon-yellow">Core.</span></h2>
+              <h2 className="font-ibm text-5xl md:text-7xl font-light text-white tracking-tighter italic">The <span className="text-neon-yellow">Core.</span></h2>
             </div>
           </SectionReveal>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
             {values.map((v, i) => (
               <SectionReveal key={v.title} delay={i * 0.1}>
                 <div className="h-full glass-panel p-8 hover:border-white/20 transition-all duration-700 group relative flex flex-col items-center text-center lg:items-start lg:text-left">
-                  <div className="font-satoshi text-3xl text-white/10 group-hover:text-neon-yellow transition-colors duration-700 mb-8 italic">
+                  <div className="font-ibm text-3xl text-white/10 group-hover:text-neon-yellow transition-colors duration-700 mb-8 italic">
                     {v.icon}
                   </div>
-                  <h3 className="font-satoshi font-light text-xl text-white tracking-tight mb-4 uppercase">{v.title}</h3>
+                  <h3 className="font-ibm font-light text-xl text-white tracking-tight mb-4 uppercase">{v.title}</h3>
                   <p className="font-ibm text-[11px] text-white/40 font-light leading-relaxed group-hover:text-white/60 transition-colors">{v.desc}</p>
                 </div>
               </SectionReveal>
@@ -143,7 +143,7 @@ export default function About() {
                 <span className="w-8 h-[1px] bg-neon-yellow/50" />
                 <span className="text-[10px] font-ibm tracking-[0.3em] uppercase text-creamy-white/60">Our Foundation</span>
               </div>
-              <h2 className="font-satoshi text-4xl md:text-6xl font-light text-creamy-white tracking-tight mb-6">Design <span className="font-black">Principles.</span></h2>
+              <h2 className="font-ibm text-4xl md:text-6xl font-light text-creamy-white tracking-tight mb-6">Design <span className="font-black">Principles.</span></h2>
               <p className="font-ibm text-creamy-white/60 text-lg md:text-xl max-w-2xl font-light">
                 Great design is built on solid foundations. These principles guide every visual decision we make.
               </p>
@@ -153,7 +153,7 @@ export default function About() {
             {designPrinciples.map((p, i) => (
               <SectionReveal key={p.title} delay={i * 0.05}>
                 <div className="glass-panel p-6 hover:bg-white/5 transition-all duration-300 group h-full flex flex-col justify-start">
-                  <h4 className="font-satoshi font-bold text-lg text-creamy-white mb-3 tracking-tight group-hover:text-neon-yellow transition-colors">{p.title}</h4>
+                  <h4 className="font-ibm font-bold text-lg text-creamy-white mb-3 tracking-tight group-hover:text-neon-yellow transition-colors">{p.title}</h4>
                   <p className="font-ibm text-[11px] text-creamy-white/50 font-medium tracking-wide leading-relaxed group-hover:text-creamy-white/70 transition-colors uppercase">{p.desc}</p>
                 </div>
               </SectionReveal>
@@ -172,7 +172,7 @@ export default function About() {
                   <div className="w-12 h-[1px] bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
                   <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-neon-yellow/60">Motion Philosophy</span>
                 </div>
-                <h2 className="font-satoshi text-5xl md:text-8xl font-light text-white tracking-tighter leading-[0.9]">
+                <h2 className="font-ibm text-5xl md:text-8xl font-light text-white tracking-tighter leading-[0.9]">
                   Liquid <br />
                   <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/30">Intelligence.</span>
                 </h2>
@@ -187,14 +187,14 @@ export default function About() {
             {animPrinciples.map((p, i) => (
               <SectionReveal key={p.title} delay={i * 0.05}>
                 <div className="glass-panel p-10 hover:border-white/20 transition-all duration-700 group flex flex-col h-full relative overflow-hidden bg-white/[0.01]">
-                   <div className="absolute -bottom-6 -right-6 font-satoshi font-light text-9xl text-white/[0.02] group-hover:text-neon-yellow/[0.05] transition-colors duration-1000 pointer-events-none select-none italic">
+                   <div className="absolute -bottom-6 -right-6 font-ibm font-light text-9xl text-white/[0.02] group-hover:text-neon-yellow/[0.05] transition-colors duration-1000 pointer-events-none select-none italic">
                      {String(i + 1).padStart(2, '0')}
                    </div>
-                  <div className="font-satoshi font-light text-neon-yellow/30 text-2xl mb-6 group-hover:text-neon-yellow transition-colors duration-500 italic">
+                  <div className="font-ibm font-light text-neon-yellow/30 text-2xl mb-6 group-hover:text-neon-yellow transition-colors duration-500 italic">
                     {String(i + 1).padStart(2, '0')}.
                   </div>
                   <div className="relative z-10">
-                    <h4 className="font-satoshi font-light text-xl text-white mb-3 tracking-tight group-hover:text-neon-yellow transition-colors uppercase">{p.title}</h4>
+                    <h4 className="font-ibm font-light text-xl text-white mb-3 tracking-tight group-hover:text-neon-yellow transition-colors uppercase">{p.title}</h4>
                     <p className="font-ibm text-[10px] text-white/30 font-light tracking-[0.1em] leading-relaxed group-hover:text-white/60 transition-colors uppercase">{p.desc}</p>
                   </div>
                 </div>
@@ -204,7 +204,7 @@ export default function About() {
         </div>
       </section>
 
- 
+
     </div>
   );
 }

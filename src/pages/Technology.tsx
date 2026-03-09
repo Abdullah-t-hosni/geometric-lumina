@@ -47,7 +47,7 @@ export default function Technology() {
                 <div className="w-12 h-[1px] bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
               </div>
               
-              <h1 className="font-satoshi text-6xl md:text-8xl lg:text-[130px] font-light text-white leading-[0.85] tracking-tighter mb-12 uppercase">
+              <h1 className="font-ibm text-6xl md:text-8xl lg:text-[130px] font-light text-white leading-[0.85] tracking-tighter mb-12 uppercase">
                 Software <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/40 glow-text-yellow px-4">Stack.</span>
               </h1>
 
@@ -67,7 +67,7 @@ export default function Technology() {
               <div className="glass-panel p-10 rounded-[32px] group hover:border-white/20 transition-all duration-700 relative overflow-hidden h-full">
                 <div className="absolute top-0 left-10 w-10 h-[2px] bg-neon-yellow/30 group-hover:bg-neon-yellow group-hover:w-20 transition-all duration-700 shadow-[0_0_10px_rgba(204,255,0,0.3)]" />
                 <div className="relative z-10">
-                  <div className="font-satoshi text-7xl font-light text-white mb-6 tracking-tighter group-hover:text-neon-yellow transition-colors duration-700">{stat.value}</div>
+                  <div className="font-ibm text-7xl font-light text-white mb-6 tracking-tighter group-hover:text-neon-yellow transition-colors duration-700">{stat.value}</div>
                   <div className="font-ibm text-[10px] tracking-[0.4em] uppercase text-white/40 mb-3">{stat.label}</div>
                   <p className="font-ibm text-xs text-white/20 leading-relaxed font-light">{stat.desc}</p>
                 </div>
@@ -87,7 +87,7 @@ export default function Technology() {
                 <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-white/40">Tool Inventory</span>
                 <div className="w-12 h-[1px] bg-white/10" />
               </div>
-              <h2 className="font-satoshi text-5xl md:text-7xl font-light text-white tracking-tighter uppercase">Our <span className="italic text-white/20">Arsenal.</span></h2>
+              <h2 className="font-ibm text-5xl md:text-7xl font-light text-white tracking-tighter uppercase">Our <span className="italic text-white/20">Arsenal.</span></h2>
             </div>
           </SectionReveal>
           
@@ -114,7 +114,7 @@ export default function Technology() {
                   
                   <div className="flex flex-col gap-1 mb-6 transition-all duration-700 group-hover:translate-x-2">
                     <span className="text-[8px] font-ibm tracking-[0.4em] uppercase text-neon-yellow/40 group-hover:text-neon-yellow transition-colors">Software_0{i+1}</span>
-                    <h3 className="font-satoshi font-light text-2xl text-white tracking-tight leading-none uppercase">{tool.name}</h3>
+                    <h3 className="font-ibm font-light text-2xl text-white tracking-tight leading-none uppercase">{tool.name}</h3>
                   </div>
                   
                   <div className="px-3 py-1.5 rounded-full border border-white/5 bg-background text-[8px] font-ibm tracking-[0.3em] text-white/30 uppercase w-fit mb-8 transition-all group-hover:border-white/20 group-hover:text-white/60">
@@ -139,7 +139,7 @@ export default function Technology() {
                 <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-neon-yellow">Operational Philosophy</span>
               </div>
               
-              <h2 className="font-satoshi text-5xl md:text-7xl font-light text-white mb-10 tracking-tighter uppercase leading-[0.85]">
+              <h2 className="font-ibm text-5xl md:text-7xl font-light text-white mb-10 tracking-tighter uppercase leading-[0.85]">
                 Tech + <br />
                 <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/40 glow-text-yellow px-4">Craftsmanship.</span>
               </h2>
@@ -168,7 +168,7 @@ export default function Technology() {
                     <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-neon-yellow group-hover:border-neon-yellow/50 group-hover:bg-neon-yellow/10 transition-all duration-700 shadow-[0_0_15px_rgba(204,255,0,0.1)]">
                        <span className="text-xl">✓</span>
                     </div>
-                    <span className="font-satoshi font-light text-[10px] text-white/40 tracking-[0.4em] uppercase group-hover:text-white transition-colors duration-700">{item}</span>
+                    <span className="font-ibm font-light text-[10px] text-white/40 tracking-[0.4em] uppercase group-hover:text-white transition-colors duration-700">{item}</span>
                   </div>
                 ))}
               </div>
@@ -181,7 +181,7 @@ export default function Technology() {
       <section className="py-52 px-6 text-center relative bg-background overflow-hidden z-10">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-neon-yellow/[0.03] blur-[150px] rounded-full pointer-events-none" />
         <SectionReveal>
-          <h2 className="font-satoshi text-6xl md:text-8xl lg:text-[140px] font-light text-white mb-16 tracking-tighter leading-[0.85] uppercase">
+          <h2 className="font-ibm text-6xl md:text-8xl lg:text-[140px] font-light text-white mb-16 tracking-tighter leading-[0.85] uppercase">
             Let's Build <br />
             <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/40 glow-text-yellow px-4">The Future.</span>
           </h2>

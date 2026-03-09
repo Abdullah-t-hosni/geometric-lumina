@@ -12,7 +12,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        satoshi: ['Satoshi', 'sans-serif'],
+        satoshi: ['IBM Plex Sans', 'sans-serif'],
         ibm: ['IBM Plex Sans', 'sans-serif'],
       },
       colors: {

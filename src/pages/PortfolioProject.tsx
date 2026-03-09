@@ -11,7 +11,7 @@ export default function PortfolioProject() {
     return (
       <div className="pt-20 min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h1 className="font-satoshi text-4xl font-black text-foreground mb-4">Project Not Found</h1>
+          <h1 className="font-ibm text-4xl font-black text-foreground mb-4">Project Not Found</h1>
           <Link to="/portfolio" className="text-neon-yellow hover:underline font-ibm">← Back to Portfolio</Link>
         </div>
       </div>
@@ -60,7 +60,7 @@ export default function PortfolioProject() {
                 <span className="text-[10px] text-white/20 font-ibm tracking-[0.4em] uppercase">{project.year}</span>
               </div>
 
-              <h1 className="font-satoshi text-6xl md:text-8xl lg:text-[130px] font-light text-white leading-[0.85] tracking-tighter uppercase mb-8">
+              <h1 className="font-ibm text-6xl md:text-8xl lg:text-[130px] font-light text-white leading-[0.85] tracking-tighter uppercase mb-8">
                 {project.title.split(' ')[0]} <br />
                 <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/40 glow-text-yellow px-4">{project.title.split(' ').slice(1).join(' ')}</span>
               </h1>
@@ -85,7 +85,7 @@ export default function PortfolioProject() {
                 <div className="w-12 h-[1px] bg-neon-yellow/30" />
                 <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-white/40">Technical Brief</span>
               </div>
-              <p className="font-satoshi text-3xl md:text-5xl font-light text-white leading-[1.1] tracking-tight mb-12 uppercase">
+              <p className="font-ibm text-3xl md:text-5xl font-light text-white leading-[1.1] tracking-tight mb-12 uppercase">
                 Bridging the gap between <span className="italic text-white/40">concept</span> and <span className="text-neon-yellow">cinematic reality.</span>
               </p>
               <p className="font-ibm text-white/40 text-lg md:text-xl leading-relaxed font-light border-l border-white/10 pl-10 max-w-3xl italic">
@@ -98,7 +98,7 @@ export default function PortfolioProject() {
             <SectionReveal delay={0.2}>
               <div className="glass-panel p-10 rounded-[32px] group hover:border-white/20 transition-all duration-700 relative overflow-hidden">
                 <div className="absolute top-0 right-10 w-10 h-[2px] bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.3)]" />
-                <h3 className="font-satoshi text-[9px] tracking-[0.5em] uppercase text-white/20 mb-10">Disciplines_Index</h3>
+                <h3 className="font-ibm text-[9px] tracking-[0.5em] uppercase text-white/20 mb-10">Disciplines_Index</h3>
                 <div className="flex flex-wrap gap-3">
                   {project.tags.map(tag => (
                     <span key={tag} className="px-5 py-2.5 bg-white/[0.02] border border-white/5 rounded-full text-[9px] text-white/60 font-ibm uppercase tracking-widest hover:border-neon-yellow/40 hover:text-neon-yellow transition-all duration-500">{tag}</span>
@@ -120,7 +120,7 @@ export default function PortfolioProject() {
                 <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-white/40">Visual Inventory</span>
                 <div className="w-12 h-[1px] bg-white/10" />
               </div>
-              <h2 className="font-satoshi text-5xl md:text-7xl font-light text-white tracking-tighter uppercase">Captured <span className="italic text-white/20">Data.</span></h2>
+              <h2 className="font-ibm text-5xl md:text-7xl font-light text-white tracking-tighter uppercase">Captured <span className="italic text-white/20">Data.</span></h2>
             </div>
           </SectionReveal>
           
@@ -153,7 +153,7 @@ export default function PortfolioProject() {
                   <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-white/40">Sequence Extension</span>
                   <div className="w-12 h-[1px] bg-neon-yellow/30" />
                 </div>
-                <h2 className="font-satoshi text-4xl md:text-6xl font-light text-white tracking-tighter uppercase text-center">Similar <span className="italic text-white/20">Protocols.</span></h2>
+                <h2 className="font-ibm text-4xl md:text-6xl font-light text-white tracking-tighter uppercase text-center">Similar <span className="italic text-white/20">Protocols.</span></h2>
               </div>
             </SectionReveal>
             
@@ -172,7 +172,7 @@ export default function PortfolioProject() {
                       
                       <div className="absolute bottom-0 left-0 w-full p-10 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-700">
                         <span className="text-[8px] text-neon-yellow font-ibm tracking-[0.4em] uppercase block mb-4">Sequence_0{p.id}</span>
-                        <h3 className="font-satoshi font-light text-3xl text-white tracking-tighter uppercase leading-none">{p.title}</h3>
+                        <h3 className="font-ibm font-light text-3xl text-white tracking-tighter uppercase leading-none">{p.title}</h3>
                       </div>
                     </div>
                   </Link>
@@ -187,7 +187,7 @@ export default function PortfolioProject() {
       <section className="py-52 px-6 text-center bg-background relative overflow-hidden z-10 border-t border-white/5">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-neon-yellow/[0.03] blur-[150px] rounded-full pointer-events-none" />
         <SectionReveal>
-          <h2 className="font-satoshi text-6xl md:text-8xl lg:text-[140px] font-light text-white mb-16 tracking-tighter leading-[0.85] uppercase">
+          <h2 className="font-ibm text-6xl md:text-8xl lg:text-[140px] font-light text-white mb-16 tracking-tighter leading-[0.85] uppercase">
             Let's Shape <br />
             <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/40 glow-text-yellow px-4">Your Reality.</span>
           </h2>

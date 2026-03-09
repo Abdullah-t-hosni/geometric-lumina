@@ -143,7 +143,7 @@ export default function Header() {
                     >
                       <div className="absolute inset-0 bg-gradient-to-r from-neon-yellow/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none -z-10" />
                       
-                      <span className="font-satoshi text-4xl md:text-5xl font-light text-creamy-white group-hover:text-neon-yellow transition-colors duration-500 tracking-tight leading-none group-hover:translate-x-2">
+                      <span className="font-ibm text-2xl md:text-3xl font-light text-creamy-white group-hover:text-neon-yellow transition-colors duration-500 tracking-tight leading-none group-hover:translate-x-2">
                         {link.label}
                       </span>
                       <span className="ml-auto text-creamy-white/20 group-hover:text-neon-yellow group-hover:translate-x-2 transition-all duration-500 font-light">

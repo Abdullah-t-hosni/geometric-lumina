@@ -18,7 +18,7 @@ const NotFound = () => {
         {/* Decorative elements */}
         <div className="absolute top-0 right-0 w-32 h-32 bg-neon-yellow/10 rounded-full blur-[30px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
         
-        <h1 className="mb-6 text-[100px] md:text-[160px] font-light font-satoshi leading-none tracking-tight text-creamy-white drop-shadow-md">
+        <h1 className="mb-6 text-[100px] md:text-[160px] font-light font-ibm leading-none tracking-tight text-creamy-white drop-shadow-md">
           <span className="font-black bg-clip-text text-transparent bg-gradient-to-r from-neon-yellow to-creamy-white">404</span>
         </h1>
         
@@ -31,7 +31,7 @@ const NotFound = () => {
         
         <a 
           href="/" 
-          className="inline-flex items-center justify-center px-12 py-5 bg-neon-yellow text-background rounded-full font-satoshi font-bold text-sm tracking-[0.2em] uppercase hover:bg-white glow-yellow hover:scale-105 transition-all duration-300"
+          className="inline-flex items-center justify-center px-12 py-5 bg-neon-yellow text-background rounded-full font-ibm font-bold text-sm tracking-[0.2em] uppercase hover:bg-white glow-yellow hover:scale-105 transition-all duration-300"
         >
           Return to Base
         </a>

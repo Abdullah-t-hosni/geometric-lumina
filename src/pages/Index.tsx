@@ -134,13 +134,12 @@ export default function Index() {
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                 className="flex items-center justify-center lg:justify-start gap-4 md:gap-6"
               >
-                <div className="flex flex-col gap-1 hidden sm:flex">
-                   <div className="w-8 md:w-12 h-[1px] bg-neon-yellow shadow-[0_0_8px_rgba(204,255,0,0.5)]" />
-                   <div className="w-4 md:w-6 h-[1px] bg-neon-yellow/30" />
+                <div className="flex items-center gap-4">
+                  <div className="w-1.5 h-1.5 rounded-full bg-neon-yellow shadow-[0_0_8px_rgba(204,255,0,0.5)]" />
+                  <span className="text-[9px] md:text-[10px] font-ibm text-neon-yellow tracking-[0.3em] md:tracking-[0.4em] uppercase font-light">
+                    Geometric Studios • Precision Rendering
+                  </span>
                 </div>
-                <span className="text-[9px] md:text-[10px] font-ibm text-neon-yellow tracking-[0.3em] md:tracking-[0.4em] uppercase font-light">
-                  Geometric Studios / Precision Rendering
-                </span>
               </motion.div>
 
               <div className="relative">
@@ -156,7 +155,7 @@ export default function Index() {
                   initial={{ opacity: 0, y: 40 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                  className="font-satoshi text-4xl sm:text-6xl md:text-8xl lg:text-[110px] xl:text-[130px] font-light text-white leading-[1] md:leading-[0.85] tracking-tighter drop-shadow-2xl relative"
+                  className="font-ibm text-4xl sm:text-6xl md:text-8xl lg:text-[110px] xl:text-[130px] font-light text-white leading-[1] md:leading-[0.85] tracking-tighter drop-shadow-2xl relative"
                 >
                   We Bend <br className="hidden sm:block" />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow via-neon-yellow/90 to-neon-yellow/30 glow-text-yellow italic block sm:inline">
@@ -225,7 +224,7 @@ export default function Index() {
                     className="relative group cursor-default p-4 lg:pr-10 lg:py-4 flex flex-col items-center lg:items-end bg-white/[0.02] lg:bg-transparent rounded-xl border border-white/5 lg:border-0"
                   >
                     <div className="absolute right-0 top-1/2 -translate-y-1/2 w-8 h-[1px] bg-white/10 group-hover:bg-neon-yellow group-hover:w-12 transition-all duration-500 hidden lg:block" />
-                    <div className="font-satoshi text-2xl md:text-3xl font-light text-creamy-white group-hover:text-neon-yellow transition-colors duration-500 tracking-tighter mb-1">{stat.value}</div>
+                    <div className="font-ibm text-2xl md:text-3xl font-light text-creamy-white group-hover:text-neon-yellow transition-colors duration-500 tracking-tighter mb-1">{stat.value}</div>
                     <div className="font-ibm text-[8px] md:text-[9px] text-creamy-white/30 tracking-[0.2em] md:tracking-[0.3em] uppercase font-light group-hover:text-creamy-white/60 transition-colors text-center lg:text-right">{stat.label}</div>
                   </motion.div>
                 ))}
@@ -283,7 +282,7 @@ export default function Index() {
               </SectionReveal>
               
               <SectionReveal delay={0.1}>
-                <h2 className="font-satoshi text-4xl md:text-6xl lg:text-[85px] font-light text-white tracking-tighter leading-[0.95]">
+                <h2 className="font-ibm text-4xl md:text-6xl lg:text-[85px] font-light text-white tracking-tighter leading-[0.95]">
                   Surgical precision meets <br className="hidden md:block"/>
                   <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow via-neon-yellow/80 to-creamy-white glow-text-yellow">cinematic imagination.</span>
                 </h2>
@@ -344,11 +343,11 @@ export default function Index() {
         <div className="max-w-[1400px] mx-auto relative z-10">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">
             <SectionReveal>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-8 h-[1px] bg-neon-yellow shadow-[0_0_8px_rgba(204,255,0,0.5)]" />
-                <span className="text-[10px] font-ibm tracking-[0.4em] uppercase text-neon-yellow/80">Core Disciplines</span>
-              </div>
-              <h2 className="font-satoshi text-5xl md:text-7xl lg:text-8xl font-light text-white tracking-tight leading-[0.9]">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-1.5 h-1.5 rounded-full bg-neon-yellow shadow-[0_0_8px_rgba(204,255,0,0.5)]" />
+                  <span className="text-[10px] font-ibm tracking-[0.4em] uppercase text-neon-yellow/80">Core Disciplines</span>
+                </div>
+              <h2 className="font-ibm text-5xl md:text-7xl lg:text-8xl font-light text-white tracking-tight leading-[0.9]">
                 Our <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/40 glow-text-yellow">Expertise.</span>
               </h2>
             </SectionReveal>
@@ -405,9 +404,12 @@ export default function Index() {
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,rgba(204,255,0,0.02)_0%,transparent_100%)]" />
         <div className="max-w-[1400px] mx-auto relative z-10">
-           <div className="flex flex-col items-center text-center mb-24">
-              <span className="text-[10px] font-ibm tracking-[0.6em] text-neon-yellow mb-6 uppercase">System Capabilities</span>
-              <h2 className="font-satoshi text-5xl md:text-8xl font-light text-white tracking-tighter uppercase leading-none">
+            <div className="flex flex-col items-center text-center mb-24">
+               <div className="flex items-center gap-3 mb-6">
+                 <div className="w-1.5 h-1.5 rounded-full bg-neon-yellow shadow-[0_0_8px_rgba(204,255,0,0.5)]" />
+                 <span className="text-[10px] font-ibm tracking-[0.6em] text-neon-yellow uppercase">System Capabilities</span>
+               </div>
+              <h2 className="font-ibm text-5xl md:text-8xl font-light text-white tracking-tighter uppercase leading-none">
                 Technical <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-white/20">Laboratory.</span>
               </h2>
            </div>
@@ -422,7 +424,7 @@ export default function Index() {
                        <div className="absolute inset-x-[-10px] h-px bg-white/5 group-hover:bg-neon-yellow/20 transition-all scale-x-0 group-hover:scale-x-100" />
                     </div>
                     <div>
-                      <h4 className="font-satoshi text-xl text-white tracking-wide group-hover:text-neon-yellow transition-colors mb-2 uppercase">{tech.name}</h4>
+                      <h4 className="font-ibm text-xl text-white tracking-wide group-hover:text-neon-yellow transition-colors mb-2 uppercase">{tech.name}</h4>
                       <div className="flex flex-col gap-1 items-start text-[8px] font-ibm tracking-widest text-white/30 uppercase">
                         <span className="group-hover:text-white/60 transition-colors">Category: {tech.category}</span>
                         <span className="text-neon-yellow/40">Spec: {tech.spec}</span>
@@ -440,8 +442,8 @@ export default function Index() {
         <div className="max-w-[1400px] mx-auto">
           <SectionReveal>
             <div className="flex flex-col items-center justify-center text-center mb-24">
-              <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-white/30 block mb-6">Client Feedback // Secure_Log</span>
-              <h2 className="font-satoshi text-5xl md:text-7xl font-light text-white tracking-tighter uppercase">Operations <span className="italic text-neon-yellow">Analysis.</span></h2>
+              <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-white/30 block mb-6">Client Feedback • Secure_Log</span>
+              <h2 className="font-ibm text-5xl md:text-7xl font-light text-white tracking-tighter uppercase">Operations <span className="italic text-neon-yellow">Analysis.</span></h2>
             </div>
           </SectionReveal>
 
@@ -466,7 +468,7 @@ export default function Index() {
                     <div className="mt-auto pt-8 border-t border-white/5">
                        <div className="flex justify-between items-end">
                           <div>
-                             <div className="font-satoshi text-lg font-medium text-white tracking-tight mb-1 uppercase">{t.author}</div>
+                             <div className="font-ibm text-lg font-medium text-white tracking-tight mb-1 uppercase">{t.author}</div>
                              <div className="font-ibm text-[9px] text-white/30 uppercase tracking-[0.3em] font-light">{t.role}</div>
                           </div>
                           <div className="text-right">
@@ -558,7 +560,7 @@ function ServiceCard({ service, index, className }: { service: typeof services[0
           </div>
           
           <div className="space-y-4">
-            <h3 className="font-satoshi font-light text-2xl md:text-4xl text-white tracking-tight leading-none group-hover:text-neon-yellow transition-colors duration-500 uppercase">
+            <h3 className="font-ibm font-light text-2xl md:text-4xl text-white tracking-tight leading-none group-hover:text-neon-yellow transition-colors duration-500 uppercase">
               {service.name}
             </h3>
             
@@ -629,10 +631,10 @@ function PortfolioHorizontalSection() {
               <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
                  <div>
                     <div className="flex items-center gap-3 mb-4">
-                       <div className="w-12 h-px bg-neon-yellow shadow-[0_0_8px_rgba(204,255,0,0.5)]" />
+                       <div className="w-1.5 h-1.5 rounded-full bg-neon-yellow shadow-[0_0_8px_rgba(204,255,0,0.5)]" />
                        <span className="text-[10px] font-ibm tracking-[0.4em] uppercase text-neon-yellow">Showcase</span>
                     </div>
-                    <h2 className="font-satoshi text-5xl md:text-8xl font-light text-white tracking-tighter leading-[0.9] uppercase">
+                    <h2 className="font-ibm text-5xl md:text-8xl font-light text-white tracking-tighter leading-[0.9] uppercase">
                        Selected <br />
                        <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-white to-white/20">Masterpieces.</span>
                     </h2>
@@ -667,7 +669,7 @@ function PortfolioHorizontalSection() {
                   </div>
                   <div className="text-center">
                      <div className="font-ibm text-[10px] tracking-[0.5em] uppercase text-white/30 mb-2">Portfolio</div>
-                     <div className="font-satoshi text-xl text-white uppercase tracking-widest group-hover:text-neon-yellow transition-colors">View All Works</div>
+                     <div className="font-ibm text-xl text-white uppercase tracking-widest group-hover:text-neon-yellow transition-colors">View All Works</div>
                   </div>
                </Link>
             </div>
@@ -695,7 +697,7 @@ function PortfolioHorizontalSection() {
                className="absolute top-0 left-0 h-full bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]"
                style={{ width: scrollYProgress }} 
              />
-             <div className="absolute -top-6 left-0 font-ibm text-[7px] text-white/20 tracking-widest uppercase">System_Nav // Portfolio_01</div>
+             <div className="absolute -top-6 left-0 font-ibm text-[7px] text-white/20 tracking-widest uppercase">System_Nav • Portfolio_01</div>
           </div>
         )}
       </div>
@@ -756,7 +758,7 @@ function FeaturedProjectCard({ service, index }: { service: typeof services[0]; 
             
             <div className="flex items-end justify-between">
                <div className="max-w-xl">
-                  <h3 className="font-satoshi text-4xl md:text-6xl font-light text-white tracking-tighter leading-none mb-4 uppercase group-hover:text-neon-yellow transition-colors duration-500">
+                  <h3 className="font-ibm text-4xl md:text-6xl font-light text-white tracking-tighter leading-none mb-4 uppercase group-hover:text-neon-yellow transition-colors duration-500">
                     {service.name}
                   </h3>
                   <div className={`h-[1px] bg-neon-yellow/30 transition-all duration-1000 ${isHovered ? 'w-full' : 'w-0'}`} />
