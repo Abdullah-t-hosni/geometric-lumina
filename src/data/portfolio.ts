@@ -17,6 +17,11 @@ import img6 from '@/assets/images/6.webp';
 
 export type PortfolioCategory = 'All' | 'Motion' | 'Product Visualization' | 'Architecture' | 'CGI' | 'Booth Design' | 'AI Content';
 
+export interface ProjectSpec {
+  label: string;
+  value: string;
+}
+
 export interface PortfolioProject {
   id: string;
   title: string;
@@ -27,6 +32,7 @@ export interface PortfolioProject {
   year: string;
   client?: string;
   tags: string[];
+  specs: ProjectSpec[];
 }
 
 export const portfolioProjects: PortfolioProject[] = [
@@ -40,6 +46,12 @@ export const portfolioProjects: PortfolioProject[] = [
     year: '2024',
     client: 'TechCorp',
     tags: ['Animation', 'Branding', 'Typography'],
+    specs: [
+      { label: 'Framerate', value: '120 FPS' },
+      { label: 'Resolution', value: '8K Master' },
+      { label: 'Bitrate', value: '10-Bit Pro' },
+      { label: 'Platform', value: 'Global UHD' }
+    ]
   },
   {
     id: '2',
@@ -51,6 +63,12 @@ export const portfolioProjects: PortfolioProject[] = [
     year: '2024',
     client: 'Luxe Co',
     tags: ['Product Viz', 'Animation', 'CGI'],
+    specs: [
+      { label: 'Engine', value: 'Octane Render' },
+      { label: 'Samples', value: '16,384 Path' },
+      { label: 'Texture', value: '8K PBR Raw' },
+      { label: 'Post', value: 'ACES Workflow' }
+    ]
   },
   {
     id: '3',
@@ -62,6 +80,12 @@ export const portfolioProjects: PortfolioProject[] = [
     year: '2024',
     client: 'ExpoGiant',
     tags: ['Exhibition', 'Interior Design', 'Branding'],
+    specs: [
+      { label: 'Footprint', value: '500m²' },
+      { label: 'Scale', value: '1:1 Technical' },
+      { label: 'Geometry', value: 'Parametric' },
+      { label: 'Logic', value: 'ISO 9001' }
+    ]
   },
   {
     id: '4',
@@ -73,6 +97,12 @@ export const portfolioProjects: PortfolioProject[] = [
     year: '2023',
     client: 'FashionBrand',
     tags: ['Social Media', 'Reels', 'Motion'],
+    specs: [
+      { label: 'Aspect', value: '9:16 Vertical' },
+      { label: 'Impact', value: 'Retention 90%+' },
+      { label: 'Type', value: 'Fast-Cut' },
+      { label: 'Sync', value: 'Hype-Audio' }
+    ]
   },
   {
     id: '5',
@@ -84,6 +114,12 @@ export const portfolioProjects: PortfolioProject[] = [
     year: '2024',
     client: 'MegaCorp',
     tags: ['Anamorphic', 'LED', 'OOH'],
+    specs: [
+      { label: 'Depth', value: 'Hyper-3D' },
+      { label: 'LED Pitch', value: 'P3.9 Global' },
+      { label: 'FOV', value: 'Single-Point' },
+      { label: 'Scale', value: '8K OOH' }
+    ]
   },
   {
     id: '6',
@@ -95,6 +131,12 @@ export const portfolioProjects: PortfolioProject[] = [
     year: '2023',
     client: 'Internal',
     tags: ['VFX', 'Simulation', 'Houdini'],
+    specs: [
+      { label: 'Solver', value: 'Pyro / Vellum' },
+      { label: 'Density', value: '1B+ Particles' },
+      { label: 'Cache', value: '2.4TB Data' },
+      { label: 'Time', value: '4min/Frame' }
+    ]
   },
   {
     id: '7',
@@ -106,6 +148,12 @@ export const portfolioProjects: PortfolioProject[] = [
     year: '2024',
     client: 'PropDev',
     tags: ['ArchViz', 'Interior', 'Exterior'],
+    specs: [
+      { label: 'Engine', value: 'UE5 Lumen' },
+      { label: 'GI', value: 'Raytraced' },
+      { label: 'Context', value: 'Geo-Spatial' },
+      { label: 'Detail', value: 'LOD 500' }
+    ]
   },
   {
     id: '8',
@@ -117,6 +165,12 @@ export const portfolioProjects: PortfolioProject[] = [
     year: '2023',
     client: 'MedTech',
     tags: ['Medical', 'Micro Viz', 'Education'],
+    specs: [
+      { label: 'Subsurface', value: 'SSS 2.0' },
+      { label: 'Scale', value: '20,000X Mix' },
+      { label: 'Model', value: 'Bio-Digital' },
+      { label: 'Engine', value: 'Arnold GPU' }
+    ]
   },
   {
     id: '9',
@@ -128,6 +182,12 @@ export const portfolioProjects: PortfolioProject[] = [
     year: '2024',
     client: 'AutoLux',
     tags: ['VR', 'Real-time', 'Interactive'],
+    specs: [
+      { label: 'Refresh', value: '90Hz Native' },
+      { label: 'Latence', value: '< 15ms' },
+      { label: 'Audio', value: 'Spatial HRTF' },
+      { label: 'Engine', value: 'Nanite / Lumen' }
+    ]
   },
   {
     id: '10',
@@ -139,6 +199,12 @@ export const portfolioProjects: PortfolioProject[] = [
     year: '2024',
     client: 'BevCo',
     tags: ['Compositing', 'VFX', 'Live Action'],
+    specs: [
+      { label: 'Track', value: '3D Equalizer' },
+      { label: 'Plate', value: '8K 12-Bit' },
+      { label: 'Nodes', value: '450+ Nuke' },
+      { label: 'LUT', value: 'LogC to ACES' }
+    ]
   },
   {
     id: '11',
@@ -150,6 +216,12 @@ export const portfolioProjects: PortfolioProject[] = [
     year: '2023',
     client: 'Museum',
     tags: ['3D Scanning', 'Preservation', 'Digital'],
+    specs: [
+      { label: 'Points', value: '150M Cloud' },
+      { label: 'Tolerance', value: '±0.1mm' },
+      { label: 'Texture', value: 'Cross-Polar' },
+      { label: 'Format', value: 'GLB / USDZ' }
+    ]
   },
   {
     id: '12',
@@ -161,6 +233,12 @@ export const portfolioProjects: PortfolioProject[] = [
     year: '2024',
     client: 'StyleMag',
     tags: ['AI Generated', 'Editorial', 'Fashion'],
+    specs: [
+      { label: 'Model', value: 'Flux / Lora' },
+      { label: 'UHD', value: '8K Upscale' },
+      { label: 'Seeds', value: 'Selected_9' },
+      { label: 'Process', value: 'Neural Flow' }
+    ]
   },
 ];
 

@@ -6,7 +6,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import RootLayout from './components/layout/RootLayout';
-import { Logo } from '@/components/Logo';
 
 const queryClient = new QueryClient();
 
@@ -21,7 +20,7 @@ const Technology = lazy(() => import('./pages/Technology'));
 const Contact = lazy(() => import('./pages/Contact'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
-function PageLoader() {
+export function PageLoader() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-background">
       <div className="flex flex-col items-center gap-6">

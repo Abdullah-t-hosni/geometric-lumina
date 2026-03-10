@@ -13,7 +13,7 @@ export default function Portfolio() {
     : portfolioProjects.filter(p => p.category === activeCategory);
 
   return (
-    <div className="bg-background min-h-screen pt-24 pb-12 overflow-hidden relative">
+    <div className="bg-background min-h-screen pb-12 overflow-hidden relative selection:bg-neon-yellow selection:text-background">
       <SEO
         title="Selected Works & Portfolio"
         description="Browse Geometric Studio's masterpiece archive: cinematic 3D projects, motion graphics, product visualizations, and immersive experiences crafted for leading brands globally."
@@ -33,7 +33,7 @@ export default function Portfolio() {
       <div className="absolute top-1/2 left-0 w-[600px] h-[600px] bg-neon-yellow/5 rounded-full blur-[120px] mix-blend-screen pointer-events-none z-0" />
 
       {/* Header */}
-      <section className="px-6 relative pb-16 md:pb-24 xl:pb-32 pt-20 z-10 overflow-hidden">
+      <section className="px-6 relative pb-16 md:pb-24 xl:pb-32 pt-32 md:pt-40 lg:pt-48 z-10 overflow-hidden">
         {/* Technical HUD elements */}
         <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent" />
         <div className="absolute top-1/2 left-0 w-full h-[1px] bg-white/[0.02] pointer-events-none" />
@@ -122,7 +122,7 @@ function ProjectCard({ project, index }: { project: typeof portfolioProjects[0];
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 1, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
     >
-      <Link to={`/portfolio`} className="group block relative w-full aspect-[16/10] sm:aspect-[4/3] glass-panel p-2 rounded-[32px] overflow-hidden hover:border-white/20 transition-all duration-1000">
+      <Link to={"/portfolio/" + project.id} className="group block relative w-full aspect-[16/10] sm:aspect-[4/3] glass-panel p-2 rounded-[32px] overflow-hidden hover:border-white/20 transition-all duration-1000">
         <div className="w-full h-full rounded-[24px] overflow-hidden relative">
           
           {/* Animated Scan Line */}
@@ -173,9 +173,13 @@ function ProjectCard({ project, index }: { project: typeof portfolioProjects[0];
           </div>
           
           {/* Metadata Sidebar HUD */}
-          <div className="absolute top-1/2 right-6 -translate-y-1/2 hidden lg:flex flex-col gap-8 opacity-0 group-hover:opacity-30 transition-opacity duration-1000 delay-300">
-             <div className="[writing-mode:vertical-lr] font-ibm text-[7px] text-white tracking-[1em] uppercase">Resolution: 8K CINEMATIC</div>
-             <div className="[writing-mode:vertical-lr] font-ibm text-[7px] text-white tracking-[1em] uppercase">Status: Final Render</div>
+          <div className="absolute top-1/2 right-6 -translate-y-1/2 hidden lg:flex flex-col gap-6 opacity-0 group-hover:opacity-60 transition-all duration-700 delay-300 translate-x-4 group-hover:translate-x-0">
+             {project.specs.map((spec, si) => (
+                <div key={si} className="flex flex-col items-end gap-1">
+                   <div className="text-[6px] font-ibm text-neon-yellow tracking-widest uppercase opacity-50">{spec.label}</div>
+                   <div className="[writing-mode:vertical-lr] font-ibm text-[8px] text-white tracking-[0.5em] uppercase border-r border-white/10 pr-1">{spec.value}</div>
+                </div>
+             ))}
           </div>
         </div>
       </Link>

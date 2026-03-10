@@ -57,7 +57,7 @@ const animPrinciples = [
 
 export default function About() {
   return (
-    <div className="bg-background min-h-screen pt-24 pb-12 overflow-hidden">
+    <div className="bg-background min-h-screen pb-12 overflow-hidden selection:bg-neon-yellow selection:text-background">
       <SEO
         title="About Geometric Studio"
         description="Discover the story, values, and creative philosophy behind Geometric Studio — a premier 3D visualization and motion graphics powerhouse. Built on precision, driven by imagination."
@@ -75,7 +75,7 @@ export default function About() {
       <div className="fixed bottom-0 right-0 w-[600px] h-[600px] bg-neon-yellow/5 rounded-full blur-[120px] mix-blend-screen pointer-events-none z-0" />
 
       {/* Hero */}
-      <section className="px-6 relative pb-12 md:pb-16 xl:pb-20 pt-32 lg:pt-40 z-10 overflow-hidden">
+      <section className="px-6 relative pb-12 md:pb-16 xl:pb-20 pt-32 md:pt-40 lg:pt-48 z-10 overflow-hidden">
         {/* Technical background elements */}
         <div className="absolute top-0 right-0 w-[1px] h-full bg-gradient-to-b from-transparent via-white/5 to-transparent hidden lg:block" />
         <div className="absolute top-1/2 left-0 w-full h-[1px] bg-white/[0.02] pointer-events-none" />

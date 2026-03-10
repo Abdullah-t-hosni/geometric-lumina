@@ -41,7 +41,7 @@ const ServiceIcon = ({ slug, size = 24 }: { slug: string; size?: number }) => {
 
 export default function Services() {
   return (
-    <div className="bg-background min-h-screen pt-24 pb-12 overflow-hidden relative">
+    <div className="bg-background min-h-screen pb-12 overflow-hidden relative selection:bg-neon-yellow selection:text-background">
       <SEO
         title="Our Services & Disciplines"
         description="Explore Geometric Studio's full range of creative disciplines: 3D visualization, motion graphics, product animation, anamorphic screens, VR environments, AI content, and more serving brands globally."
@@ -60,7 +60,7 @@ export default function Services() {
       <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-sky-blue/5 rounded-full blur-[120px] mix-blend-screen pointer-events-none z-0" />
 
       {/* Header */}
-      <section className="px-6 relative pb-16 md:pb-24 xl:pb-32 pt-20 z-10 overflow-hidden">
+      <section className="px-6 relative pb-16 md:pb-24 xl:pb-32 pt-32 md:pt-40 lg:pt-48 z-10 overflow-hidden">
         {/* Technical background elements */}
         <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent" />
         <div className="absolute top-1/2 left-0 w-full h-[1px] bg-white/[0.02] pointer-events-none" />

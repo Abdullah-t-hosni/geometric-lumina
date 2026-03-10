@@ -44,7 +44,7 @@ const stats = [
 
 export default function Technology() {
   return (
-    <div className="bg-background min-h-screen pt-24 pb-12 overflow-hidden relative">
+    <div className="bg-background min-h-screen pb-12 overflow-hidden relative selection:bg-neon-yellow selection:text-background">
       <SEO
         title="Software Stack & Technology Arsenal"
         description="Explore the professional tools powering Geometric Studio: Blender, Cinema 4D, Houdini, Unreal Engine, ZBrush, Substance 3D, After Effects, DaVinci Resolve, and cutting-edge AI tools like Midjourney."
@@ -61,7 +61,7 @@ export default function Technology() {
       <div className="absolute top-3/4 left-0 w-[600px] h-[600px] bg-neon-yellow/5 rounded-full blur-[120px] mix-blend-screen pointer-events-none z-0" />
 
       {/* Header */}
-      <section className="px-6 relative pb-16 md:pb-20 xl:pb-32 pt-20 z-10 overflow-hidden">
+      <section className="px-6 relative pb-16 md:pb-20 xl:pb-32 pt-32 md:pt-40 lg:pt-48 z-10 overflow-hidden">
         {/* Technical HUD elements */}
         <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent" />
         <div className="absolute top-1/2 left-0 w-full h-[1px] bg-white/[0.02] pointer-events-none" />

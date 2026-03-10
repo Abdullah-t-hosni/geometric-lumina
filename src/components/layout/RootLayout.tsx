@@ -1,9 +1,10 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, Suspense } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import Lenis from 'lenis';
 import Header from './Header';
 import Footer from './Footer';
+import { PageLoader } from '@/App';
 
 export default function RootLayout() {
   const location = useLocation();
@@ -39,21 +40,9 @@ export default function RootLayout() {
   return (
     <div className="min-h-screen bg-background flex flex-col font-ibm selection:bg-neon-yellow selection:text-background">
       <Header />
-      
-      <AnimatePresence mode="wait">
-        <motion.main
-          key={location.pathname}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ 
-            opacity: { duration: 0.4 }, 
-          }}
-          className="flex-1"
-        >
-          <Outlet />
-        </motion.main>
-      </AnimatePresence>
+      <main className="flex-1">
+        <Outlet />
+      </main>
       <Footer />
     </div>
   );
