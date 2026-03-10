@@ -163,7 +163,7 @@ export default function Index() {
         <div className="absolute -bottom-1/4 right-1/4 w-[500px] h-[500px] bg-neon-yellow/5 rounded-full blur-[120px] mix-blend-screen pointer-events-none" />
 
         {/* Content */}
-        <div className="relative z-10 w-full px-4 md:px-12 max-w-[1400px] mx-auto pt-20 md:pt-32">
+        <div className="relative z-10 w-full px-4 md:px-12 max-w-[1400px] mx-auto pt-24 md:pt-40">
           {/* Decorative Grid Lines - Hidden on small mobile for clarity */}
           <div className="absolute -top-10 left-0 w-[1px] h-[300px] bg-gradient-to-b from-transparent via-white/10 to-transparent hidden lg:block" />
           <div className="absolute top-0 -left-10 h-[1px] w-[300px] bg-gradient-to-r from-transparent via-white/10 to-transparent hidden lg:block" />

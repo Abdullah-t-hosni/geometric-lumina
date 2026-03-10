@@ -75,7 +75,7 @@ export default function About() {
       <div className="fixed bottom-0 right-0 w-[600px] h-[600px] bg-neon-yellow/5 rounded-full blur-[120px] mix-blend-screen pointer-events-none z-0" />
 
       {/* Hero */}
-      <section className="px-6 relative pb-12 md:pb-16 xl:pb-20 pt-32 md:pt-40 lg:pt-48 z-10 overflow-hidden">
+      <section className="px-6 relative pb-12 md:pb-16 xl:pb-20 pt-36 md:pt-48 lg:pt-56 z-10 overflow-hidden">
         {/* Technical background elements */}
         <div className="absolute top-0 right-0 w-[1px] h-full bg-gradient-to-b from-transparent via-white/5 to-transparent hidden lg:block" />
         <div className="absolute top-1/2 left-0 w-full h-[1px] bg-white/[0.02] pointer-events-none" />
@@ -138,7 +138,7 @@ export default function About() {
       </section>
 
       {/* Values */}
-      <section className="py-16 md:py-20 xl:py-32 px-6 relative bg-background overflow-hidden">
+      <section className="py-20 md:py-32 xl:py-48 px-6 relative bg-background overflow-hidden">
         <div className="max-w-[1400px] mx-auto">
           <SectionReveal>
             <div className="text-center md:text-left mb-16 md:mb-24">
