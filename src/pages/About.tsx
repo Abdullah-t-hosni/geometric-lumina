@@ -75,7 +75,7 @@ export default function About() {
       <div className="fixed bottom-0 right-0 w-[600px] h-[600px] bg-neon-yellow/5 rounded-full blur-[120px] mix-blend-screen pointer-events-none z-0" />
 
       {/* Hero */}
-      <section className="px-6 relative pb-20 pt-32 lg:pt-40 z-10 overflow-hidden">
+      <section className="px-6 relative pb-12 md:pb-16 xl:pb-20 pt-32 lg:pt-40 z-10 overflow-hidden">
         {/* Technical background elements */}
         <div className="absolute top-0 right-0 w-[1px] h-full bg-gradient-to-b from-transparent via-white/5 to-transparent hidden lg:block" />
         <div className="absolute top-1/2 left-0 w-full h-[1px] bg-white/[0.02] pointer-events-none" />
@@ -90,16 +90,16 @@ export default function About() {
                   <div className="w-12 h-[1px] bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
                 </div>
                 
-                <h1 className="font-ibm text-[13vw] xs:text-6xl md:text-8xl lg:text-[120px] font-light text-white leading-[1.1] md:leading-[0.85] tracking-tighter mb-6 md:mb-4">
+                <h1 className="font-ibm text-[13vw] xs:text-6xl md:text-7xl lg:text-[88px] xl:text-[120px] font-light text-white leading-[1.1] md:leading-[0.85] tracking-tighter mb-6 md:mb-4">
                   We Build <br className="hidden sm:block" />
                   <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/40 block sm:inline mt-2 sm:mt-0">Visual Impact.</span>
                 </h1>
               </div>
 
               <div className="w-full lg:w-2/5 flex flex-col justify-end pb-4">
-                <div className="space-y-8 border-l border-white/10 pl-10">
+                <div className="space-y-8 lg:border-l border-white/10 lg:pl-10">
                    <div className="text-[10px] font-ibm text-white/40 tracking-[0.3em] uppercase">Core Purpose</div>
-                   <p className="font-ibm text-creamy-white text-lg md:text-xl font-light leading-relaxed">
+                   <p className="font-ibm text-creamy-white text-base md:text-xl font-light leading-relaxed">
                      A powerhouse of creative engineering, merging the precision of geometry with the raw emotion of cinematic arts.
                    </p>
                    <div className="flex items-center gap-4 text-[9px] font-ibm text-neon-yellow/60 tracking-[0.2em] uppercase">
@@ -138,7 +138,7 @@ export default function About() {
       </section>
 
       {/* Values */}
-      <section className="py-32 px-6 relative bg-background overflow-hidden">
+      <section className="py-16 md:py-20 xl:py-32 px-6 relative bg-background overflow-hidden">
         <div className="max-w-[1400px] mx-auto">
           <SectionReveal>
             <div className="text-center md:text-left mb-16 md:mb-24">
@@ -163,7 +163,7 @@ export default function About() {
       </section>
 
       {/* Design Principles */}
-      <section className="py-24 px-6 relative z-10">
+      <section className="py-12 md:py-16 xl:py-24 px-6 relative z-10">
         <div className="max-w-[1200px] mx-auto">
           <SectionReveal>
             <div className="mb-16">
@@ -194,7 +194,7 @@ export default function About() {
       </section>
 
       {/* Animation Principles */}
-      <section className="py-32 md:py-48 px-6 relative bg-background overflow-hidden">
+      <section className="py-20 md:py-28 xl:py-48 px-6 relative bg-background overflow-hidden">
         <div className="max-w-[1400px] mx-auto">
           <SectionReveal>
             <div className="flex flex-col lg:flex-row items-end justify-between mb-32 gap-12">

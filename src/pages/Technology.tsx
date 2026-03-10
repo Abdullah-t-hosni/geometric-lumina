@@ -61,7 +61,7 @@ export default function Technology() {
       <div className="absolute top-3/4 left-0 w-[600px] h-[600px] bg-neon-yellow/5 rounded-full blur-[120px] mix-blend-screen pointer-events-none z-0" />
 
       {/* Header */}
-      <section className="px-6 relative pb-32 pt-20 z-10 overflow-hidden">
+      <section className="px-6 relative pb-16 md:pb-20 xl:pb-32 pt-20 z-10 overflow-hidden">
         {/* Technical HUD elements */}
         <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent" />
         <div className="absolute top-1/2 left-0 w-full h-[1px] bg-white/[0.02] pointer-events-none" />
@@ -75,7 +75,7 @@ export default function Technology() {
                 <div className="w-12 h-[1px] bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
               </div>
               
-              <h1 className="font-ibm text-[16vw] xs:text-6xl md:text-8xl lg:text-[130px] font-light text-white leading-[1.1] md:leading-[0.85] tracking-tighter mb-8 md:mb-12 uppercase whitespace-nowrap lg:whitespace-normal">
+              <h1 className="font-ibm text-[13vw] xs:text-5xl md:text-7xl lg:text-[90px] xl:text-[130px] font-light text-white leading-[1.1] md:leading-[0.85] tracking-tighter mb-8 md:mb-12 uppercase">
                 Software <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/40 glow-text-yellow block sm:inline mt-2 sm:mt-0">Stack.</span>
               </h1>
 
@@ -88,7 +88,7 @@ export default function Technology() {
       </section>
 
       {/* Stats Dashboard */}
-      <section className="py-24 px-6 relative z-10">
+      <section className="py-12 md:py-16 xl:py-24 px-6 relative z-10">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {stats.map((stat, i) => (
             <SectionReveal key={stat.label} delay={i * 0.1}>
@@ -109,7 +109,7 @@ export default function Technology() {
       </section>
 
       {/* Software Arsenal Grid */}
-      <section className="py-32 px-6 relative z-10 bg-white/[0.01]">
+      <section className="py-16 md:py-20 xl:py-32 px-6 relative z-10 bg-white/[0.01]">
         <div className="max-w-[1400px] mx-auto">
           <SectionReveal>
             <div className="flex flex-col items-center mb-24">
@@ -161,9 +161,9 @@ export default function Technology() {
       </section>
 
       {/* Philosophy Section */}
-      <section className="py-40 px-6 relative z-10">
+      <section className="py-20 md:py-40 px-6 relative z-10">
         <div className="max-w-[1400px] mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-24 items-center">
             <SectionReveal>
               <div className="flex items-center gap-4 mb-10">
                 <div className="w-12 h-[1px] bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />

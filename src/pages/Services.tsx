@@ -60,7 +60,7 @@ export default function Services() {
       <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-sky-blue/5 rounded-full blur-[120px] mix-blend-screen pointer-events-none z-0" />
 
       {/* Header */}
-      <section className="px-6 relative pb-32 pt-20 z-10 overflow-hidden">
+      <section className="px-6 relative pb-16 md:pb-24 xl:pb-32 pt-20 z-10 overflow-hidden">
         {/* Technical background elements */}
         <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent" />
         <div className="absolute top-1/2 left-0 w-full h-[1px] bg-white/[0.02] pointer-events-none" />
@@ -74,7 +74,7 @@ export default function Services() {
                 <div className="w-12 h-[1px] bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
               </div>
               
-              <h1 className="font-ibm text-[14vw] xs:text-6xl md:text-8xl lg:text-[130px] font-light text-white leading-[1.1] md:leading-[0.85] tracking-tighter mb-8 md:mb-12 whitespace-nowrap lg:whitespace-normal">
+              <h1 className="font-ibm text-[14vw] xs:text-6xl md:text-7xl lg:text-[90px] xl:text-[130px] font-light text-white leading-[1.1] md:leading-[0.85] tracking-tighter mb-8 md:mb-12">
                 Our <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/40 glow-text-yellow block sm:inline mt-2 sm:mt-0">Expertise.</span>
               </h1>
 
@@ -87,7 +87,7 @@ export default function Services() {
       </section>
 
       {/* Services grid */}
-      <section className="py-20 px-6 relative z-10 w-full mx-auto">
+      <section className="py-12 md:py-16 xl:py-20 px-6 relative z-10 w-full mx-auto">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/[0.02] to-transparent pointer-events-none" />
         <div className="max-w-[1200px] mx-auto relative z-10">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 auto-rows-fr">

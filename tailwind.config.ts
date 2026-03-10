@@ -11,6 +11,9 @@ export default {
       screens: { "2xl": "1400px" },
     },
     extend: {
+      screens: {
+        xs: "475px",
+      },
       fontFamily: {
         satoshi: ['IBM Plex Sans', 'sans-serif'],
         ibm: ['IBM Plex Sans', 'sans-serif'],

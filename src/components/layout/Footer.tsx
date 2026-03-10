@@ -55,7 +55,7 @@ export default function Footer() {
         
         {/* Cinematic Master CTA */}
         {!isContactPage && (
-          <section className="pt-32 pb-48 border-b border-white/5 relative text-center">
+          <section className="pt-20 md:pt-24 xl:pt-32 pb-24 md:pb-32 xl:pb-48 border-b border-white/5 relative text-center">
             <SectionReveal>
               <div className="flex flex-col items-center group">
                  <div className="flex items-center gap-3 mb-10">
@@ -65,7 +65,7 @@ export default function Footer() {
                  </div>
 
                  <Link to="/contact" className="relative inline-block">
-                    <h2 className="font-ibm text-5xl md:text-8xl lg:text-9xl font-light text-white tracking-tighter leading-[0.85] uppercase transition-all duration-700 hover:tracking-tight cursor-pointer">
+                    <h2 className="font-ibm text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-light text-white tracking-tighter leading-[0.85] uppercase transition-all duration-700 hover:tracking-tight cursor-pointer">
                       Let's Build <br />
                       <span className="font-black italic text-transparent bg-clip-text bg-gradient-to-r from-white via-neon-yellow to-white/20 glow-text-yellow px-4">The Future.</span>
                     </h2>
@@ -82,7 +82,7 @@ export default function Footer() {
         )}
 
         {/* Main Links & Metadata Infrastructure */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-20 py-32 border-b border-white/5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 md:gap-16 lg:gap-20 py-20 md:py-32 border-b border-white/5">
           
           {/* Identity & Legal Node */}
           <div className="lg:col-span-5 space-y-12 text-left">
@@ -138,7 +138,7 @@ export default function Footer() {
           </div>
 
           {/* Links Grid Architecture */}
-          <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-16 text-left">
+          <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12 lg:gap-16 text-left">
             
             {/* Nav Node */}
             <div className="space-y-10">

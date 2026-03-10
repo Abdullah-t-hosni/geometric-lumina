@@ -193,7 +193,7 @@ export default function Index() {
         <div className="absolute -bottom-1/4 right-1/4 w-[500px] h-[500px] bg-neon-yellow/5 rounded-full blur-[120px] mix-blend-screen pointer-events-none" />
 
         {/* Content */}
-        <div className="relative z-10 w-full px-4 md:px-12 max-w-[1400px] mx-auto pt-32 md:pt-20">
+        <div className="relative z-10 w-full px-4 md:px-12 max-w-[1400px] mx-auto pt-20 md:pt-32">
           {/* Decorative Grid Lines - Hidden on small mobile for clarity */}
           <div className="absolute -top-10 left-0 w-[1px] h-[300px] bg-gradient-to-b from-transparent via-white/10 to-transparent hidden lg:block" />
           <div className="absolute top-0 -left-10 h-[1px] w-[300px] bg-gradient-to-r from-transparent via-white/10 to-transparent hidden lg:block" />
@@ -231,7 +231,7 @@ export default function Index() {
                   initial={{ opacity: 0, y: 40 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                  className="font-ibm text-[12vw] xs:text-5xl sm:text-6xl md:text-8xl lg:text-[100px] xl:text-[130px] font-light text-white leading-[1.1] md:leading-[0.85] tracking-tighter drop-shadow-2xl relative"
+                  className="font-ibm text-[13vw] xs:text-5xl sm:text-6xl md:text-7xl lg:text-[80px] xl:text-[100px] 2xl:text-[130px] font-light text-white leading-[1.1] md:leading-[0.85] tracking-tighter drop-shadow-2xl relative"
                 >
                   We Bend <br className="hidden sm:block" />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow via-neon-yellow/90 to-neon-yellow/30 glow-text-yellow italic block sm:inline">
@@ -244,9 +244,13 @@ export default function Index() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1.2, delay: 0.5 }}
-                className="font-ibm text-creamy-white/50 text-sm md:text-base lg:text-lg max-w-lg mx-auto lg:mx-0 leading-relaxed font-light tracking-wide border-t lg:border-t-0 lg:border-l border-white/10 pt-6 lg:pt-0 lg:pl-8 mt-4 md:mt-0"
+                className="font-ibm text-creamy-white/50 text-xs sm:text-sm md:text-base lg:text-lg max-w-lg mx-auto lg:mx-0 leading-relaxed font-light tracking-wide border-t lg:border-t-0 lg:border-l border-white/10 pt-6 lg:pt-0 lg:pl-8 mt-4 md:mt-0"
               >
-                Cairo-based creative powerhouse crafting cinematic 3D visuals, motion graphics, and robust experiences that refuse to be ignored.
+                Your Next Vision Starts Here
+We’re ready to
+collaborate, design, and build visuals
+that move beyond the screen.
+Let’s connect and make it happen
               </motion.p>
               
               <motion.div
@@ -341,7 +345,7 @@ export default function Index() {
       </section>
 
       {/* ─── PREMIUM STUDIO INTRO ─────────────────────── */}
-      <section className="py-32 md:py-40 px-6 relative bg-background overflow-hidden">
+      <section className="py-20 md:py-28 xl:py-40 px-6 relative bg-background overflow-hidden">
         {/* Cinematic background details */}
         <div className="absolute inset-0 bg-noise opacity-[0.03] pointer-events-none" />
         <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
@@ -362,7 +366,7 @@ export default function Index() {
               </SectionReveal>
               
               <SectionReveal delay={0.1}>
-                <h2 className="font-ibm text-4xl sm:text-5xl md:text-6xl lg:text-[85px] font-light text-white tracking-tighter leading-[1.1] lg:leading-[0.95]">
+                <h2 className="font-ibm text-4xl sm:text-5xl md:text-6xl lg:text-[65px] xl:text-[85px] font-light text-white tracking-tighter leading-[1.1] lg:leading-[0.95]">
                   Surgical precision meets <br className="hidden lg:block"/>
                   <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow via-neon-yellow/80 to-creamy-white glow-text-yellow block lg:inline mt-2 lg:mt-0">cinematic imagination.</span>
                 </h2>
@@ -416,7 +420,7 @@ export default function Index() {
       </section>
 
       {/* ─── PREMIUM SERVICES GALLERY ───────────────────── */}
-      <section className="py-32 px-6 bg-background relative overflow-hidden" aria-label="Our Core Service Disciplines">
+      <section className="py-20 md:py-28 xl:py-32 px-6 bg-background relative overflow-hidden" aria-label="Our Core Service Disciplines">
         {/* Soft elegant background flow */}
         <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-deep-teal/[0.02] rounded-full blur-[150px] pointer-events-none" />
@@ -428,7 +432,7 @@ export default function Index() {
                   <div className="w-1.5 h-1.5 rounded-full bg-neon-yellow shadow-[0_0_8px_rgba(204,255,0,0.5)]" />
                   <span className="text-[10px] font-ibm tracking-[0.4em] uppercase text-neon-yellow/80">Core Disciplines</span>
                 </div>
-              <h2 className="font-ibm text-4xl xs:text-5xl md:text-7xl lg:text-8xl font-light text-white tracking-tight leading-[1] lg:leading-[0.9]">
+              <h2 className="font-ibm text-4xl xs:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light text-white tracking-tight leading-[1] lg:leading-[0.9]">
                 Our <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/40 glow-text-yellow block sm:inline">Expertise.</span>
               </h2>
             </SectionReveal>
@@ -481,7 +485,7 @@ export default function Index() {
       </section>
 
       {/* ─── THE LABORATORY (TECH CORE) ───────────────── */}
-      <section className="py-40 px-6 bg-background relative overflow-hidden">
+      <section className="py-20 md:py-28 xl:py-40 px-6 bg-background relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,rgba(204,255,0,0.02)_0%,transparent_100%)]" />
         <div className="max-w-[1400px] mx-auto relative z-10">
@@ -490,7 +494,7 @@ export default function Index() {
                  <div className="w-1.5 h-1.5 rounded-full bg-neon-yellow shadow-[0_0_8px_rgba(204,255,0,0.5)]" />
                  <span className="text-[10px] font-ibm tracking-[0.6em] text-neon-yellow uppercase">System Capabilities</span>
                </div>
-              <h2 className="font-ibm text-5xl md:text-8xl font-light text-white tracking-tighter uppercase leading-none">
+              <h2 className="font-ibm text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light text-white tracking-tighter uppercase leading-none">
                 Technical <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-white/20">Laboratory.</span>
               </h2>
            </div>
@@ -519,12 +523,12 @@ export default function Index() {
       </section>
 
       {/* ─── ENHANCED TESTIMONIALS (PERFORMANCE REPORTS) ──────── */}
-      <section className="py-40 px-6 relative bg-background">
+      <section className="py-20 md:py-28 xl:py-40 px-6 relative bg-background">
         <div className="max-w-[1400px] mx-auto">
           <SectionReveal>
             <div className="flex flex-col items-center justify-center text-center mb-16 md:mb-24">
               <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-white/30 block mb-4 md:mb-6">Client Feedback • Secure_Log</span>
-              <h2 className="font-ibm text-4xl sm:text-5xl md:text-7xl font-light text-white tracking-tighter uppercase leading-none">Operations <span className="italic text-neon-yellow block sm:inline">Analysis.</span></h2>
+              <h2 className="font-ibm text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white tracking-tighter uppercase leading-none">Operations <span className="italic text-neon-yellow block sm:inline">Analysis.</span></h2>
             </div>
           </SectionReveal>
 

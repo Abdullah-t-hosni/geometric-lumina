@@ -97,9 +97,15 @@ export default function ServiceDetail() {
                 <div className="w-2 h-2 rounded-full bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.8)] animate-pulse" />
               </div>
 
-              <h1 className="font-ibm text-[16vw] xs:text-6xl md:text-8xl lg:text-[140px] font-light text-white leading-[1.1] md:leading-[0.8] tracking-tighter uppercase mb-8 md:mb-12">
-                {service.name.split(' ')[0]} <br className="hidden sm:block" />
-                <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/30 glow-text-yellow block sm:inline mt-2 sm:mt-0">{service.name.split(' ').slice(1).join(' ')}</span>
+              <h1 className="font-ibm text-[13vw] xs:text-5xl md:text-7xl lg:text-[100px] xl:text-[140px] font-light text-white leading-[1.1] md:leading-[0.8] tracking-tighter uppercase mb-8 md:mb-12">
+                {service.name.includes(' ') ? (
+                  <>
+                    {service.name.split(' ')[0]}{' '}<br className="hidden sm:block" />
+                    <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/30 glow-text-yellow block sm:inline mt-2 sm:mt-0">{service.name.split(' ').slice(1).join(' ')}</span>
+                  </>
+                ) : (
+                  <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/30 glow-text-yellow">{service.name}</span>
+                )}
               </h1>
 
               <motion.div style={{ y: contentY }} className="max-w-2xl px-6">
@@ -124,9 +130,9 @@ export default function ServiceDetail() {
       </section>
 
       {/* ─── TECHNICAL SPECIFICATIONS ─────────────────── */}
-      <section className="py-40 px-6 relative z-10 bg-background/50 backdrop-blur-sm border-t border-white/5">
+      <section className="py-16 md:py-24 xl:py-40 px-6 relative z-10 bg-background/50 backdrop-blur-sm border-t border-white/5">
         <div className="max-w-[1400px] mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 xl:gap-32 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 xl:gap-32 items-start">
             <div className="lg:col-span-7 space-y-16">
               <SectionReveal>
                 <div className="inline-flex items-center gap-4 mb-8">
@@ -143,7 +149,7 @@ export default function ServiceDetail() {
                 </p>
               </SectionReveal>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-10">
+              <div className="grid grid-cols-1 xs:grid-cols-2 gap-6 md:gap-8 pt-10">
                  {service.stats.map((stat, i) => (
                    <SpecMetric key={i} label={stat.label} value={stat.value} />
                  ))}
@@ -209,7 +215,7 @@ export default function ServiceDetail() {
       )}
 
       {/* ─── ALTERNATIVE DEPLOYMENTS (NAVIGATION) ───────── */}
-      <section className="py-40 px-6 relative z-10 border-t border-white/5 bg-white/[0.01]">
+      <section className="py-16 md:py-24 xl:py-40 px-6 relative z-10 border-t border-white/5 bg-white/[0.01]">
         <div className="max-w-[1400px] mx-auto">
           <SectionReveal>
             <div className="flex flex-col items-center text-center mb-24">

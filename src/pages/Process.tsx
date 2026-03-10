@@ -88,7 +88,7 @@ export default function Process() {
       <div className="fixed bottom-0 left-0 w-[600px] h-[600px] bg-neon-yellow/5 rounded-full blur-[120px] mix-blend-screen pointer-events-none z-0" />
 
       {/* Header */}
-      <section className="px-6 relative pb-32 pt-20 z-10 overflow-hidden">
+      <section className="px-6 relative pb-16 md:pb-24 xl:pb-32 pt-20 z-10 overflow-hidden">
         {/* Technical background elements */}
         <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent" />
         <div className="absolute top-1/2 left-0 w-full h-[1px] bg-white/[0.02] pointer-events-none" />
@@ -102,7 +102,7 @@ export default function Process() {
                 <div className="w-12 h-[1px] bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
               </div>
               
-              <h1 className="font-ibm text-[14vw] xs:text-6xl md:text-8xl lg:text-[130px] font-light text-white leading-[1.1] md:leading-[0.85] tracking-tighter mb-8 md:mb-12 whitespace-nowrap lg:whitespace-normal">
+              <h1 className="font-ibm text-[14vw] xs:text-6xl md:text-7xl lg:text-[90px] xl:text-[130px] font-light text-white leading-[1.1] md:leading-[0.85] tracking-tighter mb-8 md:mb-12">
                 Creative <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/40 glow-text-yellow block sm:inline mt-2 sm:mt-0 uppercase">Pipeline.</span>
               </h1>
 
@@ -115,12 +115,12 @@ export default function Process() {
       </section>
 
       {/* Timeline */}
-      <section className="py-24 px-6 relative z-10 overflow-hidden">
+      <section className="py-16 md:py-20 xl:py-24 px-6 relative z-10 overflow-hidden">
         <div className="max-w-[1400px] mx-auto relative group">
           {/* Main sequence line */}
-          <div className="absolute left-[34px] md:left-[64px] top-0 bottom-0 w-[1px] bg-white/5 group-hover:bg-neon-yellow/10 transition-colors [transition-duration:2000ms]" />
+          <div className="absolute left-8 md:left-[64px] top-0 bottom-0 w-[1px] bg-white/5 group-hover:bg-neon-yellow/10 transition-colors [transition-duration:2000ms]" />
           
-          <div className="relative pl-16 md:pl-40">
+          <div className="relative pl-20 md:pl-40">
             {steps.map((step, i) => (
               <ProcessStep
                 key={step.num}
@@ -158,7 +158,7 @@ function ProcessStep({ step, index, isExpanded, onToggle }: {
       {/* Number and state indicator */}
       <button
         onClick={onToggle}
-        className={`absolute -left-[60px] md:-left-[100px] top-6 w-10 h-10 md:w-12 md:h-12 border rounded-full flex items-center justify-center transition-all duration-700 z-10 group/btn ${
+        className={`absolute -left-14 md:-left-[100px] top-6 w-9 h-9 md:w-12 md:h-12 border rounded-full flex items-center justify-center transition-all duration-700 z-10 group/btn ${
           isExpanded
             ? 'bg-neon-yellow border-neon-yellow text-background shadow-[0_0_20px_rgba(204,255,0,0.5)]'
             : 'bg-background border-white/10 text-white/40 hover:border-white/30 hover:text-white'

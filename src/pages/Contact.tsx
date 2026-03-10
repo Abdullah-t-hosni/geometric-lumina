@@ -122,7 +122,7 @@ export default function Contact() {
       <div className="absolute bottom-1/4 left-0 w-[600px] h-[600px] bg-neon-yellow/5 rounded-full blur-[120px] mix-blend-screen pointer-events-none z-0" />
 
       {/* Header */}
-      <section className="px-6 relative pb-32 pt-20 z-10 overflow-hidden">
+      <section className="px-6 relative pb-16 md:pb-24 xl:pb-32 pt-20 z-10 overflow-hidden">
         {/* Technical HUD elements */}
         <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent" />
         <div className="absolute top-1/2 left-0 w-full h-[1px] bg-white/[0.02] pointer-events-none" />
@@ -136,7 +136,7 @@ export default function Contact() {
                 <div className="w-12 h-[1px] bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
               </div>
               
-              <h1 className="font-ibm text-[16vw] xs:text-6xl md:text-8xl lg:text-[130px] font-light text-white leading-[1.1] md:leading-[0.85] tracking-tighter mb-8 md:mb-12 uppercase whitespace-nowrap lg:whitespace-normal">
+              <h1 className="font-ibm text-[12vw] xs:text-5xl md:text-7xl lg:text-[90px] xl:text-[130px] font-light text-white leading-[1.1] md:leading-[0.85] tracking-tighter mb-8 md:mb-12 uppercase">
                 Start The <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/40 glow-text-yellow block sm:inline mt-2 sm:mt-0">Contact.</span>
               </h1>
 
@@ -155,7 +155,7 @@ export default function Contact() {
           {/* Left — Contact info */}
           <div className="lg:col-span-2 space-y-12">
             <SectionReveal>
-              <div className="glass-panel p-10 rounded-[32px] group hover:border-white/20 transition-all duration-700 relative overflow-hidden">
+              <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-[32px] group hover:border-white/20 transition-all duration-700 relative overflow-hidden">
                 <div className="absolute top-0 left-10 w-10 h-[2px] bg-neon-yellow/30 group-hover:bg-neon-yellow group-hover:w-20 transition-all duration-700 shadow-[0_0_10px_rgba(204,255,0,0.3)]" />
                 <h3 className="font-ibm text-[10px] tracking-[0.5em] uppercase text-white/30 mb-12">Direct_Channels</h3>
                 <div className="space-y-6 md:space-y-10">
@@ -173,7 +173,7 @@ export default function Contact() {
             </SectionReveal>
  
             <SectionReveal delay={0.1}>
-              <div className="glass-panel p-10 rounded-[32px] group hover:border-white/20 transition-all duration-700 relative overflow-hidden">
+              <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-[32px] group hover:border-white/20 transition-all duration-700 relative overflow-hidden">
                 <div className="absolute top-0 left-10 w-10 h-[2px] bg-white/10 group-hover:bg-neon-yellow group-hover:w-20 transition-all duration-700 shadow-[0_0_10px_rgba(204,255,0,0.3)]" />
                 <h3 className="font-ibm text-[10px] tracking-[0.5em] uppercase text-white/30 mb-12">Social_Grid</h3>
                 <div className="space-y-6 md:space-y-8">
@@ -204,7 +204,7 @@ export default function Contact() {
             </SectionReveal>
  
             <SectionReveal delay={0.2}>
-              <div className="glass-panel p-10 rounded-[32px] relative overflow-hidden group border-neon-yellow/10 bg-neon-yellow/[0.01]">
+              <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-[32px] relative overflow-hidden group border-neon-yellow/10 bg-neon-yellow/[0.01]">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-neon-yellow/5 rounded-full blur-[40px] pointer-events-none" />
                 <h4 className="font-ibm text-[9px] tracking-[0.5em] uppercase text-white/40 mb-8 flex items-center gap-3">
                   <div className="w-1.5 h-1.5 rounded-full bg-neon-yellow animate-pulse shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
@@ -233,7 +233,7 @@ export default function Contact() {
           {/* Right — Form */}
           <div className="lg:col-span-3">
             <SectionReveal delay={0.15}>
-              <div className="glass-panel p-10 md:p-16 rounded-[40px] relative overflow-hidden">
+              <div className="glass-panel p-6 sm:p-10 md:p-16 rounded-[40px] relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-[1px] bg-white/5" />
                 
                 {submitted ? (
