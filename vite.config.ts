@@ -11,6 +11,9 @@ export default defineConfig(({ mode }) => ({
       overlay: false,
     },
   },
+  build: {
+    target: "es2015",
+  },
   plugins: [react()],
   resolve: {
     alias: {
