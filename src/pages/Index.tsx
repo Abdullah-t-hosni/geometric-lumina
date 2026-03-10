@@ -1,33 +1,20 @@
-import { useRef, lazy, Suspense, useState, useEffect } from 'react';
+import { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { SectionReveal, StaggerReveal } from '@/components/ui/SectionReveal';
-import { AnimatePresence, motion, useInView, useScroll, useTransform } from 'framer-motion';
+import { SectionReveal } from '@/components/ui/SectionReveal';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { services } from '@/data/services';
-import { Logo } from '@/components/Logo';
-import logo5 from '@/assets/images/Logo-5.webp';
 import ourCore from '@/assets/images/our core.webp';
 import heroVideo from '@/assets/video/Geometric-video.mp4';
 import { SEO, Schemas } from '@/components/seo/SEO';
 import { 
-  Play, 
   Box, 
-  Layout, 
-  Share2, 
-  Expand, 
   Wind, 
-  Home, 
-  Focus, 
-  Headset, 
   Layers, 
-  Scan, 
-  Cpu,
+  Zap,
   ArrowRight,
   Sparkles,
-  Zap,
   Mountain,
-  Palette,
   Video,
-  Film,
   Eye,
   Star,
   CheckCircle2,
@@ -38,25 +25,8 @@ import {
   ShieldCheck
 } from 'lucide-react';
 
-const ServiceIcon = ({ slug, size = 24, className = "" }: { slug: string; size?: number; className?: string }) => {
-  const icons: Record<string, any> = {
-    'motion-graphics': Play,
-    'product-visualization': Box,
-    'booth-exhibition-design': Layout,
-    'social-media-content': Share2,
-    'anamorphic-screens': Expand,
-    'simulations': Wind,
-    'architectural-visualization': Home,
-    'micro-visualization': Focus,
-    'vr-environments': Headset,
-    'cgi-compositing': Layers,
-    '3d-scanning': Scan,
-    'ai-content-production': Cpu,
-  };
-  const Icon = icons[slug] || Box;
-  return <Icon size={size} strokeWidth={1.5} className={className} />;
-};
-
+import { ServiceCard } from '@/components/home/ServiceCard';
+import { PortfolioHorizontalSection } from '@/components/home/PortfolioHorizontalSection';
 
 const techStack = [
   { name: 'Blender', category: '3D/Modeling', spec: 'Cycles/Eevee', icon: Box },
@@ -247,10 +217,9 @@ export default function Index() {
                 className="font-ibm text-creamy-white/50 text-xs sm:text-sm md:text-base lg:text-lg max-w-lg mx-auto lg:mx-0 leading-relaxed font-light tracking-wide border-t lg:border-t-0 lg:border-l border-white/10 pt-6 lg:pt-0 lg:pl-8 mt-4 md:mt-0"
               >
                 Your Next Vision Starts Here
-We’re ready to
-collaborate, design, and build visuals
-that move beyond the screen.
-Let’s connect and make it happen
+                We’re ready to collaborate, design, and build visuals
+                that move beyond the screen.
+                Let’s connect and make it happen
               </motion.p>
               
               <motion.div
@@ -470,7 +439,6 @@ Let’s connect and make it happen
       {/* ─── CINEMATIC STICKY HORIZONTAL PORTFOLIO ────────────── */}
       <PortfolioHorizontalSection />
 
-
       {/* ─── CLIENT MARQUEE ───────────────────────── */}
       <section className="py-12 bg-background border-y border-white/5 overflow-hidden whitespace-nowrap flex select-none relative">
         <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-background z-10 pointer-events-none" />
@@ -536,7 +504,7 @@ Let’s connect and make it happen
             {testimonials.map((t, i) => (
               <SectionReveal key={i} delay={i * 0.15}>
                 <div className="relative group h-full">
-                  <div className="glass-panel h-full rounded-[32px] md:rounded-[35px] p-6 sm:p-8 md:p-10 border-white/5 hover:border-neon-yellow/20 transition-all duration-700 flex flex-col relative overflow-hidden bg-white/[0.01] text-left">
+                   <div className="glass-panel h-full rounded-[32px] md:rounded-[35px] p-6 sm:p-8 md:p-10 border-white/5 hover:border-neon-yellow/20 transition-all duration-700 flex flex-col relative overflow-hidden bg-white/[0.01] text-left">
                     {/* Header HUD */}
                     <div className="flex justify-between items-start mb-8 md:mb-12">
                        <div className="flex flex-col gap-1 text-left">
@@ -573,317 +541,6 @@ Let’s connect and make it happen
           </div>
         </div>
       </section>
-
-   
     </div>
   );
 }
-
-// ─── Sub Components ────────────────────────────────
-
-function ServiceCard({ service, index, className }: { service: typeof services[0]; index: number; className?: string }) {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-40px' });
-  const [isHovered, setIsHovered] = useState(false);
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 30 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.8, delay: (index % 3) * 0.15, ease: [0.16, 1, 0.3, 1] }}
-      className={className}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <Link
-        to={`/services/${service.slug}`}
-        data-cursor="DISCOVER"
-        className="group block h-full rounded-[32px] border border-white/5 hover:border-white/20 transition-all duration-700 relative overflow-hidden bg-background/40 backdrop-blur-sm"
-      >
-        {/* Background Image with reveal effect */}
-        <div className="absolute inset-0 z-0">
-          <motion.img
-            src={service.heroImage}
-            alt={service.name}
-            loading="lazy"
-            initial={{ scale: 1.1, filter: 'grayscale(1) brightness(0.3)' }}
-            animate={{ 
-              scale: isHovered ? 1.05 : 1.1,
-              filter: isHovered ? 'grayscale(0.4) brightness(0.5)' : 'grayscale(1) brightness(0.3)',
-            }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
-            style={{ willChange: "transform, filter" }}
-            className="w-full h-full object-cover"
-          />
-          {/* Color Overlay */}
-          <div 
-            className={`absolute inset-0 opacity-40 mix-blend-overlay transition-colors duration-700 ${
-              service.color === 'neon-yellow' ? 'bg-neon-yellow' :
-              service.color === 'sky-blue' ? 'bg-sky-blue' :
-              service.color === 'coral-red' ? 'bg-coral-red' :
-              service.color === 'deep-teal' ? 'bg-deep-teal' :
-              service.color === 'sea-green' ? 'bg-sea-green' :
-              'bg-white'
-            }`} 
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
-        </div>
-
-        {/* Content */}
-        <div className="relative z-10 h-full p-6 sm:p-8 md:p-10 flex flex-col text-left">
-          <div className="flex justify-between items-start mb-auto">
-             <div className="flex flex-col gap-1 items-start">
-                <div className="px-2.5 py-1 md:px-3 rounded-full bg-white/5 border border-white/10 text-[7px] md:text-[8px] font-ibm tracking-[0.3em] uppercase text-creamy-white/40">
-                  DISCIPLINE.00{index + 1}
-                </div>
-                <div className={`h-[1px] bg-current transition-all duration-700 ${isHovered ? 'w-full' : 'w-4'} ${
-                  service.color === 'neon-yellow' ? 'text-neon-yellow' : 'text-white/20'
-                }`} />
-             </div>
-             
-             <motion.div 
-               animate={{ rotate: isHovered ? 90 : 0 }}
-               className={`w-9 h-9 md:w-10 md:h-10 rounded-full border border-white/10 flex items-center justify-center transition-colors duration-500 ${isHovered ? 'border-neon-yellow/50 text-neon-yellow bg-neon-yellow/5' : 'text-white/20'}`}
-             >
-                <ServiceIcon slug={service.slug} size={18} />
-             </motion.div>
-          </div>
-          
-          <div className="space-y-3 md:space-y-4 text-left">
-            <h3 className="font-ibm font-light text-xl xs:text-2xl md:text-3xl lg:text-4xl text-white tracking-tight leading-tight group-hover:text-neon-yellow transition-colors duration-500 uppercase">
-              {service.name}
-            </h3>
-            
-            <p className="font-ibm text-[10px] md:text-xs lg:text-sm font-light text-white/40 leading-relaxed max-w-md group-hover:text-white/80 transition-colors duration-700">
-              {service.tagline}
-            </p>
-
-            <div className="flex items-center justify-start gap-4 pt-4">
-              <div className={`w-8 h-[1px] transition-all duration-500 group-hover:w-16 ${isHovered ? 'bg-neon-yellow' : 'bg-white/10'}`} />
-              <span className={`font-ibm text-[8px] md:text-[9px] tracking-[0.4em] font-light uppercase transition-colors duration-500 ${isHovered ? 'text-white' : 'text-white/30'}`}>View Details</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Scanning Line on hover */}
-        <AnimatePresence>
-          {isHovered && (
-            <motion.div
-              initial={{ top: '-10%' }}
-              animate={{ top: '110%' }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-              className="absolute left-0 right-0 h-[1px] bg-neon-yellow/30 shadow-[0_0_15px_rgba(204,255,0,0.5)] z-20 pointer-events-none"
-            />
-          )}
-        </AnimatePresence>
-
-        {/* HUD Elements */}
-        {index === 0 && (
-           <div className="absolute bottom-10 right-10 w-32 h-32 rounded-full border border-white/5 flex items-center justify-center hidden lg:flex pointer-events-none">
-              <div className="w-24 h-24 rounded-full border border-neon-yellow/5 animate-spin-slow flex items-center justify-center border-dashed">
-                 <div className="w-16 h-16 rounded-full border border-white/5 flex items-center justify-center">
-                    <div className="w-1 h-1 bg-neon-yellow rounded-full shadow-[0_0_8px_rgba(204,255,0,0.8)]" />
-                 </div>
-              </div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                 <div className="w-[110%] h-[1px] bg-white/[0.03] rotate-45" />
-                 <div className="w-[110%] h-[1px] bg-white/[0.03] -rotate-45" />
-              </div>
-           </div>
-        )}
-      </Link>
-    </motion.div>
-  );
-}
-
-function PortfolioHorizontalSection() {
-  const targetRef = useRef(null);
-  const { scrollYProgress } = useScroll({ target: targetRef });
-  
-  // Use a state to detect desktop for the sticky effect
-  const [isDesktop, setIsDesktop] = useState(false);
-
-  useEffect(() => {
-    const checkIsDesktop = () => setIsDesktop(window.innerWidth >= 1024);
-    checkIsDesktop();
-    window.addEventListener('resize', checkIsDesktop);
-    return () => window.removeEventListener('resize', checkIsDesktop);
-  }, []);
-
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-65%"]);
-
-  return (
-    <section ref={targetRef} className={`relative bg-background ${isDesktop ? 'h-[300vh]' : 'py-20'}`}>
-      <div className={`${isDesktop ? 'sticky top-0 h-screen flex flex-col justify-center overflow-hidden' : 'px-6'}`}>
-        <div className="mb-12 max-w-[1400px] mx-auto w-full">
-           <SectionReveal>
-              <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
-                 <div>
-                    <div className="flex items-center gap-3 mb-4">
-                       <div className="w-1.5 h-1.5 rounded-full bg-neon-yellow shadow-[0_0_8px_rgba(204,255,0,0.5)]" />
-                       <span className="text-[10px] font-ibm tracking-[0.4em] uppercase text-neon-yellow">Showcase</span>
-                    </div>
-                    <h2 className="font-ibm text-5xl md:text-8xl font-light text-white tracking-tighter leading-[0.9] uppercase">
-                       Selected <br />
-                       <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-white to-white/20">Masterpieces.</span>
-                    </h2>
-                 </div>
-                 
-                 {isDesktop && (
-                   <div className="hidden lg:block">
-                      <div className="flex flex-col items-end gap-2 pr-10 border-r border-white/10">
-                         <span className="text-[8px] font-ibm text-white/30 tracking-[0.5em] uppercase">Scroll Direction</span>
-                         <div className="flex items-center gap-4">
-                            <span className="text-[10px] font-ibm text-neon-yellow uppercase">Horizontal</span>
-                            <div className="w-20 h-px bg-gradient-to-r from-neon-yellow to-transparent" />
-                         </div>
-                      </div>
-                   </div>
-                 )}
-              </div>
-           </SectionReveal>
-        </div>
-
-        {isDesktop ? (
-          <motion.div style={{ x }} className="flex gap-8 px-6 lg:px-[10vw]">
-            {services.slice(0, 5).map((service, i) => (
-              <FeaturedProjectCard key={service.id} service={service} index={i} />
-            ))}
-            
-            {/* Final CTA Card */}
-            <div className="flex-shrink-0 w-[80vw] md:w-[400px] flex items-center justify-center">
-               <Link to="/portfolio" className="group flex flex-col items-center gap-6">
-                  <div className="w-24 h-24 rounded-full border border-white/10 flex items-center justify-center group-hover:border-neon-yellow/50 group-hover:bg-neon-yellow/5 transition-all duration-700">
-                     <span className="text-3xl text-white transform group-hover:translate-x-2 transition-transform duration-500">→</span>
-                  </div>
-                  <div className="text-center">
-                     <div className="font-ibm text-[10px] tracking-[0.5em] uppercase text-white/30 mb-2">Portfolio</div>
-                     <div className="font-ibm text-xl text-white uppercase tracking-widest group-hover:text-neon-yellow transition-colors">View All Works</div>
-                  </div>
-               </Link>
-            </div>
-          </motion.div>
-        ) : (
-          <div className="flex flex-col gap-12">
-            {services.slice(0, 4).map((service, i) => (
-              <FeaturedProjectCard key={service.id} service={service} index={i} />
-            ))}
-            <div className="py-12 flex justify-center">
-              <Link to="/portfolio" className="group flex flex-col items-center gap-4">
-                <div className="w-16 h-16 rounded-full border border-neon-yellow/30 flex items-center justify-center">
-                   <span className="text-white">→</span>
-                </div>
-                <span className="font-ibm text-[10px] tracking-[0.4em] uppercase text-neon-yellow">View All Projects</span>
-              </Link>
-            </div>
-          </div>
-        )}
-
-        {/* Technical Progress Bar - Desktop Only */}
-        {isDesktop && (
-          <div className="absolute bottom-12 left-[10vw] right-[10vw] h-px bg-white/5 hidden md:block">
-             <motion.div 
-               className="absolute top-0 left-0 h-full bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]"
-               style={{ width: scrollYProgress }} 
-             />
-             <div className="absolute -top-6 left-0 font-ibm text-[7px] text-white/20 tracking-widest uppercase">System_Nav • Portfolio_01</div>
-          </div>
-        )}
-      </div>
-    </section>
-  );
-}
-
-function FeaturedProjectCard({ service, index }: { service: typeof services[0]; index: number }) {
-  const [isHovered, setIsHovered] = useState(false);
-  
-  return (
-    <motion.div
-      className="flex-shrink-0 w-[85vw] md:w-[600px] lg:w-[800px] group"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <Link to={`/portfolio`} className="block relative aspect-[16/9] rounded-[40px] overflow-hidden glass-panel p-2 transition-all duration-700 hover:p-3">
-        <div className="w-full h-full rounded-[32px] overflow-hidden relative">
-          
-          {/* Glitch-like image container */}
-          <div className="absolute inset-0 overflow-hidden">
-            <motion.img
-              src={service.heroImage}
-              alt={service.name}
-              loading="lazy"
-              animate={{ 
-                scale: isHovered ? 1.02 : 1.1,
-                x: isHovered ? [0, -2, 2, 0] : 0, // Micro glitch
-              }}
-              transition={{ 
-                scale: { duration: 1.5, ease: "easeOut" },
-                x: { duration: 0.2, repeat: isHovered ? Infinity : 0, repeatType: "mirror" }
-              }}
-              style={{ willChange: "transform, filter" }}
-              className="w-full h-full object-cover opacity-60 group-hover:opacity-100 grayscale-[0.8] group-hover:grayscale-0 transition-opacity duration-1000"
-            />
-          </div>
-          
-          {/* HUD Brackets - Responsive inset */}
-          <div className="absolute inset-4 sm:inset-6 md:inset-8 pointer-events-none">
-             <div className="absolute top-0 left-0 w-4 h-4 md:w-8 md:h-8 border-t border-l border-white/20 transition-all duration-700 group-hover:border-neon-yellow group-hover:-translate-x-1 md:group-hover:-translate-x-2 group-hover:-translate-y-1 md:group-hover:-translate-y-2" />
-             <div className="absolute top-0 right-0 w-4 h-4 md:w-8 md:h-8 border-t border-r border-white/20 transition-all duration-700 group-hover:border-neon-yellow group-hover:translate-x-1 md:group-hover:translate-x-2 group-hover:-translate-y-1 md:group-hover:-translate-y-2" />
-             <div className="absolute bottom-0 left-0 w-4 h-4 md:w-8 md:h-8 border-b border-l border-white/20 transition-all duration-700 group-hover:border-neon-yellow group-hover:-translate-x-1 md:group-hover:-translate-x-2 group-hover:translate-y-1 md:group-hover:translate-y-2" />
-             <div className="absolute bottom-0 right-0 w-4 h-4 md:w-8 md:h-8 border-b border-r border-white/20 transition-all duration-700 group-hover:border-neon-yellow group-hover:translate-x-1 md:group-hover:translate-x-2 group-hover:translate-y-1 md:group-hover:translate-y-2" />
-          </div>
-
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80" />
-          
-          {/* Metadata corner */}
-          <div className="absolute top-6 right-6 md:top-10 md:right-10 flex flex-col items-end gap-2 translate-x-4 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-700">
-             <div className="px-2 md:px-3 py-1 rounded-sm bg-background/80 backdrop-blur-md border border-white/10 text-[6px] md:text-[7px] text-white font-ibm tracking-[0.2em] uppercase">Resolution: 8K_NATIVE</div>
-             <div className="px-2 md:px-3 py-1 rounded-sm bg-background/80 backdrop-blur-md border border-white/10 text-[6px] md:text-[7px] text-white font-ibm tracking-[0.2em] uppercase">Engine: RayTracing_MAX</div>
-          </div>
-
-          <div className="absolute bottom-6 left-6 right-6 sm:bottom-8 sm:left-8 sm:right-8 md:bottom-12 md:left-12 md:right-12">
-            <div className="flex items-center gap-2 md:gap-4 mb-4 md:mb-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700 delay-100">
-               <span className="px-2 md:px-3 py-0.5 md:py-1 rounded-full bg-neon-yellow text-background text-[7px] md:text-[8px] font-ibm font-bold tracking-[0.2em] uppercase">Featured</span>
-               <span className="text-[8px] md:text-[10px] text-white/50 font-ibm tracking-[0.3em] uppercase">{service.category}</span>
-            </div>
-            
-            <div className="flex items-end justify-between gap-4">
-               <div className="max-w-xl">
-                  <h3 className="font-ibm text-2xl xs:text-3xl sm:text-4xl md:text-6xl font-light text-white tracking-tighter leading-tight md:leading-none mb-2 md:mb-4 uppercase group-hover:text-neon-yellow transition-colors duration-500">
-                    {service.name}
-                  </h3>
-                  <div className={`h-[1px] bg-neon-yellow/30 transition-all duration-1000 ${isHovered ? 'w-full' : 'w-0'}`} />
-               </div>
-               
-               <div className="w-10 h-10 md:w-16 md:h-16 rounded-full border border-white/10 flex-shrink-0 flex items-center justify-center text-white transform rotate-[-45deg] group-hover:rotate-0 group-hover:border-neon-yellow group-hover:text-neon-yellow transition-all duration-700 overflow-hidden relative">
-                  <motion.span 
-                    animate={isHovered ? { x: [0, 40, -40, 0] } : {}}
-                    transition={{ duration: 0.5 }}
-                    className="text-xl md:text-2xl"
-                  >
-                    →
-                  </motion.span>
-               </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Scanning Line */}
-        <AnimatePresence>
-          {isHovered && (
-            <motion.div
-              initial={{ top: '-10%' }}
-              animate={{ top: '110%' }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 2.5, repeat: Infinity, ease: "linear" }}
-              className="absolute left-0 right-0 h-px bg-neon-yellow shadow-[0_0_15px_rgba(204,255,0,0.8)] z-20 pointer-events-none"
-            />
-          )}
-        </AnimatePresence>
-      </Link>
-    </motion.div>
-  );
-}
-
