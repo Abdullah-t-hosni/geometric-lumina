@@ -10,17 +10,16 @@ import { Logo } from '@/components/Logo';
 
 const queryClient = new QueryClient();
 
-// Lazy-loaded pages
-const Index = lazy(() => import('./pages/Index'));
-const About = lazy(() => import('./pages/About'));
-const Services = lazy(() => import('./pages/Services'));
-const ServiceDetail = lazy(() => import('./pages/ServiceDetail'));
-const Portfolio = lazy(() => import('./pages/Portfolio'));
-const PortfolioProject = lazy(() => import('./pages/PortfolioProject'));
-const Process = lazy(() => import('./pages/Process'));
-const Technology = lazy(() => import('./pages/Technology'));
-const Contact = lazy(() => import('./pages/Contact'));
-const NotFound = lazy(() => import('./pages/NotFound'));
+import Index from './pages/Index';
+import About from './pages/About';
+import Services from './pages/Services';
+import ServiceDetail from './pages/ServiceDetail';
+import Portfolio from './pages/Portfolio';
+import PortfolioProject from './pages/PortfolioProject';
+import Process from './pages/Process';
+import Technology from './pages/Technology';
+import Contact from './pages/Contact';
+import NotFound from './pages/NotFound';
 
 function PageLoader() {
   return (
