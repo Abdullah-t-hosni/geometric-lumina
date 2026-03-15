@@ -32,7 +32,6 @@ const pageLinks = [
   { label: 'Services', href: '/services' },
   { label: 'Portfolio', href: '/portfolio' },
   { label: 'Process', href: '/process' },
-  { label: 'Technology', href: '/technology' },
   { label: 'Contact', href: '/contact' },
 ];
 
@@ -67,7 +66,7 @@ export default function Footer() {
                  <Link to="/contact" className="relative inline-block">
                     <h2 className="font-ibm text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-light text-white tracking-tighter leading-[0.85] uppercase transition-all duration-700 hover:tracking-tight cursor-pointer">
                       Let's Build <br />
-                      <span className="font-black italic text-transparent bg-clip-text bg-gradient-to-r from-white via-neon-yellow to-white/20 glow-text-yellow px-4">The Future.</span>
+                      <span className="font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-neon-yellow to-white/20 glow-text-yellow px-4">The Future.</span>
                     </h2>
                     <div className="mt-16 flex items-center justify-center gap-6 group-hover:gap-10 transition-all duration-500">
                        <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group-hover:border-neon-yellow group-hover:bg-neon-yellow group-hover:text-background transition-all duration-500">
@@ -91,7 +90,7 @@ export default function Footer() {
                 <Logo className="h-12 w-auto group-hover:rotate-12 transition-transform duration-700" />
                 <div className="flex flex-col border-l border-white/10 pl-5 text-left">
                   <span className="font-ibm text-lg font-bold text-white tracking-widest uppercase">Geometric</span>
-                  <span className="font-ibm text-[8px] text-neon-yellow tracking-[0.5em] uppercase italic opacity-60">Visual_Intelligence_Studio</span>
+                  <span className="font-ibm text-[8px] text-neon-yellow tracking-[0.5em] uppercase opacity-60">Visual_Intelligence_Studio</span>
                 </div>
               </Link>
               <p className="mt-8 font-ibm text-xs md:text-sm text-white/30 leading-relaxed font-light max-w-sm tracking-tight text-left">
@@ -183,7 +182,7 @@ export default function Footer() {
                   <div className="group text-left">
                      <span className="block text-[8px] text-white/10 uppercase tracking-widest mb-1 text-left uppercase">Direct_Sequence</span>
                      <div className="text-left">
-                       <a href="mailto:contact@geometric-studios.com" className="font-ibm text-[11px] text-neon-yellow/60 underline underline-offset-4 hover:text-neon-yellow transition-colors italic">
+                       <a href="mailto:contact@geometric-studios.com" className="font-ibm text-[11px] text-neon-yellow/60 underline underline-offset-4 hover:text-neon-yellow transition-colors">
                           contact@geometric-studios.com
                        </a>
                      </div>
@@ -236,10 +235,10 @@ export default function Footer() {
               <div className="flex flex-col items-center md:items-end gap-2">
                  <div className="flex items-center gap-3 px-4 py-1.5 rounded-full border border-white/5 bg-white/[0.01]">
                     <div className="w-1.5 h-1.5 rounded-full bg-neon-yellow glow-yellow animate-pulse" />
-                    <span className="text-[9px] text-neon-yellow/60 font-ibm tracking-[0.4em] uppercase font-light">System_Active</span>
-                 </div>
-                 <span className="text-[8px] text-white/10 font-ibm tracking-[0.2em] uppercase italic">Shaping Realities Since_2019</span>
-              </div>
+                     <span className="text-[9px] text-neon-yellow/60 font-ibm tracking-[0.4em] uppercase font-light">System_Active</span>
+                  </div>
+                  <span className="text-[8px] text-white/10 font-ibm tracking-[0.2em] uppercase">Shaping Realities Since_2019</span>
+               </div>
            </div>
 
           </div>

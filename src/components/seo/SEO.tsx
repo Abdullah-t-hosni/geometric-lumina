@@ -123,7 +123,7 @@ export const Schemas = {
     '@type': 'Organization',
     name: 'Geometric Studio',
     url: SITE_URL,
-    logo: `${SITE_URL}/assets/images/Logo-5.webp`,
+    logo: `${SITE_URL}/assets/images/Logo-3.webp`,
     sameAs: [
       'https://instagram.com/geometric_studios',
       'https://www.tiktok.com/@geometric_studios',
@@ -236,7 +236,7 @@ export const Schemas = {
     description:
       '3D visualization, motion graphics, product animation, anamorphic screens, VR environments, and AI content production studio serving brands globally.',
     url: SITE_URL,
-    logo: `${SITE_URL}/assets/images/Logo-5.webp`,
+    logo: `${SITE_URL}/assets/images/Logo-3.webp`,
     image: `${SITE_URL}/assets/og-image.png`,
     telephone: ['+201063565635', '+201025247955', '+201032843037'],
     email: 'contact@geometric-studios.com',

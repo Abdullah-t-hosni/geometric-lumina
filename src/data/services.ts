@@ -2,17 +2,19 @@ import motionGraphics from '@/assets/images/Motion Graphics.webp';
 import productVisualization from '@/assets/images/Product Visualization & Animation.webp';
 import boothDesign from '@/assets/images/Booth Design.webp';
 import socialMedia from '@/assets/images/Social Media Content.webp';
-import anamorphicScreens from '@/assets/images/Anamorphic Screens.webp';
+import anamorphicScreens from '@/assets/images/Anamorphic Screens 2.webp';
+import anamorphicScreens1 from '@/assets/images/Anamorphic-Screens1.webp';
 import simulations from '@/assets/images/Simulations.webp';
 import architecturalVisualization from '@/assets/images/Architectural Visualization.webp';
-import microVisualization from '@/assets/images/Micro Visualization.webp';
+import microVisualization from '@/assets/images/Micro-Visualization.webp';
 import vrEnvironments from '@/assets/images/VR Environments.webp';
 import cgiCompositing from '@/assets/images/CGI Compositing.webp';
 import threeDScanning from '@/assets/images/3D Scanning.webp';
 import aiProduction from '@/assets/images/AI-powered Production.webp';
-import technicalDrawing from '@/assets/images/technical drawing.webp';
+import technicalDrawing from '@/assets/images/our core.webp';
 import servicesImg from '@/assets/images/Services.webp';
-import img10 from '@/assets/images/10.webp';
+import intro3 from '@/assets/images/Intro_3.webp';
+import img10 from '@/assets/images/Intro_Page.webp';
 import img6 from '@/assets/images/6.webp';
 
 export interface ServiceStat {
@@ -47,7 +49,8 @@ export const services: Service[] = [
     category: 'Motion',
     color: 'sky-blue',
     image: motionGraphics,
-    heroImage: motionGraphics,
+    heroImage: intro3,
+    gallery: [motionGraphics, intro3, socialMedia],
     icon: '▶',
     stats: [
       { label: 'Framerate', value: '120 FPS' },
@@ -125,7 +128,8 @@ export const services: Service[] = [
     category: 'CGI',
     color: 'deep-teal',
     image: anamorphicScreens,
-    heroImage: anamorphicScreens,
+    heroImage: anamorphicScreens1,
+    gallery: [anamorphicScreens, anamorphicScreens1, cgiCompositing],
     icon: '◧',
     stats: [
       { label: 'Dimension', value: 'Hyper-3D' },
@@ -185,6 +189,7 @@ export const services: Service[] = [
     color: 'sea-green',
     image: microVisualization,
     heroImage: microVisualization,
+    gallery: [microVisualization, productVisualization, simulations],
     icon: '⬤',
     stats: [
       { label: 'Macro', value: '2000X Digital' },
@@ -204,6 +209,7 @@ export const services: Service[] = [
     color: 'neon-yellow',
     image: vrEnvironments,
     heroImage: vrEnvironments,
+    gallery: [vrEnvironments, architecturalVisualization, simulations],
     icon: '⬣',
     stats: [
       { label: 'Latence', value: '< 20ms' },
@@ -243,6 +249,7 @@ export const services: Service[] = [
     color: 'coral-red',
     image: threeDScanning,
     heroImage: threeDScanning,
+    gallery: [threeDScanning, productVisualization, microVisualization],
     icon: '◍',
     stats: [
       { label: 'Points', value: '50M+ Cloud' },
@@ -262,6 +269,7 @@ export const services: Service[] = [
     color: 'neon-yellow',
     image: aiProduction,
     heroImage: aiProduction,
+    gallery: [aiProduction, socialMedia, motionGraphics],
     icon: '◎',
     stats: [
       { label: 'Model', value: 'Flux/MJ/SD' },
