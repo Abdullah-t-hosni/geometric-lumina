@@ -94,7 +94,7 @@ export function PortfolioHorizontalSection() {
                className="absolute top-0 left-0 h-full bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]"
                style={{ width: scrollYProgress }} 
              />
-             <div className="absolute -top-6 left-0 font-ibm text-[7px] text-white/20 tracking-widest uppercase">System_Nav • Portfolio_01</div>
+             <div className="absolute -top-6 left-0 font-ibm text-[7px] text-white/20 tracking-widest uppercase">System.Nav • Portfolio.01</div>
           </div>
         )}
       </div>

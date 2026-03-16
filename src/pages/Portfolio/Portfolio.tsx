@@ -41,11 +41,11 @@ export default function Portfolio() {
         <div className="max-w-[1400px] mx-auto text-center relative">
           <SectionReveal>
             <div className="flex flex-col items-center">
-              <div className="flex items-center gap-4 mb-10">
-                <div className="w-12 h-[1px] bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
-                <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-neon-yellow">Masterpiece Archive</span>
-                <div className="w-12 h-[1px] bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
-              </div>
+                <div className="flex items-center gap-4 mb-10">
+                  <div className="w-1 h-1 rounded-full bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
+                  <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-neon-yellow">Masterpiece Archive</span>
+                  <div className="w-1 h-1 rounded-full bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
+                </div>
               
               <h1 className="font-ibm text-[14vw] xs:text-6xl md:text-7xl lg:text-[90px] xl:text-[130px] font-light text-white leading-[1.1] md:leading-[0.85] tracking-tighter mb-8 md:mb-12 uppercase">
                 Selected <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/30 block sm:inline mt-2 sm:mt-0">Works.</span>
@@ -139,10 +139,10 @@ function ProjectCard({ project, index }: { project: typeof portfolioProjects[0];
           
           {/* Technical Metadata Header */}
           <div className="absolute top-6 left-6 md:top-8 md:left-8 flex items-center gap-8 md:gap-12 transition-all duration-700">
-             <div className="flex flex-col gap-1 group-hover:translate-x-2 transition-transform duration-700">
-                <div className="text-[7px] md:text-[8px] font-ibm text-white/40 tracking-[0.5em] uppercase">Archive No.00{index+1}</div>
-                <div className="w-8 md:w-12 h-[1px] bg-neon-yellow/30 group-hover:bg-neon-yellow group-hover:w-16 md:group-hover:w-20 transition-all duration-700 shadow-[0_0_10px_rgba(204,255,0,0.3)]" />
-             </div>
+              <div className="flex flex-col gap-1 group-hover:translate-x-2 transition-transform duration-700">
+                <div className="text-[7px] md:text-[8px] font-ibm text-white/40 tracking-[0.5em] uppercase">Archive.No.00{index+1}</div>
+                <div className="w-1 h-1 rounded-full bg-neon-yellow/30 group-hover:bg-neon-yellow transition-all duration-700 shadow-[0_0_10px_rgba(204,255,0,0.3)]" />
+              </div>
              
              <div className="flex items-center gap-3 md:gap-4 opacity-0 group-hover:opacity-30 transition-opacity duration-1000 delay-500 hidden sm:flex">
                 <div className="text-[6px] md:text-[7px] font-ibm text-white tracking-[0.3em] uppercase">Client // {project.client || 'INTERNAL'}</div>

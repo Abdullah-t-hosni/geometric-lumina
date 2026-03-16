@@ -69,9 +69,9 @@ export default function Services() {
           <SectionReveal>
             <div className="flex flex-col items-center">
               <div className="flex items-center gap-4 mb-10">
-                <div className="w-12 h-[1px] bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
+                <div className="w-1 h-1 rounded-full bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
                 <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-neon-yellow">Geometric Disciplines</span>
-                <div className="w-12 h-[1px] bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
+                <div className="w-1 h-1 rounded-full bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
               </div>
               
               <h1 className="font-ibm text-[14vw] xs:text-6xl md:text-7xl lg:text-[90px] xl:text-[130px] font-light text-white leading-[1.1] md:leading-[0.85] tracking-tighter mb-8 md:mb-12">
@@ -167,8 +167,8 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
               <div className="px-3 py-1 md:px-4 md:py-1.5 rounded-full border border-white/10 bg-background/80 backdrop-blur-md text-[8px] md:text-[10px] font-ibm tracking-[0.4em] text-white/40 uppercase">
                 DISCIPLINE.00{index + 1}
               </div>
-              <div className={`h-[1px] bg-current transition-all duration-700 ${isHovered ? 'w-full' : 'w-4'} ${
-                service.color === 'neon-yellow' ? 'text-neon-yellow' : 'text-white/20'
+              <div className={`transition-all duration-700 ${isHovered ? 'h-[1px] w-full' : 'w-1 h-1 rounded-full'} ${
+                service.color === 'neon-yellow' ? 'bg-neon-yellow shadow-[0_0_8px_rgba(204,255,0,0.5)]' : 'bg-white/20'
               }`} />
             </div>
             

@@ -178,13 +178,13 @@ export default function Home() {
               >
                 <div className="flex flex-col gap-1 items-start">
                   <div className="flex items-center gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full bg-neon-yellow shadow-[0_0_8px_rgba(204,255,0,0.5)]" />
+                    <div className="w-1 h-1 rounded-full bg-neon-yellow shadow-[0_0_8px_rgba(204,255,0,0.5)]" />
                     <span className="text-[9px] md:text-[10px] font-ibm text-neon-yellow tracking-[0.3em] md:tracking-[0.4em] uppercase font-light">
-                      Geometric Studios • Integrated_Node
+                      Geometric Studios • Integrated.Node
                     </span>
                   </div>
                   <div className="w-24 h-[1px] bg-white/10" />
-                  <span className="text-[8px] font-ibm text-white/20 tracking-[0.2em] uppercase font-light italic">System_Version_4.0_Stable</span>
+                  <span className="text-[8px] font-ibm text-white/20 tracking-[0.2em] uppercase font-light italic">System.Version.4.0.Stable</span>
                 </div>
               </motion.div>
 
@@ -459,7 +459,7 @@ export default function Home() {
         <div className="max-w-[1400px] mx-auto">
           <SectionReveal>
             <div className="flex flex-col items-center justify-center text-center mb-16 md:mb-24">
-              <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-white/30 block mb-4 md:mb-6">Client Feedback • Secure_Log</span>
+              <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-white/30 block mb-4 md:mb-6">Client Feedback • Secure.Log</span>
               <h2 className="font-ibm text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white tracking-tighter uppercase leading-none">Operations <span className="italic text-neon-yellow block sm:inline">Analysis.</span></h2>
             </div>
           </SectionReveal>
@@ -473,10 +473,10 @@ export default function Home() {
                     <div className="flex justify-between items-start mb-8 md:mb-12">
                        <div className="flex flex-col gap-1 text-left">
                           <span className="text-[7px] font-ibm text-white/20 tracking-tighter uppercase flex items-center justify-start gap-2">
-                             <Activity size={8} className="text-neon-yellow" /> Report_Ref: GEOM_{i+1}
+                             <Activity size={8} className="text-neon-yellow" /> Report.Ref: GEOM.{i+1}
                           </span>
                           <span className="text-[7px] font-ibm text-neon-yellow tracking-tighter uppercase flex items-center justify-start gap-2">
-                             <ShieldCheck size={8} /> Status: ENCRYPTED_OK
+                             <ShieldCheck size={8} /> Status: ENCRYPTED.OK
                           </span>
                        </div>
                        <div className="p-2 rounded-lg bg-white/[0.03] text-white/10">

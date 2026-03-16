@@ -131,9 +131,9 @@ export default function Contact() {
           <SectionReveal>
             <div className="flex flex-col items-center">
               <div className="flex items-center gap-4 mb-10">
-                <div className="w-12 h-[1px] bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
+                <div className="w-1 h-1 rounded-full bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
                 <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-neon-yellow">Communications Portal</span>
-                <div className="w-12 h-[1px] bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
+                <div className="w-1 h-1 rounded-full bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
               </div>
               
               <h1 className="font-ibm text-[12vw] xs:text-5xl md:text-7xl lg:text-[90px] xl:text-[130px] font-light text-white leading-[1.1] md:leading-[0.85] tracking-tighter mb-8 md:mb-12 uppercase">
@@ -156,8 +156,8 @@ export default function Contact() {
           <div className="lg:col-span-2 space-y-12">
             <SectionReveal>
               <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-[32px] group hover:border-white/20 transition-all duration-700 relative overflow-hidden">
-                <div className="absolute top-0 left-10 w-10 h-[2px] bg-neon-yellow/30 group-hover:bg-neon-yellow group-hover:w-20 transition-all duration-700 shadow-[0_0_10px_rgba(204,255,0,0.3)]" />
-                <h3 className="font-ibm text-[10px] tracking-[0.5em] uppercase text-white/30 mb-12">Direct_Channels</h3>
+                <div className="absolute top-0 left-10 w-1.5 h-1.5 rounded-full bg-neon-yellow/30 group-hover:bg-neon-yellow transition-all duration-700 shadow-[0_0_10px_rgba(204,255,0,0.3)]" />
+                <h3 className="font-ibm text-[10px] tracking-[0.5em] uppercase text-white/30 mb-12">Direct.Channels</h3>
                 <div className="space-y-6 md:space-y-10">
                   {contactInfo.map((item) => (
                     <div key={item.label} className="flex flex-col gap-4 group/item">
@@ -174,8 +174,8 @@ export default function Contact() {
  
             <SectionReveal delay={0.1}>
               <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-[32px] group hover:border-white/20 transition-all duration-700 relative overflow-hidden">
-                <div className="absolute top-0 left-10 w-10 h-[2px] bg-white/10 group-hover:bg-neon-yellow group-hover:w-20 transition-all duration-700 shadow-[0_0_10px_rgba(204,255,0,0.3)]" />
-                <h3 className="font-ibm text-[10px] tracking-[0.5em] uppercase text-white/30 mb-12">Social_Grid</h3>
+                <div className="absolute top-0 left-10 w-1.5 h-1.5 rounded-full bg-white/10 group-hover:bg-neon-yellow transition-all duration-700 shadow-[0_0_10px_rgba(204,255,0,0.3)]" />
+                <h3 className="font-ibm text-[10px] tracking-[0.5em] uppercase text-white/30 mb-12">Social.Grid</h3>
                 <div className="space-y-6 md:space-y-8">
                   {socialLinks.map((link) => (
                     <a
@@ -206,8 +206,8 @@ export default function Contact() {
               <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-[32px] relative overflow-hidden group border-neon-yellow/10 bg-neon-yellow/[0.01]">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-neon-yellow/5 rounded-full blur-[40px] pointer-events-none" />
                 <h4 className="font-ibm text-[9px] tracking-[0.5em] uppercase text-white/40 mb-8 flex items-center gap-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-neon-yellow animate-pulse shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
-                  Legal_Entities
+                  <div className="w-1 h-1 rounded-full bg-neon-yellow animate-pulse shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
+                  Legal.Entities
                 </h4>
                 <div className="space-y-6">
                   <div className="flex flex-col gap-2 border-l border-white/5 pl-6">
@@ -259,7 +259,7 @@ export default function Contact() {
                   <form onSubmit={handleSubmit(onSubmit)} className="space-y-10">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
                       <FormField
-                        label="Identity_Check *"
+                        label="Identity.Check *"
                         error={errors.name?.message}
                       >
                         <input
@@ -269,7 +269,7 @@ export default function Contact() {
                         />
                       </FormField>
    
-                      <FormField label="Organization_Ref" error={errors.company?.message}>
+                      <FormField label="Organization.Ref" error={errors.company?.message}>
                         <input
                           {...register('company')}
                           placeholder="Company name"
@@ -278,7 +278,7 @@ export default function Contact() {
                       </FormField>
                     </div>
    
-                    <FormField label="Digital_Terminal *" error={errors.email?.message}>
+                    <FormField label="Digital.Terminal *" error={errors.email?.message}>
                       <input
                         {...register('email')}
                         type="email"
@@ -288,7 +288,7 @@ export default function Contact() {
                     </FormField>
    
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
-                      <FormField label="Capability_Requirement *" error={errors.projectType?.message}>
+                      <FormField label="Capability.Requirement *" error={errors.projectType?.message}>
                         <div className="relative">
                           <select
                             {...register('projectType')}
@@ -305,7 +305,7 @@ export default function Contact() {
                         </div>
                       </FormField>
    
-                      <FormField label="Budget_Scale *" error={errors.budget?.message}>
+                      <FormField label="Budget.Scale *" error={errors.budget?.message}>
                         <div className="relative">
                           <select
                             {...register('budget')}
@@ -323,7 +323,7 @@ export default function Contact() {
                       </FormField>
                     </div>
    
-                    <FormField label="Brief_Specifications *" error={errors.message?.message}>
+                    <FormField label="Brief.Specifications *" error={errors.message?.message}>
                       <textarea
                         {...register('message')}
                         rows={6}

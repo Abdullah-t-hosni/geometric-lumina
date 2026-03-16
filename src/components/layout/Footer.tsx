@@ -142,7 +142,7 @@ export default function Footer() {
             {/* Nav Node */}
             <div className="space-y-10">
                <h4 className="font-ibm text-[9px] tracking-[0.5em] text-white/20 uppercase flex items-center gap-3">
-                  <div className="w-1.5 h-px bg-neon-yellow" /> Navigator_1.0
+                  <div className="w-1 h-1 rounded-full bg-neon-yellow" /> Navigator.1.0
                </h4>
                <ul className="space-y-5 text-left">
                 {pageLinks.map((link) => (
@@ -159,7 +159,7 @@ export default function Footer() {
             {/* Capability Node */}
             <div className="space-y-10">
                <h4 className="font-ibm text-[9px] tracking-[0.5em] text-white/20 uppercase flex items-center gap-3">
-                  <div className="w-1.5 h-px bg-neon-yellow" /> Capacities_2.4
+                  <div className="w-1 h-1 rounded-full bg-neon-yellow" /> Capacities.2.4
                </h4>
                <ul className="space-y-5 text-left">
                 {serviceLinks.map((link) => (
@@ -176,7 +176,7 @@ export default function Footer() {
             {/* Location & Contact Node */}
             <div className="space-y-10">
                <h4 className="font-ibm text-[9px] tracking-[0.5em] text-white/20 uppercase flex items-center gap-3">
-                  <div className="w-1.5 h-px bg-neon-yellow" /> Connection_Pnt
+                  <div className="w-1 h-1 rounded-full bg-neon-yellow" /> Connection.Pnt
                </h4>
                <div className="space-y-8">
                   <div className="group text-left">
@@ -203,15 +203,6 @@ export default function Footer() {
                 <span className="text-[8px] text-white/10 font-ibm tracking-[0.1em] uppercase">All rights reserved • Cinematic Intelligence Unit</span>
               </div>
               
-              <div className="w-px h-8 bg-white/5 hidden md:block" />
-              
-              <div className="flex flex-col gap-1 items-center md:items-start group">
-                 <span className="text-[8px] text-white/10 font-ibm tracking-[0.3em] uppercase">Design & Dev By</span>
-                 <a href="tel:+201099422002" className="text-[10px] text-white/30 font-ibm tracking-[0.2em] uppercase hover:text-neon-yellow transition-all duration-300 flex items-center gap-2">
-                   Abdullah t.hosni
-                   <div className="w-1 h-1 rounded-full bg-neon-yellow/40 group-hover:bg-neon-yellow transition-colors" />
-                 </a>
-              </div>
             </div>
 
             {/* Middle Zone: Technical Huddeco (Purely Abstract) */}

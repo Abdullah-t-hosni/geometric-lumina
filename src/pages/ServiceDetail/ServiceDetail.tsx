@@ -135,11 +135,11 @@ export default function ServiceDetail() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 xl:gap-32 items-start">
             <div className="lg:col-span-7 space-y-16">
               <SectionReveal>
-                <div className="inline-flex items-center gap-4 mb-8">
-                  <div className="w-12 h-[1px] bg-neon-yellow/50 shadow-[0_0_8px_rgba(204,255,0,0.5)]" />
-                  <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-neon-yellow/80">Capability Profile</span>
-                </div>
-                <h2 className="font-ibm text-[10vw] xs:text-4xl md:text-6xl font-light text-white leading-[1] tracking-tighter uppercase">
+                <div className="flex items-center gap-4 mb-10">
+                  <div className="w-1 h-1 rounded-full bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
+                  <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-neon-yellow">Protocol.Design.System</span>
+                  <div className="w-1 h-1 rounded-full bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
+                </div><h2 className="font-ibm text-[10vw] xs:text-4xl md:text-6xl font-light text-white leading-[1] tracking-tighter uppercase">
                   Precision engineered <br className="hidden sm:block" />
                   <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-white to-white/40 block sm:inline mt-2 sm:mt-0">Visual Supremacy.</span>
                 </h2>
@@ -161,7 +161,7 @@ export default function ServiceDetail() {
                 <div className="relative group">
                   <div className="absolute -inset-4 bg-neon-yellow/5 blur-2xl rounded-[40px] opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
                   <div className="relative glass-panel p-10 md:p-14 rounded-[40px] border-white/5 group-hover:border-white/20 transition-all duration-700 overflow-hidden">
-                    <div className="absolute top-0 right-10 p-10 text-[8px] font-ibm text-white/5 tracking-[0.5em] uppercase">M-CAP_0{service.id}</div>
+                    <div className="absolute top-0 right-10 p-10 text-[8px] font-ibm text-white/5 tracking-[0.5em] uppercase">M.CAP.0{service.id}</div>
                     <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-neon-yellow/0 via-neon-yellow/20 to-neon-yellow/0" />
                     
                     <h3 className="font-ibm text-[10px] tracking-[0.5em] uppercase text-white/30 mb-12 flex items-center gap-4">
@@ -285,7 +285,7 @@ function AlternativeCard({ service, index }: { service: typeof services[0]; inde
               <div className="w-16 h-16 md:w-20 md:h-20 rounded-[20px] md:rounded-[30px] overflow-hidden p-1 glass-panel border-white/5 group-hover:border-neon-yellow/30 transition-all duration-700 shadow-2xl">
                  <img src={service.image} alt={service.name} loading="lazy" className="w-full h-full object-cover rounded-[14px] md:rounded-[22px] grayscale group-hover:grayscale-0 transition-all duration-1000" />
               </div>
-              <div className="text-[8px] md:text-[10px] font-ibm text-white/20 uppercase tracking-[0.3em]">Module_0{index + 1}</div>
+              <div className="text-[8px] md:text-[10px] font-ibm text-white/20 uppercase tracking-[0.3em]">Module.0{index + 1}</div>
            </div>
 
            <div className="mt-auto space-y-3 md:space-y-4 text-left">

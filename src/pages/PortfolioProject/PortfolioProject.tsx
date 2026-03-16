@@ -44,16 +44,16 @@ export default function PortfolioProject() {
       
       {/* Scroll Progress HUD */}
       <div className="fixed top-1/2 right-10 -translate-y-1/2 z-50 hidden xl:flex flex-col items-center gap-6 pointer-events-none">
-         <div className="[writing-mode:vertical-lr] text-[7px] text-white/20 font-ibm tracking-[0.5em] uppercase">Data_Stream_Progress</div>
-         <div className="h-64 w-[1px] bg-white/10 relative">
-            <motion.div 
-              className="absolute top-0 left-0 w-full bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]"
-              style={{ height: useTransform(scrollYProgress, [0, 1], ['0%', '100%']) }}
-            />
-         </div>
-         <motion.div className="text-[10px] text-neon-yellow font-ibm font-bold">
-            {useTransform(scrollYProgress, (v) => `${Math.round(v * 100)}%`)}
-         </motion.div>
+          <div className="[writing-mode:vertical-lr] text-[7px] text-white/20 font-ibm tracking-[0.5em] uppercase">Data.Stream.Progress</div>
+          <div className="h-64 w-[1px] bg-white/10 relative">
+             <motion.div 
+               className="absolute top-0 left-0 w-full bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]"
+               style={{ height: useTransform(scrollYProgress, [0, 1], ['0%', '100%']) }}
+             />
+          </div>
+          <motion.div className="text-[10px] text-neon-yellow font-ibm font-bold">
+             {useTransform(scrollYProgress, (v) => `${Math.round(v * 100)}%`)}
+          </motion.div>
       </div>
 
       {/* Premium Ambient Glows */}
@@ -79,9 +79,9 @@ export default function PortfolioProject() {
            
            {/* Dynamic Coordinate HUD */}
            <div className="absolute top-1/2 left-10 -translate-y-1/2 flex flex-col gap-20 opacity-20 hidden md:flex">
-              <div className="[writing-mode:vertical-lr] text-[8px] font-ibm text-white tracking-[1em] uppercase">Sector_01 // AXIS_Y</div>
+              <div className="[writing-mode:vertical-lr] text-[8px] font-ibm text-white tracking-[1em] uppercase">Sector.01 // AXIS.Y</div>
               <div className="h-40 w-px bg-gradient-to-b from-transparent via-white/50 to-transparent" />
-              <div className="[writing-mode:vertical-lr] text-[8px] font-ibm text-white tracking-[1em] uppercase">Node_Link // EST_2026</div>
+              <div className="[writing-mode:vertical-lr] text-[8px] font-ibm text-white tracking-[1em] uppercase">Node.Link // EST.2026</div>
            </div>
 
            <div className="absolute top-10 right-10 flex gap-4 opacity-20 items-center hidden md:flex">
@@ -103,7 +103,7 @@ export default function PortfolioProject() {
               
               <div className="flex items-center gap-4 mb-6">
                 <span className="text-[10px] text-neon-yellow font-ibm tracking-[0.4em] uppercase py-1.5 px-3 border border-neon-yellow/30 bg-neon-yellow/5 rounded-full backdrop-blur-sm">
-                  Protocol_0{project.id.padStart(2, '0')} // {project.category}
+                  Protocol.0{project.id.padStart(2, '0')} // {project.category}
                 </span>
                 <span className="text-[10px] text-white/20 font-ibm tracking-[0.4em] uppercase">{project.year}</span>
               </div>
@@ -148,7 +148,7 @@ export default function PortfolioProject() {
             <SectionReveal delay={0.2}>
               <div className="glass-panel p-10 rounded-[32px] group hover:border-white/20 transition-all duration-700 relative overflow-hidden">
                 <div className="absolute top-0 right-10 w-10 h-[2px] bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.3)]" />
-                <h3 className="font-ibm text-[9px] tracking-[0.5em] uppercase text-white/20 mb-10">Disciplines_Index</h3>
+                <h3 className="font-ibm text-[9px] tracking-[0.5em] uppercase text-white/20 mb-10">Disciplines.Index</h3>
                 <div className="flex flex-wrap gap-3">
                   {project.tags.map(tag => (
                     <span key={tag} className="px-5 py-2.5 bg-white/[0.02] border border-white/5 rounded-full text-[9px] text-white/60 font-ibm uppercase tracking-widest hover:border-neon-yellow/40 hover:text-neon-yellow transition-all duration-500">{tag}</span>
@@ -160,7 +160,7 @@ export default function PortfolioProject() {
             <SectionReveal delay={0.3}>
               <div className="glass-panel p-10 rounded-[32px] border-white/5 group hover:border-neon-yellow/20 transition-all duration-700 relative overflow-hidden">
                 <div className="absolute top-0 left-10 w-10 h-[2px] bg-white/20 group-hover:bg-neon-yellow transition-all duration-700 shadow-[0_0_10px_rgba(204,255,0,0.3)]" />
-                <h3 className="font-ibm text-[9px] tracking-[0.5em] uppercase text-white/20 mb-10">System_Diagnostics</h3>
+                <h3 className="font-ibm text-[9px] tracking-[0.5em] uppercase text-white/20 mb-10">System.Diagnostics</h3>
                 <div className="grid grid-cols-2 gap-y-8 gap-x-4">
                   {project.specs.map((spec, i) => (
                     <div key={i} className="flex flex-col gap-1.5">
@@ -206,12 +206,12 @@ export default function PortfolioProject() {
                    {/* Top Metadata */}
                    <div className="absolute top-8 left-12 right-12 flex justify-between items-center z-20 pointer-events-none">
                       <div className="flex items-center gap-2">
-                         <div className="w-2 h-2 rounded-full bg-neon-yellow/40 animate-pulse" />
-                         <span className="text-[7px] font-ibm text-white/30 uppercase tracking-[0.2em]">Data_Node_0{i+1}</span>
-                      </div>
-                      <div className="text-[9px] font-ibm text-white/10 uppercase tracking-widest group-hover:text-neon-yellow transition-colors">
-                        SHT_ARC_00{i+1}
-                      </div>
+                         <div className="w-1.5 h-1.5 rounded-full bg-neon-yellow/40 animate-pulse" />
+                       <span className="text-[7px] font-ibm text-white/30 uppercase tracking-[0.2em]">Data.Node.0{i+1}</span>
+                    </div>
+                    <div className="text-[9px] font-ibm text-white/10 uppercase tracking-widest group-hover:text-neon-yellow transition-colors">
+                      SHT.ARC.00{i+1}
+                    </div>
                    </div>
 
                    <div className="w-full h-full rounded-[32px] overflow-hidden relative">
@@ -276,7 +276,7 @@ export default function PortfolioProject() {
                       </div>
 
                       <div className="absolute bottom-0 left-0 w-full p-8 md:p-10 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-700">
-                        <span className="text-[7px] text-neon-yellow/60 font-ibm tracking-[0.4em] uppercase block mb-3">Protocol_0{p.id}</span>
+                        <span className="text-[7px] text-neon-yellow/60 font-ibm tracking-[0.4em] uppercase block mb-3">Protocol.0{p.id}</span>
                         <h3 className="font-ibm font-light text-2xl md:text-3xl text-white tracking-tighter uppercase leading-none">{p.title}</h3>
                       </div>
                     </div>

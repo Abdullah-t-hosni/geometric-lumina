@@ -70,9 +70,9 @@ export default function Technology() {
           <SectionReveal>
             <div className="flex flex-col items-center">
               <div className="flex items-center gap-4 mb-10">
-                <div className="w-12 h-[1px] bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
+                <div className="w-1 h-1 rounded-full bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
                 <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-neon-yellow">Technical Arsenal</span>
-                <div className="w-12 h-[1px] bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
+                <div className="w-1 h-1 rounded-full bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
               </div>
               
               <h1 className="font-ibm text-[13vw] xs:text-5xl md:text-7xl lg:text-[90px] xl:text-[130px] font-light text-white leading-[1.1] md:leading-[0.85] tracking-tighter mb-8 md:mb-12 uppercase">
@@ -144,7 +144,7 @@ export default function Technology() {
                   </div>
                   
                   <div className="flex flex-col gap-1 mb-4 md:mb-6 transition-all duration-700 group-hover:translate-x-2 text-left">
-                    <span className="text-[7px] md:text-[8px] font-ibm tracking-[0.4em] uppercase text-neon-yellow/40 group-hover:text-neon-yellow transition-colors">Software_0{i+1}</span>
+                    <span className="text-[7px] md:text-[8px] font-ibm tracking-[0.4em] uppercase text-neon-yellow/40 group-hover:text-neon-yellow transition-colors">Software.0{i+1}</span>
                     <h3 className="font-ibm font-light text-xl md:text-2xl text-white tracking-tight leading-tight uppercase">{tool.name}</h3>
                   </div>
                   
@@ -166,7 +166,7 @@ export default function Technology() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-24 items-center">
             <SectionReveal>
               <div className="flex items-center gap-4 mb-10">
-                <div className="w-12 h-[1px] bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
+                <div className="w-1 h-1 rounded-full bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
                 <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-neon-yellow">Operational Philosophy</span>
               </div>
               

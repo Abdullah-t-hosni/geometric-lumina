@@ -97,9 +97,9 @@ export default function Process() {
           <SectionReveal>
             <div className="flex flex-col items-center">
               <div className="flex items-center gap-4 mb-10">
-                <div className="w-12 h-[1px] bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
+                <div className="w-1 h-1 rounded-full bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
                 <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-neon-yellow">Sequence Protocol</span>
-                <div className="w-12 h-[1px] bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
+                <div className="w-1 h-1 rounded-full bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
               </div>
               
               <h1 className="font-ibm text-[14vw] xs:text-6xl md:text-7xl lg:text-[90px] xl:text-[130px] font-light text-white leading-[1.1] md:leading-[0.85] tracking-tighter mb-8 md:mb-12">
@@ -177,7 +177,7 @@ function ProcessStep({ step, index, isExpanded, onToggle }: {
                <step.icon size={28} strokeWidth={1.5} />
             </div>
             <div className="flex flex-col gap-1 items-start">
-              <span className="text-[8px] font-ibm tracking-[0.5em] uppercase text-white/20 group-hover:text-neon-yellow transition-colors duration-700">Module 00{index+1}</span>
+              <span className="text-[8px] font-ibm tracking-[0.5em] uppercase text-white/20 group-hover:text-neon-yellow transition-colors duration-700">Module.00{index+1}</span>
               <h3 className={`font-ibm text-2xl xs:text-3xl md:text-5xl font-light tracking-tighter uppercase transition-colors duration-700 ${isExpanded ? 'text-white' : 'text-white/60 group-hover:text-white'}`}>
                 {step.title}
               </h3>
@@ -187,7 +187,7 @@ function ProcessStep({ step, index, isExpanded, onToggle }: {
           <div className="flex items-center gap-8">
              <div className="hidden lg:flex flex-col items-end gap-1 opacity-20 group-hover:opacity-60 transition-opacity duration-700">
                 <div className="text-[7px] font-ibm tracking-[0.2em] uppercase">Status: {isExpanded ? 'Active' : 'Standby'}</div>
-                <div className="w-16 h-[1px] bg-white group-hover:bg-neon-yellow transition-colors" />
+                <div className="w-1 h-1 rounded-full bg-white group-hover:bg-neon-yellow transition-colors" />
              </div>
              <div className={`w-10 h-10 rounded-full border border-white/10 flex items-center justify-center transition-all duration-700 ${isExpanded ? 'rotate-180 bg-white/5 border-neon-yellow/30 text-neon-yellow' : 'text-white/20'}`}>
                <span className="text-xl">↓</span>
