@@ -71,8 +71,8 @@ export default function About() {
         ]}
       />
       {/* Premium Ambient Glows */}
-      <div className="fixed top-0 left-0 w-[800px] h-[800px] bg-deep-teal/20 rounded-full blur-[150px] mix-blend-screen pointer-events-none z-0" />
-      <div className="fixed bottom-0 right-0 w-[600px] h-[600px] bg-neon-yellow/5 rounded-full blur-[120px] mix-blend-screen pointer-events-none z-0" />
+      <div className="fixed top-0 left-0 w-[800px] h-[800px] bg-deep-teal/20 rounded-full blur-[150px] transform-gpu pointer-events-none z-0" />
+      <div className="fixed bottom-0 right-0 w-[600px] h-[600px] bg-neon-yellow/5 rounded-full blur-[120px] transform-gpu pointer-events-none z-0" />
 
       {/* Hero */}
       <section className="px-6 relative pb-12 md:pb-16 xl:pb-20 pt-36 md:pt-48 lg:pt-56 z-10 overflow-hidden">

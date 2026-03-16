@@ -41,7 +41,7 @@ export default function Header() {
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         role="banner"
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
-          scrolled && !menuOpen ? 'bg-background/80 backdrop-blur-xl border-b border-white/5 py-2 shadow-lg shadow-black/20' : 'bg-transparent py-4'
+          scrolled && !menuOpen ? 'bg-background/95 border-b border-white/5 py-2 shadow-lg shadow-black/20' : 'bg-transparent py-4'
         }`}
       >
         <div className="max-w-[1400px] mx-auto px-6 md:px-10 h-16 md:h-20 flex items-center justify-between gap-6">
@@ -110,7 +110,7 @@ export default function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-40 bg-background/95 backdrop-blur-2xl flex items-center justify-center overflow-y-auto"
+            className="fixed inset-0 z-40 bg-background/95 flex items-center justify-center overflow-y-auto transform-gpu"
           >
             {/* Background cinematic glows */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none fixed">
@@ -118,13 +118,13 @@ export default function Header() {
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 0.3 }}
                 transition={{ duration: 1, ease: 'easeOut' }}
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-deep-teal/40 blur-[150px] mix-blend-screen"
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-deep-teal/40 blur-[150px] transform-gpu"
               />
               <motion.div
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 0.2 }}
                 transition={{ duration: 1.2, ease: 'easeOut', delay: 0.2 }}
-                className="absolute top-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-neon-yellow/20 blur-[120px] mix-blend-screen"
+                className="absolute top-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-neon-yellow/20 blur-[120px] transform-gpu"
               />
             </div>
 

@@ -55,9 +55,9 @@ export default function Services() {
         ]}
       />
       {/* Premium Ambient Glows */}
-      <div className="absolute top-0 right-0 w-[1000px] h-[1000px] bg-deep-teal/10 rounded-full blur-[150px] mix-blend-screen pointer-events-none z-0" />
-      <div className="absolute top-1/2 left-0 w-[800px] h-[800px] bg-neon-yellow/5 rounded-full blur-[150px] mix-blend-screen pointer-events-none z-0" />
-      <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-sky-blue/5 rounded-full blur-[120px] mix-blend-screen pointer-events-none z-0" />
+      <div className="absolute top-0 right-0 w-[1000px] h-[1000px] bg-deep-teal/10 rounded-full blur-[150px] transform-gpu pointer-events-none z-0" />
+      <div className="absolute top-1/2 left-0 w-[800px] h-[800px] bg-neon-yellow/5 rounded-full blur-[150px] transform-gpu pointer-events-none z-0" />
+      <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-sky-blue/5 rounded-full blur-[120px] transform-gpu pointer-events-none z-0" />
 
       {/* Header Section */}
       <section className="px-6 relative pb-16 md:pb-24 xl:pb-32 pt-36 md:pt-48 lg:pt-56 z-10 overflow-hidden">
@@ -118,7 +118,7 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
     >
       <Link
         to={`/services/${service.slug}`}
-        className="group block h-full rounded-[32px] border border-white/5 hover:border-white/20 transition-all duration-700 relative overflow-hidden bg-background/40 backdrop-blur-sm shadow-2xl"
+        className="group block h-full rounded-[32px] border border-white/5 hover:border-white/20 transition-colors duration-700 relative overflow-hidden bg-background/80 shadow-2xl transform-gpu"
       >
         {/* Background Image with reveal effect */}
         <div className="absolute inset-0 z-0">
@@ -126,17 +126,20 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
             src={service.heroImage}
             alt={service.name}
             loading="lazy"
+            width={800}
+            height={1000}
             initial={{ scale: 1.1, filter: 'grayscale(1) brightness(0.2)' }}
             animate={{ 
               scale: isHovered ? 1.05 : 1.1,
               filter: isHovered ? 'grayscale(0.4) brightness(0.4)' : 'grayscale(1) brightness(0.2)',
             }}
             transition={{ duration: 1.2, ease: "easeOut" }}
-            className="w-full h-full object-cover"
+            style={{ willChange: "transform, filter" }}
+            className="w-full h-full object-cover transform-gpu"
           />
           {/* Color Overlay */}
           <div 
-            className={`absolute inset-0 opacity-40 mix-blend-overlay transition-colors duration-700 ${
+            className={`absolute inset-0 opacity-20 transition-colors duration-700 transform-gpu ${
               service.color === 'neon-yellow' ? 'bg-neon-yellow' :
               service.color === 'sky-blue' ? 'bg-sky-blue' :
               service.color === 'coral-red' ? 'bg-coral-red' :
@@ -156,7 +159,8 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
               animate={{ top: '110%' }}
               exit={{ opacity: 0 }}
               transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-              className="absolute left-0 right-0 h-[1px] bg-neon-yellow/30 shadow-[0_0_15px_rgba(204,255,0,0.5)] z-20 pointer-events-none"
+              style={{ willChange: "top" }}
+              className="absolute left-0 right-0 h-[1px] bg-neon-yellow/30 shadow-[0_0_15px_rgba(204,255,0,0.5)] z-20 pointer-events-none transform-gpu"
             />
           )}
         </AnimatePresence>
@@ -164,7 +168,7 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
         <div className="relative z-10 p-6 sm:p-8 md:p-10 h-full flex flex-col">
           <div className="flex justify-between items-start mb-6 md:mb-8">
             <div className="flex flex-col gap-1">
-              <div className="px-3 py-1 md:px-4 md:py-1.5 rounded-full border border-white/10 bg-background/80 backdrop-blur-md text-[8px] md:text-[10px] font-ibm tracking-[0.4em] text-white/40 uppercase">
+              <div className="px-3 py-1 md:px-4 md:py-1.5 rounded-full border border-white/10 bg-background/90 text-[8px] md:text-[10px] font-ibm tracking-[0.4em] text-white/40 uppercase transform-gpu">
                 DISCIPLINE.00{index + 1}
               </div>
               <div className={`transition-all duration-700 ${isHovered ? 'h-[1px] w-full' : 'w-1 h-1 rounded-full'} ${

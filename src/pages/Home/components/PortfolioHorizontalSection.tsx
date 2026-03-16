@@ -53,7 +53,7 @@ export function PortfolioHorizontalSection() {
         </div>
 
         {isDesktop ? (
-          <motion.div style={{ x }} className="flex gap-8 px-6 lg:px-[10vw]">
+          <motion.div style={{ x, willChange: "transform" }} className="flex gap-8 px-6 lg:px-[10vw]">
             {services.slice(0, 5).map((service, i) => (
               <FeaturedProjectCard key={service.id} service={service} index={i} />
             ))}

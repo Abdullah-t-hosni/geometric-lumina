@@ -47,8 +47,8 @@ export default function Footer() {
       <div className="absolute top-[1px] left-0 w-full h-[400px] bg-gradient-to-b from-white/[0.02] to-transparent pointer-events-none" />
       
       {/* Premium Ambient Glows */}
-      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-deep-teal/10 rounded-full blur-[120px] mix-blend-screen pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-neon-yellow/[0.03] rounded-full blur-[100px] mix-blend-screen pointer-events-none" />
+      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-deep-teal/10 rounded-full blur-[120px] transform-gpu pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-neon-yellow/[0.03] rounded-full blur-[100px] transform-gpu pointer-events-none" />
 
       <div className="max-w-[1440px] mx-auto px-6 relative z-10">
         

@@ -29,8 +29,8 @@ export default function Portfolio() {
         ]}
       />
       {/* Premium Ambient Glows */}
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-deep-teal/20 rounded-full blur-[150px] mix-blend-screen pointer-events-none z-0" />
-      <div className="absolute top-1/2 left-0 w-[600px] h-[600px] bg-neon-yellow/5 rounded-full blur-[120px] mix-blend-screen pointer-events-none z-0" />
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-deep-teal/20 rounded-full blur-[150px] transform-gpu pointer-events-none z-0" />
+      <div className="absolute top-1/2 left-0 w-[600px] h-[600px] bg-neon-yellow/5 rounded-full blur-[120px] transform-gpu pointer-events-none z-0" />
 
       {/* Header */}
       <section className="px-6 relative pb-16 md:pb-24 xl:pb-32 pt-36 md:pt-48 lg:pt-56 z-10 overflow-hidden">
@@ -62,7 +62,7 @@ export default function Portfolio() {
       {/* Filter */}
       <section className="px-6 py-12 sticky top-20 z-30 pointer-events-none">
         <div className="max-w-[1400px] mx-auto flex justify-center">
-          <div className="flex flex-wrap gap-2 justify-center p-2 bg-background/40 backdrop-blur-xl border border-white/5 rounded-full pointer-events-auto shadow-2xl">
+          <div className="flex flex-wrap gap-2 justify-center p-2 bg-background/90 border border-white/5 rounded-full pointer-events-auto shadow-2xl">
             {portfolioCategories.map((cat) => (
               <button
                 key={cat}
@@ -122,17 +122,20 @@ function ProjectCard({ project, index }: { project: typeof portfolioProjects[0];
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 1, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
     >
-      <Link to={"/portfolio/" + project.id} className="group block relative w-full aspect-[16/10] sm:aspect-[4/3] glass-panel p-2 rounded-[32px] overflow-hidden hover:border-white/20 transition-all duration-1000">
+      <Link to={"/portfolio/" + project.id} className="group block relative w-full aspect-[16/10] sm:aspect-[4/3] bg-background/80 border border-white/5 p-2 rounded-[32px] overflow-hidden hover:border-white/20 transition-colors duration-1000 transform-gpu">
         <div className="w-full h-full rounded-[24px] overflow-hidden relative">
           
           {/* Animated Scan Line */}
-          <div className="absolute top-0 left-0 w-full h-[2px] bg-neon-yellow/30 blur-[4px] z-20 -translate-y-full group-hover:animate-scan-line pointer-events-none" />
+          <div className="absolute top-0 left-0 w-full h-[2px] bg-neon-yellow/30 blur-[4px] z-20 -translate-y-full group-hover:animate-scan-line pointer-events-none transform-gpu" />
           
           <img
             src={project.image}
             alt={project.title}
             loading="lazy"
-            className="w-full h-full object-cover grayscale opacity-50 group-hover:opacity-100 group-hover:grayscale-0 transition-all [transition-duration:2000ms] ease-out scale-105 group-hover:scale-100"
+            width={1200}
+            height={800}
+            style={{ willChange: "transform, opacity, filter" }}
+            className="w-full h-full object-cover grayscale opacity-50 group-hover:opacity-100 group-hover:grayscale-0 transition-[transform,opacity,filter] [transition-duration:2000ms] ease-out scale-105 group-hover:scale-100 transform-gpu"
           />
           
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/10 to-transparent opacity-90 group-hover:opacity-60 transition-opacity duration-700" />
@@ -154,7 +157,7 @@ function ProjectCard({ project, index }: { project: typeof portfolioProjects[0];
           <div className="absolute bottom-6 left-6 right-6 md:bottom-10 md:left-10 md:right-10">
             <div className="flex flex-wrap gap-1.5 md:gap-2 mb-4 md:mb-6 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-700">
                {project.tags.map(tag => (
-                <span key={tag} className="text-[7px] md:text-[8px] text-white/50 font-ibm tracking-[0.2em] uppercase px-2 py-1 md:px-3 md:py-1.5 bg-black/40 backdrop-blur-md border border-white/5 rounded-full">
+                <span key={tag} className="text-[7px] md:text-[8px] text-white/50 font-ibm tracking-[0.2em] uppercase px-2 py-1 md:px-3 md:py-1.5 bg-background/90 border border-white/5 rounded-full transform-gpu">
                    {tag}
                 </span>
               ))}

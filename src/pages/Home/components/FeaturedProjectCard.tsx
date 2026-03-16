@@ -26,6 +26,8 @@ export function FeaturedProjectCard({ service, index }: FeaturedProjectCardProps
               src={service.heroImage}
               alt={service.name}
               loading="lazy"
+              width={800}
+              height={1000}
               animate={{ 
                 scale: isHovered ? 1.02 : 1.1,
                 x: isHovered ? [0, -2, 2, 0] : 0, // Micro glitch
@@ -51,8 +53,8 @@ export function FeaturedProjectCard({ service, index }: FeaturedProjectCardProps
           
           {/* Metadata corner */}
           <div className="absolute top-6 right-6 md:top-10 md:right-10 flex flex-col items-end gap-2 translate-x-4 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-700">
-             <div className="px-2 md:px-3 py-1 rounded-sm bg-background/80 backdrop-blur-md border border-white/10 text-[6px] md:text-[7px] text-white font-ibm tracking-[0.2em] uppercase">Resolution: 8K_NATIVE</div>
-             <div className="px-2 md:px-3 py-1 rounded-sm bg-background/80 backdrop-blur-md border border-white/10 text-[6px] md:text-[7px] text-white font-ibm tracking-[0.2em] uppercase">Engine: RayTracing_MAX</div>
+             <div className="px-2 md:px-3 py-1 rounded-sm bg-background/95 border border-white/10 text-[6px] md:text-[7px] text-white font-ibm tracking-[0.2em] uppercase">Resolution: 8K_NATIVE</div>
+             <div className="px-2 md:px-3 py-1 rounded-sm bg-background/95 border border-white/10 text-[6px] md:text-[7px] text-white font-ibm tracking-[0.2em] uppercase">Engine: RayTracing_MAX</div>
           </div>
 
           <div className="absolute bottom-6 left-6 right-6 sm:bottom-8 sm:left-8 sm:right-8 md:bottom-12 md:left-12 md:right-12">

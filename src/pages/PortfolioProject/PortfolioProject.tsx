@@ -57,8 +57,8 @@ export default function PortfolioProject() {
       </div>
 
       {/* Premium Ambient Glows */}
-      <div className="fixed top-0 left-0 w-[800px] h-[800px] bg-deep-teal/20 rounded-full blur-[150px] mix-blend-screen pointer-events-none z-0" />
-      <div className="fixed bottom-0 right-0 w-[600px] h-[600px] bg-neon-yellow/5 rounded-full blur-[120px] mix-blend-screen pointer-events-none z-0" />
+      <div className="fixed top-0 left-0 w-[800px] h-[800px] bg-deep-teal/20 rounded-full blur-[150px] transform-gpu pointer-events-none z-0" />
+      <div className="fixed bottom-0 right-0 w-[600px] h-[600px] bg-neon-yellow/5 rounded-full blur-[120px] transform-gpu pointer-events-none z-0" />
 
       {/* Hero Header */}
       <section className="relative h-[90vh] flex items-end overflow-hidden z-10 border-b border-white/5">
@@ -102,7 +102,7 @@ export default function PortfolioProject() {
               </Link>
               
               <div className="flex items-center gap-4 mb-6">
-                <span className="text-[10px] text-neon-yellow font-ibm tracking-[0.4em] uppercase py-1.5 px-3 border border-neon-yellow/30 bg-neon-yellow/5 rounded-full backdrop-blur-sm">
+                <span className="text-[10px] text-neon-yellow font-ibm tracking-[0.4em] uppercase py-1.5 px-3 border border-neon-yellow/30 bg-background/90 rounded-full">
                   Protocol.0{project.id.padStart(2, '0')} // {project.category}
                 </span>
                 <span className="text-[10px] text-white/20 font-ibm tracking-[0.4em] uppercase">{project.year}</span>
@@ -215,7 +215,7 @@ export default function PortfolioProject() {
                    </div>
 
                    <div className="w-full h-full rounded-[32px] overflow-hidden relative">
-                     <img src={img} alt={`${project.title} ${i + 1}`} loading="lazy" className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000" />
+                     <img src={img} alt={`${project.title} ${i + 1}`} loading="lazy" width={1200} height={750} className="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000" />
                      <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent opacity-60 group-hover:opacity-0 transition-opacity duration-700" />
                      
                      {/* Bottom Corner HUD */}
@@ -262,7 +262,7 @@ export default function PortfolioProject() {
                         <div className="w-full h-[1px] bg-neon-yellow/30 shadow-[0_0_15px_rgba(204,255,0,0.5)] absolute top-0 -translate-y-full group-hover:animate-scan-line" />
                       </div>
                       
-                      <img src={p.image} alt={p.title} loading="lazy" className="w-full h-full object-cover opacity-40 group-hover:opacity-80 group-hover:scale-105 transition-all duration-1000 grayscale group-hover:grayscale-0" />
+                      <img src={p.image} alt={p.title} loading="lazy" width={800} height={1000} className="w-full h-full object-cover opacity-40 group-hover:opacity-80 group-hover:scale-105 transition-all duration-1000 grayscale group-hover:grayscale-0" />
                       <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
                       
                       {/* HUD Specs Overlay */}

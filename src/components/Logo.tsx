@@ -21,6 +21,8 @@ export function Logo({ showWordmark = false, className, variant = 'white' }: Log
         <img 
           src={logoPng} 
           alt="Geometric Logo" 
+          width={44}
+          height={44}
           className={cn(
             "relative h-9 md:h-11 w-auto object-contain transition-all duration-500",
             isDark ? "brightness-0" : "brightness-0 invert",

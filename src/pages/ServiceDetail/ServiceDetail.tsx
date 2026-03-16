@@ -48,14 +48,14 @@ export default function ServiceDetail() {
       />
       {/* Premium Ambient Glows - Fixed Position */}
       <div className="fixed inset-0 pointer-events-none z-0">
-        <div className={`absolute top-0 right-0 w-[1000px] h-[1000px] rounded-full blur-[150px] mix-blend-screen opacity-10 transition-colors duration-1000 ${
+        <div className={`absolute top-0 right-0 w-[1000px] h-[1000px] rounded-full blur-[150px] transform-gpu opacity-10 transition-colors duration-1000 ${
           service.color === 'neon-yellow' ? 'bg-neon-yellow' :
           service.color === 'sky-blue' ? 'bg-sky-blue' :
           service.color === 'coral-red' ? 'bg-coral-red' :
           service.color === 'deep-teal' ? 'bg-deep-teal' :
           'bg-white'
         }`} />
-        <div className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-deep-teal/5 rounded-full blur-[150px] mix-blend-screen opacity-20" />
+        <div className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-deep-teal/5 rounded-full blur-[150px] transform-gpu opacity-20" />
       </div>
 
       {/* ─── PREMIUM SCROLLING HERO ────────────────────── */}
@@ -91,7 +91,7 @@ export default function ServiceDetail() {
               </Link>
               
               <div className="flex items-center gap-4 mb-10">
-                <span className="text-[10px] text-neon-yellow font-ibm tracking-[0.5em] uppercase py-2 px-5 border border-neon-yellow/20 bg-neon-yellow/5 rounded-full backdrop-blur-md shadow-[0_0_15px_rgba(204,255,0,0.1)]">
+                <span className="text-[10px] text-neon-yellow font-ibm tracking-[0.5em] uppercase py-2 px-5 border border-neon-yellow/20 bg-background/90 rounded-full shadow-[0_0_15px_rgba(204,255,0,0.1)]">
                   {service.category}
                 </span>
                 <div className="w-2 h-2 rounded-full bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.8)] animate-pulse" />
@@ -130,7 +130,7 @@ export default function ServiceDetail() {
       </section>
 
       {/* ─── TECHNICAL SPECIFICATIONS ─────────────────── */}
-      <section className="py-16 md:py-24 xl:py-40 px-6 relative z-10 bg-background/50 backdrop-blur-sm border-t border-white/5">
+      <section className="py-16 md:py-24 xl:py-40 px-6 relative z-10 bg-background/90 border-t border-white/5">
         <div className="max-w-[1400px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 xl:gap-32 items-start">
             <div className="lg:col-span-7 space-y-16">
@@ -255,7 +255,7 @@ function GalleryItem({ image, delay }: { image: string; delay: number }) {
     <SectionReveal delay={delay}>
       <div className="aspect-[16/10] overflow-hidden rounded-[40px] glass-panel p-2 group bg-white/[0.01]">
          <div className="w-full h-full rounded-[32px] overflow-hidden relative">
-            <img src={image} alt="Showcase" loading="lazy" className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-all [transition-duration:1500ms] ease-out opacity-60 group-hover:opacity-100" />
+            <img src={image} alt="Showcase" loading="lazy" width={1200} height={750} className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-all [transition-duration:1500ms] ease-out opacity-60 group-hover:opacity-100" />
             <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-60 group-hover:opacity-20 transition-opacity" />
             
             {/* HUD Corner decos */}
@@ -283,7 +283,7 @@ function AlternativeCard({ service, index }: { service: typeof services[0]; inde
         <div className="relative z-10 flex flex-col h-full text-left">
            <div className="flex justify-between items-start mb-8 md:mb-12">
               <div className="w-16 h-16 md:w-20 md:h-20 rounded-[20px] md:rounded-[30px] overflow-hidden p-1 glass-panel border-white/5 group-hover:border-neon-yellow/30 transition-all duration-700 shadow-2xl">
-                 <img src={service.image} alt={service.name} loading="lazy" className="w-full h-full object-cover rounded-[14px] md:rounded-[22px] grayscale group-hover:grayscale-0 transition-all duration-1000" />
+                 <img src={service.image} alt={service.name} loading="lazy" width={160} height={160} className="w-full h-full object-cover rounded-[14px] md:rounded-[22px] grayscale group-hover:grayscale-0 transition-all duration-1000" />
               </div>
               <div className="text-[8px] md:text-[10px] font-ibm text-white/20 uppercase tracking-[0.3em]">Module.0{index + 1}</div>
            </div>

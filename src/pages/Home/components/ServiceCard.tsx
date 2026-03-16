@@ -27,8 +27,7 @@ export function ServiceCard({ service, index, className }: ServiceCardProps) {
     >
       <Link
         to={`/services/${service.slug}`}
-        data-cursor="DISCOVER"
-        className="group block h-full rounded-[32px] border border-white/5 hover:border-white/20 transition-all duration-700 relative overflow-hidden bg-background/40"
+        className="group block h-full rounded-[32px] border border-white/5 hover:border-white/20 transition-colors duration-700 relative overflow-hidden bg-background/80 transform-gpu"
       >
         {/* Background Image with reveal effect */}
         <div className="absolute inset-0 z-0">
@@ -36,13 +35,15 @@ export function ServiceCard({ service, index, className }: ServiceCardProps) {
             src={service.heroImage}
             alt={service.name}
             loading="lazy"
+            width={800}
+            height={1000}
             initial={{ scale: 1.1 }}
             animate={{ 
               scale: isHovered ? 1.05 : 1.1,
             }}
             transition={{ duration: 1.2, ease: "easeOut" }}
             style={{ willChange: "transform" }}
-            className="w-full h-full object-cover grayscale brightness-[0.3]"
+            className="w-full h-full object-cover grayscale brightness-[0.3] transform-gpu"
           />
           {/* Performant Filter Overlay (replaces expensive CSS filter property) */}
           <div 
@@ -52,7 +53,7 @@ export function ServiceCard({ service, index, className }: ServiceCardProps) {
           />
           {/* Color Overlay */}
           <div 
-            className={`absolute inset-0 opacity-40 mix-blend-overlay transition-colors duration-700 ${
+            className={`absolute inset-0 opacity-20 transition-colors duration-700 transform-gpu ${
               service.color === 'neon-yellow' ? 'bg-neon-yellow' :
               service.color === 'sky-blue' ? 'bg-sky-blue' :
               service.color === 'coral-red' ? 'bg-coral-red' :
@@ -108,7 +109,8 @@ export function ServiceCard({ service, index, className }: ServiceCardProps) {
               animate={{ top: '110%' }}
               exit={{ opacity: 0 }}
               transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-              className="absolute left-0 right-0 h-[1px] bg-neon-yellow/30 shadow-[0_0_15px_rgba(204,255,0,0.5)] z-20 pointer-events-none"
+              style={{ willChange: "top" }}
+              className="absolute left-0 right-0 h-[1px] bg-neon-yellow/30 shadow-[0_0_15px_rgba(204,255,0,0.5)] z-20 pointer-events-none transform-gpu"
             />
           )}
         </AnimatePresence>

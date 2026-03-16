@@ -37,7 +37,7 @@ const NotFound = () => {
           x: mousePos.x * 2, 
           y: mousePos.y * 2 
         }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-neon-yellow/5 rounded-full blur-[180px] mix-blend-screen pointer-events-none z-0" 
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-neon-yellow/5 rounded-full blur-[180px] transform-gpu pointer-events-none z-0" 
       />
       
       {/* HUD Header Status */}
@@ -65,7 +65,7 @@ const NotFound = () => {
             <div className="absolute -top-3 -left-3 w-10 h-10 border-t border-l border-neon-yellow opacity-40 group-hover:scale-110 transition-transform duration-700" />
             <div className="absolute -bottom-3 -right-3 w-10 h-10 border-b border-r border-neon-yellow opacity-40 group-hover:scale-110 transition-transform duration-700" />
             
-            <div className="glass-panel p-10 md:p-16 rounded-[35px] border-white/5 bg-white/[0.02] backdrop-blur-3xl flex flex-col items-center transition-all duration-700 hover:bg-white/[0.04] hover:border-white/10 shadow-2xl relative overflow-hidden">
+            <div className="glass-panel p-10 md:p-16 rounded-[35px] border-white/5 bg-background/90 flex flex-col items-center transition-colors duration-700 hover:bg-background shadow-2xl relative overflow-hidden transform-gpu">
               
               {/* Scanline Effect Inside Card */}
               <motion.div 

@@ -105,7 +105,7 @@ export default function Home() {
       <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden" aria-label="Hero - Geometric Studio Showreel">
         {/* Background Video */}
         <motion.div
-          style={{ y: heroY, opacity: heroOpacity }}
+          style={{ y: heroY, opacity: heroOpacity, willChange: "transform, opacity" }}
           className="absolute inset-0 w-full h-full"
         >
           <video
@@ -131,7 +131,7 @@ export default function Home() {
           }}
           transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
           style={{ willChange: "opacity" }}
-          className="absolute -top-1/4 -right-1/4 w-[600px] h-[600px] bg-neon-yellow/5 rounded-full blur-[120px] mix-blend-screen pointer-events-none z-10" 
+          className="absolute -top-1/4 -right-1/4 w-[600px] h-[600px] bg-neon-yellow/5 rounded-full blur-[120px] transform-gpu pointer-events-none z-10" 
         />
 
         {/* Floating cinematic particles/orbs - Memoized for performance */}
@@ -159,8 +159,8 @@ export default function Home() {
         )), [])}
 
         {/* Premium ambient glows */}
-        <div className="absolute top-1/2 -left-1/4 w-[600px] h-[600px] bg-deep-teal/20 rounded-full blur-[150px] mix-blend-screen pointer-events-none" />
-        <div className="absolute -bottom-1/4 right-1/4 w-[500px] h-[500px] bg-neon-yellow/5 rounded-full blur-[120px] mix-blend-screen pointer-events-none" />
+        <div className="absolute top-1/2 -left-1/4 w-[600px] h-[600px] bg-deep-teal/20 rounded-full blur-[150px] transform-gpu pointer-events-none" />
+        <div className="absolute -bottom-1/4 right-1/4 w-[500px] h-[500px] bg-neon-yellow/5 rounded-full blur-[120px] transform-gpu pointer-events-none" />
 
         {/* Content */}
         <div className="relative z-10 w-full px-4 md:px-12 max-w-[1400px] mx-auto pt-24 md:pt-40">
@@ -239,7 +239,7 @@ export default function Home() {
                 </Link>
                 <Link
                   to="/contact"
-                  className="group relative px-10 md:px-12 py-4 md:py-5 overflow-hidden rounded-full border border-white/10 backdrop-blur-md transition-all duration-500 hover:border-white/30 text-center"
+                  className="group relative px-10 md:px-12 py-4 md:py-5 overflow-hidden rounded-full border border-white/10 bg-background/80 transition-colors duration-500 hover:border-white/30 text-center transform-gpu"
                 >
                   <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <span className="relative z-10 font-ibm font-light text-[10px] md:text-[11px] tracking-[0.3em] uppercase text-creamy-white">
@@ -321,8 +321,8 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
         
         {/* Ambient light leaks */}
-        <div className="absolute top-1/4 -left-1/4 w-[600px] h-[600px] bg-deep-teal/10 rounded-full blur-[150px] mix-blend-screen pointer-events-none" />
-        <div className="absolute bottom-1/4 -right-1/4 w-[600px] h-[600px] bg-neon-yellow/5 rounded-full blur-[150px] mix-blend-screen pointer-events-none" />
+        <div className="absolute top-1/4 -left-1/4 w-[600px] h-[600px] bg-deep-teal/10 rounded-full blur-[150px] transform-gpu pointer-events-none" />
+        <div className="absolute bottom-1/4 -right-1/4 w-[600px] h-[600px] bg-neon-yellow/5 rounded-full blur-[150px] transform-gpu pointer-events-none" />
 
         <div className="max-w-[1400px] mx-auto relative z-10 text-center lg:text-left">
           <div className="flex flex-col lg:flex-row items-center lg:items-start gap-16 md:gap-24 lg:gap-32">
@@ -361,11 +361,13 @@ export default function Home() {
                 <div className="relative group max-w-[400px]">
                    {/* Cinematic Image Frame */}
                    <div className="relative aspect-[3/4] overflow-hidden rounded-2xl glass-panel p-2 shadow-2xl">
-                      <div className="absolute inset-0 bg-neon-yellow/10 mix-blend-overlay z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                      <div className="absolute inset-0 bg-neon-yellow/10 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 transform-gpu" />
                       <img 
                         src={ourCore} 
                         alt="Geometric Excellence" 
                         loading="lazy"
+                        width={600}
+                        height={800}
                         className="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-100 group-hover:scale-105 transition-all duration-1000 ease-out"
                       />
                       
@@ -392,7 +394,7 @@ export default function Home() {
       <section className="py-20 md:py-28 xl:py-32 px-6 bg-background relative overflow-hidden" aria-label="Our Core Service Disciplines">
         {/* Soft elegant background flow */}
         <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-deep-teal/[0.02] rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-deep-teal/[0.02] rounded-full blur-[150px] transform-gpu pointer-events-none" />
         
         <div className="max-w-[1400px] mx-auto relative z-10">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">
