@@ -1,4 +1,5 @@
 import { lazy, Suspense } from 'react';
+import { ErrorBoundary } from '@/shared/ui/ErrorBoundary';
 import { LazyMotion, domAnimation, AnimatePresence } from 'framer-motion';
 import { Toaster } from "@/shared/ui/toaster";
 import { TooltipProvider } from "@/shared/ui/tooltip";
@@ -74,24 +75,28 @@ function AnimatedRoutes() {
   );
 }
 
+
+
 const App = () => {
   useLenis();
 
   return (
-    <HelmetProvider>
-      <QueryClientProvider client={queryClient}>
-        <TooltipProvider>
-          <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
-            <LazyMotion features={domAnimation} strict>
-              <InitialLoader />
-              <ScrollToTop />
-              <Toaster />
-              <AnimatedRoutes />
-            </LazyMotion>
-          </BrowserRouter>
-        </TooltipProvider>
-      </QueryClientProvider>
-    </HelmetProvider>
+    <ErrorBoundary>
+      <HelmetProvider>
+        <QueryClientProvider client={queryClient}>
+          <TooltipProvider>
+            <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+              <LazyMotion features={domAnimation} strict>
+                <InitialLoader />
+                <ScrollToTop />
+                <Toaster />
+                <AnimatedRoutes />
+              </LazyMotion>
+            </BrowserRouter>
+          </TooltipProvider>
+        </QueryClientProvider>
+      </HelmetProvider>
+    </ErrorBoundary>
   );
 };
 

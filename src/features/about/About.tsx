@@ -1,3 +1,4 @@
+import { m } from 'framer-motion';
 import { SectionReveal } from '@/shared/ui/SectionReveal';
 import { SEO, Schemas } from '@/shared/seo/SEO';
 import { 
@@ -56,7 +57,13 @@ const animPrinciples = [
 
 export default function About() {
   return (
-    <div className="bg-background min-h-screen pb-12 overflow-hidden selection:bg-neon-yellow selection:text-background">
+    <m.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.6, ease: "easeInOut" }}
+      className="bg-background min-h-screen pb-12 overflow-hidden selection:bg-neon-yellow selection:text-background"
+    >
       <SEO
         title="About Geometric Studio"
         description="Discover the story, values, and creative philosophy behind Geometric Studio — a premier 3D visualization and motion graphics powerhouse. Built on precision, driven by imagination."
@@ -235,6 +242,6 @@ export default function About() {
       </section>
 
 
-    </div>
+    </m.div>
   );
 }

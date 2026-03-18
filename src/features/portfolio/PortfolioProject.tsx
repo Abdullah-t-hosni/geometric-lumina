@@ -48,7 +48,13 @@ export default function PortfolioProject() {
   const remainingTitle = titleWords.slice(1).join(' ');
 
   return (
-    <div className="bg-background min-h-screen pb-12 overflow-hidden selection:bg-neon-yellow selection:text-background">
+    <m.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.6, ease: "easeInOut" }}
+      className="bg-background min-h-screen pb-12 overflow-hidden selection:bg-neon-yellow selection:text-background"
+    >
       <SEO
         title={`${project.title} | ${project.category} Portfolio`}
         description={project.description}
@@ -309,6 +315,6 @@ export default function PortfolioProject() {
           </div>
         </section>
       )}
-    </div>
+    </m.div>
   );
 }

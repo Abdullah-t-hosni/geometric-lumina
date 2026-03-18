@@ -36,7 +36,13 @@ export default function Portfolio() {
   }
 
   return (
-    <div className="bg-background min-h-screen pb-12 overflow-hidden relative selection:bg-neon-yellow selection:text-background">
+    <m.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.6, ease: "easeInOut" }}
+      className="bg-background min-h-screen pb-12 overflow-hidden relative selection:bg-neon-yellow selection:text-background"
+    >
       <SEO
         title="Selected Works & Portfolio"
         description="Browse Geometric Studio's masterpiece archive: cinematic 3D projects, motion graphics, product visualizations, and immersive experiences crafted for leading brands globally."
@@ -86,24 +92,24 @@ export default function Portfolio() {
       <section className="px-6 py-12 sticky top-20 z-30 pointer-events-none">
         <div className="max-w-[1400px] mx-auto flex justify-center">
           <div className="flex flex-wrap gap-2 justify-center p-2 bg-background/90 border border-white/5 rounded-full pointer-events-auto shadow-2xl">
-            {categories.map((cat) => (
+            {categories.map((cat: { id: string, label: string }) => (
               <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
+                key={cat.id}
+                onClick={() => setActiveCategory(cat.label as PortfolioCategory)}
                 className={`px-8 py-3 text-[9px] font-ibm tracking-[0.3em] uppercase transition-all duration-500 rounded-full relative group ${
-                  activeCategory === cat
+                  activeCategory === cat.label
                     ? 'text-neon-yellow'
                     : 'text-white/40 hover:text-white'
                 }`}
               >
-                {activeCategory === cat && (
+                {activeCategory === cat.label && (
                    <m.div 
                      layoutId="active-pill"
                      className="absolute inset-0 bg-white/[0.03] border border-white/10 rounded-full"
                      transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
                    />
                 )}
-                <span className="relative z-10">{cat}</span>
+                <span className="relative z-10">{cat.label}</span>
               </button>
             ))}
           </div>
@@ -130,7 +136,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-    </div>
+    </m.div>
   );
 }
 

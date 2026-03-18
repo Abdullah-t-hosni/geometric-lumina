@@ -95,7 +95,13 @@ export default function Contact() {
   };
 
   return (
-    <div className="bg-background min-h-screen pb-12 overflow-hidden relative selection:bg-neon-yellow selection:text-background">
+    <m.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.6, ease: "easeInOut" }}
+      className="bg-background min-h-screen pb-12 overflow-hidden relative selection:bg-neon-yellow selection:text-background"
+    >
       <SEO
         title="Contact Us — Start Your Project"
         description="Connect with Geometric Studio to bring your cinematic 3D vision to life. Reach out for project inquiries, collaborations, or consultations serving clients worldwide."
@@ -353,7 +359,7 @@ export default function Contact() {
           </div>
         </div>
       </section>
-    </div>
+    </m.div>
   );
 }
 

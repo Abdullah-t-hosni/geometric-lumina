@@ -12,7 +12,7 @@ export function Logo({ showWordmark = false, className, variant = 'white' }: Log
   
   return (
     <div className={cn("flex items-center gap-3 group", className)}>
-      <div className="relative flex items-center justify-center transition-transform duration-500 ease-[0.16,1,0.3,1] group-hover:scale-[1.06]">
+      <div className="relative flex items-center justify-center transition-transform duration-500 ease-geometric group-hover:scale-[1.06]">
         
         <div className={cn(
           "absolute inset-0 blur-[12px] md:blur-[20px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500",

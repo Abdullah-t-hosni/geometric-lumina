@@ -139,7 +139,13 @@ export default function Home() {
   const featuredServices = getFeaturedServices();
 
   return (
-    <div className="bg-background">
+    <m.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.6, ease: "easeInOut" }}
+      className="bg-background"
+    >
       <SEO
         title="Geometric Studio"
         description="Geometric Studio: Specialized in cinematic 3D visualization, anamorphic screens, and high-impact motion graphics in Cairo. We engineer visual experiences that refuse to be ignored."
@@ -530,8 +536,6 @@ export default function Home() {
         </div>
       </section>
 
-
-
       {/* ─── ENHANCED TESTIMONIALS (PERFORMANCE REPORTS) ──────── */}
       <section className="py-20 md:py-28 xl:py-40 px-6 relative bg-background">
         <div className="max-w-[1400px] mx-auto">
@@ -583,6 +587,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </div>
+    </m.div>
   );
 }

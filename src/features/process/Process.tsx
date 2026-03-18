@@ -68,7 +68,13 @@ export default function Process() {
   const [expanded, setExpanded] = useState<string | null>('01');
 
   return (
-    <div className="bg-background min-h-screen pb-12 overflow-hidden selection:bg-neon-yellow selection:text-background">
+    <m.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.6, ease: "easeInOut" }}
+      className="bg-background min-h-screen pb-12 overflow-hidden selection:bg-neon-yellow selection:text-background"
+    >
       <SEO
         title="Our Creative Pipeline & Process"
         description="Discover Geometric Studio's 7-stage production pipeline: from Discovery and Concept through 3D Modeling, Simulation, Animation, Rendering, to final Delivery. A precise methodology for extraordinary cinematic results."
@@ -134,7 +140,7 @@ export default function Process() {
         </div>
       </section>
 
-    </div>
+    </m.div>
   );
 }
 

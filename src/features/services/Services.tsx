@@ -31,7 +31,13 @@ export default function Services() {
 
   const services = getAllServices();
   return (
-    <div className="bg-background min-h-screen pb-12 overflow-hidden relative selection:bg-neon-yellow selection:text-background">
+    <m.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.6, ease: "easeInOut" }}
+      className="bg-background min-h-screen pb-12 overflow-hidden relative selection:bg-neon-yellow selection:text-background"
+    >
       <SEO
         title="Our Services & Disciplines"
         description="Explore Geometric Studio's full range of creative disciplines: 3D visualization, motion graphics, product animation, anamorphic screens, VR environments, AI content, and more serving brands globally."
@@ -87,7 +93,7 @@ export default function Services() {
           </div>
         </div>
       </section>
-    </div>
+    </m.div>
   );
 }
 

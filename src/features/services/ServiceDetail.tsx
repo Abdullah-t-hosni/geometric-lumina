@@ -51,7 +51,14 @@ export default function ServiceDetail() {
   const relatedServices = getRelatedServices(service.slug, 3);
 
   return (
-    <div ref={containerRef} className="bg-background min-h-screen overflow-hidden relative">
+    <m.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.6, ease: "easeInOut" }}
+      ref={containerRef}
+      className="bg-background min-h-screen overflow-hidden relative"
+    >
       <SEO
         title={service.seoTitle || `${service.name} | 3D & Motion Services`}
         description={service.seoDescription || `${service.tagline} — ${service.description.slice(0, 120)}...`}
@@ -251,7 +258,7 @@ export default function ServiceDetail() {
         </div>
       </section>
       
-    </div>
+    </m.div>
   );
 }
 

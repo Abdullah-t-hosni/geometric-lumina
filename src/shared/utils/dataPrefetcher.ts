@@ -78,4 +78,6 @@ if (typeof window !== 'undefined') {
   
   idleCallback(() => {
     prefetchPortfolioData("low");
-    prefetchServicesData("l
+    prefetchServicesData("low");
+  });
+}
