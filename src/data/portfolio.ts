@@ -1,21 +1,13 @@
-import motionGraphics from '@/assets/images/Motion Graphics.webp';
-import productVisualization from '@/assets/images/Product Visualization & Animation.webp';
-import boothDesign from '@/assets/images/Booth Design.webp';
-import socialMedia from '@/assets/images/Social Media Content.webp';
-import anamorphicScreens from '@/assets/images/Anamorphic Screens 2.webp';
-import simulations from '@/assets/images/Simulations.webp';
-import architecturalVisualization from '@/assets/images/Architectural Visualization.webp';
-import microVisualization from '@/assets/images/Micro-Visualization.webp';
-import vrEnvironments from '@/assets/images/VR Environments.webp';
-import cgiCompositing from '@/assets/images/CGI Compositing.webp';
-import threeDScanning from '@/assets/images/3D Scanning.webp';
-import aiProduction from '@/assets/images/AI-powered Production.webp';
-import technicalDrawing from '@/assets/images/our core.webp';
-import servicesImg from '@/assets/images/Services.webp';
-import img10 from '@/assets/images/Intro_Page.webp';
-import img6 from '@/assets/images/6.webp';
+export const CATEGORIES = {
+  MOTION: 'Motion',
+  PRODUCT_VIZ: 'Product Visualization',
+  ARCHITECTURE: 'Architecture',
+  CGI: 'CGI',
+  BOOTH_DESIGN: 'Booth Design',
+  AI_CONTENT: 'AI Content',
+} as const;
 
-export type PortfolioCategory = 'All' | 'Motion' | 'Product Visualization' | 'Architecture' | 'CGI' | 'Booth Design' | 'AI Content';
+export type PortfolioCategory = typeof CATEGORIES[keyof typeof CATEGORIES] | 'All';
 
 export interface ProjectSpec {
   label: string;
@@ -24,6 +16,7 @@ export interface ProjectSpec {
 
 export interface PortfolioProject {
   id: string;
+  slug: string;
   title: string;
   category: PortfolioCategory;
   description: string;
@@ -33,19 +26,28 @@ export interface PortfolioProject {
   client?: string;
   tags: string[];
   specs: ProjectSpec[];
+  featured?: boolean;
+  priority?: number;
 }
+
+// 🚀 Dynamic Image Resolver (Optimized for Vite)
+const getAsset = (name: string) => 
+  new URL(`../assets/images/${name}.webp`, import.meta.url).href;
 
 export const portfolioProjects: PortfolioProject[] = [
   {
     id: '1',
+    slug: 'kinetic-brand-identity',
     title: 'Kinetic Brand Identity',
-    category: 'Motion',
+    category: CATEGORIES.MOTION,
     description: 'A full motion identity system bringing a tech brand to life through animated typography and rhythmic shapes.',
-    image: motionGraphics,
-    gallery: [motionGraphics, socialMedia, simulations],
+    image: getAsset('Motion Graphics'),
+    gallery: [getAsset('Motion Graphics'), getAsset('Social Media Content'), getAsset('Simulations')],
     year: '2024',
     client: 'TechCorp',
     tags: ['Animation', 'Branding', 'Typography'],
+    featured: true,
+    priority: 1,
     specs: [
       { label: 'Framerate', value: '120 FPS' },
       { label: 'Resolution', value: '8K Master' },
@@ -55,14 +57,17 @@ export const portfolioProjects: PortfolioProject[] = [
   },
   {
     id: '2',
+    slug: 'luxury-product-campaign',
     title: 'Luxury Product Campaign',
-    category: 'Product Visualization',
+    category: CATEGORIES.PRODUCT_VIZ,
     description: 'Cinematic product renders and animations for a premium fragrance launch — every reflection crafted to perfection.',
-    image: productVisualization,
-    gallery: [productVisualization, microVisualization, img10],
+    image: getAsset('Product Visualization & Animation'),
+    gallery: [getAsset('Product Visualization & Animation'), getAsset('Micro-Visualization'), getAsset('Intro_Page')],
     year: '2024',
     client: 'Luxe Co',
     tags: ['Product Viz', 'Animation', 'CGI'],
+    featured: true,
+    priority: 2,
     specs: [
       { label: 'Engine', value: 'Octane Render' },
       { label: 'Samples', value: '16,384 Path' },
@@ -72,14 +77,17 @@ export const portfolioProjects: PortfolioProject[] = [
   },
   {
     id: '3',
+    slug: 'exhibition-masterpiece',
     title: 'Exhibition Masterpiece',
-    category: 'Booth Design',
+    category: CATEGORIES.BOOTH_DESIGN,
     description: 'A 500m² exhibition booth designed for maximum brand impact — immersive, bold, and engineered to perfection.',
-    image: boothDesign,
-    gallery: [boothDesign, technicalDrawing, servicesImg],
+    image: getAsset('Booth Design'),
+    gallery: [getAsset('Booth Design'), getAsset('our core'), getAsset('Services')],
     year: '2024',
     client: 'ExpoGiant',
     tags: ['Exhibition', 'Interior Design', 'Branding'],
+    featured: false,
+    priority: 3,
     specs: [
       { label: 'Footprint', value: '500m²' },
       { label: 'Scale', value: '1:1 Technical' },
@@ -89,14 +97,17 @@ export const portfolioProjects: PortfolioProject[] = [
   },
   {
     id: '4',
+    slug: 'social-media-takeover',
     title: 'Social Media Takeover',
-    category: 'Motion',
+    category: CATEGORIES.MOTION,
     description: 'Bold, scroll-stopping social content that drove 3x engagement for a regional fashion brand.',
-    image: socialMedia,
-    gallery: [socialMedia, motionGraphics, aiProduction],
+    image: getAsset('Social Media Content'),
+    gallery: [getAsset('Social Media Content'), getAsset('Motion Graphics'), getAsset('AI-powered Production')],
     year: '2023',
     client: 'FashionBrand',
     tags: ['Social Media', 'Reels', 'Motion'],
+    featured: false,
+    priority: 4,
     specs: [
       { label: 'Aspect', value: '9:16 Vertical' },
       { label: 'Impact', value: 'Retention 90%+' },
@@ -106,14 +117,17 @@ export const portfolioProjects: PortfolioProject[] = [
   },
   {
     id: '5',
+    slug: 'anamorphic-city-takeover',
     title: 'Anamorphic City Takeover',
-    category: 'CGI',
+    category: CATEGORIES.CGI,
     description: 'A jaw-dropping anamorphic billboard experience that blurred the line between digital and physical reality.',
-    image: anamorphicScreens,
-    gallery: [anamorphicScreens, cgiCompositing, simulations],
+    image: getAsset('Anamorphic Screens 2'),
+    gallery: [getAsset('Anamorphic Screens 2'), getAsset('CGI Compositing'), getAsset('Simulations')],
     year: '2024',
     client: 'MegaCorp',
     tags: ['Anamorphic', 'LED', 'OOH'],
+    featured: true,
+    priority: 5,
     specs: [
       { label: 'Depth', value: 'Hyper-3D' },
       { label: 'LED Pitch', value: 'P3.9 Global' },
@@ -123,14 +137,17 @@ export const portfolioProjects: PortfolioProject[] = [
   },
   {
     id: '6',
+    slug: 'fire-fluid-fx-reel',
     title: 'Fire & Fluid FX Reel',
-    category: 'CGI',
+    category: CATEGORIES.CGI,
     description: 'A showcase simulation reel: fire, smoke, fluid, and particle systems that defy physical limitations.',
-    image: simulations,
-    gallery: [simulations, img6, anamorphicScreens],
+    image: getAsset('Simulations'),
+    gallery: [getAsset('Simulations'), getAsset('6'), getAsset('Anamorphic Screens 2')],
     year: '2023',
     client: 'Internal',
     tags: ['VFX', 'Simulation', 'Houdini'],
+    featured: false,
+    priority: 6,
     specs: [
       { label: 'Solver', value: 'Pyro / Vellum' },
       { label: 'Density', value: '1B+ Particles' },
@@ -140,14 +157,17 @@ export const portfolioProjects: PortfolioProject[] = [
   },
   {
     id: '7',
+    slug: 'skyline-residences',
     title: 'Skyline Residences',
-    category: 'Architecture',
+    category: CATEGORIES.ARCHITECTURE,
     description: 'A full architectural visualization package for a premium residential development.',
-    image: architecturalVisualization,
-    gallery: [architecturalVisualization, vrEnvironments, servicesImg],
+    image: getAsset('Architectural Visualization'),
+    gallery: [getAsset('Architectural Visualization'), getAsset('VR Environments'), getAsset('Services')],
     year: '2024',
     client: 'PropDev',
     tags: ['ArchViz', 'Interior', 'Exterior'],
+    featured: false,
+    priority: 7,
     specs: [
       { label: 'Engine', value: 'UE5 Lumen' },
       { label: 'GI', value: 'Raytraced' },
@@ -157,14 +177,17 @@ export const portfolioProjects: PortfolioProject[] = [
   },
   {
     id: '8',
+    slug: 'cellular-journey',
     title: 'Cellular Journey',
-    category: 'Product Visualization',
+    category: CATEGORIES.PRODUCT_VIZ,
     description: 'A medical visualization animating the human immune response at a microscopic level.',
-    image: microVisualization,
-    gallery: [microVisualization, productVisualization, threeDScanning],
+    image: getAsset('Micro-Visualization'),
+    gallery: [getAsset('Micro-Visualization'), getAsset('Product Visualization & Animation'), getAsset('3D Scanning')],
     year: '2023',
     client: 'MedTech',
     tags: ['Medical', 'Micro Viz', 'Education'],
+    featured: false,
+    priority: 8,
     specs: [
       { label: 'Subsurface', value: 'SSS 2.0' },
       { label: 'Scale', value: '20,000X Mix' },
@@ -174,14 +197,17 @@ export const portfolioProjects: PortfolioProject[] = [
   },
   {
     id: '9',
+    slug: 'virtual-showroom-vr',
     title: 'Virtual Showroom VR',
-    category: 'Architecture',
+    category: CATEGORIES.ARCHITECTURE,
     description: 'An immersive VR showroom letting clients explore a luxury car collection in a virtual environment.',
-    image: vrEnvironments,
-    gallery: [vrEnvironments, architecturalVisualization, img10],
+    image: getAsset('VR Environments'),
+    gallery: [getAsset('VR Environments'), getAsset('Architectural Visualization'), getAsset('Intro_Page')],
     year: '2024',
     client: 'AutoLux',
     tags: ['VR', 'Real-time', 'Interactive'],
+    featured: true,
+    priority: 9,
     specs: [
       { label: 'Refresh', value: '90Hz Native' },
       { label: 'Latence', value: '< 15ms' },
@@ -191,14 +217,17 @@ export const portfolioProjects: PortfolioProject[] = [
   },
   {
     id: '10',
+    slug: 'cgi-desert-campaign',
     title: 'CGI Desert Campaign',
-    category: 'CGI',
+    category: CATEGORIES.CGI,
     description: 'A live-action + CGI composite placing a product in a breathtaking desert landscape — seamless and cinematic.',
-    image: cgiCompositing,
-    gallery: [cgiCompositing, img10, simulations],
+    image: getAsset('CGI Compositing'),
+    gallery: [getAsset('CGI Compositing'), getAsset('Intro_Page'), getAsset('Simulations')],
     year: '2024',
     client: 'BevCo',
     tags: ['Compositing', 'VFX', 'Live Action'],
+    featured: false,
+    priority: 10,
     specs: [
       { label: 'Track', value: '3D Equalizer' },
       { label: 'Plate', value: '8K 12-Bit' },
@@ -208,14 +237,17 @@ export const portfolioProjects: PortfolioProject[] = [
   },
   {
     id: '11',
+    slug: 'heritage-object-digitization',
     title: 'Heritage Object Digitization',
-    category: 'Product Visualization',
+    category: CATEGORIES.PRODUCT_VIZ,
     description: 'High-precision 3D scanning and digital preservation of rare archaeological artifacts.',
-    image: threeDScanning,
-    gallery: [threeDScanning, microVisualization, productVisualization],
+    image: getAsset('3D Scanning'),
+    gallery: [getAsset('3D Scanning'), getAsset('Micro-Visualization'), getAsset('Product Visualization & Animation')],
     year: '2023',
     client: 'Museum',
     tags: ['3D Scanning', 'Preservation', 'Digital'],
+    featured: false,
+    priority: 11,
     specs: [
       { label: 'Points', value: '150M Cloud' },
       { label: 'Tolerance', value: '±0.1mm' },
@@ -225,14 +257,17 @@ export const portfolioProjects: PortfolioProject[] = [
   },
   {
     id: '12',
+    slug: 'ai-fashion-editorial',
     title: 'AI Fashion Editorial',
-    category: 'AI Content',
+    category: CATEGORIES.AI_CONTENT,
     description: 'A fully AI-generated fashion editorial pushing boundaries between photography and generative art.',
-    image: aiProduction,
-    gallery: [aiProduction, socialMedia, motionGraphics],
+    image: getAsset('AI-powered Production'),
+    gallery: [getAsset('AI-powered Production'), getAsset('Social Media Content'), getAsset('Motion Graphics')],
     year: '2024',
     client: 'StyleMag',
     tags: ['AI Generated', 'Editorial', 'Fashion'],
+    featured: true,
+    priority: 12,
     specs: [
       { label: 'Model', value: 'Flux / Lora' },
       { label: 'UHD', value: '8K Upscale' },
@@ -242,7 +277,17 @@ export const portfolioProjects: PortfolioProject[] = [
   },
 ];
 
-export const portfolioCategories: PortfolioCategory[] = [
+export const portfolioCategories = [
+  { id: 'all', label: 'All' },
+  { id: 'motion', label: 'Motion' },
+  { id: 'product', label: 'Product Visualization' },
+  { id: 'architecture', label: 'Architecture' },
+  { id: 'cgi', label: 'CGI' },
+  { id: 'booth', label: 'Booth Design' },
+  { id: 'ai', label: 'AI Content' },
+];
+
+export const portfolioCategoriesOld = [
   'All',
   'Motion',
   'Product Visualization',
@@ -252,3 +297,5 @@ export const portfolioCategories: PortfolioCategory[] = [
   'AI Content',
 ];
 
+// For compatibility during transition
+export const portfolioCategoriesCompat = portfolioCategoriesOld;
