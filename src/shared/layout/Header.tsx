@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { m , AnimatePresence  } from 'framer-motion';
 import { Logo } from '@/shared/ui/Logo';
 import { prefetchPortfolioData, prefetchServicesData } from '@/shared/utils/dataPrefetcher';
+import { getLenis } from "@/shared/hooks/useLenis";
 
 const safePrefetch = (fn?: () => Promise<any> | void) => {
   try {
@@ -46,15 +47,46 @@ export default function Header() {
   }, [location.pathname]);
 
   useEffect(() => {
+    const lenis = getLenis();
     if (menuOpen) {
       document.documentElement.classList.add('lenis-stopped');
+      lenis?.stop();
     } else {
       document.documentElement.classList.remove('lenis-stopped');
+      lenis?.start();
     }
   
     return () => {
       document.documentElement.classList.remove('lenis-stopped');
+      lenis?.start();
     };
+  }, [menuOpen]);
+
+  // ♿ Accessibility: Escape key & focus management
+  const menuRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    const handleKeydown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setMenuOpen(false);
+      
+      if (e.key === 'Tab' && menuRef.current) {
+        const focusables = menuRef.current.querySelectorAll('a, button');
+        const first = focusables[0] as HTMLElement;
+        const last = focusables[focusables.length - 1] as HTMLElement;
+
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeydown);
+    return () => window.removeEventListener('keydown', handleKeydown);
   }, [menuOpen]);
 
   return (
@@ -133,9 +165,13 @@ export default function Header() {
       <AnimatePresence>
         {menuOpen && (
           <m.div
+            ref={menuRef}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Mobile Navigation Menu"
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
             className="fixed inset-0 z-40 bg-background/95 flex items-center justify-center overflow-y-auto transform-gpu will-change-opacity"
           >
@@ -167,7 +203,9 @@ export default function Header() {
                   >
                     <Link
                       to={link.href}
-                      onMouseEnter={() => safePrefetch(link.prefetch)}
+                      onMouseEnter={() => {
+                        if (link.prefetch) safePrefetch(link.prefetch);
+                      }}
                       className="group flex items-center gap-4 md:gap-6 py-4 md:py-5 border-b border-white/5 hover:border-neon-yellow/30 transition-[transform,colors] duration-500 relative overflow-hidden hover:-translate-y-[2px]"
                     >
                       <div className="absolute inset-0 bg-gradient-to-r from-neon-yellow/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none -z-10" />

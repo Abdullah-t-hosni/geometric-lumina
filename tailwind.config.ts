@@ -15,7 +15,6 @@ export default {
         xs: "475px",
       },
       fontFamily: {
-        satoshi: ['IBM Plex Sans', 'sans-serif'],
         ibm: ['IBM Plex Sans', 'sans-serif'],
       },
       colors: {

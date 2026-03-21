@@ -9,21 +9,11 @@ export function InitialLoader() {
   useEffect(() => {
     setMounted(true);
 
-    let timeoutId: any;
-    let idleId: any;
+    const timer = setTimeout(() => {
+      setIsVisible(false);
+    }, 1000);
 
-    const hide = () => setIsVisible(false);
-
-    timeoutId = setTimeout(hide, 1200);
-
-    if ('requestIdleCallback' in window) {
-      idleId = (window as any).requestIdleCallback(hide, { timeout: 1200 });
-    }
-
-    return () => {
-      clearTimeout(timeoutId);
-      if (idleId) (window as any).cancelIdleCallback?.(idleId);
-    };
+    return () => clearTimeout(timer);
   }, []);
 
   if (!mounted) return null;

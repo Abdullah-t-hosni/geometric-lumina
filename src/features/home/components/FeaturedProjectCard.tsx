@@ -32,12 +32,10 @@ export function FeaturedProjectCard({ service, index }: FeaturedProjectCardProps
               width={800}
               height={1000}
               animate={{ 
-                scale: isHovered ? 1.02 : 1.1,
-                x: isHovered ? [0, -2, 2, 0] : 0, // Micro glitch
+                scale: isHovered ? 1.05 : 1.1,
               }}
               transition={{ 
-                scale: { duration: 1.5, ease: "easeOut" },
-                x: { duration: 0.2, repeat: isHovered ? Infinity : 0, repeatType: "mirror" }
+                scale: { duration: 1.2, ease: "easeOut" },
               }}
               style={{ willChange: "transform, filter" }}
               className="w-full h-full object-cover opacity-60 group-hover:opacity-100 grayscale-[0.8] group-hover:grayscale-0 transition-opacity duration-1000"

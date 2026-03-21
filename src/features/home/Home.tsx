@@ -76,11 +76,69 @@ const stats = [
   { value: '12', label: 'Creative Services', icon: Briefcase },
 ];
 
+function StickyFeature() {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end end"]
+  });
+
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1.2, 1, 0.8]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+  const blur = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [20, 0, 0, 20]);
+  
+  return (
+    <section ref={ref} className="h-[250vh] bg-background relative z-20">
+      <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
+        <m.div 
+          style={{ 
+            scale, 
+            opacity,
+            filter: useTransform(blur, (v) => `blur(${v}px)`)
+          }}
+          className="relative px-6 text-center max-w-5xl"
+        >
+          <div className="flex flex-col items-center gap-8">
+            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-neon-yellow/10 bg-neon-yellow/5">
+              <Sparkles className="text-neon-yellow" size={12} />
+              <span className="text-[10px] text-neon-yellow tracking-[0.4em] uppercase">Visual Mastery</span>
+            </div>
+            
+            <h2 className="text-6xl md:text-9xl font-ibm font-light text-white uppercase tracking-tighter leading-none">
+              Where Art <br/> 
+              <span className="text-transparent bg-clip-text bg-gradient-to-b from-neon-yellow to-neon-yellow/50 italic">Meets Code.</span>
+            </h2>
+            
+            <p className="max-w-xl text-creamy-white/50 text-sm md:text-lg font-light leading-relaxed">
+              We don't just render images. We engineer visual experiences that evoke emotion and drive results. Every frame is a testament to our obsession with perfection.
+            </p>
+          </div>
+
+          {/* Decorative background depth */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-neon-yellow/5 rounded-full blur-[120px] -z-10" />
+        </m.div>
+      </div>
+    </section>
+  );
+}
+
 export default function Home() {
   const heroRef = useRef(null);
-  const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
-  const heroY = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+  const { scrollYProgress } = useScroll({ 
+    target: heroRef, 
+    offset: ['start start', 'end start'] 
+  });
+  
+  // 🎬 Cinematic Hero Transforms
+  const heroScale = useTransform(scrollYProgress, [0, 1], [1, 0.9]);
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const heroBlur = useTransform(scrollYProgress, [0, 1], [0, 15]);
+  const heroY = useTransform(scrollYProgress, [0, 1], ['0%', '20%']);
+  
+  // 🌌 Parallax Layers
+  const layerSlow = useTransform(scrollYProgress, [0, 1], ['0%', '15%']);
+  const layerFast = useTransform(scrollYProgress, [0, 1], ['0%', '40%']);
+
   // 🚀 High-Performance Predictive Prefetching
   useEffect(() => {
     let timeoutId: any;
@@ -138,12 +196,21 @@ export default function Home() {
   }, []);
   const featuredServices = getFeaturedServices();
 
+  // 🚀 Performance: Optimize video autoplay based on connection
+  const shouldAutoplay = useMemo(() => {
+    if (typeof window === 'undefined') return true;
+    const nav = navigator as any;
+    const connection = nav.connection || nav.mozConnection || nav.webkitConnection;
+    if (!connection) return true;
+    return connection.effectiveType !== '2g' && !connection.saveData;
+  }, []);
+
   return (
     <m.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.6, ease: "easeInOut" }}
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       className="bg-background"
     >
       <SEO
@@ -162,26 +229,33 @@ export default function Home() {
         ]}
       />
       {/* ─── PREMIUM CINEMATIC HERO ────────────────────────── */}
-      <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden" aria-label="Hero - Geometric Studio Showreel">
+      <section ref={heroRef} className="relative min-h-[120vh] flex items-center justify-center overflow-hidden" aria-label="Hero - Geometric Studio Showreel">
         {/* Background Video */}
         <m.div
-          style={{ y: heroY, opacity: heroOpacity }}
+          style={{ 
+            y: heroY, 
+            opacity: heroOpacity,
+            scale: heroScale,
+            filter: useTransform(heroBlur, (v) => `blur(${v}px)`)
+          }}
           className="absolute inset-0 w-full h-full transform-gpu"
         >
           {/* Video Shield - Prevents IDM overlay and right-clicks */}
           <div 
             className="absolute inset-0 z-10" 
             onContextMenu={(e) => e.preventDefault()}
+            aria-hidden="true"
           />
           
           <video
-            src={heroVideo}
+            src={shouldAutoplay ? heroVideo : undefined}
             poster={ourCore}
-            autoPlay
+            autoPlay={shouldAutoplay}
             muted
             loop
             playsInline
             preload="metadata"
+            onError={(e) => (e.currentTarget.style.display = 'none')}
             disablePictureInPicture
             disableRemotePlayback
             {...({ "controlsList": "nodownload noplaybackrate" } as any)}
@@ -198,44 +272,60 @@ export default function Home() {
 
         {/* Cinematic Light Leak (Animated) - Optimized for smoothness */}
         <m.div 
+          style={{ y: layerSlow }}
           animate={{ 
             opacity: [0.05, 0.1, 0.05],
           }}
           transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-          style={{ willChange: "opacity" }}
           className="absolute -top-1/4 -right-1/4 w-[600px] h-[600px] bg-neon-yellow/5 rounded-full blur-[120px] transform-gpu pointer-events-none z-10" 
         />
 
         {/* Floating cinematic particles/orbs - Memoized for performance */}
-        {useMemo(() => [...Array(5)].map((_, i) => (
-          <m.div
-            key={i}
-            initial={{ 
-              x: Math.random() * 100 + "%", 
-              y: Math.random() * 100 + "%",
-              opacity: 0 
-            }}
-            animate={{ 
-              y: ["0%", "-20%"],
-              opacity: [0, 0.2, 0],
-              scale: [0.5, 1, 0.5]
-            }}
-            transition={{ 
-              duration: 5 + Math.random() * 10, 
-              repeat: Infinity, 
-              delay: Math.random() * 5 
-            }}
-            style={{ willChange: "transform, opacity" }}
-            className="absolute w-1 h-1 bg-neon-yellow rounded-full pointer-events-none z-20"
-          />
-        )), [])}
+        {useMemo(() => {
+          const particles = Array(5).fill(0).map(() => ({
+            x: Math.random() * 100 + "%",
+            y: Math.random() * 100 + "%",
+            duration: 5 + Math.random() * 10,
+            delay: Math.random() * 5
+          }));
+
+          return particles.map((p, i) => (
+            <m.div
+              key={i}
+              initial={{ 
+                x: p.x, 
+                y: p.y,
+                opacity: 0 
+              }}
+              animate={{ 
+                y: ["0%", "-20%"],
+                opacity: [0, 0.2, 0],
+                scale: [0.5, 1, 0.5]
+              }}
+              transition={{ 
+                duration: p.duration, 
+                repeat: Infinity, 
+                delay: p.delay 
+              }}
+              style={{ y: layerFast }}
+              className="absolute w-1 h-1 bg-neon-yellow rounded-full pointer-events-none z-20"
+            />
+          ));
+        }, [layerFast])}
 
         {/* Premium ambient glows */}
-        <div className="absolute top-1/2 -left-1/4 w-[600px] h-[600px] bg-deep-teal/20 rounded-full blur-[150px] transform-gpu pointer-events-none" />
-        <div className="absolute -bottom-1/4 right-1/4 w-[500px] h-[500px] bg-neon-yellow/5 rounded-full blur-[120px] transform-gpu pointer-events-none" />
+        <m.div style={{ y: layerSlow }} className="absolute top-1/2 -left-1/4 w-[600px] h-[600px] bg-deep-teal/20 rounded-full blur-[150px] transform-gpu pointer-events-none" />
+        <m.div style={{ y: layerFast }} className="absolute -bottom-1/4 right-1/4 w-[500px] h-[500px] bg-neon-yellow/5 rounded-full blur-[120px] transform-gpu pointer-events-none" />
 
         {/* Content */}
-        <div className="relative z-10 w-full px-4 md:px-12 max-w-[1400px] mx-auto pt-24 md:pt-40">
+        <m.div 
+          style={{ 
+            opacity: heroOpacity,
+            scale: heroScale,
+            filter: useTransform(heroBlur, (v) => `blur(${v}px)`)
+          }}
+          className="relative z-10 w-full px-4 md:px-12 max-w-[1400px] mx-auto pt-24 md:pt-40"
+        >
           {/* Decorative Grid Lines - Hidden on small mobile for clarity */}
           <div className="absolute -top-10 left-0 w-[1px] h-[300px] bg-gradient-to-b from-transparent via-white/10 to-transparent hidden lg:block" />
           <div className="absolute top-0 -left-10 h-[1px] w-[300px] bg-gradient-to-r from-transparent via-white/10 to-transparent hidden lg:block" />
@@ -366,7 +456,7 @@ export default function Home() {
               </m.div>
             </m.div>
           </div>
-        </div>
+        </m.div>
 
         {/* Scroll indicator */}
         <m.div
@@ -388,7 +478,7 @@ export default function Home() {
       </section>
 
       {/* ─── PREMIUM STUDIO INTRO ─────────────────────── */}
-      <section className="py-20 md:py-28 xl:py-40 px-6 relative bg-background overflow-hidden">
+      <section className="py-24 md:py-32 xl:py-48 px-6 relative bg-background overflow-hidden">
         {/* Cinematic background details */}
         <div className="absolute inset-0 bg-noise opacity-[0.03] pointer-events-none" />
         <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
@@ -467,6 +557,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ─── CINEMATIC STICKY FEATURE ─────────────── */}
+      <StickyFeature />
 
       {/* ─── PREMIUM SERVICES GALLERY ───────────────────── */}
       <section className="py-20 md:py-28 xl:py-32 px-6 bg-background relative overflow-hidden" aria-label="Our Core Service Disciplines">

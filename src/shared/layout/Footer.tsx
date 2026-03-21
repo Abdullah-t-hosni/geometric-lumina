@@ -26,6 +26,12 @@ const serviceLinks = [
   { label: 'AI Content', href: '/services/ai-content-production' },
 ];
 
+const safePrefetch = (fn?: () => Promise<any> | void) => {
+  try {
+    fn?.();
+  } catch {}
+};
+
 const pageLinks = [
   { label: 'About', href: '/about', prefetch: () => import('@/features/about') },
   { label: 'Services', href: '/services', prefetch: () => import('@/features/services').then(m => m.Services) },
@@ -156,7 +162,7 @@ export default function Footer() {
                         to={link.href} 
                         className="group flex items-center gap-3 text-[11px] text-white/40 font-ibm font-light transition-all duration-500 hover:translate-x-1 hover:text-white"
                         onMouseEnter={() => {
-                          if (link.prefetch) link.prefetch();
+                          if (link.prefetch) safePrefetch(link.prefetch);
                         }}
                       >
                         <span className="w-0 h-px bg-neon-yellow group-hover:w-4 transition-all duration-500" />
@@ -178,7 +184,7 @@ export default function Footer() {
                       <Link 
                         to={link.href} 
                         className="group flex items-center gap-3 text-[10px] text-white/30 font-ibm font-light transition-all duration-500 hover:translate-x-1 hover:text-neon-yellow/80 uppercase tracking-wider"
-                        onMouseEnter={() => import('@/features/services').then(m => m.ServiceDetail)}
+                         onMouseEnter={() => safePrefetch(() => import('@/features/services').then(m => m.ServiceDetail))}
                       >
                         <ExternalLink size={10} className="text-white/10 group-hover:text-neon-yellow transition-colors" />
                         {link.label}

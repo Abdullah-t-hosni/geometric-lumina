@@ -72,7 +72,7 @@ export default function Process() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.6, ease: "easeInOut" }}
+      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       className="bg-background min-h-screen pb-12 overflow-hidden selection:bg-neon-yellow selection:text-background"
     >
       <SEO
@@ -94,7 +94,7 @@ export default function Process() {
       <div className="fixed bottom-0 left-0 w-[600px] h-[600px] bg-neon-yellow/5 rounded-full blur-[120px] transform-gpu pointer-events-none z-0" />
 
       {/* Header Section */}
-      <section className="px-6 relative pb-16 md:pb-24 xl:pb-32 pt-36 md:pt-48 lg:pt-56 z-10 overflow-hidden">
+      <section className="px-6 relative pb-16 md:pb-24 xl:pb-32 pt-36 md:pt-48 lg:pt-56 z-10 overflow-hidden min-h-screen">
         {/* Technical background elements */}
         <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent" />
         <div className="absolute top-1/2 left-0 w-full h-[1px] bg-white/[0.02] pointer-events-none" />
@@ -153,18 +153,34 @@ function ProcessStep({ step, index, isExpanded, onToggle }: {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-60px' });
 
+  const handleToggle = () => {
+    onToggle();
+    // 📱 Auto-scroll to top when expanding on touch/mobile
+    if (!isExpanded && ref.current) {
+      setTimeout(() => {
+        (ref.current as any)?.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'start' 
+        });
+      }, 100);
+    }
+  };
+
   return (
     <m.div
       ref={ref}
       initial={{ opacity: 0, x: -30 }}
       animate={inView ? { opacity: 1, x: 0 } : {}}
       transition={{ duration: 1, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-      className="relative mb-8"
+      className="relative mb-8 pt-2"
     >
       {/* Number and state indicator */}
       <button
-        onClick={onToggle}
-        className={`absolute -left-14 md:-left-[100px] top-6 w-9 h-9 md:w-12 md:h-12 border rounded-full flex items-center justify-center transition-all duration-700 z-10 group/btn ${
+        onClick={handleToggle}
+        aria-expanded={isExpanded}
+        aria-controls={`process-step-${step.num}`}
+        aria-label={`${isExpanded ? 'Collapse' : 'Expand'} step ${step.num}: ${step.title}`}
+        className={`absolute -left-14 md:-left-[100px] top-8 w-9 h-9 md:w-12 md:h-12 border rounded-full flex items-center justify-center transition-all duration-700 z-10 group/btn ${
           isExpanded
             ? 'bg-neon-yellow border-neon-yellow text-background shadow-[0_0_20px_rgba(204,255,0,0.5)]'
             : 'bg-background border-white/10 text-white/40 hover:border-white/30 hover:text-white'
@@ -177,14 +193,19 @@ function ProcessStep({ step, index, isExpanded, onToggle }: {
 
       {/* Main Container */}
       <div className={`glass-panel rounded-[24px] transition-all duration-1000 overflow-hidden ${isExpanded ? 'bg-white/[0.03] border-white/10' : 'bg-transparent border-transparent hover:bg-white/[0.01]'}`}>
-        <button onClick={onToggle} className="w-full text-left p-6 md:p-10 flex flex-col md:flex-row md:items-center justify-between gap-6 group">
+        <button 
+          onClick={handleToggle} 
+          aria-expanded={isExpanded}
+          aria-controls={`process-step-${step.num}`}
+          className="w-full text-left p-6 md:p-10 flex flex-col md:flex-row md:items-center justify-between gap-6 group"
+        >
           <div className="flex items-center gap-6">
             <div className={`p-4 rounded-2xl bg-white/[0.03] border border-white/5 transition-colors duration-700 ${isExpanded ? 'text-neon-yellow border-neon-yellow/20 bg-neon-yellow/5' : 'text-white/20'}`}>
                <step.icon size={28} strokeWidth={1.5} />
             </div>
             <div className="flex flex-col gap-1 items-start">
               <span className="text-[8px] font-ibm tracking-[0.5em] uppercase text-white/20 group-hover:text-neon-yellow transition-colors duration-700">Module.00{index+1}</span>
-              <h3 className={`font-ibm text-2xl xs:text-3xl md:text-5xl font-light tracking-tighter uppercase transition-colors duration-700 ${isExpanded ? 'text-white' : 'text-white/60 group-hover:text-white'}`}>
+              <h3 id={`process-heading-${step.num}`} className={`font-ibm text-2xl xs:text-3xl md:text-5xl font-light tracking-tighter uppercase transition-colors duration-700 ${isExpanded ? 'text-white' : 'text-white/60 group-hover:text-white'}`}>
                 {step.title}
               </h3>
             </div>
@@ -202,6 +223,9 @@ function ProcessStep({ step, index, isExpanded, onToggle }: {
         </button>
 
         <m.div
+          id={`process-step-${step.num}`}
+          role="region"
+          aria-labelledby={`process-heading-${step.num}`}
           initial={false}
           animate={{ height: isExpanded ? 'auto' : 0, opacity: isExpanded ? 1 : 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}

@@ -30,9 +30,10 @@ export interface PortfolioProject {
   priority?: number;
 }
 
+import { getAsset as baseGetAsset } from '@/shared/utils/assetHelper';
+
 // 🚀 Dynamic Image Resolver (Optimized for Vite)
-const getAsset = (name: string) => 
-  new URL(`../assets/images/${name}.webp`, import.meta.url).href;
+const getAsset = (name: string) => baseGetAsset(name);
 
 export const portfolioProjects: PortfolioProject[] = [
   {
@@ -286,16 +287,3 @@ export const portfolioCategories = [
   { id: 'booth', label: 'Booth Design' },
   { id: 'ai', label: 'AI Content' },
 ];
-
-export const portfolioCategoriesOld = [
-  'All',
-  'Motion',
-  'Product Visualization',
-  'Architecture',
-  'CGI',
-  'Booth Design',
-  'AI Content',
-];
-
-// For compatibility during transition
-export const portfolioCategoriesCompat = portfolioCategoriesOld;

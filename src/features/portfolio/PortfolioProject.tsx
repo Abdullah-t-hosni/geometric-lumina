@@ -7,9 +7,13 @@ import { prefetchPortfolioData, cachedPortfolioData } from '@/shared/utils/dataP
 import { ProjectCardSkeleton } from '@/shared/ui/Skeletons';
 
 export default function PortfolioProject() {
-  const { projectId } = useParams();
+  const { slug } = useParams();
   const [data, setData] = useState(cachedPortfolioData);
   const { scrollYProgress } = useScroll();
+
+  // 🎯 Cinematic HUD Transforms
+  const progressHeight = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
+  const progressPercent = useTransform(scrollYProgress, (v) => `${Math.round(v * 100)}%`);
 
   useEffect(() => {
     if (!data) {
@@ -28,7 +32,7 @@ export default function PortfolioProject() {
   }
 
   const { projects: portfolioProjects } = data;
-  const project = portfolioProjects.find(p => p.id === projectId);
+  const project = portfolioProjects.find(p => p.slug === slug);
 
   if (!project) {
     return (
@@ -52,7 +56,7 @@ export default function PortfolioProject() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.6, ease: "easeInOut" }}
+      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       className="bg-background min-h-screen pb-12 overflow-hidden selection:bg-neon-yellow selection:text-background"
     >
       <SEO
@@ -64,9 +68,9 @@ export default function PortfolioProject() {
           Schemas.breadcrumb([
             { name: 'Home', url: '/' },
             { name: 'Portfolio', url: '/portfolio' },
-            { name: project.title, url: `/portfolio/${project.id}` },
+            { name: project.title, url: `/portfolio/${project.slug}` },
           ]),
-          Schemas.creativeWork(project.title, project.description, `/portfolio/${project.id}`, project.image)
+          Schemas.creativeWork(project.title, project.description, `/portfolio/${project.slug}`, project.image)
         ]}
       />
       
@@ -76,11 +80,11 @@ export default function PortfolioProject() {
           <div className="h-64 w-[1px] bg-white/10 relative">
              <m.div 
                className="absolute top-0 left-0 w-full bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]"
-               style={{ height: useTransform(scrollYProgress, [0, 1], ['0%', '100%']) }}
+               style={{ height: progressHeight }}
              />
           </div>
           <m.div className="text-[10px] text-neon-yellow font-ibm font-bold">
-             {useTransform(scrollYProgress, (v) => `${Math.round(v * 100)}%`)}
+             {progressPercent}
           </m.div>
       </div>
 
@@ -155,7 +159,7 @@ export default function PortfolioProject() {
       </section>
 
       {/* Project Specs */}
-      <section className="py-40 px-6 relative z-10">
+      <section className="py-24 md:py-32 xl:py-48 px-6 relative z-10">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-24">
           <div className="lg:col-span-8">
             <SectionReveal>
@@ -283,7 +287,7 @@ export default function PortfolioProject() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {related.map((p, i) => (
                 <SectionReveal key={p.id} delay={i * 0.1}>
-                  <Link to={`/portfolio/${p.id}`} className="group block relative aspect-[4/5] rounded-[40px] glass-panel p-3 hover:border-white/20 transition-all duration-1000 overflow-hidden">
+                  <Link to={`/portfolio/${p.slug}`} className="group block relative aspect-[4/5] rounded-[40px] glass-panel p-3 hover:border-white/20 transition-all duration-1000 overflow-hidden">
                     <div className="w-full h-full rounded-[32px] overflow-hidden relative">
                       {/* Scan Line Animation */}
                       <div className="absolute inset-0 pointer-events-none z-20">

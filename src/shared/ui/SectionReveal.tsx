@@ -5,10 +5,10 @@ type Direction = "up" | "down" | "left" | "right";
 
 const getDirectionOffset = (direction: Direction) => {
   const offsets = {
-    up: { y: 40, x: 0 },
-    down: { y: -40, x: 0 },
-    left: { x: 40, y: 0 },
-    right: { x: -40, y: 0 },
+    up: { y: 20, x: 0 },
+    down: { y: -20, x: 0 },
+    left: { x: 20, y: 0 },
+    right: { x: -20, y: 0 },
   };
   return offsets[direction];
 };
@@ -29,14 +29,18 @@ export function SectionReveal({
   amount = 0.1 
 }: SectionRevealProps) {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, amount });
+  const inView = useInView(ref, { 
+    once: true, 
+    amount: amount, 
+    margin: "0px 0px -10% 0px" // Using percentage margin for better responsiveness
+  });
   const offset = getDirectionOffset(direction);
 
   const variants: Variants = {
     hidden: { 
       opacity: 0, 
       ...offset,
-      scale: 0.98 
+      scale: 0.98,
     },
     visible: {
       opacity: 1,
@@ -46,7 +50,7 @@ export function SectionReveal({
       transition: {
         duration: 0.8,
         ease: [0.16, 1, 0.3, 1],
-        delay
+        delay: delay * 0.5 // Reduce delay by half for snappier feel
       },
     },
   };
@@ -58,7 +62,7 @@ export function SectionReveal({
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
       className={className}
-      style={{ willChange: "opacity, transform" }}
+      style={{ transformOrigin: "center center" }}
     >
       {children}
     </m.div>
@@ -97,7 +101,7 @@ export function StaggerReveal({
     hidden: { 
       opacity: 0, 
       ...offset,
-      scale: 0.98 
+      scale: 0.98,
     },
     visible: {
       opacity: 1,
@@ -105,7 +109,7 @@ export function StaggerReveal({
       y: 0,
       scale: 1,
       transition: {
-        duration: 0.7,
+        duration: 1,
         ease: [0.16, 1, 0.3, 1],
       },
     },
@@ -124,7 +128,7 @@ export function StaggerReveal({
           key={i}
           variants={itemVariants}
           className={itemClassName}
-          style={{ willChange: "opacity, transform" }}
+          style={{ transformOrigin: "center center" }}
         >
           {child}
         </m.div>

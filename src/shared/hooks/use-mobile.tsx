@@ -15,20 +15,8 @@ export function useIsMobile() {
       setIsMobile(e.matches);
     };
 
-    // دعم قديم + جديد
-    if (media.addEventListener) {
-      media.addEventListener("change", listener);
-    } else {
-      media.addListener(listener);
-    }
-
-    return () => {
-      if (media.removeEventListener) {
-        media.removeEventListener("change", listener);
-      } else {
-        media.removeListener(listener);
-      }
-    };
+    media.addEventListener("change", listener);
+    return () => media.removeEventListener("change", listener);
   }, []);
 
   return isMobile;
@@ -39,25 +27,12 @@ export function useMediaQuery(query: string) {
 
   React.useEffect(() => {
     const media = window.matchMedia(query);
-
     const listener = () => setMatches(media.matches);
-
+    
     listener();
+    media.addEventListener("change", listener);
 
-    // دعم قديم + جديد
-    if (media.addEventListener) {
-      media.addEventListener("change", listener);
-    } else {
-      media.addListener(listener);
-    }
-
-    return () => {
-      if (media.removeEventListener) {
-        media.removeEventListener("change", listener);
-      } else {
-        media.removeListener(listener);
-      }
-    };
+    return () => media.removeEventListener("change", listener);
   }, [query]);
 
   return matches;

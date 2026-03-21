@@ -61,7 +61,7 @@ export default function About() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.6, ease: "easeInOut" }}
+      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       className="bg-background min-h-screen pb-12 overflow-hidden selection:bg-neon-yellow selection:text-background"
     >
       <SEO
@@ -81,7 +81,7 @@ export default function About() {
       <div className="fixed bottom-0 right-0 w-[600px] h-[600px] bg-neon-yellow/5 rounded-full blur-[120px] transform-gpu pointer-events-none z-0" />
 
       {/* Hero */}
-      <section className="px-6 relative pb-12 md:pb-16 xl:pb-20 pt-36 md:pt-48 lg:pt-56 z-10 overflow-hidden">
+      <section className="px-6 relative pb-12 md:pb-16 xl:pb-20 pt-36 md:pt-48 lg:pt-56 z-10 overflow-hidden min-h-screen">
         {/* Technical background elements */}
         <div className="absolute top-0 right-0 w-[1px] h-full bg-gradient-to-b from-transparent via-white/5 to-transparent hidden lg:block" />
         <div className="absolute top-1/2 left-0 w-full h-[1px] bg-white/[0.02] pointer-events-none" />
@@ -111,7 +111,7 @@ export default function About() {
                    <div className="flex items-center gap-4 text-[9px] font-ibm text-neon-yellow/60 tracking-[0.2em] uppercase">
                       <span>Remote • Digital</span>
                       <span className="w-1 h-1 rounded-full bg-white/20" />
-                      <span>Active Since 2024</span>
+                      <span>Active Since 2019</span>
                    </div>
                 </div>
               </div>

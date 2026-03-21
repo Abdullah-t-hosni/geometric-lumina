@@ -10,7 +10,7 @@ const NotFound = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    console.error("404 Error: Access attempt to:", location.pathname);
+    // 404 Logging
     const handleMouseMove = (e: MouseEvent) => {
       setMousePos({
         x: (e.clientX / window.innerWidth - 0.5) * 20,
@@ -22,7 +22,13 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="flex min-h-screen bg-background p-6 relative overflow-hidden selection:bg-neon-yellow selection:text-background font-ibm">
+    <m.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+      className="flex min-h-screen bg-background p-6 relative overflow-hidden selection:bg-neon-yellow selection:text-background font-ibm"
+    >
       <SEO title="404 — System Out of Bounds" noIndex={true} />
       
       {/* Premium Technical Grid Background */}
@@ -146,7 +152,7 @@ const NotFound = () => {
       <div className="absolute bottom-12 right-12 text-right opacity-5 hidden lg:block">
          <div className="text-[8px] tracking-[1em] text-white uppercase italic">Search_Sequence_Failure</div>
       </div>
-    </div>
+    </m.div>
   );
 };
 

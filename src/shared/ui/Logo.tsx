@@ -1,5 +1,5 @@
-import { cn } from '@/lib/utils';
 import logoPng from '@/assets/images/Logo-3.svg';
+import { cn } from '../lib/utils';
 
 type LogoProps = {
   showWordmark?: boolean;

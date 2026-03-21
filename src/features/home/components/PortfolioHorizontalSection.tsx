@@ -1,26 +1,19 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { m, useScroll, useTransform } from 'framer-motion';
 import { SectionReveal } from '@/shared/ui/SectionReveal';
 import { FeaturedProjectCard } from './FeaturedProjectCard';
 import { services } from '@/data/services';
+import { useMediaQuery } from '@/shared/hooks/use-mobile';
 
 export function PortfolioHorizontalSection() {
   const targetRef = useRef(null);
+  const isDesktop = useMediaQuery("(min-width: 1024px)");
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
     offset: ["start start", "end start"],
   });
-
-  const [isDesktop, setIsDesktop] = useState(false);
-
-  useEffect(() => {
-    const check = () => setIsDesktop(window.innerWidth >= 1024);
-    check();
-    window.addEventListener('resize', check);
-    return () => window.removeEventListener('resize', check);
-  }, []);
 
   // 🎯 Cinematic transforms
   const x = useTransform(scrollYProgress, [0, 1], ["0%", "-70%"]);
@@ -120,28 +113,40 @@ export function PortfolioHorizontalSection() {
             </div>
           </m.div>
         ) : (
-          /* 📱 MOBILE FALLBACK */
-          <div className="flex flex-col gap-12">
-            {services.slice(0, 4).map((service, i) => (
-              <FeaturedProjectCard
-                key={service.id}
-                service={service}
-                index={i}
-              />
-            ))}
-
-            <div className="py-12 flex justify-center">
-              <Link
-                to="/portfolio"
-                className="group flex flex-col items-center gap-4"
-              >
-                <div className="w-16 h-16 rounded-full border border-neon-yellow/30 flex items-center justify-center">
-                  →
+          /* 📱 MOBILE HORIZONTAL CAROUSEL */
+          <div className="flex flex-col gap-8">
+            <div className="flex gap-6 overflow-x-auto scrollbar-none snap-x snap-mandatory pb-8 -mx-6 px-6">
+              {services.slice(0, 5).map((service, i) => (
+                <div key={service.id} className="flex-shrink-0 w-[85vw] snap-center">
+                  <FeaturedProjectCard
+                    service={service}
+                    index={i}
+                  />
                 </div>
-                <span className="text-[10px] tracking-[0.4em] uppercase text-neon-yellow">
-                  View All Projects
-                </span>
-              </Link>
+              ))}
+
+              {/* Mobile CTA Slide */}
+              <div className="flex-shrink-0 w-[70vw] snap-center flex items-center justify-center h-full min-h-[300px]">
+                <Link
+                  to="/portfolio"
+                  className="group flex flex-col items-center gap-6"
+                >
+                  <div className="w-20 h-20 rounded-full border border-neon-yellow/30 flex items-center justify-center group-active:scale-95 transition-transform">
+                    <span className="text-2xl text-neon-yellow">→</span>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-[10px] tracking-[0.4em] uppercase text-white/30 mb-1">Portfolio</div>
+                    <div className="text-lg text-white uppercase tracking-widest">View All Works</div>
+                  </div>
+                </Link>
+              </div>
+            </div>
+            
+            {/* Visual indicator for mobile */}
+            <div className="flex justify-center gap-2">
+                {[...Array(5)].map((_, i) => (
+                    <div key={i} className="w-1.5 h-1.5 rounded-full bg-white/10" />
+                ))}
             </div>
           </div>
         )}

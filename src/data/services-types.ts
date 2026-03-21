@@ -1,4 +1,8 @@
 import { LucideIcon } from 'lucide-react';
+import { getAsset as baseGetAsset, getBlurAsset as baseGetBlurAsset } from '@/shared/utils/assetHelper';
+
+export const getAsset = (name: string) => baseGetAsset(name);
+export const getBlurAsset = (name: string) => baseGetBlurAsset(name);
 
 export const CATEGORIES = {
   MOTION: 'Motion',
@@ -48,8 +52,4 @@ export interface Service {
   seoDescription?: string;
 }
 
-export const getAsset = (name: string, metaUrl: string) => 
-  new URL(`../assets/images/${name}.webp`, metaUrl).href;
 
-export const getBlurAsset = (name: string, metaUrl: string) => 
-  new URL(`../assets/images/blur/${name}.webp`, metaUrl).href;

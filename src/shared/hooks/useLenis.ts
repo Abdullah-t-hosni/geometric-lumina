@@ -6,24 +6,29 @@ let lenisInstance: Lenis | null = null;
 export function useLenis() {
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.4,
-      easing: (t) => 1 - Math.pow(1 - t, 4),
+      lerp: 0.1, // Fixed lerp for consistent, buttery smooth feel
       smoothWheel: true,
-      lerp: 0.1,
+      syncTouch: true,
+      touchMultiplier: 2.2, // Balanced sensitivity for mobile
+      wheelMultiplier: 1.0,
     });
 
     lenisInstance = lenis;
+    (window as any).lenis = lenis;
 
+    let rafId: number;
     function raf(time: number) {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      rafId = requestAnimationFrame(raf);
     }
 
-    requestAnimationFrame(raf);
+    rafId = requestAnimationFrame(raf);
 
     return () => {
+      cancelAnimationFrame(rafId);
       lenis.destroy();
       lenisInstance = null;
+      (window as any).lenis = null;
     };
   }, []);
 }

@@ -77,9 +77,7 @@
     overflow: hidden;
   }
 
-  .lenis body {
-    overflow: hidden;
-  }
+
 
   body {
     @apply bg-background text-foreground;

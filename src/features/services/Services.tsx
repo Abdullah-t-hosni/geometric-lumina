@@ -17,25 +17,14 @@ export default function Services() {
     }
   }, [data]);
 
-  if (!data) {
-    return (
-      <div className="bg-background min-h-screen pb-12">
-        <div className="max-w-[1200px] mx-auto px-6 pt-56">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[1, 2, 3, 4, 5, 6].map(i => <ServiceCardSkeleton key={i} />)}
-          </div>
-        </div>
-      </div>
-    );
-  }
+  const services = data?.services || getAllServices();
 
-  const services = getAllServices();
   return (
     <m.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.6, ease: "easeInOut" }}
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       className="bg-background min-h-screen pb-12 overflow-hidden relative selection:bg-neon-yellow selection:text-background"
     >
       <SEO
@@ -55,44 +44,70 @@ export default function Services() {
       <div className="absolute top-1/2 left-0 w-[800px] h-[800px] bg-neon-yellow/5 rounded-full blur-[150px] transform-gpu pointer-events-none z-0" />
       <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-sky-blue/5 rounded-full blur-[120px] transform-gpu pointer-events-none z-0" />
 
-      {/* Header Section */}
-      <section className="px-6 relative pb-16 md:pb-24 xl:pb-32 pt-36 md:pt-48 lg:pt-56 z-10 overflow-hidden">
-        {/* Technical background elements */}
-        <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent" />
-        <div className="absolute top-1/2 left-0 w-full h-[1px] bg-white/[0.02] pointer-events-none" />
-
-        <div className="max-w-[1400px] mx-auto text-center relative">
-          <SectionReveal>
-            <div className="flex flex-col items-center">
-              <div className="flex items-center gap-4 mb-10">
-                <div className="w-1 h-1 rounded-full bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
-                <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-neon-yellow">Geometric Disciplines</span>
-                <div className="w-1 h-1 rounded-full bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
+      <AnimatePresence mode="wait">
+        {!data ? (
+          <m.section 
+            key="skeletons"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="px-6 pt-56"
+          >
+            <div className="max-w-[1200px] mx-auto">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {[1, 2, 3, 4, 5, 6].map(i => <ServiceCardSkeleton key={i} />)}
               </div>
-              
-              <h1 className="font-ibm text-[14vw] xs:text-6xl md:text-7xl lg:text-[90px] xl:text-[130px] font-light text-white leading-[1.1] md:leading-[0.85] tracking-tighter mb-8 md:mb-12">
-                Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/40 glow-text-yellow block sm:inline mt-2 sm:mt-0">Services.</span>
-              </h1>
-
-              <p className="font-ibm text-creamy-white/50 text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed border-t border-white/10 pt-12">
-                Engineering visual impact through a fusion of high-end cinematic arts and technical geometric precision.
-              </p>
             </div>
-          </SectionReveal>
-        </div>
-      </section>
+          </m.section>
+        ) : (
+          <m.div 
+            key="content"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            {/* Header Section */}
+            <section className="px-6 relative pb-20 md:pb-32 xl:pb-40 pt-36 md:pt-48 lg:pt-56 z-10 overflow-hidden min-h-screen flex flex-col justify-center">
+              {/* Technical background elements */}
+              <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent" />
+              <div className="absolute top-1/2 left-0 w-full h-[1px] bg-white/[0.02] pointer-events-none" />
 
-      {/* Services grid */}
-      <section className="py-12 md:py-16 xl:py-20 px-6 relative z-10 w-full mx-auto">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/[0.02] to-transparent pointer-events-none" />
-        <div className="max-w-[1200px] mx-auto relative z-10">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 auto-rows-fr">
-            {services.map((service, i) => (
-              <ServiceCard key={service.id} service={service} index={i} />
-            ))}
-          </div>
-        </div>
-      </section>
+              <div className="max-w-[1400px] mx-auto text-center relative">
+                <SectionReveal>
+                  <div className="flex flex-col items-center">
+                    <div className="flex items-center gap-4 mb-10">
+                      <div className="w-1 h-1 rounded-full bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
+                      <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-neon-yellow">Geometric Disciplines</span>
+                      <div className="w-1 h-1 rounded-full bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
+                    </div>
+                    
+                    <h1 className="font-ibm text-[14vw] xs:text-6xl md:text-7xl lg:text-[90px] xl:text-[130px] font-light text-white leading-[1.1] md:leading-[0.85] tracking-tighter mb-8 md:mb-12">
+                      Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/40 glow-text-yellow block sm:inline mt-2 sm:mt-0">Services.</span>
+                    </h1>
+
+                    <p className="font-ibm text-creamy-white/50 text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed border-t border-white/10 pt-12">
+                      Engineering visual impact through a fusion of high-end cinematic arts and technical geometric precision.
+                    </p>
+                  </div>
+                </SectionReveal>
+              </div>
+            </section>
+
+            {/* Services grid */}
+            <section className="py-24 md:py-32 xl:py-48 px-6 relative z-10 w-full mx-auto">
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/[0.02] to-transparent pointer-events-none" />
+              <div className="max-w-[1200px] mx-auto relative z-10">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 auto-rows-fr">
+                  {services.map((service, i) => (
+                    <ServiceCard key={service.id} service={service} index={i} />
+                  ))}
+                </div>
+              </div>
+            </section>
+          </m.div>
+        )}
+      </AnimatePresence>
     </m.div>
   );
 }

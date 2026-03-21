@@ -88,7 +88,9 @@ export default function Contact() {
 
   const onSubmit = async (data: FormData) => {
     setIsLoading(true);
-    await new Promise(resolve => setTimeout(resolve, 1500)); // Simulated submit
+    // 🚀 Professional Simulation Logic
+    console.log("Transmission Logged:", data);
+    await new Promise(resolve => setTimeout(resolve, 2000));
     setIsLoading(false);
     setSubmitted(true);
     reset();
@@ -99,7 +101,7 @@ export default function Contact() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.6, ease: "easeInOut" }}
+      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       className="bg-background min-h-screen pb-12 overflow-hidden relative selection:bg-neon-yellow selection:text-background"
     >
       <SEO
@@ -125,7 +127,7 @@ export default function Contact() {
       <div className="absolute bottom-1/4 left-0 w-[600px] h-[600px] bg-neon-yellow/5 rounded-full blur-[120px] transform-gpu pointer-events-none z-0" />
 
       {/* Header */}
-      <section className="px-6 relative pb-20 md:pb-32 xl:pb-48 pt-36 md:pt-48 lg:pt-56 z-10 overflow-hidden">
+      <section className="px-6 relative pb-20 md:pb-32 xl:pb-48 pt-36 md:pt-48 lg:pt-56 z-10 overflow-hidden min-h-screen">
         {/* Technical HUD elements */}
         <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent" />
         <div className="absolute top-1/2 left-0 w-full h-[1px] bg-white/[0.02] pointer-events-none" />

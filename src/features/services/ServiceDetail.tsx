@@ -32,7 +32,7 @@ export default function ServiceDetail() {
   }
 
   const service = getServiceBySlug(serviceName || '');
-  const services = getAllServices();
+  const services = data?.services || getAllServices();
 
   if (!service) {
     return (
@@ -55,7 +55,7 @@ export default function ServiceDetail() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.6, ease: "easeInOut" }}
+      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       ref={containerRef}
       className="bg-background min-h-screen overflow-hidden relative"
     >
@@ -156,7 +156,7 @@ export default function ServiceDetail() {
       </section>
 
       {/* ─── TECHNICAL SPECIFICATIONS ─────────────────── */}
-      <section className="py-16 md:py-24 xl:py-40 px-6 relative z-10 bg-background/90 border-t border-white/5">
+      <section className="py-24 md:py-32 xl:py-48 px-6 relative z-10 bg-background/90 border-t border-white/5">
         <div className="max-w-[1400px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 xl:gap-32 items-start">
             <div className="lg:col-span-7 space-y-16">
@@ -252,7 +252,7 @@ export default function ServiceDetail() {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {relatedServices.map((s, i) => (
-              <AlternativeCard key={s.id} service={s} index={i} servicesList={services} />
+              <AlternativeCard key={s.id} service={s} index={i} />
             ))}
           </div>
         </div>
@@ -290,7 +290,7 @@ function GalleryItem({ image, delay }: { image: string; delay: number }) {
   );
 }
 
-function AlternativeCard({ service, index, servicesList }: { service: any; index: number; servicesList: any[] }) {
+function AlternativeCard({ service, index }: { service: any; index: number }) {
   const [isHovered, setIsHovered] = useState(false);
   
   return (
