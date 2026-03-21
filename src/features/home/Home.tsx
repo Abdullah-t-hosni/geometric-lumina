@@ -229,7 +229,7 @@ export default function Home() {
         ]}
       />
       {/* ─── PREMIUM CINEMATIC HERO ────────────────────────── */}
-      <section ref={heroRef} className="relative min-h-[120vh] flex items-center justify-center overflow-hidden" aria-label="Hero - Geometric Studio Showreel">
+      <section ref={heroRef} className="relative min-h-[80vh] md:h-screen flex items-center justify-center overflow-hidden" aria-label="Hero - Geometric Studio Showreel">
         {/* Background Video */}
         <m.div
           style={{ 
@@ -324,7 +324,7 @@ export default function Home() {
             scale: heroScale,
             filter: useTransform(heroBlur, (v) => `blur(${v}px)`)
           }}
-          className="relative z-10 w-full px-4 md:px-12 max-w-[1400px] mx-auto pt-24 md:pt-40"
+          className="relative z-10 w-full px-4 md:px-12 max-w-[1400px] mx-auto"
         >
           {/* Decorative Grid Lines - Hidden on small mobile for clarity */}
           <div className="absolute -top-10 left-0 w-[1px] h-[300px] bg-gradient-to-b from-transparent via-white/10 to-transparent hidden lg:block" />
@@ -378,10 +378,7 @@ export default function Home() {
                 transition={{ duration: 1.2, delay: 0.5 }}
                 className="font-ibm text-creamy-white/80 text-xs sm:text-sm md:text-base lg:text-lg max-w-lg mx-auto lg:mx-0 leading-relaxed font-light tracking-wide border-t lg:border-t-0 lg:border-l border-white/10 pt-6 lg:pt-0 lg:pl-8 mt-4 md:mt-0 drop-shadow-lg"
               >
-                Your Next Vision Starts Here
-                We’re ready to collaborate, design, and build visuals
-                that move beyond the screen.
-                Let’s connect and make it happen
+                Your next vision starts here. We&apos;re ready to collaborate, design, and build visuals that move beyond the screen.
               </m.p>
               
               <m.div
@@ -463,7 +460,7 @@ export default function Home() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 1 }}
-          className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-10"
+          className="absolute bottom-12 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-3 z-10"
         >
           <span className="text-[10px] text-creamy-white/50 font-ibm tracking-[0.3em] uppercase">Scroll to explore</span>
           <div className="w-[1px] h-12 bg-white/10 overflow-hidden">
@@ -478,7 +475,7 @@ export default function Home() {
       </section>
 
       {/* ─── PREMIUM STUDIO INTRO ─────────────────────── */}
-      <section className="py-24 md:py-32 xl:py-48 px-6 relative bg-background overflow-hidden">
+      <section className="py-16 md:py-24 px-6 relative bg-background overflow-hidden">
         {/* Cinematic background details */}
         <div className="absolute inset-0 bg-noise opacity-[0.03] pointer-events-none" />
         <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />

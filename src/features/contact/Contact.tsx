@@ -127,7 +127,7 @@ export default function Contact() {
       <div className="absolute bottom-1/4 left-0 w-[600px] h-[600px] bg-neon-yellow/5 rounded-full blur-[120px] transform-gpu pointer-events-none z-0" />
 
       {/* Header */}
-      <section className="px-6 relative pb-20 md:pb-32 xl:pb-48 pt-36 md:pt-48 lg:pt-56 z-10 overflow-hidden min-h-screen">
+      <section className="px-6 relative pb-12 md:pb-20 pt-36 md:pt-48 lg:pt-40 z-10 overflow-hidden">
         {/* Technical HUD elements */}
         <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent" />
         <div className="absolute top-1/2 left-0 w-full h-[1px] bg-white/[0.02] pointer-events-none" />
@@ -154,7 +154,7 @@ export default function Contact() {
       </section>
 
       {/* Main content */}
-      <section className="pb-24 px-6 relative z-10">
+      <section className="pb-16 px-6 relative z-10">
         <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-5 gap-16 lg:gap-24">
 
           {/* Left — Contact info */}
@@ -264,7 +264,7 @@ export default function Contact() {
                   <form onSubmit={handleSubmit(onSubmit)} className="space-y-10">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
                       <FormField
-                        label="Identity.Check *"
+                        label="Name *"
                         error={errors.name?.message}
                       >
                         <input
@@ -274,7 +274,7 @@ export default function Contact() {
                         />
                       </FormField>
    
-                      <FormField label="Organization.Ref" error={errors.company?.message}>
+                      <FormField label="Organization" error={errors.company?.message}>
                         <input
                           {...register('company')}
                           placeholder="Company name"
@@ -283,7 +283,7 @@ export default function Contact() {
                       </FormField>
                     </div>
    
-                    <FormField label="Digital.Terminal *" error={errors.email?.message}>
+                    <FormField label="Email *" error={errors.email?.message}>
                       <input
                         {...register('email')}
                         type="email"
@@ -293,7 +293,7 @@ export default function Contact() {
                     </FormField>
    
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
-                      <FormField label="Capability.Requirement *" error={errors.projectType?.message}>
+                      <FormField label="Service Needed *" error={errors.projectType?.message}>
                         <div className="relative">
                           <select
                             {...register('projectType')}
@@ -310,7 +310,7 @@ export default function Contact() {
                         </div>
                       </FormField>
    
-                      <FormField label="Budget.Scale *" error={errors.budget?.message}>
+                      <FormField label="Budget Scale *" error={errors.budget?.message}>
                         <div className="relative">
                           <select
                             {...register('budget')}
@@ -328,7 +328,7 @@ export default function Contact() {
                       </FormField>
                     </div>
    
-                    <FormField label="Brief.Specifications *" error={errors.message?.message}>
+                    <FormField label="Message *" error={errors.message?.message}>
                       <textarea
                         {...register('message')}
                         rows={6}
@@ -347,10 +347,10 @@ export default function Contact() {
                         {isLoading ? (
                           <>
                             <span className="w-5 h-5 border-2 border-background/30 border-t-background rounded-full animate-spin" />
-                            <span className="font-ibm font-medium text-[11px] tracking-[0.5em] uppercase text-background">Transmitting_Data</span>
+                            <span className="font-ibm font-medium text-[11px] tracking-[0.5em] uppercase text-background">Transmitting Data</span>
                           </>
                         ) : (
-                          <span className="font-ibm font-medium text-[11px] tracking-[0.5em] uppercase text-background">Submit_Inquiry</span>
+                          <span className="font-ibm font-medium text-[11px] tracking-[0.5em] uppercase text-background">Submit Inquiry</span>
                         )}
                       </div>
                     </button>

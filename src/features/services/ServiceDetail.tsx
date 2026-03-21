@@ -1,5 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import { getServiceBySlug, getAllServices, getRelatedServices } from '@/data/services';
+import { colorClassMap } from '@/data/services-types';
 import { m , useScroll, useTransform, AnimatePresence  } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import { SectionReveal } from '@/shared/ui/SectionReveal';
@@ -74,18 +75,12 @@ export default function ServiceDetail() {
       />
       {/* Premium Ambient Glows - Fixed Position */}
       <div className="fixed inset-0 pointer-events-none z-0">
-        <div className={`absolute top-0 right-0 w-[1000px] h-[1000px] rounded-full blur-[150px] transform-gpu opacity-10 transition-colors duration-1000 ${
-          service.color === 'neon-yellow' ? 'bg-neon-yellow' :
-          service.color === 'sky-blue' ? 'bg-sky-blue' :
-          service.color === 'coral-red' ? 'bg-coral-red' :
-          service.color === 'deep-teal' ? 'bg-deep-teal' :
-          'bg-white'
-        }`} />
+        <div className={`absolute top-0 right-0 w-[1000px] h-[1000px] rounded-full blur-[150px] transform-gpu opacity-10 transition-colors duration-1000 ${colorClassMap[service.color as keyof typeof colorClassMap] || 'bg-white'}`} />
         <div className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-deep-teal/5 rounded-full blur-[150px] transform-gpu opacity-20" />
       </div>
 
       {/* ─── PREMIUM SCROLLING HERO ────────────────────── */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden z-10">
+      <section className="relative min-h-[70vh] md:min-h-[80vh] flex items-center justify-center overflow-hidden z-10 py-24 md:py-32">
         <m.div style={{ scale: heroScale, opacity: heroOpacity, willChange: "transform, opacity" }} className="absolute inset-0">
           <img src={service.heroImage} alt={service.name} className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-black/40" />
@@ -156,7 +151,7 @@ export default function ServiceDetail() {
       </section>
 
       {/* ─── TECHNICAL SPECIFICATIONS ─────────────────── */}
-      <section className="py-24 md:py-32 xl:py-48 px-6 relative z-10 bg-background/90 border-t border-white/5">
+      <section className="py-16 md:py-24 px-6 relative z-10 bg-background/90 border-t border-white/5">
         <div className="max-w-[1400px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 xl:gap-32 items-start">
             <div className="lg:col-span-7 space-y-16">

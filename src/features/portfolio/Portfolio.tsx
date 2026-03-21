@@ -73,7 +73,7 @@ export default function Portfolio() {
             transition={{ duration: 0.6 }}
           >
             {/* Header */}
-            <section className="px-6 relative pb-16 md:pb-24 xl:pb-32 pt-36 md:pt-48 lg:pt-56 z-10 overflow-hidden min-h-screen">
+            <section className="px-6 relative pb-12 md:pb-16 pt-36 md:pt-48 lg:pt-56 z-10 overflow-hidden">
               {/* Technical HUD elements */}
               <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent" />
               <div className="absolute top-1/2 left-0 w-full h-[1px] bg-white/[0.02] pointer-events-none" />
@@ -100,51 +100,45 @@ export default function Portfolio() {
             </section>
 
             {/* Filter */}
-            <section className="px-6 py-12 sticky top-20 z-30 pointer-events-none">
-              <div className="max-w-[1400px] mx-auto flex justify-center">
-                <div className="flex flex-wrap gap-2 justify-center p-2 bg-background/90 border border-white/5 rounded-full pointer-events-auto shadow-2xl">
-                  {categories.map((cat: { id: string, label: string }) => (
-                    <button
-                      key={cat.id}
-                      onClick={() => setActiveCategory(cat.label as PortfolioCategory)}
-                      aria-pressed={activeCategory === cat.label}
-                      aria-label={`Filter works by ${cat.label}`}
-                      className={`px-8 py-3 text-[9px] font-ibm tracking-[0.3em] uppercase transition-all duration-500 rounded-full relative group ${
-                        activeCategory === cat.label
-                          ? 'text-neon-yellow'
-                          : 'text-white/40 hover:text-white'
-                      }`}
-                    >
-                      {activeCategory === cat.label && (
-                         <m.div 
-                           layoutId="active-pill"
-                           className="absolute inset-0 bg-white/[0.03] border border-white/10 rounded-full"
-                           transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
-                         />
-                      )}
-                      <span className="relative z-10">{cat.label}</span>
-                    </button>
-                  ))}
-                </div>
+            <section className="px-6 py-8 sticky top-20 z-30 pointer-events-none">
+              <div className="max-w-[1400px] mx-auto flex flex-wrap justify-center gap-3">
+                {categories.map((cat: { id: string, label: string }) => (
+                  <button
+                    key={cat.id}
+                    onClick={() => setActiveCategory(cat.label as PortfolioCategory)}
+                    className={`px-6 py-3 rounded-full border transition-all duration-500 pointer-events-auto text-[9px] font-ibm tracking-[0.2em] uppercase relative group ${
+                      activeCategory === cat.label
+                        ? 'bg-neon-yellow border-neon-yellow text-background shadow-[0_0_20px_rgba(204,255,0,0.3)] scale-105'
+                        : 'bg-background/80 border-white/10 text-white/40 hover:text-white hover:border-white/30 backdrop-blur-md'
+                    }`}
+                  >
+                    <span className="relative z-10">{cat.label}</span>
+                  </button>
+                ))}
               </div>
             </section>
 
             {/* Grid */}
-            <section className="py-24 md:py-32 xl:py-48 px-6 relative z-10 w-full mx-auto">
+            <section className="py-16 md:py-24 px-6 relative z-10 w-full mx-auto">
               <div className="max-w-[1400px] mx-auto relative z-10">
                 <AnimatePresence mode="wait">
-                  <m.div
-                    key={activeCategory}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10"
-                  >
-                    {filtered.map((project, i) => (
-                      <ProjectCard key={project.id} project={project} index={i} />
-                    ))}
-                  </m.div>
+                    <m.div
+                      key={activeCategory}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
+                      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                      className="grid grid-cols-1 md:grid-cols-2 gap-10"
+                    >
+                      {filtered.map((project, i) => (
+                        <ProjectCard 
+                          key={project.id} 
+                          project={project} 
+                          index={i} 
+                          className={i === 0 ? "md:col-span-2" : ""} 
+                        />
+                      ))}
+                    </m.div>
                 </AnimatePresence>
               </div>
             </section>
@@ -155,7 +149,7 @@ export default function Portfolio() {
   );
 }
 
-function ProjectCard({ project, index }: { project: PortfolioProject; index: number }) {
+function ProjectCard({ project, index, className = "" }: { project: PortfolioProject; index: number; className?: string }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-60px' });
 
@@ -165,6 +159,7 @@ function ProjectCard({ project, index }: { project: PortfolioProject; index: num
       initial={{ opacity: 0, y: 30 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 1, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+      className={className}
     >
       <Link to={"/portfolio/" + project.slug} className="group block relative w-full aspect-[16/10] sm:aspect-[4/3] bg-background/80 border border-white/5 p-2 rounded-[32px] overflow-hidden hover:border-white/20 transition-colors duration-1000 transform-gpu">
         <div className="w-full h-full rounded-[24px] overflow-hidden relative">

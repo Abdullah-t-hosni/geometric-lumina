@@ -94,7 +94,7 @@ export default function Process() {
       <div className="fixed bottom-0 left-0 w-[600px] h-[600px] bg-neon-yellow/5 rounded-full blur-[120px] transform-gpu pointer-events-none z-0" />
 
       {/* Header Section */}
-      <section className="px-6 relative pb-16 md:pb-24 xl:pb-32 pt-36 md:pt-48 lg:pt-56 z-10 overflow-hidden min-h-screen">
+      <section className="px-6 relative pb-12 md:pb-16 pt-36 md:pt-48 lg:pt-56 z-10 overflow-hidden">
         {/* Technical background elements */}
         <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent" />
         <div className="absolute top-1/2 left-0 w-full h-[1px] bg-white/[0.02] pointer-events-none" />
@@ -121,7 +121,7 @@ export default function Process() {
       </section>
 
       {/* Timeline */}
-      <section className="py-16 md:py-20 xl:py-24 px-6 relative z-10 overflow-hidden">
+      <section className="py-12 md:py-16 px-6 relative z-10 overflow-hidden">
         <div className="max-w-[1400px] mx-auto relative group">
           {/* Main sequence line */}
           <div className="absolute left-8 md:left-[64px] top-0 bottom-0 w-[1px] bg-white/5 group-hover:bg-neon-yellow/10 transition-colors [transition-duration:2000ms]" />

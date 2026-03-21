@@ -22,6 +22,15 @@ export type ServiceColor =
   | 'deep-teal'
   | 'sea-green';
 
+export const colorClassMap: Record<ServiceColor, string> = {
+  'neon-yellow': 'bg-neon-yellow',
+  'sky-blue':    'bg-sky-blue',
+  'coral-red':   'bg-coral-red',
+  'deep-teal':   'bg-deep-teal',
+  'sea-green':   'bg-sea-green',
+};
+
+
 export interface ServiceStat {
   label: string;
   value: string;

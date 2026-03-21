@@ -93,7 +93,7 @@ export default function PortfolioProject() {
       <div className="fixed bottom-0 right-0 w-[600px] h-[600px] bg-neon-yellow/5 rounded-full blur-[120px] transform-gpu pointer-events-none z-0" />
 
       {/* Hero Header */}
-      <section className="relative h-[90vh] flex items-end overflow-hidden z-10 border-b border-white/5">
+      <section className="relative min-h-[70vh] flex items-end overflow-hidden z-10 border-b border-white/5 py-20">
         <m.div
            initial={{ scale: 1.1, filter: 'blur(10px)' }}
            animate={{ scale: 1, filter: 'blur(0px)' }}
@@ -125,7 +125,7 @@ export default function PortfolioProject() {
            <div className="absolute top-0 left-1/3 w-[1px] h-full bg-white/[0.05]" />
         </div>
 
-        <div className="relative z-30 w-full px-6 pb-32 max-w-[1400px] mx-auto">
+        <div className="relative z-30 w-full px-6 pb-12 max-w-[1400px] mx-auto">
           <SectionReveal>
             <div className="flex flex-col items-start text-left">
               <Link to="/portfolio" className="flex items-center gap-4 text-[10px] text-white/40 hover:text-neon-yellow transition-all font-ibm tracking-[0.5em] uppercase mb-12 group">
@@ -159,7 +159,7 @@ export default function PortfolioProject() {
       </section>
 
       {/* Project Specs */}
-      <section className="py-24 md:py-32 xl:py-48 px-6 relative z-10">
+      <section className="py-16 md:py-24 px-6 relative z-10">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-24">
           <div className="lg:col-span-8">
             <SectionReveal>

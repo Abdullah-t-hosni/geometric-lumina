@@ -7,6 +7,7 @@ import { SEO, Schemas } from '@/shared/seo/SEO';
 import { prefetchServicesData, cachedServicesData } from '@/shared/utils/dataPrefetcher';
 import { ServiceCardSkeleton } from '@/shared/ui/Skeletons';
 import { getAllServices } from '@/data/services';
+import { colorClassMap } from '@/data/services-types';
 
 export default function Services() {
   const [data, setData] = useState(cachedServicesData);
@@ -68,7 +69,7 @@ export default function Services() {
             transition={{ duration: 0.6 }}
           >
             {/* Header Section */}
-            <section className="px-6 relative pb-20 md:pb-32 xl:pb-40 pt-36 md:pt-48 lg:pt-56 z-10 overflow-hidden min-h-screen flex flex-col justify-center">
+            <section className="px-6 relative pb-12 md:pb-20 pt-36 md:pt-48 lg:pt-56 z-10 overflow-hidden flex flex-col justify-center">
               {/* Technical background elements */}
               <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent" />
               <div className="absolute top-1/2 left-0 w-full h-[1px] bg-white/[0.02] pointer-events-none" />
@@ -95,7 +96,7 @@ export default function Services() {
             </section>
 
             {/* Services grid */}
-            <section className="py-24 md:py-32 xl:py-48 px-6 relative z-10 w-full mx-auto">
+            <section className="py-16 md:py-24 px-6 relative z-10 w-full mx-auto">
               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/[0.02] to-transparent pointer-events-none" />
               <div className="max-w-[1200px] mx-auto relative z-10">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 auto-rows-fr">
@@ -150,14 +151,7 @@ function ServiceCard({ service, index }: { service: any; index: number }) {
           />
           {/* Color Overlay */}
           <div 
-            className={`absolute inset-0 opacity-20 transition-colors duration-700 transform-gpu ${
-              service.color === 'neon-yellow' ? 'bg-neon-yellow' :
-              service.color === 'sky-blue' ? 'bg-sky-blue' :
-              service.color === 'coral-red' ? 'bg-coral-red' :
-              service.color === 'deep-teal' ? 'bg-deep-teal' :
-              service.color === 'sea-green' ? 'bg-sea-green' :
-              'bg-white'
-            }`} 
+            className={`absolute inset-0 opacity-20 transition-colors duration-700 transform-gpu ${colorClassMap[service.color as keyof typeof colorClassMap] || 'bg-white'}`} 
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
         </div>

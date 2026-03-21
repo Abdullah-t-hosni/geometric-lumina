@@ -109,6 +109,10 @@ export default {
           "0%": { transform: "translateY(100%)" },
           "100%": { transform: "translateY(0)" },
         },
+        "marquee": {
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
       },
       transitionTimingFunction: {
         "geometric": "cubic-bezier(0.16, 1, 0.3, 1)",
@@ -121,6 +125,7 @@ export default {
         "slide-in-left": "slide-in-left 0.5s ease-out",
         "pulse-glow": "pulse-glow 2s ease-in-out infinite",
         "rotate-slow": "rotate-slow 20s linear infinite",
+        "marquee": "marquee 40s linear infinite",
       },
     },
   },
