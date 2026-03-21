@@ -5,12 +5,23 @@ let lenisInstance: Lenis | null = null;
 
 export function useLenis() {
   useEffect(() => {
+    // Check if it's a mobile device/touch device or small screen
+    const isMobile = window.matchMedia("(max-width: 1024px)").matches || 
+                     ('ontouchstart' in window) || 
+                     (navigator.maxTouchPoints > 0);
+
+    // If mobile, don't initialize Lenis for natural native scrolling
+    if (isMobile) {
+      return;
+    }
+
     const lenis = new Lenis({
       lerp: 0.1, // Fixed lerp for consistent, buttery smooth feel
+      duration: 1.2,
       smoothWheel: true,
-      syncTouch: true,
-      touchMultiplier: 2.2, // Balanced sensitivity for mobile
+      syncTouch: false, // Ensure touch is never hijacked
       wheelMultiplier: 1.0,
+      touchMultiplier: 1.0,
     });
 
     lenisInstance = lenis;

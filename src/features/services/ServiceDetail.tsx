@@ -58,7 +58,7 @@ export default function ServiceDetail() {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       ref={containerRef}
-      className="bg-background min-h-screen overflow-hidden relative"
+      className="bg-background min-h-screen overflow-x-hidden relative"
     >
       <SEO
         title={service.seoTitle || `${service.name} | 3D & Motion Services`}

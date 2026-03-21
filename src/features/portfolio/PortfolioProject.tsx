@@ -57,7 +57,7 @@ export default function PortfolioProject() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-      className="bg-background min-h-screen pb-12 overflow-hidden selection:bg-neon-yellow selection:text-background"
+      className="bg-background min-h-screen pb-12 overflow-x-hidden selection:bg-neon-yellow selection:text-background"
     >
       <SEO
         title={`${project.title} | ${project.category} Portfolio`}

@@ -85,7 +85,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
-    overscroll-behavior: none;
+    /* Removed overscroll-behavior: none to allow natural mobile bounce */
     font-style: normal !important;
   }
 
@@ -263,23 +263,25 @@
   }
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 3px;
-  height: 3px;
-}
+/* Custom scrollbar - Only for desktop */
+@media (min-width: 1024px) {
+  ::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+  }
 
-::-webkit-scrollbar-track {
-  background: hsl(var(--dark-bg));
-}
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--dark-bg));
+  }
 
-::-webkit-scrollbar-thumb {
-  background: hsl(var(--deep-teal));
-  border-radius: 2px;
-}
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--deep-teal));
+    border-radius: 2px;
+  }
 
-::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--neon-yellow));
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--neon-yellow));
+  }
 }
 
 /* Selection */

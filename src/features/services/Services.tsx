@@ -26,7 +26,7 @@ export default function Services() {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -10 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className="bg-background min-h-screen pb-12 overflow-hidden relative selection:bg-neon-yellow selection:text-background"
+      className="bg-background min-h-screen pb-12 overflow-x-hidden relative selection:bg-neon-yellow selection:text-background"
     >
       <SEO
         title="Our Services & Disciplines"

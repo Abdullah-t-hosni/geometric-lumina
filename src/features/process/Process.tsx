@@ -98,7 +98,7 @@ export default function Process() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-      className="bg-background min-h-screen overflow-hidden selection:bg-neon-yellow selection:text-background"
+      className="bg-background min-h-screen overflow-x-hidden selection:bg-neon-yellow selection:text-background"
     >
       <SEO
         title="Premium Creative Pipeline"
