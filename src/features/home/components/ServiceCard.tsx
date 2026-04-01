@@ -114,17 +114,17 @@ export function ServiceCard({ service, index, className }: ServiceCardProps) {
 
         {/* HUD Elements */}
         {index === 0 && (
-           <div className=\"absolute bottom-10 right-10 w-32 h-32 rounded-full border border-white/5 hidden lg:flex lg:items-center lg:justify-center pointer-events-none\">
-              <div className="w-24 h-24 rounded-full border border-neon-yellow/5 animate-spin-slow flex items-center justify-center border-dashed">
-                 <div className="w-16 h-16 rounded-full border border-white/5 flex items-center justify-center">
-                    <div className="w-1 h-1 bg-neon-yellow rounded-full shadow-[0_0_8px_rgba(204,255,0,0.8)]" />
-                 </div>
+          <div className="absolute bottom-10 right-10 w-32 h-32 rounded-full border border-white/5 hidden lg:flex lg:items-center lg:justify-center pointer-events-none">
+            <div className="w-24 h-24 rounded-full border border-neon-yellow/5 animate-spin-slow flex items-center justify-center border-dashed">
+              <div className="w-16 h-16 rounded-full border border-white/5 flex items-center justify-center">
+                <div className="w-1 h-1 bg-neon-yellow rounded-full shadow-[0_0_8px_rgba(204,255,0,0.8)]" />
               </div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                 <div className="w-[110%] h-[1px] bg-white/[0.03] rotate-45" />
-                 <div className="w-[110%] h-[1px] bg-white/[0.03] -rotate-45" />
-              </div>
-           </div>
+            </div>
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-[110%] h-[1px] bg-white/[0.03] rotate-45" />
+              <div className="w-[110%] h-[1px] bg-white/[0.03] -rotate-45" />
+            </div>
+          </div>
         )}
       </Link>
     </m.div>
