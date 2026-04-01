@@ -173,9 +173,6 @@ function ServiceCard({ service, index }: { service: any; index: number }) {
         <div className="relative z-10 p-6 sm:p-8 md:p-10 h-full flex flex-col">
           <div className="flex justify-between items-start mb-6 md:mb-8">
             <div className="flex flex-col gap-1">
-              <div className="px-3 py-1 md:px-4 md:py-1.5 rounded-full border border-white/10 bg-background/90 text-[8px] md:text-[10px] font-ibm tracking-[0.4em] text-white/40 uppercase transform-gpu">
-                DISCIPLINE.00{index + 1}
-              </div>
               <div className={`transition-all duration-700 ${isHovered ? 'h-[1px] w-full' : 'w-1 h-1 rounded-full'} ${
                 service.color === 'neon-yellow' ? 'bg-neon-yellow shadow-[0_0_8px_rgba(204,255,0,0.5)]' : 'bg-white/20'
               }`} />

@@ -69,9 +69,6 @@ export function ServiceCard({ service, index, className }: ServiceCardProps) {
         <div className="relative z-10 h-full p-6 sm:p-8 md:p-10 flex flex-col text-left">
           <div className="flex justify-between items-start mb-auto">
              <div className="flex flex-col gap-1 items-start">
-                <div className="px-2.5 py-1 md:px-3 rounded-full bg-white/5 border border-white/10 text-[7px] md:text-[8px] font-ibm tracking-[0.3em] uppercase text-creamy-white/40">
-                  DISCIPLINE.00{index + 1}
-                </div>
                 <div className={`h-[1px] bg-current transition-all duration-700 ${isHovered ? 'w-full' : 'w-4'} ${
                   service.color === 'neon-yellow' ? 'text-neon-yellow' : 'text-white/20'
                 }`} />
@@ -117,7 +114,7 @@ export function ServiceCard({ service, index, className }: ServiceCardProps) {
 
         {/* HUD Elements */}
         {index === 0 && (
-           <div className="absolute bottom-10 right-10 w-32 h-32 rounded-full border border-white/5 flex items-center justify-center hidden lg:flex pointer-events-none">
+           <div className=\"absolute bottom-10 right-10 w-32 h-32 rounded-full border border-white/5 hidden lg:flex lg:items-center lg:justify-center pointer-events-none\">
               <div className="w-24 h-24 rounded-full border border-neon-yellow/5 animate-spin-slow flex items-center justify-center border-dashed">
                  <div className="w-16 h-16 rounded-full border border-white/5 flex items-center justify-center">
                     <div className="w-1 h-1 bg-neon-yellow rounded-full shadow-[0_0_8px_rgba(204,255,0,0.8)]" />

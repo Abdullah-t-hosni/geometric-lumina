@@ -1,9 +1,8 @@
 import { useMemo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { m } from 'framer-motion';
 import { Logo } from '@/shared/ui/Logo';
 import { SectionReveal } from '@/shared/ui/SectionReveal';
-import { Instagram, Twitter, Linkedin, ArrowRight, ExternalLink, ShieldCheck, Activity } from 'lucide-react';
+import { Instagram, Twitter, Linkedin, ArrowRight, ExternalLink, ShieldCheck } from 'lucide-react';
 
 const TikTokIcon = ({ size = 24, className = "" }: { size?: number; className?: string }) => (
   <svg viewBox="0 0 24 24" fill="currentColor" width={size} height={size} className={className}>
@@ -26,10 +25,12 @@ const serviceLinks = [
   { label: 'AI Content', href: '/services/ai-content-production' },
 ];
 
-const safePrefetch = (fn?: () => Promise<any> | void) => {
+const safePrefetch = (fn?: () => Promise<unknown> | void) => {
   try {
     fn?.();
-  } catch {}
+  } catch (error) {
+    // Silently ignore prefetch errors
+  }
 };
 
 const pageLinks = [
@@ -72,7 +73,7 @@ export default function Footer() {
               <div className="flex flex-col items-center group">
                  <div className="flex items-center gap-3 mb-10">
                     <div className="w-8 h-[1px] bg-neon-yellow/30" />
-                    <span className="text-[10px] font-ibm tracking-[0.4em] uppercase text-neon-yellow/60">Creative Engine 2.5_OK</span>
+                    <span className="text-[10px] font-ibm tracking-[0.4em] uppercase text-neon-yellow/60 flex">Creative Engine 2.5_OK</span>
                     <div className="w-8 h-[1px] bg-neon-yellow/30" />
                  </div>
 
@@ -114,15 +115,12 @@ export default function Footer() {
             {/* Verification Metadata */}
             <div className="flex flex-wrap gap-10 p-6 rounded-2xl bg-white/[0.02] border border-white/5 w-fit">
                <div className="space-y-2">
-                  <span className="block text-[7px] font-ibm text-white/20 uppercase tracking-widest flex items-center gap-2">
+                  <span className="flex text-[7px] font-ibm text-white/20 uppercase tracking-widest items-center gap-2">
                      <ShieldCheck size={8} className="text-neon-yellow" /> Status: Certified
                   </span>
                   <span className="block font-ibm text-[9px] text-white/40 tracking-widest uppercase">CR. 17195_EG</span>
                </div>
                <div className="space-y-2">
-                  <span className="block text-[7px] font-ibm text-white/20 uppercase tracking-widest flex items-center gap-2">
-                     <Activity size={8} className="text-neon-yellow" /> System: Stable
-                  </span>
                   <span className="block font-ibm text-[9px] text-white/40 tracking-widest uppercase">TAX. 763211966</span>
                </div>
             </div>
@@ -202,7 +200,7 @@ export default function Footer() {
                </h4>
                <div className="space-y-8">
                   <div className="group text-left">
-                     <span className="block text-[8px] text-white/10 uppercase tracking-widest mb-1 text-left uppercase">Direct_Sequence</span>
+                     <span className="block text-[8px] text-white/10 uppercase tracking-widest mb-1 text-left">Direct_Sequence</span>
                      <div className="text-left">
                        <a href="mailto:contact@geometric-studios.com" className="font-ibm text-[11px] text-neon-yellow/60 underline underline-offset-4 hover:text-neon-yellow transition-colors">
                           contact@geometric-studios.com
@@ -227,7 +225,7 @@ export default function Footer() {
               
             </div>
 
-            {/* Middle Zone: Technical Huddeco (Purely Abstract) */}
+            {/* Middle Zone: Technical Metadata (Purely Abstract) */}
             <div className="hidden lg:flex items-center gap-8 px-10 border-x border-white/5">
                <div className="flex flex-col gap-1">
                   <span className="text-[7px] text-white/10 uppercase tracking-[0.5em]">Network_Status</span>

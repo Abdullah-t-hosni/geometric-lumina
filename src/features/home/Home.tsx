@@ -346,7 +346,6 @@ export default function Home() {
                     </span>
                   </div>
                   <div className="w-24 h-[1px] bg-white/10" />
-                  <span className="text-[8px] font-ibm text-white/20 tracking-[0.2em] uppercase font-light italic">System.Version.4.0.Stable</span>
                 </div>
               </m.div>
 
@@ -446,7 +445,7 @@ export default function Home() {
               <m.div 
                 animate={{ y: [0, -5, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="mt-6 md:mt-12 lg:mr-10 p-4 md:p-6 glass-panel border-white/5 flex flex-col items-center lg:items-end gap-1 md:gap-2 hidden sm:flex"
+                className="mt-6 md:mt-12 lg:mr-10 p-4 md:p-6 glass-panel border-white/5 hidden sm:flex sm:flex-col sm:items-center lg:items-end gap-1 md:gap-2\"
               >
                 <div className="text-[7px] md:text-[8px] font-ibm text-neon-yellow tracking-[0.5em] uppercase opacity-50">Precision Rendered</div>
                 <div className="text-[9px] md:text-[10px] font-ibm text-creamy-white font-light uppercase tracking-[0.2em]">64-Bit / 120FPS</div>

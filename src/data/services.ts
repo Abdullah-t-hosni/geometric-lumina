@@ -1,40 +1,43 @@
 export * from './services-types';
 import { services as fullServices } from './services-full';
+import { servicesCache, getFeaturedServicesOptimized } from './services-utils';
+
+// 🚀 Performance: Initialize cache on module load
+servicesCache.initialize(fullServices);
 
 // Re-export the full list as 'services' for backward compatibility
 export const services = fullServices;
 
-// Create optimized lookup map
-const servicesMap = new Map(fullServices.map(s => [s.slug, s]));
+// 🔥 Memoized lookup - O(1) instead of O(n)
+export const getServiceBySlug = (slug: string) => servicesCache.getBySlug(slug);
 
-// Data helpers
-export const getServiceBySlug = (slug: string) => servicesMap.get(slug);
+// ⭐ Optimized featured services getter (pre-computed)
+export const getFeaturedServices = () => getFeaturedServicesOptimized(fullServices);
 
-export const getFeaturedServices = () => 
-  [...fullServices]
-    .filter(s => s.featured)
-    .sort((a, b) => (a.priority || 99) - (b.priority || 99));
+// 📊 Cached category lookup
+export const getServicesByCategory = (category: string) => servicesCache.getByCategory(category);
 
 export const getAllServices = () => 
   [...fullServices].sort((a, b) => (a.priority || 99) - (b.priority || 99));
-
-export const getServicesByCategory = (category: string) => 
-  fullServices.filter(s => s.category === category);
 
 export const getRelatedServices = (slug: string, limit: number = 3) => {
   const current = getServiceBySlug(slug);
   if (!current) return fullServices.slice(0, limit);
   
-  return fullServices
+  // Get same category services first (cached)
+  const sameCategory = servicesCache.getByCategory(current.category)
     .filter(s => s.slug !== slug)
-    .sort((a, b) => {
-      // Prioritize same category
-      if (a.category === current.category && b.category !== current.category) return -1;
-      if (a.category !== current.category && b.category === current.category) return 1;
-      // Then by priority
-      return (a.priority || 99) - (b.priority || 99);
-    })
     .slice(0, limit);
+
+  if (sameCategory.length >= limit) return sameCategory;
+
+  // Fill remaining with other services
+  const others = fullServices
+    .filter(s => s.slug !== slug && s.category !== current.category)
+    .sort((a, b) => (a.priority || 99) - (b.priority || 99))
+    .slice(0, limit - sameCategory.length);
+
+  return [...sameCategory, ...others];
 };
 
 export { featuredServices } from './services-core';

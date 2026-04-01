@@ -110,13 +110,13 @@ export default function PortfolioProject() {
            <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:100px_100px]" />
            
            {/* Dynamic Coordinate HUD */}
-           <div className="absolute top-1/2 left-10 -translate-y-1/2 flex flex-col gap-20 opacity-20 hidden md:flex">
+           <div className="absolute top-1/2 left-10 -translate-y-1/2 hidden md:flex flex-col gap-20 opacity-20">
               <div className="[writing-mode:vertical-lr] text-[8px] font-ibm text-white tracking-[1em] uppercase">Sector.01 // AXIS.Y</div>
               <div className="h-40 w-px bg-gradient-to-b from-transparent via-white/50 to-transparent" />
               <div className="[writing-mode:vertical-lr] text-[8px] font-ibm text-white tracking-[1em] uppercase">Node.Link // EST.2026</div>
            </div>
 
-           <div className="absolute top-10 right-10 flex gap-4 opacity-20 items-center hidden md:flex">
+           <div className="absolute top-10 right-10 hidden md:flex gap-4 opacity-20 items-center">
               <span className="text-[8px] font-ibm text-white tracking-[0.5em] uppercase">System_Active</span>
               <div className="w-20 h-px bg-white/50" />
            </div>
@@ -209,7 +209,6 @@ export default function PortfolioProject() {
                       <div key={i} className="w-1 h-1 bg-neon-yellow/20 rounded-full" />
                     ))}
                   </div>
-                  <span className="text-[6px] font-ibm text-white/10 tracking-[0.4em] uppercase">Stable_Build_v4.0</span>
                 </div>
               </div>
             </SectionReveal>

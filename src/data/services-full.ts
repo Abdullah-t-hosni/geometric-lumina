@@ -14,7 +14,19 @@ import {
 } from 'lucide-react';
 import { Service, CATEGORIES, getAsset, getBlurAsset } from './services-types';
 
-export const services: Service[] = [
+// 🚀 Performance: Memoized assets cache to prevent re-computation
+const assetCache = new Map<string, { src: string; blur: string }>();
+const createImage = (name: string) => {
+  if (!assetCache.has(name)) {
+    assetCache.set(name, {
+      src: getAsset(name),
+      blur: getBlurAsset(name),
+    });
+  }
+  return assetCache.get(name)!;
+};
+
+const servicesData: Service[] = [
   {
     id: '1',
     slug: 'motion-graphics',
@@ -24,10 +36,7 @@ export const services: Service[] = [
     description: "Stories don't have to be told with words. They can move, twist, pulse, and flow. Through motion graphics, every shape, every light, every rhythm is crafted to move both the eye and the mind.",
     deliverables: ['Brand animations', 'Intro/Outro sequences', 'Logo reveals', 'Kinetic typography', 'Promotional videos', 'Social reels'],
     color: 'sky-blue',
-    image: {
-      src: getAsset('Motion Graphics'),
-      blur: getBlurAsset('Motion Graphics'),
-    },
+    image: createImage('Motion Graphics'),
     heroImage: getAsset('Intro_3'),
     gallery: [getAsset('Motion Graphics'), getAsset('Intro_3'), getAsset('Social Media Content')],
     icon: Play,
@@ -51,10 +60,7 @@ export const services: Service[] = [
     description: "Whether your product is still in concept or already on shelves, it deserves a cinematic spotlight. Every reflection, texture, and movement is designed to make it look irresistible on screen.",
     deliverables: ['360° product renders', 'Exploded views', 'Material animations', 'Packaging visualization', 'Commercial-ready shots', 'Lifestyle compositions'],
     color: 'neon-yellow',
-    image: {
-      src: getAsset('Product Visualization & Animation'),
-      blur: getBlurAsset('Product Visualization & Animation'),
-    },
+    image: createImage('Product Visualization & Animation'),
     heroImage: getAsset('Product Visualization & Animation'),
     gallery: [getAsset('Product Visualization & Animation'), getAsset('Micro-Visualization')],
     icon: Box,
@@ -78,10 +84,7 @@ export const services: Service[] = [
     description: "Every booth we create is more than a space — it's an experience. We design environments that attract attention, tell stories and connect brands with their audience through form, light, and motion.",
     deliverables: ['Interior design concepts', 'Exterior design renders', 'Technical drawings', 'Structural planning', 'Lighting design', 'Material specifications'],
     color: 'coral-red',
-    image: {
-      src: getAsset('Booth Design'),
-      blur: getBlurAsset('Booth Design'),
-    },
+    image: createImage('Booth Design'),
     heroImage: getAsset('our core'),
     gallery: [getAsset('Booth Design'), getAsset('our core')],
     icon: Hexagon,
@@ -105,10 +108,7 @@ export const services: Service[] = [
     description: "Fast, bold, and made to stop the scroll. Each frame crafted to fit the rhythm of social media — short, powerful, and visually magnetic. Perfect for brands that want to stand out in the feed.",
     deliverables: ['Short-form video content', 'Story animations', 'Feed posts', 'Reels & TikTok', 'Carousel designs', 'Platform-optimized exports'],
     color: 'sea-green',
-    image: {
-      src: getAsset('Social Media Content'),
-      blur: getBlurAsset('Social Media Content'),
-    },
+    image: createImage('Social Media Content'),
     heroImage: getAsset('Social Media Content'),
     icon: Share2,
     featured: false,
@@ -131,10 +131,7 @@ export const services: Service[] = [
     description: "The illusion of depth breaking the flat screen into another dimension. Perfect geometry, motion, and perspective combine to create visuals that feel like they're stepping out into the real world.",
     deliverables: ['3D anamorphic content', 'LED cube content', 'Outdoor billboard visuals', 'Immersive display loops', 'Brand activations', 'Event screens'],
     color: 'deep-teal',
-    image: {
-      src: getAsset('Anamorphic Screens 2'),
-      blur: getBlurAsset('Anamorphic Screens 2'),
-    },
+    image: createImage('Anamorphic Screens 2'),
     heroImage: getAsset('Anamorphic-Screens1'),
     icon: Layers,
     featured: true,
@@ -157,10 +154,7 @@ export const services: Service[] = [
     description: "Chaos has its own rhythm. Fire burns, smoke dances, fluids collide — and even wires can move like clouds. We bend the rules of reality, shaping the impossible into motion.",
     deliverables: ['Fire & smoke simulations', 'Fluid dynamics', 'Cloth & soft body', 'Particle systems', 'Destruction effects', 'Environmental FX'],
     color: 'coral-red',
-    image: {
-      src: getAsset('Simulations'),
-      blur: getBlurAsset('Simulations'),
-    },
+    image: createImage('Simulations'),
     heroImage: getAsset('6'),
     gallery: [getAsset('Simulations'), getAsset('6')],
     icon: Wind,
@@ -184,10 +178,7 @@ export const services: Service[] = [
     description: "It's more than walls and glass — it's atmosphere. Light, shadow, and material brought together to show not just how a place looks, but how it feels to stand there.",
     deliverables: ['Exterior renders', 'Interior visualization', 'Walkthrough animations', 'Virtual tours', 'Construction documentation', 'Lighting studies'],
     color: 'sky-blue',
-    image: {
-      src: getAsset('Architectural Visualization'),
-      blur: getBlurAsset('Architectural Visualization'),
-    },
+    image: createImage('Architectural Visualization'),
     heroImage: getAsset('Services'),
     gallery: [getAsset('Architectural Visualization'), getAsset('Services')],
     icon: Home,
@@ -211,10 +202,7 @@ export const services: Service[] = [
     description: "Tiny worlds. Huge stories. From cells to circuits, micro visualization turns the invisible into something beautiful, precise, and full of wonder.",
     deliverables: ['Scientific visualization', 'Medical animations', 'Molecular models', 'Circuit & tech flows', 'Educational content', 'Nano-scale renders'],
     color: 'sea-green',
-    image: {
-      src: getAsset('Micro-Visualization'),
-      blur: getBlurAsset('Micro-Visualization'),
-    },
+    image: createImage('Micro-Visualization'),
     heroImage: getAsset('Micro-Visualization'),
     gallery: [getAsset('Micro-Visualization'), getAsset('Product Visualization & Animation'), getAsset('Simulations')],
     icon: Microscope,
@@ -238,10 +226,7 @@ export const services: Service[] = [
     description: "Step into a world built from imagination. Every surface, sound, and detail crafted to be explored — because the best way to experience a story is to walk inside it.",
     deliverables: ['VR experience design', '360° environments', 'Interactive scenarios', 'Real-time rendering', 'Spatial audio integration', 'Cross-platform VR content'],
     color: 'neon-yellow',
-    image: {
-      src: getAsset('VR Environments'),
-      blur: getBlurAsset('VR Environments'),
-    },
+    image: createImage('VR Environments'),
     heroImage: getAsset('VR Environments'),
     gallery: [getAsset('VR Environments'), getAsset('Architectural Visualization'), getAsset('Simulations')],
     icon: Glasses,
@@ -265,10 +250,7 @@ export const services: Service[] = [
     description: "Where CGI and reality meet in perfect harmony. Each shot is crafted to look seamless, immersive, and visually powerful.",
     deliverables: ['Live-action compositing', 'VFX integration', 'Color grading', 'Green screen removal', 'Environment replacement', 'Product-in-scene insertion'],
     color: 'sky-blue',
-    image: {
-      src: getAsset('CGI Compositing'),
-      blur: getBlurAsset('CGI Compositing'),
-    },
+    image: createImage('CGI Compositing'),
     heroImage: getAsset('Intro_Page'),
     icon: Component,
     featured: false,
@@ -291,10 +273,7 @@ export const services: Service[] = [
     description: "Every curve, every imperfection captured perfectly. 3D scanning bridges the physical and digital, turning real objects into detailed assets ready for visualization.",
     deliverables: ['High-res 3D scans', 'Mesh cleanup', 'Texture mapping', 'Heritage preservation', 'Product digitization', 'CAD-ready models'],
     color: 'coral-red',
-    image: {
-      src: getAsset('3D Scanning'),
-      blur: getBlurAsset('3D Scanning'),
-    },
+    image: createImage('3D Scanning'),
     heroImage: getAsset('3D Scanning'),
     gallery: [getAsset('3D Scanning'), getAsset('Product Visualization & Animation'), getAsset('Micro-Visualization')],
     icon: Scan,
@@ -318,10 +297,7 @@ export const services: Service[] = [
     description: "AI tools are integrated into our pipeline to speed up workflows, refine details and enhance visuals without compromising quality or craftsmanship.",
     deliverables: ['AI-generated imagery', 'AI video production', 'Prompt engineering', 'Style transfer', 'AI-enhanced compositing', 'Generative design assets'],
     color: 'neon-yellow',
-    image: {
-      src: getAsset('AI-powered Production'),
-      blur: getBlurAsset('AI-powered Production'),
-    },
+    image: createImage('AI-powered Production'),
     heroImage: getAsset('AI-powered Production'),
     gallery: [getAsset('AI-powered Production'), getAsset('Social Media Content'), getAsset('Motion Graphics')],
     icon: Sparkles,
@@ -337,3 +313,10 @@ export const services: Service[] = [
     seoDescription: 'Innovative AI-powered content production, integrating advanced generative models into professional production pipelines.'
   },
 ];
+
+// 🚀 Performance: Freeze the data to prevent accidental modifications
+// and enable engine optimizations
+export const services: Service[] = [...servicesData];
+
+// Prevent mutations on frozen data for optimal performance
+Object.freeze(services);
