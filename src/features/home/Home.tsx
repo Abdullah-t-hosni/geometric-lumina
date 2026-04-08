@@ -342,7 +342,7 @@ export default function Home() {
                   <div className="flex items-center gap-3">
                     <div className="w-1 h-1 rounded-full bg-neon-yellow shadow-[0_0_8px_rgba(204,255,0,0.5)]" />
                     <span className="text-[9px] md:text-[10px] font-ibm text-neon-yellow tracking-[0.3em] md:tracking-[0.4em] uppercase font-light">
-                      Geometric Studios • Integrated.Node
+                      Geometric Studios
                     </span>
                   </div>
                   <div className="w-24 h-[1px] bg-white/10" />
@@ -442,14 +442,7 @@ export default function Home() {
                 ))}
               </div>
 
-              <m.div 
-                animate={{ y: [0, -5, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="mt-6 md:mt-12 lg:mr-10 p-4 md:p-6 glass-panel border-white/5 hidden sm:flex sm:flex-col sm:items-center lg:items-end gap-1 md:gap-2\"
-              >
-                <div className="text-[7px] md:text-[8px] font-ibm text-neon-yellow tracking-[0.5em] uppercase opacity-50">Precision Rendered</div>
-                <div className="text-[9px] md:text-[10px] font-ibm text-creamy-white font-light uppercase tracking-[0.2em]">64-Bit / 120FPS</div>
-              </m.div>
+
             </m.div>
           </div>
         </m.div>
@@ -625,12 +618,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── ENHANCED TESTIMONIALS (PERFORMANCE REPORTS) ──────── */}
+      {/* Section hidden as requested
       <section className="py-20 md:py-28 xl:py-40 px-6 relative bg-background">
         <div className="max-w-[1400px] mx-auto">
           <SectionReveal>
             <div className="flex flex-col items-center justify-center text-center mb-16 md:mb-24">
-              <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-white/30 block mb-4 md:mb-6">Client Feedback • Secure.Log</span>
+              <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-white/30 block mb-4 md:mb-6">Client Feedback</span>
               <h2 className="font-ibm text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white tracking-tighter uppercase leading-none">Operations <span className="italic text-neon-yellow block sm:inline">Analysis.</span></h2>
             </div>
           </SectionReveal>
@@ -640,15 +633,11 @@ export default function Home() {
               <SectionReveal key={i} delay={i * 0.15}>
                 <div className="relative group h-full">
                    <div className="glass-panel h-full rounded-[32px] md:rounded-[35px] p-6 sm:p-8 md:p-10 border-white/5 hover:border-neon-yellow/20 transition-all duration-700 flex flex-col relative overflow-hidden bg-white/[0.01] text-left">
-                    {/* Header HUD */}
                     <div className="flex justify-between items-start mb-8 md:mb-12">
                        <div className="flex flex-col gap-1 text-left">
-                          <span className="text-[7px] font-ibm text-white/20 tracking-tighter uppercase flex items-center justify-start gap-2">
-                             <Activity size={8} className="text-neon-yellow" /> Report.Ref: GEOM.{i+1}
-                          </span>
-                          <span className="text-[7px] font-ibm text-neon-yellow tracking-tighter uppercase flex items-center justify-start gap-2">
-                             <ShieldCheck size={8} /> Status: ENCRYPTED.OK
-                          </span>
+                           <span className="text-[7px] font-ibm text-white/20 uppercase tracking-tighter flex items-center justify-start gap-2">
+                              <Activity size={8} className="text-neon-yellow" /> Client Review
+                           </span>
                        </div>
                        <div className="p-2 rounded-lg bg-white/[0.03] text-white/10">
                           <Quote size={16} strokeWidth={1} />
@@ -676,6 +665,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      */}
     </m.div>
   );
 }

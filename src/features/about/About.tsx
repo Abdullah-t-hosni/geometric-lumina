@@ -90,11 +90,7 @@ export default function About() {
           <SectionReveal>
             <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 mb-24">
               <div className="w-full lg:w-3/5">
-                <div className="flex items-center gap-4 mb-10">
-                  <div className="w-1 h-1 rounded-full bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
-                  <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-neon-yellow">Protocol.Design.System</span>
-                  <div className="w-1 h-1 rounded-full bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
-                </div>
+                <div className="mb-10" />
                 
                 <h1 className="font-ibm text-[13vw] xs:text-6xl md:text-7xl lg:text-[88px] xl:text-[120px] font-light text-white leading-[1.1] md:leading-[0.85] tracking-tighter mb-6 md:mb-4">
                   We Build <br className="hidden sm:block" />

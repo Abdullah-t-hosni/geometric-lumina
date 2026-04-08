@@ -27,7 +27,7 @@ const Services = lazy(() => import('@/features/services').then(m => ({ default: 
 const ServiceDetail = lazy(() => import('@/features/services').then(m => ({ default: m.ServiceDetail })));
 const Portfolio = lazy(() => import('@/features/portfolio').then(m => ({ default: m.Portfolio })));
 const PortfolioProject = lazy(() => import('@/features/portfolio').then(m => ({ default: m.PortfolioProject })));
-const Process = lazy(() => import('@/features/process'));
+// const Process = lazy(() => import('@/features/process'));
 const Contact = lazy(() => import('@/features/contact'));
 const NotFound = lazy(() => import('@/features/error'));
 
@@ -86,7 +86,7 @@ function AnimatedRoutes() {
           <Route path="/services/:serviceName" element={<ServiceDetail />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/portfolio/:slug" element={<PortfolioProject />} />
-          <Route path="/process" element={<Process />} />
+{/* <Route path="/process" element={<Process />} /> */}
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

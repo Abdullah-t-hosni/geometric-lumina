@@ -16,7 +16,7 @@ const navLinks = [
   { label: 'About', href: '/about', prefetch: () => import('@/features/about') },
   { label: 'Services', href: '/services', prefetch: () => { import('@/features/services'); prefetchServicesData(); } },
   { label: 'Portfolio', href: '/portfolio', prefetch: () => { import('@/features/portfolio'); prefetchPortfolioData(); } },
-  { label: 'Process', href: '/process', prefetch: () => import('@/features/process') },
+//   { label: 'Process', href: '/process', prefetch: () => import('@/features/process') },
   { label: 'Contact', href: '/contact', prefetch: () => import('@/features/contact') },
 ];
 

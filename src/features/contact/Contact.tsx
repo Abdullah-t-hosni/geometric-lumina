@@ -66,8 +66,8 @@ const budgetRanges = [
 const contactInfo = [
   { label: 'Email', value: 'contact@geometric-studios.com', href: 'mailto:contact@geometric-studios.com', icon: Mail },
   { label: 'Primary Line', value: '+20 10 63565635', href: 'tel:+201063565635', icon: Phone },
-  { label: 'Internal Node 2', value: '+20 10 25247955', href: 'tel:+201025247955', icon: Phone },
-  { label: 'Support Node 3', value: '+20 10 32843037', href: 'tel:+201032843037', icon: Phone },
+  { label: 'Secondary Line', value: '+20 10 25247955', href: 'tel:+201025247955', icon: Phone },
+  { label: 'Alternative Line', value: '+20 10 32843037', href: 'tel:+201032843037', icon: Phone },
 ];
 
 const socialLinks = [
@@ -137,7 +137,7 @@ export default function Contact() {
             <div className="flex flex-col items-center">
               <div className="flex items-center gap-4 mb-10">
                 <div className="w-1 h-1 rounded-full bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
-                <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-neon-yellow">Communications Portal</span>
+                <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-neon-yellow">Contact Us</span>
                 <div className="w-1 h-1 rounded-full bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
               </div>
               
@@ -162,7 +162,7 @@ export default function Contact() {
             <SectionReveal>
               <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-[32px] group hover:border-white/20 transition-all duration-700 relative overflow-hidden">
                 <div className="absolute top-0 left-10 w-1.5 h-1.5 rounded-full bg-neon-yellow/30 group-hover:bg-neon-yellow transition-all duration-700 shadow-[0_0_10px_rgba(204,255,0,0.3)]" />
-                <h3 className="font-ibm text-[10px] tracking-[0.5em] uppercase text-white/30 mb-12">Direct.Channels</h3>
+                <h3 className="font-ibm text-[10px] tracking-[0.5em] uppercase text-white/30 mb-12">Direct Channels</h3>
                 <div className="space-y-6 md:space-y-10">
                   {contactInfo.map((item) => (
                     <div key={item.label} className="flex flex-col gap-4 group/item">
@@ -180,7 +180,7 @@ export default function Contact() {
             <SectionReveal delay={0.1}>
               <div className="glass-panel p-6 sm:p-8 md:p-10 rounded-[32px] group hover:border-white/20 transition-all duration-700 relative overflow-hidden">
                 <div className="absolute top-0 left-10 w-1.5 h-1.5 rounded-full bg-white/10 group-hover:bg-neon-yellow transition-all duration-700 shadow-[0_0_10px_rgba(204,255,0,0.3)]" />
-                <h3 className="font-ibm text-[10px] tracking-[0.5em] uppercase text-white/30 mb-12">Social.Grid</h3>
+                <h3 className="font-ibm text-[10px] tracking-[0.5em] uppercase text-white/30 mb-12">Social Media</h3>
                 <div className="space-y-6 md:space-y-8">
                   {socialLinks.map((link) => (
                     <a

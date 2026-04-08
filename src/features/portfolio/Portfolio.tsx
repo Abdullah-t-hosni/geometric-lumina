@@ -182,7 +182,7 @@ function ProjectCard({ project, index, className = "" }: { project: PortfolioPro
           {/* Technical Metadata Header */}
           <div className="absolute top-6 left-6 md:top-8 md:left-8 flex items-center gap-8 md:gap-12 transition-all duration-700">
               <div className="flex flex-col gap-1 group-hover:translate-x-2 transition-transform duration-700">
-                <div className="text-[7px] md:text-[8px] font-ibm text-white/40 tracking-[0.5em] uppercase">Archive.No.00{index+1}</div>
+                <div className="text-[7px] md:text-[8px] font-ibm text-white/40 tracking-[0.5em] uppercase">Project Detail</div>
                 <div className="w-1 h-1 rounded-full bg-neon-yellow/30 group-hover:bg-neon-yellow transition-all duration-700 shadow-[0_0_10px_rgba(204,255,0,0.3)]" />
               </div>
              

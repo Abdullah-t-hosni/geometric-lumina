@@ -117,19 +117,7 @@ export default function Process() {
         <div className="max-w-[1400px] mx-auto text-center">
           <SectionReveal>
             <div className="flex flex-col items-center">
-              <div className="flex items-center gap-4 mb-10">
-                <m.div 
-                  animate={{ opacity: [0.2, 1, 0.2] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                  className="w-1.5 h-1.5 rounded-full bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.8)]" 
-                />
-                <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-neon-yellow">Sequence Protocol 4.0</span>
-                <m.div 
-                  animate={{ opacity: [0.2, 1, 0.2] }}
-                  transition={{ duration: 2, repeat: Infinity, delay: 1 }}
-                  className="w-1.5 h-1.5 rounded-full bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.8)]" 
-                />
-              </div>
+              <div className="mb-10" />
               
               <h1 className="font-ibm text-[14vw] xs:text-6xl md:text-8xl lg:text-[100px] xl:text-[140px] font-light text-white leading-[1] md:leading-[0.85] tracking-tighter mb-8 uppercase">
                 Creative <br className="hidden md:block" />

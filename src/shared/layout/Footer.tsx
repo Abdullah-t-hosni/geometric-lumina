@@ -37,7 +37,7 @@ const pageLinks = [
   { label: 'About', href: '/about', prefetch: () => import('@/features/about') },
   { label: 'Services', href: '/services', prefetch: () => import('@/features/services').then(m => m.Services) },
   { label: 'Portfolio', href: '/portfolio', prefetch: () => import('@/features/portfolio').then(m => m.Portfolio) },
-  { label: 'Process', href: '/process', prefetch: () => import('@/features/process') },
+//   { label: 'Process', href: '/process', prefetch: () => import('@/features/process') },
   { label: 'Contact', href: '/contact', prefetch: () => import('@/features/contact') },
 ];
 
@@ -71,11 +71,7 @@ export default function Footer() {
           <section className="pt-20 md:pt-24 xl:pt-32 pb-24 md:pb-32 xl:pb-48 border-b border-white/5 relative text-center">
             <SectionReveal>
               <div className="flex flex-col items-center group">
-                 <div className="flex items-center gap-3 mb-10">
-                    <div className="w-8 h-[1px] bg-neon-yellow/30" />
-                    <span className="text-[10px] font-ibm tracking-[0.4em] uppercase text-neon-yellow/60 flex">Creative Engine 2.5_OK</span>
-                    <div className="w-8 h-[1px] bg-neon-yellow/30" />
-                 </div>
+                 <div className="mb-10" />
 
                  <Link to="/contact" className="relative inline-block transform-gpu will-change-transform">
                     <h2 className="font-ibm text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-light text-white tracking-tighter leading-[0.85] uppercase transition-all duration-700 transform hover:scale-[1.02] cursor-pointer">
@@ -151,7 +147,7 @@ export default function Footer() {
               {/* Nav Node */}
               <div className="space-y-10">
                  <h4 className="font-ibm text-[9px] tracking-[0.5em] text-white/20 uppercase flex items-center gap-3">
-                    <div className="w-1 h-1 rounded-full bg-neon-yellow" /> Navigator.1.0
+                    <div className="w-1 h-1 rounded-full bg-neon-yellow" /> Navigator
                  </h4>
                  <ul className="space-y-5 text-left">
                   {pageLinks.map((link) => (
@@ -174,7 +170,7 @@ export default function Footer() {
               {/* Capability Node */}
               <div className="space-y-10">
                  <h4 className="font-ibm text-[9px] tracking-[0.5em] text-white/20 uppercase flex items-center gap-3">
-                    <div className="w-1 h-1 rounded-full bg-neon-yellow" /> Capacities.2.4
+                    <div className="w-1 h-1 rounded-full bg-neon-yellow" /> Capacities
                  </h4>
                  <ul className="space-y-5 text-left">
                   {serviceLinks.map((link) => (
@@ -196,7 +192,7 @@ export default function Footer() {
             {/* Location & Contact Node */}
             <div className="space-y-10">
                <h4 className="font-ibm text-[9px] tracking-[0.5em] text-white/20 uppercase flex items-center gap-3">
-                  <div className="w-1 h-1 rounded-full bg-neon-yellow" /> Connection.Pnt
+                  <div className="w-1 h-1 rounded-full bg-neon-yellow" /> Connection
                </h4>
                <div className="space-y-8">
                   <div className="group text-left">

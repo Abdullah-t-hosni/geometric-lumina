@@ -77,11 +77,7 @@ export default function Services() {
               <div className="max-w-[1400px] mx-auto text-center relative">
                 <SectionReveal>
                   <div className="flex flex-col items-center">
-                    <div className="flex items-center gap-4 mb-10">
-                      <div className="w-1 h-1 rounded-full bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
-                      <span className="text-[10px] font-ibm tracking-[0.5em] uppercase text-neon-yellow">Geometric Disciplines</span>
-                      <div className="w-1 h-1 rounded-full bg-neon-yellow shadow-[0_0_10px_rgba(204,255,0,0.5)]" />
-                    </div>
+                    <div className="mb-10" />
                     
                     <h1 className="font-ibm text-[14vw] xs:text-6xl md:text-7xl lg:text-[90px] xl:text-[130px] font-light text-white leading-[1.1] md:leading-[0.85] tracking-tighter mb-8 md:mb-12">
                       Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-yellow to-neon-yellow/40 glow-text-yellow block sm:inline mt-2 sm:mt-0">Services.</span>
